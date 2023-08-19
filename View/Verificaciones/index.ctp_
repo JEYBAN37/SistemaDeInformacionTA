@@ -1,0 +1,108 @@
+<div class="verificaciones index">
+	<h2><?php echo __('Verificaciones'); ?></h2>
+	<table cellpadding="0" cellspacing="0">
+	<tr>
+			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<th><?php echo $this->Paginator->sort('subcriterio_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('numero_historias'); ?></th>
+			<th><?php echo $this->Paginator->sort('dimension_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('instrumento_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('criterio_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('observacion'); ?></th>
+			<th><?php echo $this->Paginator->sort('responsable_id'); ?></th>
+			<th><?php echo $this->Paginator->sort('valorchecklist'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_1'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_2'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_3'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_4'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_5'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_6'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_7'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_8'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_9'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_10'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_11'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_12'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_13'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_14'); ?></th>
+			<th><?php echo $this->Paginator->sort('hcl_15'); ?></th>
+			<th><?php echo $this->Paginator->sort('created'); ?></th>
+			<th><?php echo $this->Paginator->sort('modified'); ?></th>
+			<th class="actions"><?php echo __('Actions'); ?></th>
+	</tr>
+	<?php foreach ($verificaciones as $verificacion): ?>
+	<tr>
+		<td><?php echo h($verificacion['Verificacion']['id']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($verificacion['Subcriterio']['subcriterio'], array('controller' => 'subcriterios', 'action' => 'view', $verificacion['Subcriterio']['id'])); ?>
+		</td>
+		<td><?php echo h($verificacion['Verificacion']['numero_historias']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($verificacion['Dimension']['nombre_dimension'], array('controller' => 'dimensiones', 'action' => 'view', $verificacion['Dimension']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $this->Html->link($verificacion['Instrumento']['nombre_instrumento'], array('controller' => 'instrumentos', 'action' => 'view', $verificacion['Instrumento']['id'])); ?>
+		</td>
+		<td>
+			<?php echo $this->Html->link($verificacion['Criterio']['criterio'], array('controller' => 'criterios', 'action' => 'view', $verificacion['Criterio']['id'])); ?>
+		</td>
+		<td><?php echo h($verificacion['Verificacion']['observacion']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($verificacion['Responsable']['nombres'], array('controller' => 'responsables', 'action' => 'view', $verificacion['Responsable']['id'])); ?>
+		</td>
+		<td><?php echo h($verificacion['Verificacion']['valorchecklist']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_1']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_2']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_3']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_4']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_5']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_6']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_7']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_8']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_9']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_10']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_11']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_12']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_13']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_14']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['hcl_15']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['created']); ?>&nbsp;</td>
+		<td><?php echo h($verificacion['Verificacion']['modified']); ?>&nbsp;</td>
+		<td class="actions">
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $verificacion['Verificacion']['id'])); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $verificacion['Verificacion']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $verificacion['Verificacion']['id']), array(), __('Are you sure you want to delete # %s?', $verificacion['Verificacion']['id'])); ?>
+		</td>
+	</tr>
+<?php endforeach; ?>
+	</table>
+	<p>
+	<?php
+	echo $this->Paginator->counter(array(
+	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	));
+	?>	</p>
+	<div class="paging">
+	<?php
+		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
+		echo $this->Paginator->numbers(array('separator' => ''));
+		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
+	?>
+	</div>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li><?php echo $this->Html->link(__('New Verificacion'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Subcriterios'), array('controller' => 'subcriterios', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Subcriterio'), array('controller' => 'subcriterios', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Dimensiones'), array('controller' => 'dimensiones', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Dimension'), array('controller' => 'dimensiones', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Instrumentos'), array('controller' => 'instrumentos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Instrumento'), array('controller' => 'instrumentos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Criterios'), array('controller' => 'criterios', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Criterio'), array('controller' => 'criterios', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Responsables'), array('controller' => 'responsables', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Responsable'), array('controller' => 'responsables', 'action' => 'add')); ?> </li>
+	</ul>
+</div>

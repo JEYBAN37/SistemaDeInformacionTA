@@ -1,0 +1,279 @@
+2021-05-12 15:29:39 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:29:44 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:30:34 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:30:36 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:32:32 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:32:35 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:32:41 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:35:01 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:36:52 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:38:18 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:38:20 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:38:23 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:38:26 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:38:46 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-12 15:39:04 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 80]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 80
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-13 01:39:47 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 72]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 72
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-13 01:40:15 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 81]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 81
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-13 01:40:31 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 81]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 81
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-13 01:41:00 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 81]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 81
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-13 01:43:45 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 81]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 81
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-13 01:44:39 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 82]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 82
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-13 01:44:54 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 82]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 82
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-14 15:51:59 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 143]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 143
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-14 15:52:23 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 143]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 143
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-14 15:52:54 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 143]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 143
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-14 15:57:56 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 143]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 143
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-14 15:59:39 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 143]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 143
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-14 16:01:04 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 143]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 143
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-14 16:02:19 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 143]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 143
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-14 16:04:26 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 143]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 143
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
+2021-05-15 01:37:21 Debug: Notice (8): Undefined variable: id in [C:\xampp\htdocs\aplicacioncakephp\new\Controller\VerificacionesController.php, line 143]
+Trace:
+VerificacionesController::add() - APP\Controller\VerificacionesController.php, line 143
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 165
+[main] - APP\webroot\index.php, line 217
+
