@@ -7,134 +7,237 @@
 
 
 		<fieldset>
-			<legend class="card-header  text-left">
-				<?php echo __('Modulo Socioambiental'); ?>
-			</legend>
-
-			<div class="card">
-				<div class="card-header bg-info text-left">
-					<h5 style="color:white">Datos de residencia</h5>
-				</div></br>
-				<div class="form-group col-md-4">
-					<?php
-												$option = array(
-													'label' => 'Fecha registro: ',
-													'dateFormat' => 'DMY',
-													'minYear' => date('Y') - 0,
-													'maxYear' => date('Y') + 0,
-													'empty' => array(
-														'day' => 'Día',
-														'month' => 'Mes',
-														'year' => 'Año',
-														'class' => 'form-control', 'class' => 'form-control select-search'
-													)
-												);
-												
-												echo $this->Form->input('fecha', $option);?>
-				</div>
-
-				<div class="form-group col-md-4">
-					<?php
-					echo $this->Form->input('responsable_id',array('label' => 'Responsable diligenciamiento Encuesta','class' => 'form-control','type' => 'select','class' => 'form-control select-search'));?>
-				</div>
+    <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Modulo Sociambiental</h2>
+	<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+   
+</fieldset>
 
 
-				<div class="form-group col-md-4">
-					<?php 
-							echo $this->Form->input('ubicacion_id',array('label' => 'Territorio','class' => 'form-control','type' => 'select', 'class' => 'form-control select-search'));
-					?>
-				</div>
-				<div class="col-md-4">
-					<?php
-							echo $this->Form->input('direccion',array('label' => 'Dirección','class' => 'form-control', 'class' => 'form-control select-search'));
-			        ?>
-				</div>
+				<!-- Latest compiled and minified CSS -------------------------------------------------------------------->
+			
 
-				<div class="col-md-4">
-					<?php			 
-						echo $this->Form->input('apellidosfamilia',array('label' => 'Apellidos de la familia','class' => 'form-control', 'class' => 'form-control select-search'));
-						?>
-				</div>
+		
+			
+				<div class="row" style="font-size: 12px; ">
+    <div class="col-sm-12" style=" margin-left: 10px;  "> <!-- Coloca el campo en una mitad de la pantalla en dispositivos medianos y grandes -->
+        <?php
+        $option = array(
+            'label' => 'Fecha de registro: ',
+            'dateFormat' => 'DMY',
+            'minYear' => date('Y') - 0,
+            'maxYear' => date('Y') + 0,
+            'empty' => array(
+                'day' => 'Día',
+                'month' => 'Mes',
+                'year' => 'Año',
+            ),
+            'class' => 'form-control',
+			'style'=>'font-size: 12px' 
+			
+        );
+        echo $this->Form->input('fecha', $option);
+        ?>
+    </div>
+</div>
 
-				<div class="col-md-4">
-					<?php
-					    $option = array('' => 'Elegir', 'Apartamento' => 'Apartamento', 'Pieza' => 'Pieza');
-						echo $this->Form->input('vivienda', array('label'=>'Tipo de vivienda','class' => 'form-control', 'placeholder'=>"", 'type' => 'select', 'options' => $option, 'class' => 'form-control select-search')); 
-			 ?>
-				</div>
+<div class="row">
+    <div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -30px; font-size: 12px;">
+        <?php echo $this->Form->input('responsable_id', array(
+            'label' => 'Responsable diligenciamiento Encuesta',
+			'class' => 'form-control',
+			'style'=>'font-size: 12px' ,
+            'type' => 'select'
+        )); ?>
+    </div>
 
-				<div class="col-md-4">
-					<?php
-				    $option = array('' => 'Elegir', '1' => '1', '2' => '2');
-					echo $this->Form->input('estrato', array('class' => 'form-control', 'placeholder'=>"", 'type' => 'select', 'options' => $option, 'class' => 'form-control select-search'));
-			 ?>
-				</div>
-				<div class="col-md-4">
-					<?php
-					echo $this->Form->input('numerohabitantes', array('label' => 'No. Habitantes en la residencia','class' => 'form-control', 'placeholder'=>""));
-			 ?>
-				</div>
-				<div class="col-md-4">
+    <div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -30px; font-size: 12px; ">
+        <?php echo $this->Form->input('ubicacion_id', array(
+            'label' => 'Territorio',
+            'class' => 'form-control',
+			'style'=>'font-size: 12px' ,
+            'type' => 'select'
+        )); ?>
+    </div>
 
-					<?php
-				echo $this->Form->input('numerohogares', array('label' => 'No. Hogares en la residencia','class' => 'form-control', 'placeholder'=>"")); 
-			 ?>
-					<p class="help-block">'El hogar xxxxxx'</p>
-				</div></br>
-			</div>
-			<div class="card-header bg-info text-left">
-				<h5 style="color:white">Habitabilidad</h5>
-			</div></br>
-			<div class="card">
+    <div class="form-group col-md-4" style=" margin-left: 10px; margin-top: -30px; font-size: 12px;">
+        <?php echo $this->Form->input('direccion', array(
+            'label' => 'Dirección',
+			'class' => 'form-control',
+			'style'=>'font-size: 12px' , 
+        )); ?>
+    </div>
 
-				<div class="col-md-4">
-					<?php
-				 $option = array('' => 'Elegir', 'Bloque,cemento,ladrillo' => 'Bloque,cemento,ladrillo');
-				echo $this->Form->input('pared', array('label'=>'¿Cuál es el material predominante de las paredes?', 'options' => $option,'class' => 'form-control', 'placeholder'=>"")); 
-			?>
-				</div>
-				<div class="col-md-4">
-					<?php
-				 $option = array('' => 'Elegir', 'Buen estado' => 'Buen estado', 'Descascaramiento, humedad' => 'Descascaramiento, humedad');
-				echo $this->Form->input('estadoparedes',array('label' => '¿El estado de las paredes es?','class' => 'form-control','type' => 'select', 'options' => $option, 'class' => 'form-control select-search'));
-			?>
-				</div>
-				<div class="col-md-4">
-					<?php
-				 $option = array('' => 'Elegir', 'Cemento, gravilla' => 'Cemento, gravilla', 'Ceramica' => 'Ceramica', 'Piso flotante'=>'piso flotante');
-				echo $this->Form->input('piso',array('label' => 'Cuál es el material predominante del piso de la vivienda','class' => 'form-control','type' => 'select', 'options' => $option, 'class' => 'form-control select-search'));
-			?>
-				</div>
-				<div class="col-md-4">
-					<?php
-				 $option = array('' => 'Elegir', ' Concreto' => ' Concreto', 'Eternit' => 'Eternit');
-				echo $this->Form->input('techo',array('label' => 'Cuál es el material predominante del techo','class' => 'form-control','type' => 'select', 'options' => $option, 'class' => 'form-control select-search'));
-			?>
-				</div>
-				<div class="col-md-4">
-					<?php
-				 $option = array('' => 'Elegir', 'Buen estado' => 'Buen estado', 'Agrietamiento, goteras o fisuras' => 'Agrietamiento, goteras o fisuras');
-				echo $this->Form->input('estadotecho',array('label' => '¿Cuál es el estado en general del techo?','class' => 'form-control','type' => 'select', 'options' => $option, 'class' => 'form-control select-search'));
-			?>
-				</div>
-				<div class="col-md-4">
-					<?php
-				 $option = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4');
-				echo $this->Form->input('dormitorios',array('label' => '¿cuántos cuartos o piezas dormitorio dispone? ','class' => 'form-control','type' => 'select', 'options' => $option, 'class' => 'form-control select-search'));
-			?>
-				</div>
-				<div class="col-md-4">
-					<?php
-				 $option = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4','5' => '5');
-				echo $this->Form->input('hacinamiento',array('label' => 'Cuantas personas duermen por habitación','class' => 'form-control','type' => 'select', 'options' => $option, 'class' => 'form-control select-search'));
-			?>
-				</div></br>
+    <div class="form-group col-md-4" style="margin-left: 10px; margin-top: -30px; font-size: 12px;">
+        <?php echo $this->Form->input('apellidosfamilia', array(
+            'label' => 'Apellidos de la familia',
+            'class' => 'form-control',
+			'style'=>'font-size: 12px' ,
+        )); ?>
+    </div>
 
-			</div>
-			<div class="card-header bg-info text-left">
-				<h5 style="color:white">Servicios y Riesgos de la vivienda</h5>
-			</div></br>
-			<div class="card">
+    <div class="form-group col-md-4" style="margin-left: 10px; margin-top: -30px; font-size: 12px;">
+        <?php
+        $viviendaOptions = array('' => 'Elegir', 'Apartamento' => 'Apartamento', 'Pieza' => 'Pieza');
+        echo $this->Form->input('vivienda', array(
+            'label' => 'Tipo de vivienda',
+            'class' => 'form-control',
+			'style'=>'font-size: 12p;' ,
+            'placeholder' => '',
+            'type' => 'select',
+            'options' => $viviendaOptions
+        ));
+        ?>
+    </div>
+
+    <div class="form-group col-md-4" style=" margin-left: 10px; margin-top: -30px; font-size: 12px;">
+        <?php
+        $estratoOptions = array('' => 'Elegir', '1' => '1', '2' => '2');
+        echo $this->Form->input('estrato', array(
+            'class' => 'form-control',
+			'style'=>'font-size: 12px;' ,
+            'placeholder' => '',
+            'type' => 'select',
+            'options' => $estratoOptions
+        ));
+        ?>
+    </div>
+
+    <div class="form-group col-md-4" style=" margin-left: 10px; margin-top: -30px; font-size: 12px;">
+        <?php echo $this->Form->input('numerohabitantes', array(
+            'label' => 'No. Habitantes en la residencia',
+            'class' => 'form-control',
+			'style'=>'font-size: 12px;' ,
+            'placeholder' => ''
+        )); ?>
+    </div>
+
+    <div class="form-group col-md-4" style="margin-left: 10px; margin-top: -30px; font-size: 12px;">
+        <?php echo $this->Form->input('numerohogares', array(
+            'label' => 'No. Hogares en la residencia',
+            'class' =>'form-control',
+			'style'=>'font-size: 12px;' ,
+            'placeholder' => ''
+        )); ?>
+        <p class="help-block">'El hogar xxxxxx'</p>
+    </div>
+</div>
+
+
+<fieldset>
+    <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Habitabilidad </h2>
+	<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+   
+</fieldset>
+
+
+				<!-- Latest compiled and minified CSS habilities -------------------------------------------------------------------->
+
+
+				<div class="grow justify-content-center" style="margin-top: 10px;">
+    <div class="card col-sm-12" style="margin-left: 15px;">
+        <div class="col-md-4">
+            <?php
+                $option = array('' => 'Elegir', 'Bloque, cemento, ladrillo' => 'Bloque, cemento, ladrillo');
+                echo $this->Form->input('pared', array(
+                    'label' => '¿Cuál es el material predominante de las paredes?',
+                    'options' => $option,
+                    'class' => 'form-control',
+                    'placeholder' => ""
+                ));
+            ?>
+        </div>
+        <div class="col-md-4">
+            <?php
+                $option = array('' => 'Elegir', 'Buen estado' => 'Buen estado', 'Descascaramiento, humedad' => 'Descascaramiento, humedad');
+                echo $this->Form->input('estadoparedes', array(
+                    'label' => '¿El estado de las paredes es?',
+                    'class' => 'form-control',
+                    'type' => 'select',
+                    'options' => $option,
+                    'class' => 'form-control select-search'
+                ));
+            ?>
+        </div>
+        <div class="col-md-4">
+            <?php
+                $option = array('' => 'Elegir', 'Cemento, gravilla' => 'Cemento, gravilla', 'Ceramica' => 'Ceramica', 'Piso flotante' => 'Piso flotante');
+                echo $this->Form->input('piso', array(
+                    'label' => 'Cuál es el material predominante del piso de la vivienda',
+                    'class' => 'form-control',
+                    'type' => 'select',
+                    'options' => $option,
+                    'class' => 'form-control select-search'
+                ));
+            ?>
+        </div>
+        <div class="col-md-4">
+            <?php
+                $option = array('' => 'Elegir', 'Concreto' => 'Concreto', 'Eternit' => 'Eternit');
+                echo $this->Form->input('techo', array(
+                    'label' => 'Cuál es el material predominante del techo',
+                    'class' => 'form-control',
+                    'type' => 'select',
+                    'options' => $option,
+                    'class' => 'form-control select-search'
+                ));
+            ?>
+        </div>
+        <div class="col-md-4">
+            <?php
+                $option = array('' => 'Elegir', 'Buen estado' => 'Buen estado', 'Agrietamiento, goteras o fisuras' => 'Agrietamiento, goteras o fisuras');
+                echo $this->Form->input('estadotecho', array(
+                    'label' => '¿Cuál es el estado en general del techo?',
+                    'class' => 'form-control',
+                    'type' => 'select',
+                    'options' => $option,
+                    'class' => 'form-control select-search'
+                ));
+            ?>
+        </div>
+        <div class="col-md-4">
+            <?php
+                $option = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4');
+                echo $this->Form->input('dormitorios', array(
+                    'label' => '¿Cuántos cuartos o piezas dormitorio dispone?',
+                    'class' => 'form-control',
+                    'type' => 'select',
+                    'options' => $option,
+                    'class' => 'form-control select-search'
+                ));
+            ?>
+        </div>
+        <div class="col-md-4">
+            <?php
+                $option = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5');
+                echo $this->Form->input('hacinamiento', array(
+                    'label' => '¿Cuantas personas duermen por habitación?',
+                    'class' => 'form-control',
+                    'type' => 'select',
+                    'options' => $option,
+                    'class' => 'form-control select-search'
+                ));
+            ?>
+        </div>
+    </div>
+</div>
+
+
+
+
+				
+
+				<fieldset>
+    				<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Servicios y Riesgos de la vivienda </h2>
+					<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+   
+				</fieldset>
+
+
+
+				<div class="grow justify-content-center  "style=" margin-top: 10px;" >
+
+<div class="card col-sm-12;" style="margin-left: 15px;">
+
 				<div class="col-md-4">
 					<?php
 				 $option = array('' => 'Elegir', 'Malos olores' => 'Malos olores', 'Ratones, cucarachas' => 'Ratones, cucarachas','No se identifica' => 'No se identifica');
@@ -225,6 +328,33 @@
 					 $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No','ocasionalmente'=>'Ocasionalmente');
 			echo $this->Form->input('reciclaje',array('label' => '¿Se realiza el proceso de separación de los residuos en la fuente?','class' => 'form-control','type' => 'select', 'options' => $option, 'class' => 'form-control select-search'));
 			?>
+	
+	</br>
+
+	</div>
+
+<div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+			
+			
 				</div></br>
 
 			</div>

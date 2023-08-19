@@ -6,7 +6,9 @@ App::uses('AppModel', 'Model');
  * @property Sociambiental $Sociambiental
  */
 class Responsable extends AppModel {
-
+	public $virtualFields = array(
+		'apellidosnombre' => 'CONCAT(responsable.nombres)'); 
+			 public $displayField = 'apellidosnombre';
 /**
  * Validation rules
  *

@@ -7,6 +7,7 @@ App::uses('AppModel', 'Model');
  * @property Ubicacion $Ubicacion
  */
 class Sociambiental extends AppModel {
+	public $useTable = 'sociambientals';
 
 	public $virtualFields = array(
 		'apellidosfamilia' => 'CONCAT(Sociambiental.apellidosfamilia)'); 
@@ -362,6 +363,7 @@ class Sociambiental extends AppModel {
  * belongsTo associations
  *
  * @var array
+
  */
 	public $belongsTo = array(
 		'Responsable' => array(

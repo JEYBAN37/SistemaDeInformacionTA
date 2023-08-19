@@ -41,11 +41,13 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 
 <div class="contanier">	
  
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<div class="row">
-	<div class="card-header bg-info text-left">
-      <h5 style="color:white">FICHA FAMILIAR</h5>
-    </div>
+<nav class="navbar" style="background-color: #3366CC;">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">
+		<img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
+	</span>
+  </div>
+</nav>
 	 <div >
 		<div >
 			<!--h1>ficha familiar</h1-->
