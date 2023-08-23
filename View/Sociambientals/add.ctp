@@ -614,9 +614,11 @@
             ?>
         </div></br>
 
-        <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?></br>
 
     </div>
+
+    <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?></br>
+
 </div>
 
 
