@@ -7,16 +7,15 @@
 
 
 		<fieldset>
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Modulo
-				Sociambiental</h2>
+			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Modulo Sociambiental</h2>
 			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 
 			<!-- Latest compiled and minified CSS -------------------------------------------------------------------->
 
-			<div class="grow justify-content-center" >
-				<div class="card col-sm-12" style="margin-left: 15px;"></br>
-					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top:5px; font-size: 12px; ">
+			<div id="completo" class="grow justify-content-center" display="none" style="margin-top:20px">
+				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;s">
+					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top:10px;">
 						<!-- Coloca el campo en una mitad de la pantalla en dispositivos medianos y grandes -->
 						<?php
 						
@@ -27,44 +26,43 @@
 							
 						));
 						?>
-					</div></br> </br>
+					</div>
 
-
-					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -30px; font-size: 12px;">
+					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -20px;">
 						<?php echo $this->Form->input('responsable_id', array(
 							'label' => 'Responsable diligenciamiento Encuesta',
 							'class' => 'form-control',
 							'style'=>'font-size: 12px' ,
 							'type' => 'select'
 						)); ?>
-					</div></br> </br>
+					</div>
 
-					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -30px; font-size: 12px; ">
+					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -20px;">
 						<?php echo $this->Form->input('ubicacion_id', array(
 						'label' => 'Territorio',
 						'class' => 'form-control',
 						'style'=>'font-size: 12px' ,
 						'type' => 'select'
 					)); ?>
-					</div></br> </br>
+					</div>
 
-					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -30px; font-size: 12px;">
+					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -20px;">
 						<?php echo $this->Form->input('direccion', array(
 							'label' => 'Dirección',
 							'class' => 'form-control',
 							'style'=>'font-size: 12px' , 
 						)); ?>
-					</div></br> </br>
+					</div>
 
-					<div class="form-group col-md-6" style="margin-left: 10px; margin-top: -30px; font-size: 12px;">
+					<div class="form-group col-md-6" style="margin-left: 10px; margin-top: -20px;">
 						<?php echo $this->Form->input('apellidosfamilia', array(
 							'label' => 'Apellidos de la familia',
 							'class' => 'form-control',
 							'style'=>'font-size: 12px' ,
 						)); ?>
-					</div></br> </br>
+					</div>
 
-					<div class="form-group col-md-6" style="margin-left: 10px; margin-top: -30px; font-size: 12px;">
+					<div class="form-group col-md-6" style="margin-left: 10px; margin-top: -20px;">
 						<?php
 						$viviendaOptions = array('' => 'Elegir', 'Casa_Apto.' => 'Casa/Apartamento', 'Pieza' => 'Pieza', 'Cuarto improvisado' => 'Cuarto improvisado');
 						echo $this->Form->input('vivienda', array(
@@ -76,9 +74,9 @@
 							'options' => $viviendaOptions
 						));
 						?>
-					</div></br> </br>
+					</div>
 
-					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -30px; font-size: 12px;">
+					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -20px;">
 						<?php
 						$estratoOptions = array('' => 'Elegir', '1' => '1', '2' => '2');
 						echo $this->Form->input('estrato', array(
@@ -89,9 +87,9 @@
 							'options' => $estratoOptions
 						));
 						?>
-					</div></br> </br>
+					</div>
 
-					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -30px; font-size: 12px;">
+					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top:-20px;">
 						<?php 
 						      $numhabitantesOptions = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => 'Mas de 7');
 							 echo $this->Form->input('numerohabitantes', array(
@@ -101,9 +99,9 @@
 							'placeholder' => '',
 							'options' => $numhabitantesOptions
 						)); ?>
-					</div></br> </br>
+					</div>
 
-					<div class="form-group col-md-6" style="margin-left: 10px; margin-top: -30px; font-size: 12px;">
+					<div class="form-group col-md-6" style="margin-left: 10px; margin-top: -20px;">
 					
 						<?php 
 						         $numhogaresOptions = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6');
@@ -114,15 +112,22 @@
 								'placeholder' => '',
 								'options' => $numhogaresOptions
 							)); ?>
-						<p class="help-block"> Si todos comenen de la misma olla se considera una sola familia</p>
-					</div></br> 
+						<p class="help-block"> Si todos comen de la misma olla se considera una sola familia</p>
+					</div>
 				</div>
 			</div>
 
+            
+            <select id="status"  name="status" required onChange="moduloSocioamabiental(this.value);" 
+            style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
+				<option value=" ">Ocutar mdulo diligenciado</option>
+				<option value="revisar">Cerrar pestaña</option>
+				<option value="completo">Abrir pestaña</option>
+			</select>
 
 
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Habitabilidad
-			</h2>
+
+			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; margin-top: 15px;">Habitabilidad</h2>
 			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 
@@ -130,10 +135,11 @@
 
 			<!-- Latest compiled and minified CSS habilities -------------------------------------------------------------------->
 
-
-			<div class="grow justify-content-center" style="margin-top: 20px;">
-				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
-					<div class="col-md-6">
+            <div class="grow justify-content-center"  style="margin-top:20px">
+				<div class="card col-sm-12" style="margin-left:10px;font-size: 12px;">
+					
+           
+					<div class="form-group col-md-6" style=" margin-top:10px;margin-left: 10px">
 						<?php
                 $option = array('' => 'Elegir', 'Bloque, cemento, ladrillo' => 'Bloque, cemento, ladrillo');
                 echo $this->Form->input('pared', array(
@@ -144,8 +150,8 @@
                     'placeholder' => ""
                 ));
             ?>
-					</div></br> 
-					<div class="col-md-6">
+					</div>
+                    <div class="form-group col-md-6" style=" margin-left: 10px; margin-top:-20px;">
 						<?php
                 $option = array('' => 'Elegir', 'Buen estado' => 'Buen estado', 'Descascaramiento, humedad' => 'Descascaramiento, humedad', 'SD' => 'Sin dato');
                 echo $this->Form->input('estadoparedes', array(
@@ -157,8 +163,8 @@
                     'class' => 'form-control select-search'
                 ));
             ?>
-					</div></br>
-					<div class="col-md-6">
+					</div>
+					<div class="form-group col-md-6" style=" margin-top:10px;margin-left: 10px">
 						<?php
                 $option = array('' => 'Elegir', 'Cemento, gravilla' => 'Cemento, gravilla', 'Ceramica' => 'Ceramica', 'Piso flotante' => 'Piso flotante', 'SD' => 'Sin dato');
                 echo $this->Form->input('piso', array(
@@ -170,8 +176,8 @@
                     'class' => 'form-control select-search'
                 ));
             ?>
-					</div></br>
-					<div class="col-md-6">
+					</div>
+					<div class="form-group col-md-6" style=" margin-top:10px;margin-left: 10px">
 						<?php
                 $option = array('' => 'Elegir', 'Concreto' => 'Concreto', 'Eternit' => 'Eternit', 'SD' => 'Sin dato');
                 echo $this->Form->input('techo', array(
@@ -183,8 +189,8 @@
                     
                 ));
             ?>
-					</div></br>
-					<div class="col-md-6">
+					</div>
+                    <div class="form-group col-md-6" style=" margin-top:10px;margin-left: 10px">
 						<?php
                 $option = array('' => 'Elegir', 'Buen estado' => 'Buen estado', 'Agrietamiento, goteras o fisuras' => 'Agrietamiento, goteras o fisuras', 'SD' => 'Sin dato');
                 echo $this->Form->input('estadotecho', array(
@@ -196,8 +202,8 @@
                   
                 ));
             ?>
-					</div></br>
-					<div class="col-md-6">
+					</div>
+					<div class="form-group col-md-6" style=" margin-top:10px;margin-left: 10px">
 						<?php
                 $option = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', 'SD' => 'Sin dato');
                 echo $this->Form->input('dormitorios', array(
@@ -208,8 +214,8 @@
                     'style'=>'font-size: 12px' ,
                 ));
             ?>
-					</div></br>
-					<div class="col-md-6">
+					</div>
+                    <div class="form-group col-md-6" style=" margin-top:10px;margin-left: 10px">
 										<?php
 								$option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No', '3' => '3', '4' => '4', '5' => '5', 'SD' => 'Sin dato');
 								echo $this->Form->input('hacinamiento', array(
@@ -220,7 +226,7 @@
 									'style'=>'font-size: 12px' ,
 								));
 							?>
-					</div></br>
+					</div>
 				</div>
 			</div>
 
@@ -236,12 +242,11 @@
 <div class="grow justify-content-center  " style=" margin-top: 20px;font-size: 12px;">
 		<div class="card col-sm-12;" style="margin-left: 15px;">
 
-		<div class="col-md-4">
+        <div class="col-md-6">
     <?php
     $externalRiskOptions = [
         '' => 'Elegir',
         'Malos olores' => 'Malos olores',
-        'Ratones, cucarachas' => 'Ratones, cucarachas',
         'Iluminacion inadecuada' => 'Iluminación inadecuada',
         'Ventilación inadecuada' => 'Ventilación inadecuada',
         'No se identifica' => 'No se identifica',
@@ -258,7 +263,7 @@
     <p class="help-block">Refiere el riesgo más evidente</p>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     echo $this->Form->input('otroriesgo', [
         'label' => 'Registre otro riesgo interno o externo si considera',
@@ -268,7 +273,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     $yesNoOptions = [
         '' => 'Elegir',
@@ -287,7 +292,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     $accessOptions = [
         '' => 'Elegir',
@@ -307,7 +312,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     $transportOptions = [
         '' => 'Elegir',
@@ -327,7 +332,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     $accidentRiskOptions = [
         '' => 'Elegir',
@@ -349,7 +354,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     echo $this->Form->input('otroriesgohogar', [
         'label' => 'Registre otro riesgo interno o externo si considera',
@@ -359,7 +364,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     $waterSupplyOptions = [
         '' => 'Elegir',
@@ -377,7 +382,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     $waterTreatmentOptions = [
         '' => 'Elegir',
@@ -398,7 +403,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     $waterSupplyStatusOptions = [
         '' => 'Elegir',
@@ -417,7 +422,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     $tankCleaningOptions = [
         '' => 'Elegir',
@@ -437,7 +442,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     $excretaDisposalOptions = [
         '' => 'Elegir',
@@ -455,7 +460,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     $domesticWaterOptions = [
         '' => 'Elegir',
@@ -472,7 +477,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     $garbageDisposalOptions = [
         '' => 'Elegir',
@@ -489,7 +494,7 @@
     ?>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-6">
     <?php
     $recyclingOptions = [
         '' => 'Elegir',
@@ -509,81 +514,107 @@
     <br>
 	</div>
 </div>
-<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Mascotas en el hogar </h2>
-					<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
-				</br>
-				<div class="grow justify-content-center" style="margin-top: -10px; font-size: 12px;">
-    <div class="card col-sm-12" style="margin-left: 15px;">
 
-        <div class="col-md-4">
+</div>
+<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Mascotas en el hogar </h2>
+			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+
+<div class="col-md-4">
+		<select id="status" name="status" required onChange="mostrar(this.value);"
+        style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
+							 <option value="no">NO</option>
+							 <option value="si">SI</option>
+							 
+						 </select>
+</div>	</h2>
+					
+				</br>
+
+				<div class="grow justify-content-center" style="margin-top: -10px; font-size: 12px;">
+
+				
+			   
+			  
+    <div id="si" class="panel panel-default form-group col-md-12" style="margin-left: 15px; display: none;"><br>
+					
+
+        <div class="col-md-6">
             <?php
-            $option = ['' => 'Elegir', '1' => '1', '2' => '2'];
+            $mascotaOption = ['' => 'Elegir','No aplica' => 'No tiene', 'Perros' => 'Perros', 'Gatos' => 'Gatos','Aves' => 'Aves','Cerdos' => 'Cerdos','Cuyes_conejos' => 'Cuyes/conejos','Otro' => 'Otro'];
             echo $this->Form->input('mascotas', [
-                'label' => '',
+                'label' => '¿Tienen Mascotas o animales de compañia y/o producción?',
                 'class' => 'form-control',
                 'type' => 'select',
-                'options' => $option,
+                'options' => $mascotaOption,
                 'style'=>'font-size: 12px' ,
             ]);
             ?>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <?php
+			 $option1 = ['No aplica ' => 'Elegir','No aplica' => 'No Aplica', 'Perros' => 'Perros', 'Gatos' => 'Gatos','Aves' => 'Aves','Otro' => 'Otro'];
             echo $this->Form->input('otramascota', [
-                'label' => '',
+                'label' => '¿Agregue otras Mascotas o animales de compañia y/o producción si requiere?',
                 'class' => 'form-control',
                 'type' => 'select',
-                'options' => $option,
+                'options' => $option1,
                 'style'=>'font-size: 12px' ,
             ]);
             ?>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <?php
+			$cuidadoMascotaOptions = [
+				'No aplica' => 'Elegir',
+				'Si' => 'Si',
+				'No' => 'No',
+				'SD' => 'Sin dato'
+			];
             echo $this->Form->input('desparasitamascotas', [
-                'label' => '',
+				'label' => '¿Se desparasita a los animales domésticos?',
                 'class' => 'form-control',
                 'type' => 'select',
-                'options' => $option,
+                'options' => $cuidadoMascotaOptions,
                 'style'=>'font-size: 12px' ,
             ]);
             ?>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <?php
             echo $this->Form->input('vacunamascotas', [
-                'label' => '',
+                'label' => '¿Se ha vacunado a los animales domésticos?',
                 'class' => 'form-control',
                 'type' => 'select',
-                'options' => $option,
+                'options' =>  $cuidadoMascotaOptions,
                 'style'=>'font-size: 12px' ,
             ]);
             ?>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <?php
             echo $this->Form->input('cuidadomascotas', [
-                'label' => '',
+                'label' => '¿Las excretas de los animales de compañía se recogen y disponen adecuadamente? ',
                 'class' => 'form-control',
                 'type' => 'select',
-                'options' => $option,
+                'options' => $cuidadoMascotaOptions,
                 'style'=>'font-size: 12px' ,
             ]);
             ?>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <?php
+			 $vectoresOption = ['No aplica ' => 'Elegir','No aplica' => 'No Aplica', 'Mosicos' => 'Moscos', 'Zancudos' => 'Zancudos','Pulgas' => 'Pulgas','Piojos' => 'Piojos','Ratones' => 'Ratones','Cucarachas' => 'Cucarachas'];
             echo $this->Form->input('vector', [
-                'label' => '',
+                'label' => 'Hay presencia vectores transmisores de enfermedades en la vivienda o en su entorno inmediato?',
                 'class' => 'form-control',
                 'type' => 'select',
-                'options' => $option,
+                'options' => $vectoresOption,
                 'style'=>'font-size: 12px' ,
             ]);
             ?>
-        </div>
+        </div></br>
 
-        <?php echo $this->Form->end(__('Validar'), ['class' => 'btn btn-primary']); ?>
+        <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?></br>
 
     </div>
 </div>
@@ -621,3 +652,67 @@
 		</li>
 	</ul>
 </div-->
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
+
+
+  
+
+    function agregarOpcionSeleccion() {
+        $("#ActaUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#ActaProductoId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#ActaResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
+    }
+
+    function mostrarBarrio(id) {
+        if (id == "2")
+            $("#divActualizarBarrio").show();
+        else
+            $("#divActualizarBarrio").hide();
+    }
+
+    function validar() {
+        var todo_correcto = true;
+
+        if (document.getElementById('status').value == '') {
+            todo_correcto = false;
+        }
+
+        if (!todo_correcto) {
+            alert('Algunos campos no están correctos, vuelva a revisarlos');
+        }
+
+        return todo_correcto;
+    }
+
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
+
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
+
+        }
+    }
+	function moduloSocioamabiental(id) {
+        if (id == "completo") {
+            $("#completo").show();
+            $("#revisar").hide();
+
+        } else if (id == "revisar") {
+            $("#completo").hide();
+            $("#revisar").show();
+
+        }
+    }
+
+
+
+</script>
