@@ -1,10 +1,13 @@
-<div  class="form-group row">
+
+                  
+<div  class="form-group row">D
 	<div class="form-group col-lg-8">
 		<?php echo $this->Form->create('Primerainfancia'); ?>
+		
 			<fieldset>
 
 			<legend class="card-header  text-left">
-				<?php echo __('Modulo Primera infancia 0 a 5 años 11 meses 29 días'); ?>
+				<?php echo __('Modulo Primera infancia 0 meses a 12 meses'); ?>
 			</legend>
 
 			<div class="card">
@@ -12,9 +15,23 @@
 					<h5 style="color:white">Datos personales</h5>
 				</div></br>
 
-						
-				<div class="form-group col-md-6"><?php echo $this->Form->input('familia_id', array('label'=>'ID_Familia/N° Hogar/Nombres','class' => 'form-control', 'placeholder'=>"", 'type' => 'select', 'class' => 'form-control select-search'));?></div>
-				<div class="form-group col-md-6"><?php echo $this->Form->input('persona_id', array('label'=>'Docuemento/Nombre del Menor/Edad','class' => 'form-control', 'placeholder'=>"", 'type' => 'select', 'class' => 'form-control select-search'));?></div>
+
+				<div class="form-group col-md-6"><?php 
+					echo $this->Form->input('familia_id', 
+					array('label'=>'ID_Familia/N° Hogar/Nombres',
+					'class' => 'form-control', 'placeholder'=>"", 
+					'type' => 'select', 
+					'class' => 'form-control select-search'
+					));?>
+				</div>
+				<div class="form-group col-md-12">
+					<?php echo $this->Form->input('persona_id', 
+					array('label'=>'Docuemento/Nombre del Menor/Edad',
+					'class' => 'form-control', 'placeholder'=>"",
+					 'type' => 'select', 
+					 'class' => 'form-control select-search'
+					 ));?>
+				</div>
 				<div class="card-header bg-info text-left">
 					<h5 style="color:white">Valoración de salud</h5>
 				</div></br>
@@ -80,3 +97,45 @@
 		<li> <?php echo $this->Html->link(__('New Persona'), array('controller' => 'personas', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+
+<?php
+$this->Html->css([
+    'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
+], ['block' => 'css']);
+$this->Html->script([
+    'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+], ['block' => 'script']);
+?>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
+
+    
+    function agregarOpcionSeleccion() {
+      
+        $("#PrimerainfanciaFamiliaId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#PrimerainfanciaPersonaId").prepend("<option value='' selected='selected'>Seleccione</option>");
+    }
+
+    
+    
+
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
+
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
+
+        }
+    }
+
+
+</script>

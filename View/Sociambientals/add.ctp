@@ -12,14 +12,7 @@
 			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 
-
-
 			<!-- Latest compiled and minified CSS -------------------------------------------------------------------->
-
-
-
-
-
 
 			<div class="grow justify-content-center" >
 				<div class="card col-sm-12" style="margin-left: 15px;"></br>
