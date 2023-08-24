@@ -1,16 +1,18 @@
 <div class="form-group row">
 
-	<div class="form-group col-lg-8">
+	<div class="form-group col-sm-12 ">
 
 
 		<?php echo $this->Form->create('Familia'); ?>
 
 
 		<fieldset>
+     
+        <div class="col-12 text-center">
+        <h1  class="titulo-general-pwa-govco" style="color: #3366CC; ">Modulo Familia</h1>     
+    </div>
 
-		<h1  class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 120px;  ">Modulo Familia</h1>
-
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos de Encuestado</h2>
+			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos del Encuestado</h2>
 			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
