@@ -20,7 +20,7 @@
 
 
 <div class="form-group row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         <?php echo $this->Form->input('nombres', [
             'label' => 'Nombres',
             'class' => 'form-control',
@@ -28,7 +28,7 @@
         ]); ?>
     </div>
 
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         <?php echo $this->Form->input('apellidos', [
             'label' => 'Apellidos',
             'class' => 'form-control',
@@ -36,7 +36,7 @@
         ]); ?>
     </div>
 
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         <?php 
         $generoOption = [
             ' ' => 'Elegir',
@@ -55,7 +55,7 @@
         ]); ?>
     </div>
 
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         <?php 
         $rolOption = [
             ' ' => 'Elegir',
@@ -76,7 +76,7 @@
         ]); ?>
     </div>
 
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         <?php echo $this->Form->input('celular', [
             'label' => 'Número celular de contacto',
             'class' => 'form-control',
@@ -84,7 +84,7 @@
         ]); ?>
     </div>
 
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         <?php echo $this->Form->input('correo', [
             'label' => 'Correo electrónico',
             'class' => 'form-control',
@@ -104,7 +104,7 @@
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
 				<div class="form-group row">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         <?php echo $this->Form->input('sociambiental_id', [
             'label' => 'Familia',
             'class' => 'form-control',
@@ -115,7 +115,7 @@
         ]); ?>
     </div>
 
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = ['' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'];
         echo $this->Form->input('hogar', [
@@ -129,7 +129,7 @@
         ]); ?>
     </div>
 
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $viviendaOptions = ['' => 'Elegir', 'Casa_Apto.' => 'Casa/Apartamento', 'Pieza' => 'Pieza', 'Cuarto improvisado' => 'Cuarto improvisado'];
         echo $this->Form->input('vivienda', [
@@ -143,7 +143,7 @@
         ]); ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = ['' => 'Elegir', 'Propia pagando' => 'Propia pagando', 'Propia paganda' => 'Propia paganda', 'Anticres' => 'Anticres', 'Arriendo' => 'Arriendo', 'Subarriendo' => 'Subarriendo', 'Prestada' => 'Prestada sin costo'];
         echo $this->Form->input('tenencia', [
@@ -157,7 +157,7 @@
         ]); ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = ['' => 'Elegir', 'Electricidad' => 'Electricidad', 'Cilindro de Gas' => 'Cilindro de Gas', 'Gas domiciliario' => 'Gas domiciliario', 'Gas domiciliario' => 'Gas domiciliario', 'Carbon, leña' => 'Carbon, leña', 'Gasolina' => 'Gasolina'];
         echo $this->Form->input('combustible', [
@@ -170,7 +170,7 @@
         ]); ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = ['' => 'Elegir', 'Electricidad' => 'Electricidad', 'Cilindro de Gas' => 'Cilindro de Gas', 'Gas domiciliario' => 'Gas domiciliario', 'Gas domiciliario' => 'Gas domiciliario', 'Carbon, leña' => 'Carbon, leña', 'Gasolina' => 'Gasolina'];
         echo $this->Form->input('otrocombustible', [
@@ -194,7 +194,7 @@
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 				
 				<div class="form-group row">
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = ['' => 'Elegir', 'Unipersonal' => 'Unipersonal', 'Nuclear' => 'Nuclear', 'Nuclear monoparental' => 'Nuclear monoparental', 'Nuclear unipersonal por adulto mayor' => 'Nuclear unipersonal por adulto mayor', 'Extensa' => 'Extensa', 'Mixta o ampliada' => 'Mixta o ampliada'];
         echo $this->Form->input('tipofamilia', [
@@ -208,7 +208,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = ['' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => 'Más de 10'];
         echo $this->Form->input('numeropersonas', [
@@ -222,7 +222,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = ['' => 'Elegir', 'Indígena' => 'Indígena', 'Negritudes' => 'Negritudes', 'Víctima conflicto' => 'Víctima del conflicto', 'Discapacidad' => 'Discapacidad', 'Otro' => 'Otro', 'No aplica' => 'No aplica', 'Sin Dato' => 'Sin Dato'];
         echo $this->Form->input('poblacionvulnerable', [
@@ -236,7 +236,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         echo $this->Form->input('poblacionvulnerable1', [
             'label' => 'Registre otra población con la cual se identifique si es necesario',
@@ -247,7 +247,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = ['' => 'Elegir', 'Formación' => 'Formación', 'Expansión' => 'Expansión', 'Consolidación' => 'Consolidación', 'Apertura' => 'Apertura', 'Nido vacío' => 'Nido vacío', 'Disolución' => 'Disolución'];
         echo $this->Form->input('cursovidafamilia', [
@@ -261,7 +261,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6s">
         <?php
         $option = ['' => 'Elegir', 'Si' => 'Si', 'No' => 'No'];
         echo $this->Form->input('lgtbi', [
@@ -287,7 +287,7 @@
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 		
 				<div class="form-group row">
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = [
             '' => 'Elegir',
@@ -314,7 +314,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         echo $this->Form->input('antecedenteenfermedad1', [
             'label' => 'Agregue otro Antecedente enfermedad si requiere',
@@ -327,7 +327,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         echo $this->Form->input('antecedenteenfermedad2', [
             'label' => 'Agregue otro Antecedentes enfermedad si requiere',
@@ -340,7 +340,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = [
             '' => 'Elegir',
@@ -371,7 +371,7 @@
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 				
 				<div class="form-group row">
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = [
             '' => 'Elegir',
@@ -398,7 +398,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         echo $this->Form->input('riesgopsicosocial1', [
             'label' => 'Agregue otra situación si se requiere',
@@ -411,7 +411,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         echo $this->Form->input('riesgopsicosocial2', [
             'label' => 'Agregue otra situación si se requiere',
@@ -436,7 +436,7 @@
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 			
 				<div class="form-group row">
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = [
             '' => 'Elegir',
@@ -459,7 +459,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         echo $this->Form->input('programasocial1', [
             'label' => 'Agregue otro subsidio o aporte de programas sociales si requiere',
@@ -472,7 +472,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         echo $this->Form->input('programasocial2', [
             'label' => 'Agregue otro subsidio o aporte de programas sociales si requiere',
@@ -498,7 +498,7 @@
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 				
 				<div class="form-group row">
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = [
             '' => 'Elegir',
@@ -518,7 +518,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         echo $this->Form->input('higienealimentos', [
             'label' => '¿Almacenamiento y conservación adecuada de alimentos?',
@@ -531,7 +531,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         echo $this->Form->input('aseococina', [
             'label' => '¿Procura mantener limpia de la cocina?',
@@ -546,7 +546,7 @@
 </div>
 
 <div class="form-group row">
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = [
             '' => 'Elegir',
@@ -566,7 +566,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = [
             '' => 'Elegir',
@@ -588,7 +588,7 @@
         ?>
     </div>
 
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         echo $this->Form->input('otroelementohigiene', [
             'label' => 'Agregue Otros implementos de higiene que se comparta si requiere',
@@ -601,7 +601,7 @@
 </div>
 
 <div class="form-group row">
-    <div class="col-md-4">
+    <div class="form-group col-md-6">
         <?php
         $option = [
             '' => 'Elegir',

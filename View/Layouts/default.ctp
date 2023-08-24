@@ -23,15 +23,10 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	
 		echo $this->Html->css(array( 'cake.generic.css','bootstrap.min.css',  'sb-admin-2.css'));
 		echo $this->Html->script(array('jquery-1.11.0', 'metisMenu.min', 'sb-admin-2', 'bootstrap.min'));
-<<<<<<< HEAD
-		$this->fetch('css');
-		$this->fetch('script');
-=======
 
 		//echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
->>>>>>> 66c4f61752d52c1f0cfb8edd321c36c45b98d69c
 		
 	?>
 
