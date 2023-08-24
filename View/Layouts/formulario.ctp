@@ -48,14 +48,43 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 <body>
 
-    <?php echo $this->element('nav'); ?> 
-    
 
-    <?php echo $this->Session->flash(); ?>
-    <?php echo $this->fetch('content'); ?>
+<div class="contanier">	
+ 
+<nav class="navbar" style="background-color: #3366CC;">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">
+		<img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
+	</span>
+  </div>
+</nav>
+	 <div >
+		<div >
+			<!--h1>ficha familiar</h1-->
+		</div>
+		<div>
 
+			<?php echo $this->Session->flash(); ?>
 
+			<?php echo $this->fetch('content'); ?>
+		</div>
+		<!--div>
+			<?php echo $this->Html->link(
+					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
+					'http://www.cakephp.org/',
+					array('target' => '_blank', 'escape' => false)
+				);
+			?>
+		</div-->
+	
+	 <!--?php echo $this->element('sql_dump'); ?-->
+
+	
+	   </div>
+	  </div>
+	</div>
+	
+</div>
 
 </body>
-
 </html>
