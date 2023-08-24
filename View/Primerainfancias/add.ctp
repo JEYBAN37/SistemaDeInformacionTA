@@ -33,7 +33,7 @@
     ?>
 </div>
 
-<div class="form-group col-md-12">
+<div  class="form-group col-md-12">
     <?php
     echo $this->Form->input('persona_id', [
         'label' => 'Docuemento/Nombre del Menor/Edad',
