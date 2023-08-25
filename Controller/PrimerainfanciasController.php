@@ -46,20 +46,24 @@ class PrimerainfanciasController extends AppController {
  *
  * @return void
  */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->Primerainfancia->create();
-			if ($this->Primerainfancia->save($this->request->data)) {
-				$this->Session->setFlash(__('The primerainfancia has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The primerainfancia could not be saved. Please, try again.'));
-			}
+public function add() {
+	if ($this->request->is('post')) {
+		$this->Primerainfancia->create();
+		if ($this->Primerainfancia->save($this->request->data)) {
+			$this->Session->setFlash(__('The primerainfancia has been saved.'));
+			return $this->redirect(array('action' => 'index'));
+		} else {
+			$this->Session->setFlash(__('The primerainfancia could not be saved. Please, try again.'));
 		}
-		$familias = $this->Primerainfancia->Familia->find('list');
-		$personas = $this->Primerainfancia->Persona->find('list');
-		$this->set(compact('familias', 'personas'));
 	}
+	$familias = $this->Primerainfancia->Familia->find('list');
+	$personas = $this->Primerainfancia->Persona->find('list', array( 'order' => array('Persona.edad' => 'asc'),
+		'fields' => array('Persona.id', 'Persona.apellidosnombre'),			
+		'conditions' => array('Persona.edad BETWEEN ? AND ?' => array('14' , '28') ),
+		'recursive' => 0));	
+	$this->set(compact('familias', 'personas'));
+}
+
 
 /**
  * edit method

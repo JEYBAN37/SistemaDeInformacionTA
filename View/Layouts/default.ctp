@@ -21,32 +21,33 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->meta('icon');
 
 	
-		//echo $this->Html->css('cake.generic');
+		echo $this->Html->css(array( 'cake.generic.css'));
+		echo $this->Html->script(array('jquery-1.11.0', 'metisMenu.min', 'sb-admin-2', 'bootstrap.min'));
 
 		//echo $this->fetch('meta');
-		//echo $this->fetch('css');
-		//echo $this->fetch('script');
-		echo $this->Html->css(array( 'cake.generic.css','bootstrap.min.css',  'sb-admin-2.css'));
-		echo $this->Html->script(array('jquery-1.11.0', 'metisMenu.min', 'sb-admin-2', 'bootstrap.min'));
+		echo $this->fetch('css');
+		echo $this->fetch('script');
+		
 	?>
 
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-         
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	    
+		<!-- Latest compiled and minified CSS -->
+		<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario Responsive</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 	</head>
 <body>  
 
 
 <div class="contanier">	
  
-	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<div class="row">
-	<div class="card-header bg-info text-left">
-      <h5 style="color:white">FICHA FAMILIAR</h5>
-    </div>
+<nav class="navbar" style="background-color: #3366CC;">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1 JustifyCenter">
+		<img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
+	</span>
+  </div>
+</nav>
 	 <div >
 		<div >
 			<!--h1>ficha familiar</h1-->
