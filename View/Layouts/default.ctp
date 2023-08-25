@@ -43,7 +43,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
  
 <nav class="navbar" style="background-color: #3366CC;">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">
+    <span class="navbar-brand mb-0 h1 JustifyCenter">
 		<img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
 	</span>
   </div>

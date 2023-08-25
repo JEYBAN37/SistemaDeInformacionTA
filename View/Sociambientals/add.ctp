@@ -1,34 +1,34 @@
 <div class="form-group row">
 
-	<div class="form-group col-lg-8">
+	<div class="form-group col-sm-12">
 
 
 		<?php echo $this->Form->create('Sociambiental'); ?>
 
 
 		<fieldset>
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Modulo Sociambiental</h2>
+
+        <div class="col-12 text-center">
+        <h1  class="titulo-general-pwa-govco" style="color: #3366CC; ">Modulo Sociambiental</h1>     
+    </div>
+
+    <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Basicos</h2>
 			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
+			<div class="grow justify-content-center" display="none" style="margin-top:20px">
+				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+                <div class="form-group row">
 
-			<!-- Latest compiled and minified CSS -------------------------------------------------------------------->
-
-			<div id="completo" class="grow justify-content-center" display="none" style="margin-top:20px">
-				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;s">
-					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top:10px;">
+                <div class="form-group col-md-6">
 						<!-- Coloca el campo en una mitad de la pantalla en dispositivos medianos y grandes -->
-						<?php
-						
-						echo $this->Form->input('fecha', array(
+						<?php echo $this->Form->input('fecha', array(
 							'label' => 'Fecha de visita : ',
-							
 							'style'=>'font-size: 12px'
-							
 						));
 						?>
 					</div>
 
-					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -20px;">
+					<div class="form-group col-md-6">
 						<?php echo $this->Form->input('responsable_id', array(
 							'label' => 'Responsable diligenciamiento Encuesta',
 							'class' => 'form-control',
@@ -37,8 +37,7 @@
 						)); ?>
 					</div>
 
-					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -20px;">
-						<?php echo $this->Form->input('ubicacion_id', array(
+                    <div class="form-group col-md-6">						<?php echo $this->Form->input('ubicacion_id', array(
 						'label' => 'Territorio',
 						'class' => 'form-control',
 						'style'=>'font-size: 12px' ,
@@ -46,24 +45,21 @@
 					)); ?>
 					</div>
 
-					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -20px;">
-						<?php echo $this->Form->input('direccion', array(
+                    <div class="form-group col-md-6">						<?php echo $this->Form->input('direccion', array(
 							'label' => 'Dirección',
 							'class' => 'form-control',
 							'style'=>'font-size: 12px' , 
 						)); ?>
 					</div>
 
-					<div class="form-group col-md-6" style="margin-left: 10px; margin-top: -20px;">
-						<?php echo $this->Form->input('apellidosfamilia', array(
+                    <div class="form-group col-md-6">						<?php echo $this->Form->input('apellidosfamilia', array(
 							'label' => 'Apellidos de la familia',
 							'class' => 'form-control',
 							'style'=>'font-size: 12px' ,
 						)); ?>
 					</div>
 
-					<div class="form-group col-md-6" style="margin-left: 10px; margin-top: -20px;">
-						<?php
+                    <div class="form-group col-md-6">						<?php
 						$viviendaOptions = array('' => 'Elegir', 'Casa_Apto.' => 'Casa/Apartamento', 'Pieza' => 'Pieza', 'Cuarto improvisado' => 'Cuarto improvisado');
 						echo $this->Form->input('vivienda', array(
 							'label' => 'Tipo de vivienda:',
@@ -76,8 +72,7 @@
 						?>
 					</div>
 
-					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top: -20px;">
-						<?php
+                    <div class="form-group col-md-6">						<?php
 						$estratoOptions = array('' => 'Elegir', '1' => '1', '2' => '2');
 						echo $this->Form->input('estrato', array(
 							'class' => 'form-control',
@@ -89,8 +84,7 @@
 						?>
 					</div>
 
-					<div class="form-group col-md-6" style=" margin-left: 10px; margin-top:-20px;">
-						<?php 
+                    <div class="form-group col-md-6">						<?php 
 						      $numhabitantesOptions = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => 'Mas de 7');
 							 echo $this->Form->input('numerohabitantes', array(
 							'label' => '¿Cuantas personas habitan en la vivienda',
@@ -101,8 +95,7 @@
 						)); ?>
 					</div>
 
-					<div class="form-group col-md-6" style="margin-left: 10px; margin-top: -20px;">
-					
+                    <div class="form-group col-md-6">					
 						<?php 
 						         $numhogaresOptions = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6');
 								 echo $this->Form->input('numerohogares', array(
@@ -113,34 +106,22 @@
 								'options' => $numhogaresOptions
 							)); ?>
 						<p class="help-block"> Si todos comen de la misma olla se considera una sola familia</p>
-					</div>
-				</div>
-			</div>
 
-            
-            <select id="status"  name="status" required onChange="moduloSocioamabiental(this.value);" 
-            style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
-				<option value=" ">Ocutar mdulo diligenciado</option>
-				<option value="revisar">Cerrar pestaña</option>
-				<option value="completo">Abrir pestaña</option>
-			</select>
+                </div>
+            </div>
+        </div>
 
 
-
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; margin-top: 15px;">Habitabilidad</h2>
+        <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
 			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
+			<div class="grow justify-content-center" display="none" style="margin-top:20px">
+				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+                
+                <div class="form-group row">
 
-
-
-			<!-- Latest compiled and minified CSS habilities -------------------------------------------------------------------->
-
-            <div class="grow justify-content-center"  style="margin-top:20px">
-				<div class="card col-sm-12" style="margin-left:10px;font-size: 12px;">
-					
-           
-					<div class="form-group col-md-6" style=" margin-top:10px;margin-left: 10px">
-						<?php
+                <div  class="form-group col-md-6">						
+            <?php
                 $option = array('' => 'Elegir', 'Bloque, cemento, ladrillo' => 'Bloque, cemento, ladrillo');
                 echo $this->Form->input('pared', array(
                     'label' => '¿Cuál es el material predominante de las paredes?',
@@ -151,9 +132,10 @@
                 ));
             ?>
 					</div>
-                    <div class="form-group col-md-6" style=" margin-left: 10px; margin-top:-20px;">
-						<?php
-                $option = array('' => 'Elegir', 'Buen estado' => 'Buen estado', 'Descascaramiento, humedad' => 'Descascaramiento, humedad', 'SD' => 'Sin dato');
+
+            <div  class="form-group col-md-6">						
+    
+    <?php $option = array('' => 'Elegir', 'Buen estado' => 'Buen estado', 'Descascaramiento, humedad' => 'Descascaramiento, humedad', 'SD' => 'Sin dato');
                 echo $this->Form->input('estadoparedes', array(
                     'label' => '¿El estado de las paredes es?',
                     'class' => 'form-control',
@@ -164,8 +146,8 @@
                 ));
             ?>
 					</div>
-					<div class="form-group col-md-6" style=" margin-top:10px;margin-left: 10px">
-						<?php
+                <div  class="form-group col-md-6">
+    						<?php
                 $option = array('' => 'Elegir', 'Cemento, gravilla' => 'Cemento, gravilla', 'Ceramica' => 'Ceramica', 'Piso flotante' => 'Piso flotante', 'SD' => 'Sin dato');
                 echo $this->Form->input('piso', array(
                     'label' => '¿Cuál es el material predominante del piso de la vivienda?',
@@ -177,8 +159,8 @@
                 ));
             ?>
 					</div>
-					<div class="form-group col-md-6" style=" margin-top:10px;margin-left: 10px">
-						<?php
+                    <div  class="form-group col-md-6">						
+                        <?php
                 $option = array('' => 'Elegir', 'Concreto' => 'Concreto', 'Eternit' => 'Eternit', 'SD' => 'Sin dato');
                 echo $this->Form->input('techo', array(
                     'label' => '¿Cuál es el material predominante del techo?',
@@ -190,8 +172,8 @@
                 ));
             ?>
 					</div>
-                    <div class="form-group col-md-6" style=" margin-top:10px;margin-left: 10px">
-						<?php
+                    <div  class="form-group col-md-6">						
+                        <?php
                 $option = array('' => 'Elegir', 'Buen estado' => 'Buen estado', 'Agrietamiento, goteras o fisuras' => 'Agrietamiento, goteras o fisuras', 'SD' => 'Sin dato');
                 echo $this->Form->input('estadotecho', array(
                     'label' => '¿Cuál es el estado en general del techo?',
@@ -203,8 +185,8 @@
                 ));
             ?>
 					</div>
-					<div class="form-group col-md-6" style=" margin-top:10px;margin-left: 10px">
-						<?php
+                    <div  class="form-group col-md-6">						
+                        <?php
                 $option = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', 'SD' => 'Sin dato');
                 echo $this->Form->input('dormitorios', array(
                     'label' => '¿Cuantos cuartos se utilizan para dormir?',
@@ -215,9 +197,8 @@
                 ));
             ?>
 					</div>
-                    <div class="form-group col-md-6" style=" margin-top:10px;margin-left: 10px">
-										<?php
-								$option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No', '3' => '3', '4' => '4', '5' => '5', 'SD' => 'Sin dato');
+                    <div  class="form-group col-md-6">
+             <?php $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No', '3' => '3', '4' => '4', '5' => '5', 'SD' => 'Sin dato');
 								echo $this->Form->input('hacinamiento', array(
 									'label' => '¿En algunos de los dormitorios de la vivienda duermen tres o mas personas?',
 									'class' => 'form-control',
@@ -227,22 +208,21 @@
 								));
 							?>
 					</div>
-				</div>
-			</div>
 
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Servicios y
-				Riesgos de la vivienda </h2>
+                </div>           
+            </div>
+        </div>
+
+
+        <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
 			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
+			<div class="grow justify-content-center" display="none" style="margin-top:20px">
+				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+        
+                <div class="form-group row">
 
-
-
-			<!-- Latest compiled and minified CSS S -------------------------------------------------------------------->
-
-<div class="grow justify-content-center  " style=" margin-top: 20px;font-size: 12px;">
-		<div class="card col-sm-12;" style="margin-left: 15px;">
-
-        <div class="col-md-6">
+                <div class="col-md-6">
     <?php
     $externalRiskOptions = [
         '' => 'Elegir',
@@ -511,8 +491,43 @@
         'style'=>'font-size: 12px' ,
     ]);
     ?>
-    <br>
-	</div>
+	</div>  
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+			
+
+			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Servicios y Riesgos de la vivienda </h2>
+			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+
+
+
+
+			<!-- Latest compiled and minified CSS S -------------------------------------------------------------------->
+
+<div class="grow justify-content-center  " style=" margin-top: 20px;font-size: 12px;">
+		<div class="card col-sm-12;" style="margin-left: 15px;">
+
+     
 </div>
 
 </div>
