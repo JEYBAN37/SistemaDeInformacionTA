@@ -1,4 +1,4 @@
-<div class="form-group row">
+<div>
 
 	<div class="form-group col-sm-12 ">
 
@@ -9,7 +9,7 @@
 		<fieldset>
      
         <div class="col-12 text-center">
-        <h1  class="titulo-general-pwa-govco" style="color: #3366CC; ">Modulo Familia</h1>     
+        <h1  class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Familia</h1>     
     </div>
 
 			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos del Encuestado</h2>
@@ -626,5 +626,17 @@
 		</div>
 </fieldset>
 
-<?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?></br>
+<?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?>
 </div>
+
+
+<?php
+$this->Html->css([
+    'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
+], ['block' => 'css']);
+$this->Html->script([
+    'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+], ['block' => 'script']);
+?>

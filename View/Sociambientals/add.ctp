@@ -1,4 +1,4 @@
-<div class="form-group row">
+<div>
 
 	<div class="form-group col-sm-12">
 
@@ -9,7 +9,7 @@
 		<fieldset>
 
         <div class="col-12 text-center">
-        <h1  class="titulo-general-pwa-govco" style="color: #3366CC; ">Modulo Sociambiental</h1>     
+        <h1  class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Sociambiental</h1>     
     </div>
 
     <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Basicos</h2>
@@ -34,7 +34,7 @@
 							'class' => 'form-control',
 							'style'=>'font-size: 12px' ,
 							'type' => 'select'
-						)); ?>
+						    )); ?>
 					</div>
 
                     <div class="form-group col-md-6">						<?php echo $this->Form->input('ubicacion_id', array(
@@ -42,7 +42,7 @@
 						'class' => 'form-control',
 						'style'=>'font-size: 12px' ,
 						'type' => 'select'
-					)); ?>
+					    )); ?>
 					</div>
 
                     <div class="form-group col-md-6">						<?php echo $this->Form->input('direccion', array(
@@ -110,6 +110,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
 
         <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
@@ -218,6 +219,296 @@
 			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
+				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+        
+                <div class="form-group row">
+
+                <div class="col-md-6">
+                        <?php
+                        $externalRiskOptions = [
+                            '' => 'Elegir',
+                            'Malos olores' => 'Malos olores',
+                            'Iluminacion inadecuada' => 'Iluminación inadecuada',
+                            'Ventilación inadecuada' => 'Ventilación inadecuada',
+                            'No se identifica' => 'No se identifica',
+                            'SD' => 'Sin dato'
+                        ];
+                        echo $this->Form->input('riesgoexterno', [
+                            'label' => 'Identifique en el entorno si hay:',
+                            'class' => 'form-control',
+                            'type' => 'select',
+                            'options' => $externalRiskOptions,
+                            'style'=>'font-size: 12px' ,
+                        ]);
+                        ?>    
+                        <p class="help-block">Refiere el riesgo más evidente</p>
+                </div>
+
+            <div class="col-md-6">
+                <?php
+                echo $this->Form->input('otroriesgo', [
+                    'label' => 'Registre otro riesgo interno o externo si considera',
+                    'class' => 'form-control',
+                    'style'=>'font-size: 12px' ,
+                ]);
+                ?>
+            </div>
+
+            <div class="col-md-6">
+                <?php
+                $yesNoOptions = [
+                    '' => 'Elegir',
+                    'Si' => 'Si',
+                    'No' => 'No',
+                    'SD' => 'Sin dato'
+                ];
+                echo $this->Form->input('actividad', [
+                    'label' => '¿Hay Actividad productiva en la vivienda?',
+                    'class' => 'form-control',
+                    'type' => 'select',
+                    'options' => $yesNoOptions,
+                    'class' => 'form-control select-search',
+                    'style'=>'font-size: 12px' ,
+                ]);
+                ?>
+            </div>
+
+            <div class="col-md-6">
+                <?php
+                $accessOptions = [
+                    '' => 'Elegir',
+                    'Transporte' => 'Transporte',
+                    'Espacios deportivos' => 'Espacios deportivos',
+                    'Servicios Educativos' => 'Servicios Educativos',
+                    'Servicios Salud' => 'Servicios Salud',
+                    'Ninguno' => 'Ninguno'
+                ];
+                echo $this->Form->input('acceso', [
+                    'label' => '¿En su sector es difícil acceder fácilmente a?',
+                    'class' => 'form-control',
+                    'type' => 'select',
+                    'options' => $accessOptions,
+                    'style'=>'font-size: 12px' ,
+                ]);
+                ?>
+            </div>
+
+            <div class="col-md-6">
+                <?php
+                $transportOptions = [
+                    '' => 'Elegir',
+                    'Moto' => 'Moto',
+                    'Carro' => 'Carro',
+                    'Bus' => 'Bus',
+                    'Bicicleta' => 'Bicicleta',
+                    'Caminar' => 'Caminar'
+                ];
+                echo $this->Form->input('transporte', [
+                    'label' => '¿El Medio de transporte principal que usan en su familia es?',
+                    'class' => 'form-control',
+                    'type' => 'select',
+                    'options' => $transportOptions,
+                    'style'=>'font-size: 12px' ,
+                ]);
+                ?>
+            </div>
+
+            <div class="col-md-6">
+                <?php
+                $accidentRiskOptions = [
+                    '' => 'Elegir',
+                    'Objetos cortantes ' => 'Objetos cortantes ',
+                    'Sustancias químicas_aseo a la vista' => 'Sustancias químicas_aseo a la vista',
+                    'Medicamentos a la vista' => 'Medicamentos a la vista',
+                    'Uso de Velas' => 'Uso de Velas',
+                    'Conexiones Electricas inadecuadas' => 'Conexiones Electricas inadecuadas',
+                    'Ninguno' => 'Ninguno',
+                    'SD' => 'Sin dato'
+                ];
+                echo $this->Form->input('riesgo', [
+                    'label' => 'Identifique en el entorno si hay riesgo de accidente en la vivienda',
+                    'class' => 'form-control',
+                    'type' => 'select',
+                    'options' => $accidentRiskOptions,
+                    'style'=>'font-size: 12px' ,
+                ]);
+                ?>
+            </div>
+
+            <div class="col-md-6">
+                <?php
+                echo $this->Form->input('otroriesgohogar', [
+                    'label' => 'Registre otro riesgo interno o externo si considera',
+                    'class' => 'form-control',
+                    'style'=>'font-size: 12px' 
+                ]);
+                ?>
+            </div>
+
+        <div class="col-md-6">
+            <?php
+            $waterSupplyOptions = [
+                '' => 'Elegir',
+                'Empopasto' => 'Empopasto',
+                'Acueducto Comunitario' => 'Acueducto Comunitario',
+                'Agua enbasada' => 'Agua enbasada'
+            ];
+            echo $this->Form->input('aguaservicio', [
+                'label' => '¿Cuál es la principal fuente de abastecimiento de agua para consumo?',
+                'class' => 'form-control',
+                'type' => 'select',
+                'options' => $waterSupplyOptions,
+                'style'=>'font-size: 12px' ,
+            ]);
+            ?>
+        </div>
+
+        <div class="col-md-6">
+            <?php
+            $waterTreatmentOptions = [
+                '' => 'Elegir',
+                'Directamente del grifo' => 'Directamente del grifo',
+                'Hirve' => 'Hierve',
+                'Filta' => 'Filtra',
+                'Ozonifica' => 'Ozonifica',
+                'Desinfección con cloro' => 'Desinfección con cloro ',
+                'SD' => 'Sin dato'
+            ];
+            echo $this->Form->input('aguatratamiento', [
+                'label' => '¿Realiza algún tratamiento al agua para su consumo?',
+                'class' => 'form-control',
+                'type' => 'select',
+                'options' => $waterTreatmentOptions,
+                'style'=>'font-size: 12px' ,
+            ]);
+            ?>
+        </div>
+
+        <div class="col-md-6">
+            <?php
+            $waterSupplyStatusOptions = [
+                '' => 'Elegir',
+                'Premanentemente' => 'Premanentemente',
+                'Intermitente' => 'Intermitente',
+                'Razonamientos prolongados' => 'Razonamientos prolongados',
+                'SD' => 'Sin dato'
+            ];
+            echo $this->Form->input('aguasiministro', [
+                'label' => '¿El suministro de agua es?',
+                'class' => 'form-control',
+                'type' => 'select',
+                'options' => $waterSupplyStatusOptions,
+                'style'=>'font-size: 12px' ,
+            ]);
+            ?>
+        </div>
+
+        <div class="col-md-6">
+            <?php
+            $tankCleaningOptions = [
+                '' => 'Elegir',
+                'No tiene tanque' => 'No tiene tanque',
+                'Mensual' => 'Mensual',
+                'Semestral' => 'Semestral',
+                'No realiza lavado' => 'No realiza lavado',
+                'SD' => 'Sin dato'
+            ];
+            echo $this->Form->input('aguaalmacenamiento', [
+                'label' => '¿Lavado del tanque de almacenamiento de agua?',
+                'class' => 'form-control',
+                'type' => 'select',
+                'options' => $tankCleaningOptions,
+                'style'=>'font-size: 12px' ,
+            ]);
+            ?>
+        </div>
+
+        <div class="col-md-6">
+            <?php
+            $excretaDisposalOptions = [
+                '' => 'Elegir',
+                'Inodoro conectado a alcantarillado' => 'Inodoro conectado a alcantarillado',
+                'Campo abierto' => 'Campo abierto',
+                'Basenilla, bolsas' => 'Basenilla, Bolsas'
+            ];
+            echo $this->Form->input('diposicionexcretas', [
+                'label' => 'Disposición de excretas en la vivienda',
+                'class' => 'form-control',
+                'type' => 'select',
+                'options' => $excretaDisposalOptions,
+                'style'=>'font-size: 12px' ,
+            ]);
+            ?>
+        </div>
+
+        <div class="col-md-6">
+            <?php
+            $domesticWaterOptions = [
+                '' => 'Elegir',
+                'Conexión alcantarillado' => 'Conexión alcantarillado',
+                'Campo Abierto ' => 'Campo Abierto'
+            ];
+            echo $this->Form->input('aguaresiduales', [
+                'label' => 'Aguas residuales domésticas',
+                'class' => 'form-control',
+                'type' => 'select',
+                'options' => $domesticWaterOptions,
+                'style'=>'font-size: 12px' ,
+            ]);
+            ?>
+        </div>
+
+        <div class="col-md-6">
+            <?php
+            $garbageDisposalOptions = [
+                '' => 'Elegir',
+                'Recolección por Emas' => 'Recolección por Emas',
+                'Disposición a campo abierto' => 'Disposición a campo abierto'
+            ];
+            echo $this->Form->input('basura', [
+                'label' => 'Disposición final de basura',
+                'class' => 'form-control',
+                'type' => 'select',
+                'options' => $garbageDisposalOptions,
+                'style'=>'font-size: 12px' ,
+            ]);
+            ?>
+        </div>
+
+        <div class="col-md-6">
+            <?php
+            $recyclingOptions = [
+                '' => 'Elegir',
+                'Si' => 'Si',
+                'No' => 'No',
+                'ocasionalmente' => 'Ocasionalmente',
+                'SD' => 'Sin dato'
+            ];
+            echo $this->Form->input('reciclaje', [
+                'label' => '¿Se realiza el proceso de separación de los residuos en la fuente?',
+                'class' => 'form-control',
+                'type' => 'select',
+                'options' => $recyclingOptions,
+                'style'=>'font-size: 12px' ,
+            ]);
+            ?>
+            </div>  
+             </div>
+     </div>
+     </div>
+
+
+			
+
+			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Servicios y Riesgos de la vivienda </h2>
+			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+
+
+
+
+			<!-- Latest compiled and minified CSS S -------------------------------------------------------------------->
+
+            <div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
         
                 <div class="form-group row">
@@ -496,9 +787,9 @@
             </div>
         </div>
 
-        <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Mascotas en el Hogar</h2>
-			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
+<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Mascotas en el hogar </h2>
+			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 <div class="col-md-4">
 		<select id="status" name="status" required onChange="mostrar(this.value);"
@@ -508,11 +799,17 @@
 							 
 						 </select>
 </div>	
-
-				<div class="grow justify-content-center" style="margin-top: -10px; font-size: 12px;">		  
-    <div id="si" class="panel panel-default form-group col-md-12" style="margin-left: 15px; display: none;"><br>
 					
-    <div class="form-group col-md-6">
+				
+				<div class="grow justify-content-center" style="margin-top: -10px; font-size: 12px;">
+
+				
+			   
+			  
+    <div id="si" class="panel panel-default form-group col-md-12" style="margin-left: 15px; display: none;">
+					
+
+        <div class="col-md-6">
             <?php
             $mascotaOption = ['' => 'Elegir','No aplica' => 'No tiene', 'Perros' => 'Perros', 'Gatos' => 'Gatos','Aves' => 'Aves','Cerdos' => 'Cerdos','Cuyes_conejos' => 'Cuyes/conejos','Otro' => 'Otro'];
             echo $this->Form->input('mascotas', [
@@ -524,7 +821,7 @@
             ]);
             ?>
         </div>
-        <div class="form-group col-md-6">
+        <div class="col-md-6">
             <?php
 			 $option1 = ['No aplica ' => 'Elegir','No aplica' => 'No Aplica', 'Perros' => 'Perros', 'Gatos' => 'Gatos','Aves' => 'Aves','Otro' => 'Otro'];
             echo $this->Form->input('otramascota', [
@@ -536,7 +833,7 @@
             ]);
             ?>
         </div>
-        <div class="form-group col-md-6">
+        <div class="col-md-6">
             <?php
 			$cuidadoMascotaOptions = [
 				'No aplica' => 'Elegir',
@@ -553,7 +850,7 @@
             ]);
             ?>
         </div>
-        <div class="form-group col-md-6">
+        <div class="col-md-6">
             <?php
             echo $this->Form->input('vacunamascotas', [
                 'label' => '¿Se ha vacunado a los animales domésticos?',
@@ -564,7 +861,7 @@
             ]);
             ?>
         </div>
-        <div class="form-group col-md-6">
+        <div class="col-md-6">
             <?php
             echo $this->Form->input('cuidadomascotas', [
                 'label' => '¿Las excretas de los animales de compañía se recogen y disponen adecuadamente? ',
@@ -575,7 +872,7 @@
             ]);
             ?>
         </div>
-        <div class="form-group col-md-6">
+        <div class="col-md-6">
             <?php
 			 $vectoresOption = ['No aplica ' => 'Elegir','No aplica' => 'No Aplica', 'Mosicos' => 'Moscos', 'Zancudos' => 'Zancudos','Pulgas' => 'Pulgas','Piojos' => 'Piojos','Ratones' => 'Ratones','Cucarachas' => 'Cucarachas'];
             echo $this->Form->input('vector', [
@@ -586,23 +883,25 @@
                 'style'=>'font-size: 12px' ,
             ]);
             ?>
-        </div></br>
+        </div>
 
 
     </div>
 
-    <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?></br>
+    <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?>
 
 </div>
-		</fieldset>
 
+
+		</fieldset>
+    </div>
 	</div>
 
-</div>
 
 
 
-</div>
+
+
 <!--div class="actions col-md-2">
 	<h3>
 		<?php echo __('Actions',array('label' => 'No. Habitantes en la residencia','class' => 'form-control','type' => 'select', 'options' => $option, 'class' => 'form-control select-search')); ?>
@@ -628,6 +927,16 @@
 </div-->
 
 
+<?php
+$this->Html->css([
+    'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
+], ['block' => 'css']);
+$this->Html->script([
+    'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+], ['block' => 'script']);
+?>
 <script type="text/javascript">
     $(document).ready(function() {
         $('.select-search').select2();
