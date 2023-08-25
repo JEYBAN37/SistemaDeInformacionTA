@@ -222,7 +222,7 @@
         
                 <div class="form-group row">
 
-                <div class="col-md-6">
+                <div class="form-group col-md-6">
     <?php
     $externalRiskOptions = [
         '' => 'Elegir',
@@ -243,7 +243,7 @@
     <p class="help-block">Refiere el riesgo más evidente</p>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     echo $this->Form->input('otroriesgo', [
         'label' => 'Registre otro riesgo interno o externo si considera',
@@ -253,7 +253,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     $yesNoOptions = [
         '' => 'Elegir',
@@ -272,7 +272,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     $accessOptions = [
         '' => 'Elegir',
@@ -292,7 +292,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     $transportOptions = [
         '' => 'Elegir',
@@ -312,7 +312,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     $accidentRiskOptions = [
         '' => 'Elegir',
@@ -334,7 +334,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     echo $this->Form->input('otroriesgohogar', [
         'label' => 'Registre otro riesgo interno o externo si considera',
@@ -344,7 +344,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     $waterSupplyOptions = [
         '' => 'Elegir',
@@ -362,7 +362,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     $waterTreatmentOptions = [
         '' => 'Elegir',
@@ -383,7 +383,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     $waterSupplyStatusOptions = [
         '' => 'Elegir',
@@ -402,7 +402,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     $tankCleaningOptions = [
         '' => 'Elegir',
@@ -422,7 +422,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     $excretaDisposalOptions = [
         '' => 'Elegir',
@@ -440,7 +440,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     $domesticWaterOptions = [
         '' => 'Elegir',
@@ -457,7 +457,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     $garbageDisposalOptions = [
         '' => 'Elegir',
@@ -474,7 +474,7 @@
     ?>
 </div>
 
-<div class="col-md-6">
+<div class="form-group col-md-6">
     <?php
     $recyclingOptions = [
         '' => 'Elegir',
@@ -496,43 +496,9 @@
             </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-
-
-			
-
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Servicios y Riesgos de la vivienda </h2>
+        <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Mascotas en el Hogar</h2>
 			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
-
-
-
-			<!-- Latest compiled and minified CSS S -------------------------------------------------------------------->
-
-<div class="grow justify-content-center  " style=" margin-top: 20px;font-size: 12px;">
-		<div class="card col-sm-12;" style="margin-left: 15px;">
-
-     
-</div>
-
-</div>
-<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Mascotas en el hogar </h2>
-			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 <div class="col-md-4">
 		<select id="status" name="status" required onChange="mostrar(this.value);"
@@ -541,19 +507,12 @@
 							 <option value="si">SI</option>
 							 
 						 </select>
-</div>	</h2>
-					
-				</br>
+</div>	
 
-				<div class="grow justify-content-center" style="margin-top: -10px; font-size: 12px;">
-
-				
-			   
-			  
+				<div class="grow justify-content-center" style="margin-top: -10px; font-size: 12px;">		  
     <div id="si" class="panel panel-default form-group col-md-12" style="margin-left: 15px; display: none;"><br>
 					
-
-        <div class="col-md-6">
+    <div class="form-group col-md-6">
             <?php
             $mascotaOption = ['' => 'Elegir','No aplica' => 'No tiene', 'Perros' => 'Perros', 'Gatos' => 'Gatos','Aves' => 'Aves','Cerdos' => 'Cerdos','Cuyes_conejos' => 'Cuyes/conejos','Otro' => 'Otro'];
             echo $this->Form->input('mascotas', [
@@ -565,7 +524,7 @@
             ]);
             ?>
         </div>
-        <div class="col-md-6">
+        <div class="form-group col-md-6">
             <?php
 			 $option1 = ['No aplica ' => 'Elegir','No aplica' => 'No Aplica', 'Perros' => 'Perros', 'Gatos' => 'Gatos','Aves' => 'Aves','Otro' => 'Otro'];
             echo $this->Form->input('otramascota', [
@@ -577,7 +536,7 @@
             ]);
             ?>
         </div>
-        <div class="col-md-6">
+        <div class="form-group col-md-6">
             <?php
 			$cuidadoMascotaOptions = [
 				'No aplica' => 'Elegir',
@@ -594,7 +553,7 @@
             ]);
             ?>
         </div>
-        <div class="col-md-6">
+        <div class="form-group col-md-6">
             <?php
             echo $this->Form->input('vacunamascotas', [
                 'label' => '¿Se ha vacunado a los animales domésticos?',
@@ -605,7 +564,7 @@
             ]);
             ?>
         </div>
-        <div class="col-md-6">
+        <div class="form-group col-md-6">
             <?php
             echo $this->Form->input('cuidadomascotas', [
                 'label' => '¿Las excretas de los animales de compañía se recogen y disponen adecuadamente? ',
@@ -616,7 +575,7 @@
             ]);
             ?>
         </div>
-        <div class="col-md-6">
+        <div class="form-group col-md-6">
             <?php
 			 $vectoresOption = ['No aplica ' => 'Elegir','No aplica' => 'No Aplica', 'Mosicos' => 'Moscos', 'Zancudos' => 'Zancudos','Pulgas' => 'Pulgas','Piojos' => 'Piojos','Ratones' => 'Ratones','Cucarachas' => 'Cucarachas'];
             echo $this->Form->input('vector', [
@@ -635,8 +594,6 @@
     <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?></br>
 
 </div>
-
-
 		</fieldset>
 
 	</div>
