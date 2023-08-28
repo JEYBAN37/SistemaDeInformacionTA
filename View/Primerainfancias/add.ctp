@@ -214,7 +214,7 @@
             </div>
 
             <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atencion en Salud</h2>
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -434,7 +434,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    
         </fieldset>
 
 
@@ -442,6 +442,7 @@
 
     </div>
     <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?>
+</div>
 </div>
 
 <!--div class="actions">
