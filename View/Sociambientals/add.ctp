@@ -880,7 +880,7 @@
                 </div>
             </div>
         </fieldset>
-        <?php echo $this->Form->end(__('Guardar'), ['class' => 'btn btn-success']); ?>
+        <?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
     </div>
 </div>
 
@@ -896,19 +896,19 @@
 	<ul>
 
 		<li>
-			<?php echo $this->Html->link(__('List Sociambientals'), array('action' => 'index')); ?>
+			<?php echo $this->Html->link(('List Sociambientals'), array('action' => 'index')); ?>
 		</li>
 		<li>
-			<?php echo $this->Html->link(__('List Responsables'), array('controller' => 'responsables', 'action' => 'index')); ?>
+			<?php echo $this->Html->link(('List Responsables'), array('controller' => 'responsables', 'action' => 'index')); ?>
 		</li>
 		<li>
-			<?php echo $this->Html->link(__('New Responsable'), array('controller' => 'responsables', 'action' => 'add')); ?>
+			<?php echo $this->Html->link(('New Responsable'), array('controller' => 'responsables', 'action' => 'add')); ?>
 		</li>
 		<li>
-			<?php echo $this->Html->link(__('List Ubicaciones'), array('controller' => 'ubicaciones', 'action' => 'index')); ?>
+			<?php echo $this->Html->link(('List Ubicaciones'), array('controller' => 'ubicaciones', 'action' => 'index')); ?>
 		</li>
 		<li>
-			<?php echo $this->Html->link(__('New Ubicacion'), array('controller' => 'ubicaciones', 'action' => 'add')); ?>
+			<?php echo $this->Html->link(('New Ubicacion'), array('controller' => 'ubicaciones', 'action' => 'add')); ?>
 		</li>
 	</ul>
 </div-->
