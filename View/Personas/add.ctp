@@ -1,6 +1,6 @@
 <div>
 	<div class="form-group col-sm-12">
-		<?php echo $this->Form->create('Infantil'); ?>
+		<?php echo $this->Form->create('Persona'); ?>
 		<fieldset>
 			<div class="col-12 text-center">
 				<h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Persona</h1>
@@ -12,11 +12,17 @@
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 					<div class="form-group row">
 						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('tipodocumento', [
-								'label' => 'tipo de documento',
+							<?php
+							$TipoDeDocumentoOptions = array('' => 'Elegir', 'Casa_Apto.' => 'Casa/Apartamento', 'Pieza' => 'Pieza', 'Cuarto improvisado' => 'Cuarto improvisado');
+							echo $this->Form->input('tipodocumento', array(
+								'label' => 'Tipo de Documento:',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-							]);  ?>
+								'style' => 'font-size: 12px;',
+								'placeholder' => '',
+								'type' => 'select',
+								'options' => $TipoDeDocumentoOptions
+							));
+							?>
 						</div>
 
 						<div class="form-group col-md-6">
