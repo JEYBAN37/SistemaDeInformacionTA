@@ -8,18 +8,20 @@ App::uses('AppModel', 'Model');
  * @property Victima $Victima
  * @property Primerainfancia $Primerainfancia
  */
-class Familia extends AppModel {
+class Familia extends AppModel
+{
 
 	public $virtualFields = array(
-		'apellidosfamilia' => 'CONCAT(Familia.sociambiental_id, " ", Familia.hogar, " ", Familia.nombres, " ", Familia.apellidos)'); 
-		 public $displayField = 'apellidosfamilia';
+		'apellidosfamilia' => 'CONCAT(Familia.sociambiental_id, " ", Familia.hogar, " ", Familia.nombres, " ", Familia.apellidos)'
+	);
+	public $displayField = 'apellidosfamilia';
 
 
-/**
- * Validation rules
- *
- * @var array
- */
+	/**
+	 * Validation rules
+	 *
+	 * @var array
+	 */
 	public $validate = array(
 		'sociambiental_id' => array(
 			'numeric' => array(
@@ -40,7 +42,7 @@ class Familia extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),'nombres' => array(
+		), 'nombres' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -89,7 +91,7 @@ class Familia extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),'celular' => array(
+		), 'celular' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -310,16 +312,16 @@ class Familia extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		
+
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-/**
- * belongsTo associations
- *
- * @var array
- */
+	/**
+	 * belongsTo associations
+	 *
+	 * @var array
+	 */
 	public $belongsTo = array(
 		'Sociambiental' => array(
 			'className' => 'Sociambiental',
@@ -328,14 +330,14 @@ class Familia extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-		
+
 	);
 
-/**
- * hasMany associations
- *
- * @var array
- */
+	/**
+	 * hasMany associations
+	 *
+	 * @var array
+	 */
 	public $hasMany = array(
 		'Primerainfancia' => array(
 			'className' => 'Primerainfancia',
@@ -351,5 +353,4 @@ class Familia extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
 }

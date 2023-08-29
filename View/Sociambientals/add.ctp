@@ -12,8 +12,12 @@
                 <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Sociambiental</h1>
             </div>
 
+<<<<<<< HEAD
             <h2 class="titulo-general-pwa-govco col-md-12  "
                 style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Basicos</h2>
+=======
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Basicos</h2>
+>>>>>>> origin/feautre/responsiveSociambientals
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -38,6 +42,7 @@
                             )); ?>
                         </div>
 
+<<<<<<< HEAD
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('ubicacion_id', array(
                                 'label' => 'Territorio',
@@ -100,6 +105,64 @@
                                 'placeholder' => '',
                                 'options' => $numhabitantesOptions
                             )); ?>
+=======
+                        <div class="form-group col-md-6"> <?php echo $this->Form->input('ubicacion_id', array(
+                                                                'label' => 'Territorio',
+                                                                'class' => 'form-control',
+                                                                'style' => 'font-size: 12px',
+                                                                'type' => 'select'
+                                                            )); ?>
+                        </div>
+
+                        <div class="form-group col-md-6"> <?php echo $this->Form->input('direccion', array(
+                                                                'label' => 'Dirección',
+                                                                'class' => 'form-control',
+                                                                'style' => 'font-size: 12px',
+                                                            )); ?>
+                        </div>
+
+                        <div class="form-group col-md-6"> <?php echo $this->Form->input('apellidosfamilia', array(
+                                                                'label' => 'Apellidos de la familia',
+                                                                'class' => 'form-control',
+                                                                'style' => 'font-size: 12px',
+                                                            )); ?>
+                        </div>
+
+                        <div class="form-group col-md-6"> <?php
+                                                            $viviendaOptions = array('' => 'Elegir', 'Casa_Apto.' => 'Casa/Apartamento', 'Pieza' => 'Pieza', 'Cuarto improvisado' => 'Cuarto improvisado');
+                                                            echo $this->Form->input('vivienda', array(
+                                                                'label' => 'Tipo de vivienda:',
+                                                                'class' => 'form-control',
+                                                                'style' => 'font-size: 12px;',
+                                                                'placeholder' => '',
+                                                                'type' => 'select',
+                                                                'options' => $viviendaOptions
+                                                            ));
+                                                            ?>
+                        </div>
+
+                        <div class="form-group col-md-6"> <?php
+                                                            $estratoOptions = array('' => 'Elegir', '1' => '1', '2' => '2');
+                                                            echo $this->Form->input('estrato', array(
+                                                                'class' => 'form-control',
+                                                                'style' => 'font-size: 12px;',
+                                                                'placeholder' => '',
+                                                                'type' => 'select',
+                                                                'options' => $estratoOptions
+                                                            ));
+                                                            ?>
+                        </div>
+
+                        <div class="form-group col-md-6"> <?php
+                                                            $numhabitantesOptions = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => 'Mas de 7');
+                                                            echo $this->Form->input('numerohabitantes', array(
+                                                                'label' => '¿Cuantas personas habitan en la vivienda',
+                                                                'class' => 'form-control',
+                                                                'style' => 'font-size: 12px;',
+                                                                'placeholder' => '',
+                                                                'options' => $numhabitantesOptions
+                                                            )); ?>
+>>>>>>> origin/feautre/responsiveSociambientals
                         </div>
 
                         <div class="form-group col-md-6">
@@ -120,8 +183,12 @@
             </div>
 
 
+<<<<<<< HEAD
             <h2 class="titulo-general-pwa-govco col-md-12  "
                 style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
+=======
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
+>>>>>>> origin/feautre/responsiveSociambientals
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -151,7 +218,11 @@
                                 'style' => 'font-size: 12px',
                                 'type' => 'select',
                                 'options' => $option,
+<<<<<<< HEAD
 
+=======
+                                'class' => 'form-control select-search'
+>>>>>>> origin/feautre/responsiveSociambientals
                             ));
                             ?>
                         </div>
@@ -164,7 +235,11 @@
                                 'style' => 'font-size: 12px',
                                 'type' => 'select',
                                 'options' => $option,
+<<<<<<< HEAD
 
+=======
+                                'class' => 'form-control select-search'
+>>>>>>> origin/feautre/responsiveSociambientals
                             ));
                             ?>
                         </div>
@@ -223,8 +298,12 @@
             </div>
 
 
+<<<<<<< HEAD
             <h2 class="titulo-general-pwa-govco col-md-12  "
                 style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
+=======
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
+>>>>>>> origin/feautre/responsiveSociambientals
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -509,8 +588,12 @@
 
 
 
+<<<<<<< HEAD
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Servicios y
                 Riesgos de la vivienda </h2>
+=======
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Servicios y Riesgos de la vivienda </h2>
+>>>>>>> origin/feautre/responsiveSociambientals
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 
@@ -798,6 +881,7 @@
             </div>
 
 
+<<<<<<< HEAD
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Mascotas en el
                 hogar </h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
@@ -805,6 +889,13 @@
             <div class="col-md-4">
                 <select id="status" name="status" required onChange="mostrar(this.value);"
                     style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
+=======
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Mascotas en el hogar </h2>
+            <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+
+            <div class="col-md-4">
+                <select id="status" name="status" required onChange="mostrar(this.value);" style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
+>>>>>>> origin/feautre/responsiveSociambientals
                     <option value="no">NO</option>
                     <option value="si">SI</option>
 
@@ -813,6 +904,7 @@
 
 
             <div class="grow justify-content-center" style="margin-top: -10px; font-size: 12px;">
+<<<<<<< HEAD
 
 
 
@@ -821,6 +913,9 @@
                 <div id="si" class="panel panel-default form-group col-md-12" style="margin-left: 15px; display: none;">
 
 
+=======
+                <div id="si" class="panel panel-default form-group col-md-12" style="margin-left: 15px; display: none;">
+>>>>>>> origin/feautre/responsiveSociambientals
                     <div class="col-md-6">
                         <?php
                         $mascotaOption = ['' => 'Elegir', 'No aplica' => 'No tiene', 'Perros' => 'Perros', 'Gatos' => 'Gatos', 'Aves' => 'Aves', 'Cerdos' => 'Cerdos', 'Cuyes_conejos' => 'Cuyes/conejos', 'Otro' => 'Otro'];
@@ -896,6 +991,7 @@
                         ]);
                         ?>
                     </div>
+<<<<<<< HEAD
 
 
                 </div>
@@ -906,6 +1002,12 @@
 
 
         </fieldset>
+=======
+                </div>
+            </div>
+        </fieldset>
+        <?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
+>>>>>>> origin/feautre/responsiveSociambientals
     </div>
 </div>
 
@@ -921,19 +1023,19 @@
 	<ul>
 
 		<li>
-			<?php echo $this->Html->link(__('List Sociambientals'), array('action' => 'index')); ?>
+			<?php echo $this->Html->link(('List Sociambientals'), array('action' => 'index')); ?>
 		</li>
 		<li>
-			<?php echo $this->Html->link(__('List Responsables'), array('controller' => 'responsables', 'action' => 'index')); ?>
+			<?php echo $this->Html->link(('List Responsables'), array('controller' => 'responsables', 'action' => 'index')); ?>
 		</li>
 		<li>
-			<?php echo $this->Html->link(__('New Responsable'), array('controller' => 'responsables', 'action' => 'add')); ?>
+			<?php echo $this->Html->link(('New Responsable'), array('controller' => 'responsables', 'action' => 'add')); ?>
 		</li>
 		<li>
-			<?php echo $this->Html->link(__('List Ubicaciones'), array('controller' => 'ubicaciones', 'action' => 'index')); ?>
+			<?php echo $this->Html->link(('List Ubicaciones'), array('controller' => 'ubicaciones', 'action' => 'index')); ?>
 		</li>
 		<li>
-			<?php echo $this->Html->link(__('New Ubicacion'), array('controller' => 'ubicaciones', 'action' => 'add')); ?>
+			<?php echo $this->Html->link(('New Ubicacion'), array('controller' => 'ubicaciones', 'action' => 'add')); ?>
 		</li>
 	</ul>
 </div-->
@@ -956,6 +1058,10 @@ $(document).ready(function() {
 });
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/feautre/responsiveSociambientals
 
 
 function agregarOpcionSeleccion() {
@@ -1007,5 +1113,20 @@ function moduloSocioamabiental(id) {
         $("#revisar").show();
 
     }
+<<<<<<< HEAD
 }
+=======
+
+    function moduloSocioamabiental(id) {
+        if (id == "completo") {
+            $("#completo").show();
+            $("#revisar").hide();
+
+        } else if (id == "revisar") {
+            $("#completo").hide();
+            $("#revisar").show();
+
+        }
+    }
+>>>>>>> origin/feautre/responsiveSociambientals
 </script>
