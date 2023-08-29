@@ -5,15 +5,17 @@ App::uses('AppModel', 'Model');
  *
  * @property Sociambiental $Sociambiental
  */
-class Responsable extends AppModel {
+class Responsable extends AppModel
+{
 	public $virtualFields = array(
-		'apellidosnombre' => 'CONCAT(responsable.nombres)'); 
-			 public $displayField = 'apellidosnombre';
-/**
- * Validation rules
- *
- * @var array
- */
+		'apellidosnombre' => 'CONCAT(responsable.nombres)'
+	);
+	public $displayField = 'apellidosnombre';
+	/**
+	 * Validation rules
+	 *
+	 * @var array
+	 */
 	public $validate = array(
 		'tipodoc' => array(
 			'notEmpty' => array(
@@ -119,11 +121,11 @@ class Responsable extends AppModel {
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-/**
- * hasMany associations
- *
- * @var array
- */
+	/**
+	 * hasMany associations
+	 *
+	 * @var array
+	 */
 	public $hasMany = array(
 		'Sociambiental' => array(
 			'className' => 'Sociambiental',
@@ -139,5 +141,4 @@ class Responsable extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
 }
