@@ -7,33 +7,40 @@ App::uses('AppController', 'Controller');
  * @property PaginatorComponent $Paginator
  * @property SessionComponent $Session
  */
-class FamiliasController extends AppController {
+class FamiliasController extends AppController
+{
 
-/**
- * Components
- *
- * @var array
- */
+	/**
+	 * Components
+	 *
+	 * @var array
+	 */
 	public $components = array('Paginator', 'Session');
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
+	/**
+	 * index method
+	 *
+	 * @return void
+	 */
+	public function index()
+	{
 		$this->Familia->recursive = 0;
-		$this->set('familias', $this->Paginator->paginate());
+
+		$count = $this->Familia->find('count');
+		$this->Paginator->settings['limit'] = $count;
+
+		$this->set("familias", $this->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
+	/**
+	 * view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function view($id = null)
+	{
 		if (!$this->Familia->exists($id)) {
 			throw new NotFoundException(__('Invalid familia'));
 		}
@@ -41,34 +48,52 @@ class FamiliasController extends AppController {
 		$this->set('familia', $this->Familia->find('first', $options));
 	}
 
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
+	/**
+	 * add method
+	 *
+	 * @return void
+	 */
+	public function add()
+	{
 		if ($this->request->is('post')) {
 			$this->Familia->create();
 			if ($this->Familia->save($this->request->data)) {
 				$this->Session->setFlash(__('The familia has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The familia could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The plsmomento could not be saved. Please, try again.'));
 			}
+			$sociambientals = $this->Familia->Sociambiental->find('list', array('order' => array('sociambiental.id' => 'desc')));
+
+			$this->set(compact('sociambientals'));
 		}
-		$sociambientals = $this->Familia->Sociambiental->find('list');
-		
-		$this->set(compact('sociambientals'));
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
+	public function addnew()
+	{
+		if ($this->request->is('post')) {
+			$this->Familia->create();
+			if ($this->Familia->save($this->request->data)) {
+				$this->Session->setFlash(__('The familia has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The plsmomento could not be saved. Please, try again.'));
+			}
+			$sociambientals = $this->Familia->Sociambiental->find('list', array('order' => array('sociambiental.id' => 'desc')));
+
+			$this->set(compact('sociambientals'));
+		}
+	}
+
+	/**
+	 * edit method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function edit($id = null)
+	{
 		if (!$this->Familia->exists($id)) {
 			throw new NotFoundException(__('Invalid familia'));
 		}
@@ -84,18 +109,19 @@ class FamiliasController extends AppController {
 			$this->request->data = $this->Familia->find('first', $options);
 		}
 		$sociambientals = $this->Familia->Sociambiental->find('list');
-		
+
 		$this->set(compact('sociambientals'));
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
+	/**
+	 * delete method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function delete($id = null)
+	{
 		$this->Familia->id = $id;
 		if (!$this->Familia->exists()) {
 			throw new NotFoundException(__('Invalid familia'));

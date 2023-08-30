@@ -6,18 +6,20 @@ App::uses('AppModel', 'Model');
  * @property Responsable $Responsable
  * @property Ubicacion $Ubicacion
  */
-class Sociambiental extends AppModel {
+class Sociambiental extends AppModel
+{
 	public $useTable = 'sociambientals';
 
 	public $virtualFields = array(
-		'apellidosfamilia' => 'CONCAT(Sociambiental.apellidosfamilia)'); 
-		 public $displayField = 'apellidosfamilia';
+		'apellidosfamilia' => 'CONCAT(Sociambiental.apellidosfamilia)'
+	);
+	public $displayField = 'apellidosfamilia';
 
-/**
- * Validation rules
- *
- * @var array
- */
+	/**
+	 * Validation rules
+	 *
+	 * @var array
+	 */
 	public $validate = array(
 		'fecha' => array(
 			'date' => array(
@@ -59,8 +61,8 @@ class Sociambiental extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		
-		
+
+
 		'estrato' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
@@ -141,7 +143,7 @@ class Sociambiental extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		
+
 		'hacinamiento' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -302,8 +304,18 @@ class Sociambiental extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		
+
 		'mascotas' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'otramascota' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -353,18 +365,18 @@ class Sociambiental extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		
-		
+
+
 	);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-/**
- * belongsTo associations
- *
- * @var array
+	/**
+	 * belongsTo associations
+	 *
+	 * @var array
 
- */
+	 */
 	public $belongsTo = array(
 		'Responsable' => array(
 			'className' => 'Responsable',

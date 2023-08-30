@@ -40,7 +40,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     <?php echo $this->Html->charset(); ?>
     <meta name="description" content="">
     <meta name="author" content="">
-     
+
 
     <title>Sistematización de proceso formactivo-Ciudad Bienestar </title>
 
@@ -52,8 +52,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     //echo $this->Html->css(array('bootstrap.min.css', 'bootstrap-theme.css', 'sb-admin-2.css', 'font-awesome.min.css', 'metisMenu.min.css','dataTables.bootstrap.css','dataTables.responsive.css'));
     //echo $this->Html->script(array('jquery', 'jquery.min', 'docs.min', 'metisMenu.min', 'sb-admin-2', 'bootstrap.min','dataTables.bootstrap.min','dataTables.responsive','jquery.dataTables.min'));
 
-    echo $this->Html->css(array('bootstrap.min.css', 'bootstrap-theme.css', 'sb-admin-2.css', 'font-awesome.min.css', 'metisMenu.min.css' ));
-    echo $this->Html->script(array('jquery', 'jquery.min', 'docs.min', 'metisMenu.min', 'sb-admin-2', 'bootstrap.min','jquery.dataTables.min'));
+    echo $this->Html->css(array('bootstrap.min.css', 'bootstrap-theme.css', 'sb-admin-2.css', 'font-awesome.min.css', 'metisMenu.min.css'));
+    echo $this->Html->script(array('jquery', 'jquery.min', 'docs.min', 'metisMenu.min', 'sb-admin-2', 'bootstrap.min', 'jquery.dataTables.min'));
 
     echo $this->fetch('css');
     echo $this->fetch('script');
@@ -61,11 +61,13 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     ?>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-    
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
+    </script>
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css">
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
-    
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js">
+    </script>
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
@@ -74,47 +76,47 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <body>
 
 
-    
+
 
     <div class="row">
-   
+
 
         <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-body">
+
+            <div class="panel-body">
 
 
-                    <div class="table-responsive">
+                <div class="table-responsive">
 
 
 
-                        <?php echo $this->Session->flash(); ?>
+                    <?php echo $this->Session->flash(); ?>
 
 
-                        <?php echo $this->fetch('content'); ?>
+                    <?php echo $this->fetch('content'); ?>
 
-                        <table>
-                            <tr>
+                    <table>
+                        <tr>
 
-                                <td style="font-style: inherit;font-family: serif;">
-                                    <?php
-                                    $usr = $this->Session->read("usr");
-                                    if (isset($usr)) {
-                                        echo __('Sesion: ');
-                                        echo $usr . "<br/>";
-                                    }
-                                    ?>
-                                </td>
+                            <td style="font-style: inherit;font-family: serif;">
+                                <?php
+                                $usr = $this->Session->read("usr");
+                                if (isset($usr)) {
+                                    echo __('Sesion: ');
+                                    echo $usr . "<br/>";
+                                }
+                                ?>
+                            </td>
 
-                            </tr>
-
-
-                        </table>
+                        </tr>
 
 
-                    </div>
+                    </table>
+
+
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -149,8 +151,4 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         document.body.removeChild(aux);
     }
     //]]>
-
-
-    
 </script>
-

@@ -6,33 +6,36 @@ App::uses('AppController', 'Controller');
  * @property Sociambiental $Sociambiental
  * @property PaginatorComponent $Paginator
  */
-class SociambientalsController extends AppController {
+class SociambientalsController extends AppController
+{
 
-/**
- * Components
- *
- * @var array
- */
+	/**
+	 * Components
+	 *
+	 * @var array
+	 */
 	public $components = array('Paginator');
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
+	/**
+	 * index method
+	 *
+	 * @return void
+	 */
+	public function index()
+	{
 		$this->Sociambiental->recursive = 0;
 		$this->set('sociambientals', $this->Paginator->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
+	/**
+	 * view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function view($id = null)
+	{
 		if (!$this->Sociambiental->exists($id)) {
 			throw new NotFoundException(__('Invalid sociambiental'));
 		}
@@ -40,17 +43,19 @@ class SociambientalsController extends AppController {
 		$this->set('sociambiental', $this->Sociambiental->find('first', $options));
 	}
 
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
+	/**
+	 * add method
+	 *
+	 * @return void
+	 */
+	public function add()
+	{
 		if ($this->request->is('post')) {
 			$this->Sociambiental->create();
 			if ($this->Sociambiental->save($this->request->data)) {
 				$this->Session->setFlash(__('The sociambiental has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				//return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'Familias', 'action' => 'add?hogar=' . $this->Sociambiental->id));
 			} else {
 				$this->Session->setFlash(__('The sociambiental could not be saved. Please, try again.'));
 			}
@@ -60,14 +65,15 @@ class SociambientalsController extends AppController {
 		$this->set(compact('responsables', 'ubicaciones'));
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
+	/**
+	 * edit method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function edit($id = null)
+	{
 		if (!$this->Sociambiental->exists($id)) {
 			throw new NotFoundException(__('Invalid sociambiental'));
 		}
@@ -87,14 +93,15 @@ class SociambientalsController extends AppController {
 		$this->set(compact('responsables', 'ubicaciones'));
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
+	/**
+	 * delete method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function delete($id = null)
+	{
 		$this->Sociambiental->id = $id;
 		if (!$this->Sociambiental->exists()) {
 			throw new NotFoundException(__('Invalid sociambiental'));
