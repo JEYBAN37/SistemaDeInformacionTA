@@ -109,21 +109,19 @@
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
                     <div class="form-group row">
-
                         <div class="form-group col-md-6">
                             <?php
+
                             echo $this->Form->input('sociambiental_id', [
-                                'label' => 'ID_Familia/N° Hogar/Nombres',
+                                'label' => 'Apellido de la Familia',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
                                 'class' => 'form-control select-search',
-                                'style' => 'font-size: 12px',
-                            ]);
-                            ?>
+                                'style' => 'font-size: 12px'
+
+                            ]); ?>
                         </div>
-
-
 
                         <div class="form-group col-md-6">
                             <?php

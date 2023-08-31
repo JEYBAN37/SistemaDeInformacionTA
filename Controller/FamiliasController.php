@@ -55,6 +55,7 @@ class FamiliasController extends AppController
 	 */
 	public function add()
 	{
+
 		if ($this->request->is('post')) {
 			$this->Familia->create();
 			if ($this->Familia->save($this->request->data)) {
@@ -71,18 +72,19 @@ class FamiliasController extends AppController
 
 	public function addnew()
 	{
+
 		if ($this->request->is('post')) {
 			$this->Familia->create();
 			if ($this->Familia->save($this->request->data)) {
 				$this->Session->setFlash(__('The familia has been saved.'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The plsmomento could not be saved. Please, try again.'));
+				$this->Session->setFlash(__('The familia could not be saved. Please, try again.'));
 			}
-			$sociambientals = $this->Familia->Sociambiental->find('list', array('order' => array('sociambiental.id' => 'desc')));
-
-			$this->set(compact('sociambientals'));
 		}
+		$sociambientals = $this->Familia->Sociambiental->find('list', array('order' => array('sociambiental.id' => 'desc')));
+
+		$this->set(compact('sociambientals'));
 	}
 
 	/**
