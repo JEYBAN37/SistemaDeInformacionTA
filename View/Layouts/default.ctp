@@ -7,8 +7,8 @@
  * @package       app.View.Layouts
  * @since         CakePHP(tm) v 0.10.0.1076
  */
-
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeDescription = __d('cake_dev', 'Aplicativo APS - Pasto');
+$cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +17,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<?php echo $this->Html->charset(); ?>
 	<title>
 		<?php echo $cakeDescription ?>:
-		<?php echo $this->fetch('title'); ?>
+		<?php echo $this->fetch('APS - Ficha Familia'); ?>
 	</title>
 	<?php
 	echo $this->Html->meta('icon');
@@ -45,8 +45,8 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 	<div class="contanier">
 
 		<nav class="navbar" style="background-color: #3366CC;">
-			<div class="grow justify-content-center container-fluid  col-sm-12 ">
-				<span class="navbar-brand mb-0 h1 ">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1 JustifyCenter">
 					<img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
 				</span>
 			</div>

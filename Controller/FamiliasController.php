@@ -59,16 +59,26 @@ class FamiliasController extends AppController
 		if ($this->request->is('post')) {
 			$this->Familia->create();
 			if ($this->Familia->save($this->request->data)) {
-				$this->Session->setFlash(__('The familia has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The plsmomento could not be saved. Please, try again.'));
-			}
-			$sociambientals = $this->Familia->Sociambiental->find('list', array('order' => array('sociambiental.id' => 'desc')));
+				$this->Session->setFlash('Registro de hogar guradado', 'default', array('class' => 'alert alert-success'));
+				//return $this->redirect(array('action' => 'index'));
 
-			$this->set(compact('sociambientals'));
+				$id = $this->Familia->id;
+				$aux = "view/$id";
+				return $this->redirect(
+					array(
+						'action' => $aux, '?' => array('view' => 'familias'), '#' => 'top'
+					)
+				);
+			}
+		} else {
+			$this->Session->setFlash('Agregar información de este formulario', 'default', array('class' => 'alert alert-success'));
 		}
+
+		$sociambientals = $this->Familia->Sociambiental->find('list', array('order' => array('sociambiental.id' => 'desc')));
+
+		$this->set(compact('sociambientals'));
 	}
+
 
 	public function addnew()
 	{

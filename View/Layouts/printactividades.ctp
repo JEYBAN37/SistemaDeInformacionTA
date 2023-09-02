@@ -16,7 +16,7 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-$cakeDescription = __d('cake_dev', 'Ciudad Bienestar: Sistema de Información');
+$cakeDescription = __d('cake_dev', 'Aplicativo APS - Pasto');
 $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 ?>
 <!DOCTYPE html>
@@ -24,16 +24,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 <head>
 
-
-    <?php echo $this->Html->charset(); ?>
-    <title>
-        <?php echo $cakeDescription ?>:
-        <?php echo $title_for_layout; ?>
-    </title>
-
-
-
-    <!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -41,83 +31,75 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     <meta name="description" content="">
     <meta name="author" content="">
 
-
-    <title>Sistematización de proceso formactivo-Ciudad Bienestar </title>
+    <title>APS - Ficha Familiar</title>
 
 
     <?php
 
     echo $this->Html->meta('icon');
 
-    //echo $this->Html->css(array('bootstrap.min.css', 'bootstrap-theme.css', 'sb-admin-2.css', 'font-awesome.min.css', 'metisMenu.min.css','dataTables.bootstrap.css','dataTables.responsive.css'));
-    //echo $this->Html->script(array('jquery', 'jquery.min', 'docs.min', 'metisMenu.min', 'sb-admin-2', 'bootstrap.min','dataTables.bootstrap.min','dataTables.responsive','jquery.dataTables.min'));
-
-    echo $this->Html->css(array('bootstrap.min.css', 'bootstrap-theme.css', 'sb-admin-2.css', 'font-awesome.min.css', 'metisMenu.min.css'));
-    echo $this->Html->script(array('jquery', 'jquery.min', 'docs.min', 'metisMenu.min', 'sb-admin-2', 'bootstrap.min', 'jquery.dataTables.min'));
-
+    echo $this->Html->css(array('bootstrap.min.css'));
+    echo $this->Html->script(array('jquery.min',  'bootstrap.min', 'jquery.dataTables.min'));
     echo $this->fetch('css');
     echo $this->fetch('script');
 
     ?>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
-    </script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css">
     <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js">
     </script>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
 
+
+
+
+
 </head>
 
 <body>
 
 
+    <div class="contanier">
 
+		<nav class="navbar" style="background-color: #3366CC;">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1 JustifyCenter">
+					<img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
+				</span>
+			</div>
+		</nav>
+		<div>
+			<div>
+				<!--h1>ficha familiar</h1-->
+			</div>
+			<div>
 
-    <div class="row">
+                <?php echo $this->Session->flash(); ?>
 
-
-        <div class="col-lg-12">
-
-            <div class="panel-body">
-
-
-                <div class="table-responsive">
-
-
-
-                    <?php echo $this->Session->flash(); ?>
-
-
-                    <?php echo $this->fetch('content'); ?>
-
-                    <table>
-                        <tr>
-
-                            <td style="font-style: inherit;font-family: serif;">
-                                <?php
-                                $usr = $this->Session->read("usr");
-                                if (isset($usr)) {
-                                    echo __('Sesion: ');
-                                    echo $usr . "<br/>";
-                                }
-                                ?>
-                            </td>
-
-                        </tr>
-
-
-                    </table>
-
-
-                </div>
+                <?php echo $this->fetch('content'); ?>
             </div>
+            <!--div>
+			<?php echo $this->Html->link(
+                $this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
+                'http://www.cakephp.org/',
+                array('target' => '_blank', 'escape' => false)
+            );
+            ?>
+		</div-->
+
+            <!--?php echo $this->element('sql_dump'); ?-->
+
 
         </div>
+    </div>
+    </div>
+
     </div>
 
 </body>
@@ -129,7 +111,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         <div class="row">
             <div class="col-md-12 text-center">
                 <br>
-                <div class="copyright">&copy; Gestión de la Salud Publica. Versión 4.0 - 2020 <a href="https://www.saludpasto.gov.co/">Secretaria Municipal de Salud</a>.</div>
+                <div class="copyright">&copy; Gestión de la Salud Publica. Versión 6.0 - 2023 <a
+                        href="https://www.saludpasto.gov.co/">Secretaria Municipal de Salud</a>.</div>
             </div>
         </div>
     </div><!-- end container -->
@@ -139,16 +122,3 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 
 </html>
-
-<script>
-    //<![CDATA[
-    function getlink() {
-        var aux = document.createElement("input");
-        aux.setAttribute("value", window.location.href);
-        document.body.appendChild(aux);
-        aux.select();
-        document.execCommand("copy");
-        document.body.removeChild(aux);
-    }
-    //]]>
-</script>

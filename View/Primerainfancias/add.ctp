@@ -8,13 +8,14 @@
 
         <fieldset>
 
+
             <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Módulo Primera Infancia
+                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Primera Infancia
                 </h1>
+
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -22,7 +23,14 @@
 
 
                     <div class="form-group row">
-                        <div class="form-group col-md-6">
+
+                        <?php
+
+                        $idAux = $_GET['primerainfancia'];
+                        echo $this->Form->input('familia_id', array('value' => '' . $idAux, 'type' => 'hidden'));
+
+                        ?>
+                        <!--div class="form-group col-md-6">
                             <?php
                             echo $this->Form->input('familia_id', [
                                 'label' => 'ID_Familia/N° Hogar/Nombres',
@@ -33,6 +41,11 @@
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
+                        </div-->
+
+                        <div class="form-group col-md-6">
+                            <h5><?php echo $this->Html->link(__('Add Persona'), array('controller' => 'Personas', 'action' => 'add')); ?>
+                            </h5>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -65,30 +78,35 @@
 
                         <div class="form-group col-md-6">
                             <?php
-                            $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No');
+                            $optionYesNo = [
+                                '' => 'Elegir',
+                                'Si' => 'Si',
+                                'No' => 'No',
+                                'SD' => 'Sin dato'
+                            ];
                             echo $this->Form->input('prematuro', array(
-                                'label' => '¿El menor nació prematuro?',
+                                'label' => 'El menor nació prematuro',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
-                                'options' => $option,
+                                'options' => $optionYesNo,
                                 'style' => 'font-size: 12px',
-
+                                'class' => 'form-control select-search'
                             ));
                             ?>
                         </div>
 
                         <div class="form-group col-md-6">
                             <?php
-                            $option = array('' => 'Elegir', 'No presenta' => 'No presenta', 'Fisica' => 'Fisica', 'Cognitiva' => 'Cognitiva', 'Sensorial' => 'Sensorial');
+                            $optionDiscapacidad = array('' => 'Elegir', 'No presenta' => 'No presenta', 'Fisica' => 'Fisica', 'Cognitiva' => 'Cognitiva', 'Sensorial' => 'Sensorial');
                             echo $this->Form->input('discapacidad', array(
-                                'label' => 'Presenta alguna de las siguientes discapacidades',
+                                'label' => '¿Presenta alguna de las siguientes discapacidades?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
-
+                                'class' => 'form-control select-search',
                                 'style' => 'font-size: 12px',
-                                'options' => $option
+                                'options' => $optionDiscapacidad
                             ));
                             ?>
                         </div>
@@ -96,7 +114,7 @@
                         <div class="form-group col-md-6">
                             <?php
                             echo $this->Form->input('peso', array(
-                                'label' => 'Registre su Peso en gramos.',
+                                'label' => 'Registre su Peso en Kg.',
                                 'class' => 'form-control',
                                 'style' => 'font-size: 12px',
                                 'placeholder' => ''
@@ -125,7 +143,7 @@
                                 'type' => 'select',
                                 'options' => $option,
                                 'style' => 'font-size: 12px',
-                                
+                                'class' => 'form-control select-search'
                             ));
                             ?>
                         </div>
@@ -212,8 +230,7 @@
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atencion en Salud</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -288,8 +305,7 @@
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Condiciones de vulnerabilidad</h2>
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Condiciones de vulnerabilidad</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 
@@ -340,8 +356,6 @@
                                 'style' => 'font-size: 12px',
                                 'class' => 'form-control select-search'
                             )); ?>
-
-
                         </div>
 
                         <div class="form-group col-md-6">
@@ -382,8 +396,7 @@
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de Atención integral</h2>
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de Atención integral</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -435,15 +448,14 @@
                     </div>
                 </div>
             </div>
-
-        </fieldset>
-
-
-
-
     </div>
-    <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?>
+    </fieldset>
+
+
+
+
 </div>
+<?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?>
 </div>
 
 <!--div class="actions">
@@ -486,27 +498,30 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
-function agregarOpcionSeleccion() {
+    function agregarOpcionSeleccion() {
 
-    $("#PrimerainfanciaFamiliaId").prepend("<option value='' selected='selected'>Seleccione</option>");
-    $("#PrimerainfanciaPersonaId").prepend("<option value='' selected='selected'>Seleccione</option>");
-}
-
-function mostrar(id) {
-    if (id == "si") {
-        $("#si").show();
-        $("#no").hide();
-
-    } else if (id == "no") {
-        $("#si").hide();
-        $("#no").show();
-
+        $("#PrimerainfanciaFamiliaId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#PrimerainfanciaPersonaId").prepend("<option value='' selected='selected'>Seleccione</option>");
     }
-}
+
+
+
+
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
+
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
+
+        }
+    }
 </script>

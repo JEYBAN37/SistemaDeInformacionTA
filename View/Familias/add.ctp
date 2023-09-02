@@ -13,7 +13,8 @@
                 </h1>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos del Encuestado</h2>
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos del Encuestado</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -161,6 +162,42 @@
 
                         <div class="form-group col-md-6">
                             <?php
+                            $option = ['' => 'Elegir', 'Permante' => 'Permanente', 'Permanecen fuera de Pasto' => 'Permanecen fuera de Pasto', 'Sin Dato' => 'Sin Dato'];
+                            echo $this->Form->input('permanenciaresidencia', [
+                                'label' => '¿Las personas del hogar permanecen en la ciudad?',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'options' => $option,
+
+                                'style' => 'font-size: 12px',
+                            ]); ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php
+                            $option = [
+                                '' => 'Elegir', 'Menos de un 1 mes' => 'Menos de un 1mes',
+                                'Entre 2 meses y 1 anio ' => 'Entre 2 meses y 1 año',
+                                'Entre 1 anio y 2 anio ' => 'Entre 1 año y 2 año',
+                                'Mas de 2 anio ' => 'Mas de 2 años', 'Sin Dato' => 'Sin Dato'
+                            ];
+                            echo $this->Form->input('tiemporesidencia', [
+                                'label' => '¿Hace cuanto tiempo vive en barrio/sector?',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'options' => $option,
+
+                                'style' => 'font-size: 12px',
+                            ]); ?>
+                        </div>
+
+
+
+
+                        <div class="form-group col-md-6">
+                            <?php
                             $option = ['' => 'Elegir', 'Electricidad' => 'Electricidad', 'Cilindro de Gas' => 'Cilindro de Gas', 'Gas domiciliario' => 'Gas domiciliario', 'Gas domiciliario' => 'Gas domiciliario', 'Carbon, leña' => 'Carbon, leña', 'Gasolina' => 'Gasolina'];
                             echo $this->Form->input('combustible', [
                                 'label' => '¿Cuál fuente de energía o combustible que se usa para cocinar?',
@@ -227,7 +264,7 @@
 
                         <div class="form-group col-md-6">
                             <?php
-                            $optionEtnia = ['' => 'Elegir', 'Indígena' => 'Indígena', 'Negritudes' => 'Negritudes', 'Víctima conflicto' => 'Víctima del conflicto', 'Discapacidad' => 'Discapacidad', 'Otro' => 'Otro', 'No aplica' => 'No aplica', 'Sin Dato' => 'Sin Dato'];
+                            $optionEtnia = ['' => 'Elegir', 'Indígena' => 'Indígena', 'Afro' => 'Afro', 'Víctima conflicto' => 'Víctima del conflicto', 'Discapacidad' => 'Discapacidad', 'Migrante irregular' => 'Migrante irregular', 'Migrante regular' => 'Migrante regular', 'Otro' => 'Otro', 'No aplica' => 'No aplica', 'Sin Dato' => 'Sin Dato'];
                             echo $this->Form->input('poblacionvulnerable', [
                                 'label' => '¿Hay personas dentro del hogar que pertenecen a población vulnerable?',
                                 'class' => 'form-control',
@@ -351,6 +388,9 @@
                                 '' => 'Elegir',
                                 'Sedentarismo' => 'Sedentarismo',
                                 'Actividad física' => 'Actividad física',
+                                'Consumo de cigarrillo' => 'Consumo de cigarrillo',
+                                'Consumo de Acohol' => 'Consumo de Acohol',
+                                'Consumo de otras SPA' => 'Consumo de otras SPA',
                                 'Inadecuadas Prácticas alimentarias y nutricionales' => 'Prácticas alimentarias y nutricionales (consumo sal, grasas, carbohidratos, azúcares refinados)'
                             ];
 
@@ -432,7 +472,7 @@
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionConflictos,
-                                'class' => 'form-control select-search',
+
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
@@ -445,7 +485,7 @@
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionConflictos,
-                                'class' => 'form-control select-search',
+
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
@@ -458,7 +498,7 @@
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionConflictos,
-                                'class' => 'form-control select-search',
+
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
@@ -698,7 +738,7 @@
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionCepilladoDientes,
-                                'class' => 'form-control select-search',
+
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
@@ -724,27 +764,27 @@
     ?>
 
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('.select-search').select2();
-            agregarOpcionSeleccion();
-        });
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
-        function agregarOpcionSeleccion() {
+    function agregarOpcionSeleccion() {
 
-            $("#PrimerainfanciaFamiliaId").prepend("<option value='' selected='selected'>Seleccione</option>");
-            $("#PrimerainfanciaPersonaId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#PrimerainfanciaFamiliaId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#PrimerainfanciaPersonaId").prepend("<option value='' selected='selected'>Seleccione</option>");
+    }
+
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
+
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
+
         }
-
-        function mostrar(id) {
-            if (id == "si") {
-                $("#si").show();
-                $("#no").hide();
-
-            } else if (id == "no") {
-                $("#si").hide();
-                $("#no").show();
-
-            }
-        }
+    }
     </script>

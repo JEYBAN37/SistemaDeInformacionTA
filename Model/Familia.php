@@ -115,6 +115,39 @@ class Familia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+
+		'tenencia' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Revisar campo',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+
+		'combustible' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Revisar campo',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+
+		'otrocombustible' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Revisar campo',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'cursovidafamilia' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -367,6 +400,26 @@ class Familia extends AppModel
 		),
 
 		'enfermedadtransmible1' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Revisar campo',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'tiemporesidencia' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Revisar campo',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'permanenciaresidencia' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Revisar campo',

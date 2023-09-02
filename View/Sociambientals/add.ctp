@@ -201,7 +201,7 @@
                             ?>
                         </div>
                         <div class="form-group col-md-6">
-                            <?php $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No', '3' => '3', '4' => '4', '5' => '5', 'SD' => 'Sin dato');
+                            <?php $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No', 'SD' => 'Sin dato');
                             echo $this->Form->input('hacinamiento', array(
                                 'label' => '¿En algunos de los dormitorios de la vivienda duermen tres o mas personas?',
                                 'class' => 'form-control',
@@ -269,7 +269,6 @@
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $yesNoOptions,
-                                'class' => 'form-control select-search',
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
@@ -286,7 +285,7 @@
                                 'Ninguno' => 'Ninguno'
                             ];
                             echo $this->Form->input('acceso', [
-                                'label' => '¿En su sector es difícil acceder fácilmente a?',
+                                'label' => '¿En su sector es difícil acceder a?',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $accessOptions,
@@ -353,7 +352,7 @@
                                 '' => 'Elegir',
                                 'Empopasto' => 'Empopasto',
                                 'Acueducto Comunitario' => 'Acueducto Comunitario',
-                                'Agua enbasada' => 'Agua enbasada'
+                                'agua envasada ' => 'agua envasada '
                             ];
                             echo $this->Form->input('aguaservicio', [
                                 'label' => '¿Cuál es la principal fuente de abastecimiento de agua para consumo?',
@@ -390,7 +389,7 @@
                             <?php
                             $waterSupplyStatusOptions = [
                                 '' => 'Elegir',
-                                'Premanentemente' => 'Premanentemente',
+                                'Continuo' => 'Continuo',
                                 'Intermitente' => 'Intermitente',
                                 'Razonamientos prolongados' => 'Razonamientos prolongados',
                                 'SD' => 'Sin dato'

@@ -5,19 +5,21 @@ App::uses('AppModel', 'Model');
  *
  * @property Primerainfancia $Primerainfancia
  */
-class Persona extends AppModel {
+class Persona extends AppModel
+{
 	public $virtualFields = array(
-	'apellidosnombre' => 'CONCAT(Persona.numerodoc," ",Persona.primerapellido, " ", Persona.segundoapellido, " ",Persona.primernombre, " ",Persona.segundonombre, " ", "Edad ",Persona.edad, " ", "Sexo ",Persona.sexo)'); 
-		 public $displayField = 'apellidosnombre';
+		'apellidosnombre' => 'CONCAT(Persona.numerodoc," ",Persona.primerapellido, " ", Persona.segundoapellido, " ",Persona.primernombre, " ",Persona.segundonombre, " ", "Edad ",Persona.edad, " ", "Sexo ",Persona.sexo)'
+	);
+	public $displayField = 'apellidosnombre';
 
-		
-			
 
-/**
- * Validation rules
- *
- * @var array
- */
+
+
+	/**
+	 * Validation rules
+	 *
+	 * @var array
+	 */
 	public $validate = array(
 		'primerapellido' => array(
 			'notEmpty' => array(
@@ -123,11 +125,11 @@ class Persona extends AppModel {
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-/**
- * hasMany associations
- *
- * @var array
- */
+	/**
+	 * hasMany associations
+	 *
+	 * @var array
+	 */
 	public $hasMany = array(
 		'Primerainfancia' => array(
 			'className' => 'Primerainfancia',
@@ -143,5 +145,4 @@ class Persona extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
 }
