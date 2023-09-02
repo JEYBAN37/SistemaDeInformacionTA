@@ -58,7 +58,7 @@ class PrimerainfanciasController extends AppController
 				//echo '<script> alert("registro guardado"); </script>';
 				//return $this->redirect(array('controller' => 'familias', 'action' => 'index'));
 				//return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Primerainfancia"]["familia_id"]));
-				return $this->redirect(array('controller' => 'personas', 'action' => 'edit' . $this->data["Primerainfancia"]["persona_id"]));
+				return $this->redirect(array('controller' => 'personas', 'action' => 'edit/' . $this->data["Primerainfancia"]["persona_id"]));
 			}
 		} else {
 			$this->Session->setFlash('Agregar información de este formulario', 'default', array('class' => 'alert alert-success'));

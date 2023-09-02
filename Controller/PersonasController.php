@@ -86,8 +86,11 @@ class PersonasController extends AppController
 			if ($this->Persona->save($this->request->data)) {
 				$this->Session->setFlash(__('The persona has been saved.'));
 				//return $this->redirect(array('action' => 'index'));
-				return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
-				//return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["familia"]["persona_id"]));
+				//return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
+
+				return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Persona"]["familia_id"]));
+
+				//return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["familia"]["id"]));
 			} else {
 				$this->Session->setFlash(__('The persona could not be saved. Please, try again.'));
 			}
@@ -95,6 +98,8 @@ class PersonasController extends AppController
 			$options = array('conditions' => array('Persona.' . $this->Persona->primaryKey => $id));
 			$this->request->data = $this->Persona->find('first', $options);
 		}
+		$familias = $this->Persona->Familia->find('list');
+		$this->set(compact('familias'));
 	}
 
 

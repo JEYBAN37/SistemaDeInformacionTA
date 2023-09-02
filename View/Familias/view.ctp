@@ -1,4 +1,4 @@
-<?php $this->layout = 'printactividades' ?>
+<?php $this->layout = 'default_familia' ?>
 
 <?php
 // IMPORTANTE: Cambiar la informacion de datos de conexion
@@ -117,7 +117,7 @@ $bd = 'fichafamiliar';
 
 															<div class="btn-group">
 																<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-																	<li><?php echo $this->Html->link(('Add menor de año'), array('controller' => 'Primerainfancias', 'action' => 'add?primerainfancia=' . $familia['Familia']['id'])); ?>
+																	<li><?php echo $this->Html->link(('Opciones'), array('controller' => 'Primerainfancias', 'action' => 'add?primerainfancia=' . $familia['Familia']['id'])); ?>
 																</button>
 																<ul class="dropdown-menu" role="menu">
 																	<li><?php echo $this->Html->link("Ver", "../primerainfancias/view/" . $primerainfancia['id'], array('target' => '_blank')); ?>
@@ -444,12 +444,18 @@ $bd = 'fichafamiliar';
 
 								<div class="actions">
 									<ul>
-										<li><?php echo $this->Html->link(('Nueva Acta'), array('controller' => 'actas', 'action' => 'add')); ?>
+										<li><?php echo $this->Html->link(('../actas/view/'), array('controller' => 'actas', 'action' => 'add')); ?>
 										</li>
 									</ul>
 								</div>
 							</div>
 						</div>
+
+
+						<?php echo $this->Html->link(('Add hogar'), array('controller' => 'familias', 'action' => 'add?hogar=' . $familia['Sociambiental']['id'])); ?>
+
+
+
 					</div>
 				</div>
 				<!-- /.panel-body -->
