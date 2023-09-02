@@ -1,4 +1,4 @@
-<?php $this->layout = 'printactividades' ?>
+<?php $this->layout = 'default_familia' ?>
 <?php
 // IMPORTANTE: Cambiar la informacion de datos de conexion
 $serv = 'localhost';
