@@ -59,20 +59,25 @@ class PrimerainfanciasController extends AppController
 				//return $this->redirect(array('controller' => 'familias', 'action' => 'index'));
 				//return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Primerainfancia"]["familia_id"]));
 				return $this->redirect(array('controller' => 'personas', 'action' => 'edit/' . $this->data["Primerainfancia"]["persona_id"]));
+			} else {
+				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
-			$this->Session->setFlash('Agregar información de este formulario', 'default', array('class' => 'alert alert-success'));
 
+			$options = array('conditions' => array('Primerainfancia.' . $this->Primerainfancia->primaryKey => $id));
 
-			$familias = $this->Primerainfancia->Familia->find('list');
-			$personas = $this->Primerainfancia->Persona->find('list', array(
-				'order' => array('Persona.edad' => 'asc'),
-				'fields' => array('Persona.id', 'Persona.apellidosnombre'),
-				'conditions' => array('Persona.edad BETWEEN ? AND ?' => array('0', '1')),
-				'recursive' => 0
-			));
-			$this->set(compact('familias', 'personas'));
+			$this->request->data = $this->Primerainfancia->find('first', $options);
 		}
+
+
+		$familias = $this->Primerainfancia->Familia->find('list');
+		$personas = $this->Primerainfancia->Persona->find('list', array(
+			'order' => array('Persona.edad' => 'asc'),
+			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
+			'conditions' => array('Persona.edad BETWEEN ? AND ?' => array('0', '1')),
+			'recursive' => 0
+		));
+		$this->set(compact('familias', 'personas'));
 	}
 
 

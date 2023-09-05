@@ -14,14 +14,17 @@ class PrimerainfanciaTest extends CakeTestCase {
  */
 	public $fixtures = array(
 		'app.primerainfancia',
+		'app.persona',
 		'app.familia',
-		'app.socioambiental',
-		'app.antecedenteenfermedad',
-		'app.riesgopsicosocial',
-		'app.programasocial',
-		'app.discapacidad',
-		'app.victima',
-		'app.persona'
+		'app.sociambiental',
+		'app.responsable',
+		'app.ubicacion',
+		'app.sociambientalscompletum',
+		'app.adolescencia',
+		'app.gestante',
+		'app.infantil',
+		'app.juventudadulto',
+		'app.observacion'
 	);
 
 /**
