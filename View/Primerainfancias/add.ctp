@@ -27,11 +27,11 @@
 
                         <?php
 
-                        //$idAux = $_GET['primerainfancia'];
-                        // echo $this->Form->input('familia_id', array('value' => '' . $idAux, 'type' => 'hidden'));
+                        $idAux = $_GET['primerainfancia'];
+                        echo $this->Form->input('familia_id', array('value' => '' . $idAux, 'type' => 'hidden'));
 
                         ?>
-                        <div class="form-group col-md-6">
+                        <!--div class="form-group col-md-6">
                             <?php
                             echo $this->Form->input('familia_id', [
                                 'label' => 'ID_Familia/N° Hogar/Nombres',
@@ -42,7 +42,7 @@
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
-                        </div>
+                        </div-->
 
                         <div class="form-group col-md-6">
                             <h5><?php echo $this->Html->link(__('Add Persona'), array('controller' => 'Personas', 'action' => 'add')); ?>

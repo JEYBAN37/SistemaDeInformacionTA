@@ -28,7 +28,7 @@ class Primerainfancia extends AppModel
 		'persona_id' => array(
 			'alphaNumeric' => array(
 				'rule'     =>  'isUnique',
-				'message'  =>  'La perosna ya esta asociada a un hogar.',
+				'message'  =>  'La perosona ya esta asociada a un hogar.',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
