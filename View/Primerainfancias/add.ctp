@@ -507,7 +507,7 @@
                     </div>
                 </div>
             </div>
-            <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?>
+            <?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
     </div>
     </fieldset>
 
@@ -519,26 +519,26 @@
 
 
 <!--div class="actions">
-    <?php echo __('Actions'); ?>
+    <?php echo ('Actions'); ?>
 
 
 
     <ul>
 
         <li>
-            <?php echo $this->Html->link(__('List Primerainfancias'), array('action' => 'index')); ?>
+            <?php echo $this->Html->link(('List Primerainfancias'), array('action' => 'index')); ?>
         </li>
         <li>
-            <?php echo $this->Html->link(__('List Familias'), array('controller' => 'familias', 'action' => 'index')); ?>
+            <?php echo $this->Html->link(('List Familias'), array('controller' => 'familias', 'action' => 'index')); ?>
         </li>
         <li>
-            <?php echo $this->Html->link(__('New Familia'), array('controller' => 'familias', 'action' => 'add')); ?>
+            <?php echo $this->Html->link(('New Familia'), array('controller' => 'familias', 'action' => 'add')); ?>
         </li>
         <li>
-            <?php echo $this->Html->link(__('List Personas'), array('controller' => 'personas', 'action' => 'index')); ?>
+            <?php echo $this->Html->link(('List Personas'), array('controller' => 'personas', 'action' => 'index')); ?>
         </li>
         <li>
-            <?php echo $this->Html->link(__('New Persona'), array('controller' => 'personas', 'action' => 'add')); ?>
+            <?php echo $this->Html->link(('New Persona'), array('controller' => 'personas', 'action' => 'add')); ?>
         </li>
     </ul>
 </div-->

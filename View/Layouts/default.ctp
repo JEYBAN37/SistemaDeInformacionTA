@@ -25,8 +25,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 	echo $this->Html->css(array('cake.generic.css'));
 	echo $this->Html->script(array('jquery-1.11.0', 'metisMenu.min', 'sb-admin-2', 'bootstrap.min'));
-
-	//echo $this->fetch('meta');
 	echo $this->fetch('css');
 	echo $this->fetch('script');
 
@@ -40,45 +38,21 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 </head>
 
 <body>
-
-
 	<div class="contanier">
-
-		<nav class="navbar" style="background-color: #3366CC;">
-			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1 JustifyCenter">
-					<img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
-				</span>
-			</div>
+		<nav class="navbar grow justify-content-center" style="background-color: #3366CC;">
+			<img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
 		</nav>
 		<div>
-			<div>
-				<!--h1>ficha familiar</h1-->
-			</div>
-			<div>
-
-				<?php echo $this->Session->flash(); ?>
-
-				<?php echo $this->fetch('content'); ?>
-			</div>
-			<!--div>
-			<?php echo $this->Html->link(
-				$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-				'http://www.cakephp.org/',
-				array('target' => '_blank', 'escape' => false)
-			);
-			?>
-		</div-->
-
-			<!--?php echo $this->element('sql_dump'); ?-->
-
-
+			<?php echo $this->Session->flash(); ?>
+			<?php echo $this->fetch('content'); ?>
 		</div>
+		<?php echo $this->Html->link(
+			$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
+			'http://www.cakephp.org/',
+			array('target' => '_blank', 'escape' => false)
+		);
+		?>
 	</div>
-	</div>
-
-	</div>
-
 </body>
 
 </html>
