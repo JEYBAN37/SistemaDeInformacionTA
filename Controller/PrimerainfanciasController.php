@@ -62,13 +62,7 @@ class PrimerainfanciasController extends AppController
 			} else {
 				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-
-			$options = array('conditions' => array('Primerainfancia.' . $this->Primerainfancia->primaryKey => $id));
-
-			$this->request->data = $this->Primerainfancia->find('first', $options);
 		}
-
 
 		$familias = $this->Primerainfancia->Familia->find('list');
 		$personas = $this->Primerainfancia->Persona->find('list', array(
