@@ -1,23 +1,13 @@
 <div>
-
     <div class="form-group col-sm-12">
-
-
         <?php echo $this->Form->create('Primerainfancia'); ?>
-
-
         <fieldset>
-
-
             <div class="col-12 text-center">
                 <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Primera Infancia
                 </h1>
-
             </div>
-
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
-
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -510,11 +500,6 @@
             <?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
     </div>
     </fieldset>
-
-
-
-
-
 </div>
 
 
