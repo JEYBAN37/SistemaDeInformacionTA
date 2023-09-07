@@ -52,15 +52,15 @@ $bd = 'fichafamiliar';
                                         <th>id</th>
                                         <th>Encuestador</th>
                                         <th>Familia</th>
-
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
                                         <th>celular</th>
                                         <!--Dato de tabla sociambiental junto con direccion , apellidos familia,encuestador,fecha y numero familia :) -->
                                         <th>Direccion</th>
-                                        <th>N° de hogares</th>
-                                        <th>fecha</th>
+                                        <th>N° de hogar</th>
                                         <th>Opciones</th>
+                                        <th>fecha</th>
+
 
 
                                     </tr>
@@ -95,9 +95,8 @@ $bd = 'fichafamiliar';
                                             <td><?php echo ($familia['Familia']['apellidos']); ?></td>
                                             <td><?php echo ($familia['Familia']['celular']); ?></td>
                                             <td><?php echo ($familia['Sociambiental']['direccion']); ?></td>
-                                            <td><?php echo ($familia['Sociambiental']['numerohogares']); ?></td>
-                                            <td><?php echo $this->Time->format('d-m-Y h:i A', ($familia['Sociambiental']['fecha'])); ?>
-                                            </td>
+                                            <td><?php echo ($familia['Familia']['hogar']); ?></td>
+
 
                                             <td class="actions">
                                                 <div class="btn-group">
@@ -105,24 +104,26 @@ $bd = 'fichafamiliar';
                                                         <?php echo ('Acciones'); ?> <span class="caret"></span>
                                                     </button>
                                                     <ul class="dropdown-menu" role="menu">
-                                                        <li><?php echo $this->Html->link(('Ver'), array('action' => 'view', $familia['Familia']['id'])); ?>
+                                                        <li><?php echo $this->Html->link(('Agregar personas'), array('action' => 'view', $familia['Familia']['id'])); ?>
                                                         </li>
-                                                        <li><?php echo $this->Html->link(('Add hogar'), array('controller' => 'familias', 'action' => 'add?hogar=' . $familia['Sociambiental']['id'])); ?>
+                                                        <li><?php echo $this->Html->link(('Editar hogar'), array('action' => 'edit',  $familia['Familia']['id'])); ?>
                                                         </li>
-                                                        <li><?php echo $this->Html->link(('Add menor de año'), array('controller' => 'Primerainfancias', 'action' => 'add?primerainfancia=' . $familia['Familia']['id'])); ?>
+                                                        <li><?php echo $this->Html->link(('Agregar hogar'), array('controller' => 'familias', 'action' => 'add?hogar=' . $familia['Sociambiental']['id'])); ?>
+                                                        </li>
+                                                        <li><?php echo $this->Html->link(('Agregar menor de dos años'), array('controller' => 'Primerainfancias', 'action' => 'add?primerainfancia=' . $familia['Familia']['id'])); ?>
+                                                        </li>
+                                                        <li><?php echo $this->Html->link(('Agregar menor de 2 a 5 años'), array('controller' => 'Primerainfancias', 'action' => 'add2_5?primerainfancia=' . $familia['Familia']['id'])); ?>
+                                                        </li>
 
+
+                                                        <li><?php echo $this->Html->link(('Editar inf.sociambientla'), array('controller' => 'sociambientals', 'action' => 'edit',  $familia['Sociambiental']['id'])); ?>
                                                         </li>
 
-                                                        <li><?php echo $this->Html->link(('List Sociambientals'), array('controller' => 'sociambientals', 'action' => 'index')); ?>
-                                                        </li>
-                                                        <li><?php echo $this->Html->link(('Add Sociambiental'), array('controller' => 'sociambientals', 'action' => 'add')); ?>
-
-                                                        </li>
-                                                        <li><?php echo $this->Html->link(('List Primerainfancias'), array('controller' => 'primerainfancias', 'action' => 'index')); ?>
-                                                        </li>
 
                                                     </ul>
                                                 </div>
+                                            </td>
+                                            <td><?php echo $this->Time->format('d-m-Y h:i A', ($familia['Sociambiental']['fecha'])); ?>
                                             </td>
 
                                         </tr>

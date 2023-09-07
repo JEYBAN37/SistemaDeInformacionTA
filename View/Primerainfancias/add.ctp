@@ -11,6 +11,7 @@
 
             <div class="col-12 text-center">
                 <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Primera Infancia
+                    menor de 2 años
                 </h1>
 
             </div>
@@ -87,7 +88,7 @@
 
                             ];
                             echo $this->Form->input('prematuro', array(
-                                'label' => 'El menor nació prematuro',
+                                'label' => '¿El/la menor nació prematuro?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -211,13 +212,16 @@
                             $optionLactancia = array(
                                 '' => 'Elegir',
                                 'Lactancia materna exclusiva' => 'Solo Leche materna',
+                                'Lactancia materna y Alimentacion complementaria' => 'Lactancia materna Alimentación complementaria',
                                 'Leche materna y leche de formula' => 'Leche materna y leche de formula',
                                 'Leche materna y otros liquidos' => 'Leche materna y otros liquidos(jugos, agua, aromatica, colada)',
                                 'Leche de formula' => 'Solo Leche de formula',
+                                'leche de formula y alimentos solidos' => 'leche de formula y alimentos solidos',
                                 'Leche materna y alimentos solidos' => 'Leche materna y alimentos solidos(huevo, arroz, pollo, carne)',
+
                             );
                             echo $this->Form->input('lactanciamaterna', array(
-                                'label' => '¿El alimento en menor de seis meses es?',
+                                'label' => '¿El alimento en El/La menor es: ?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -225,6 +229,8 @@
                                 'style' => 'font-size: 12px',
 
                             )); ?>
+                            <p class="help-block"> NOTA: Tener encuenta la edad del menor</p>
+
                         </div>
 
                         <div class="form-group col-md-6">
@@ -282,7 +288,7 @@
                                 'type' => 'select',
                                 'options' => $optionVacuna,
                                 'style' => 'font-size: 12px',
-                               
+
                             )); ?>
                         </div>
 
@@ -294,7 +300,7 @@
                                 'type' => 'select',
                                 'options' => $optionYesNo,
                                 'style' => 'font-size: 12px',
-                               
+
                             )); ?>
                         </div-->
 
@@ -311,7 +317,7 @@
                             );
 
                             echo $this->Form->input('crecimientoydesarrollo', array(
-                                'label' => '¿Asistió al ultimo control de Crecimiento y desarrollo?',
+                                'label' => '¿Asistió al ultimo control de Crecimiento y Desarrollo?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -515,7 +521,7 @@
     </div>
     </fieldset>
 
-  
+
 
 
 

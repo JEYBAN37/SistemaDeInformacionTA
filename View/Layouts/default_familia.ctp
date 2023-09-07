@@ -46,7 +46,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     ?>
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
+    </script>
 
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css">
@@ -67,18 +68,21 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
     <div class="contanier">
 
-		<nav class="navbar" style="background-color: #3366CC;">
-			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1 JustifyCenter">
-					<img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
-				</span>
-			</div>
-		</nav>
-		<div>
-			<div>
-				<!--h1>ficha familiar</h1-->
-			</div>
-			<div>
+        <nav class="navbar" style="background-color: #3366CC;">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1 JustifyCenter">
+                    <img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
+                </span>
+            </div>
+
+
+        </nav>
+        <?php echo $this->element('nav'); ?>
+        <div>
+            <div>
+                <!--h1>ficha familiar</h1-->
+            </div>
+            <div>
 
                 <?php echo $this->Session->flash(); ?>
 

@@ -29,7 +29,10 @@ class FamiliasController extends AppController
 		$count = $this->Familia->find('count');
 		$this->Paginator->settings['limit'] = $count;
 
-		$this->set("familias", $this->paginate());
+		$this->set(
+			"familias",
+			$this->paginate()
+		);
 	}
 
 	/**
@@ -120,7 +123,9 @@ class FamiliasController extends AppController
 			$options = array('conditions' => array('Familia.' . $this->Familia->primaryKey => $id));
 			$this->request->data = $this->Familia->find('first', $options);
 		}
-		$sociambientals = $this->Familia->Sociambiental->find('list');
+		$sociambientals = $this->Familia->Sociambiental->find('list', array(
+			'order' => array('Sociambiental.id' => 'desc')
+		));
 
 		$this->set(compact('sociambientals'));
 	}

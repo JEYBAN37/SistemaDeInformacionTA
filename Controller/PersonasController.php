@@ -67,6 +67,9 @@ class PersonasController extends AppController
 				$this->Session->setFlash(__('The persona could not be saved. Please, try again.'));
 			}
 		}
+		$familias = $this->Persona->Familia->find('list');
+		//$this->set(compact('familias'));
+		$this->set(compact('familias'));
 	}
 
 
@@ -98,7 +101,11 @@ class PersonasController extends AppController
 			$options = array('conditions' => array('Persona.' . $this->Persona->primaryKey => $id));
 			$this->request->data = $this->Persona->find('first', $options);
 		}
-		$familias = $this->Persona->Familia->find('list');
+		$familias = $this->Persona->Familia->find('list', array(
+			'order' => array('Familia.id' => 'desc'),
+
+		));
+
 		$this->set(compact('familias'));
 	}
 

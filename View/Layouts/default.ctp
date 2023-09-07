@@ -14,12 +14,12 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <html>
 
 <head>
-	<?php echo $this->Html->charset(); ?>
-	<title>
-		<?php echo $cakeDescription ?>:
-		<?php echo $this->fetch('APS - Ficha Familia'); ?>
-	</title>
-	<?php
+    <?php echo $this->Html->charset(); ?>
+    <title>
+        <?php echo $cakeDescription ?>:
+        <?php echo $this->fetch('APS - Ficha Familia'); ?>
+    </title>
+    <?php
 	echo $this->Html->meta('icon');
 
 
@@ -32,36 +32,49 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 	?>
 
-	<!-- Latest compiled and minified CSS -->
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Formulario Responsive</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Responsive</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 
 <body>
 
 
-	<div class="contanier">
+    <div class="contanier">
 
-		<nav class="navbar" style="background-color: #3366CC;">
-			<div class="container-fluid">
-				<span class="navbar-brand mb-0 h1 JustifyCenter">
-					<img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
-				</span>
-			</div>
-		</nav>
-		<div>
-			<div>
-				<!--h1>ficha familiar</h1-->
-			</div>
-			<div>
+        <nav class="navbar" style="background-color: #3366CC;">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1 JustifyCenter">
+                    <img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
+                </span>
+            </div>
+        </nav>
 
-				<?php echo $this->Session->flash(); ?>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <?php echo $this->Html->link(('Modulo Familias'), array('controller' => 'familias', 'action' => 'index')); ?>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled link</a>
+            </li>
+        </ul>
 
-				<?php echo $this->fetch('content'); ?>
-			</div>
-			<!--div>
+        <div>
+            <div>
+                <!--h1>ficha familiar</h1-->
+            </div>
+            <div>
+
+                <?php echo $this->Session->flash(); ?>
+
+                <?php echo $this->fetch('content'); ?>
+            </div>
+            <!--div>
 			<?php echo $this->Html->link(
 				$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
 				'http://www.cakephp.org/',
@@ -70,14 +83,14 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			?>
 		</div-->
 
-			<!--?php echo $this->element('sql_dump'); ?-->
+            <!--?php echo $this->element('sql_dump'); ?-->
 
 
-		</div>
-	</div>
-	</div>
+        </div>
+    </div>
+    </div>
 
-	</div>
+    </div>
 
 </body>
 

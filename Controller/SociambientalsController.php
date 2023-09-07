@@ -80,7 +80,7 @@ class SociambientalsController extends AppController
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Sociambiental->save($this->request->data)) {
 				$this->Session->setFlash(__('The sociambiental has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The sociambiental could not be saved. Please, try again.'));
 			}

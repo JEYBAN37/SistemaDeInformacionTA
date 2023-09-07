@@ -28,7 +28,16 @@ class Primerainfancia extends AppModel
 		'persona_id' => array(
 			'alphaNumeric' => array(
 				'rule'     =>  'isUnique',
-				'message'  =>  'La perosona ya esta asociada a un hogar.',
+				'message'  =>  'La persona ya esta asociada a un hogar.',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'estudio' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -145,6 +154,7 @@ class Primerainfancia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+
 		'condicioncronica' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -265,7 +275,7 @@ class Primerainfancia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'sospechaviolencia' => array(
+		'sopechamaltrato' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
