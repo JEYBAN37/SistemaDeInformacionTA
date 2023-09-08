@@ -7,6 +7,7 @@ App::uses('AppModel', 'Model');
  */
 class Persona extends AppModel
 {
+
 	public $virtualFields = array(
 		'apellidosnombre' => 'CONCAT(Persona.numerodoc," ",Persona.primerapellido, " ", Persona.segundoapellido, " ",Persona.primernombre, " ",Persona.segundonombre, " ", "Edad ",Persona.edad, " ", "Sexo ",Persona.sexo)'
 	);

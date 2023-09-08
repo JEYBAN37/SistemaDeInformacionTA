@@ -10,14 +10,14 @@
 
 
             <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Primera Infancia 2
-                    a 5 años
+                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Primera Infancia
                 </h1>
+                <h5 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: -10px; ">2
+                    a 5 años</h5>
 
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -211,7 +211,7 @@
                             <?php
                             $optionAlimentacion = array(
                                 '' => 'Elegir',
-                                
+
                                 'Alimentacion nutritiva' => 'Alimentación balaceada(Frutas, Verduras, Proteina)',
                                 'Alimentación no nutritiva' => 'Alimentación No balenceada(Empaquedados, Dulces, gaseosa, Harinas)',
                             );
@@ -257,8 +257,7 @@
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -369,8 +368,7 @@
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Condiciones de vulnerabilidad</h2>
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Condiciones de vulnerabilidad</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 
@@ -428,50 +426,50 @@
                         </div>
                         <div class="form-group col-md-6">
                             <?php
-                        $optionEstudio = [
-                            '' => 'Elegir',
-                            'Jardin Infantil' => 'Jardin Infantil',
-                            'Hogar Comuitario' => 'Hogar Comuitario',
-                            'CDI' => 'CDI',
-                            'No' => 'Mantiene en casa',
-                            'No refiere' => 'No informa',
-                            'SD' => 'Sin dato'
-                        ];
+                            $optionEstudio = [
+                                '' => 'Elegir',
+                                'Jardin Infantil' => 'Jardin Infantil',
+                                'Hogar Comuitario' => 'Hogar Comuitario',
+                                'CDI' => 'CDI',
+                                'No' => 'Mantiene en casa',
+                                'No refiere' => 'No informa',
+                                'SD' => 'Sin dato'
+                            ];
 
-                        echo $this->Form->input('estudio', array(
-                            'label' => '¿El menor asiste a una institucion educativa o de cuidado?',
-                            'class' => 'form-control',
-                            'placeholder' => '',
-                            'options' => $optionEstudio,
-                            'type' => 'select',
-                            'style' => 'font-size: 12px',
+                            echo $this->Form->input('estudio', array(
+                                'label' => '¿El menor asiste a una institucion educativa o de cuidado?',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'options' => $optionEstudio,
+                                'type' => 'select',
+                                'style' => 'font-size: 12px',
 
-                        )); ?>
+                            )); ?>
                         </div>
 
 
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('padresconsumo', array(
-                            'label' => 'Hijo de padres (especialmente la madre) con consumo de sustancias psicoactivas',
-                            'class' => 'form-control',
-                            'placeholder' => '',
-                            'options' => $optionYesNo,
-                            'type' => 'select',
-                            'style' => 'font-size: 12px',
+                                'label' => 'Hijo de padres (especialmente la madre) con consumo de sustancias psicoactivas',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'options' => $optionYesNo,
+                                'type' => 'select',
+                                'style' => 'font-size: 12px',
 
-                        )); ?>
+                            )); ?>
                         </div>
 
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('sopechamaltrato', array(
-                            'label' => 'Indicios de menor víctima de vulneración o violencia',
-                            'class' => 'form-control',
-                            'placeholder' => '',
-                            'options' => $optionYesNo,
-                            'type' => 'select',
-                            'style' => 'font-size: 12px',
+                                'label' => 'Indicios de menor víctima de vulneración o violencia',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'options' => $optionYesNo,
+                                'type' => 'select',
+                                'style' => 'font-size: 12px',
 
-                        )); ?>
+                            )); ?>
                         </div>
 
                     </div>
@@ -479,8 +477,7 @@
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
                 Atención integral</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
@@ -489,47 +486,47 @@
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('canalizacionuno', array(
-                        'label' => 'Se canaliza a',
-                        'class' => 'form-control',
-                        'placeholder' => '',
-                        'type' => 'select',
-                        'options' => $optionYesNo,
-                        'style' => 'font-size: 12px',
+                                'label' => 'Se canaliza a',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'options' => $optionYesNo,
+                                'style' => 'font-size: 12px',
 
-                    )); ?>
+                            )); ?>
                         </div>
 
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('canalizaciondos', array(
-                        'label' => 'Se canaliza a',
-                        'class' => 'form-control',
-                        'placeholder' => '',
-                        'type' => 'select',
-                        'style' => 'font-size: 12px',
-                        'options' => $optionYesNo,
-                    )); ?>
+                                'label' => 'Se canaliza a',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'style' => 'font-size: 12px',
+                                'options' => $optionYesNo,
+                            )); ?>
                         </div>
 
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('eduacionuno', array(
-                        'label' => 'Se requiere plan de atención en',
-                        'class' => 'form-control',
-                        'placeholder' => '',
-                        'type' => 'select',
-                        'style' => 'font-size: 12px',
-                        'options' => $optionYesNo,
-                    )); ?>
+                                'label' => 'Se requiere plan de atención en',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'style' => 'font-size: 12px',
+                                'options' => $optionYesNo,
+                            )); ?>
                         </div>
 
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('educaciondos', array(
-                        'label' => 'Se requiere plan de atención en',
-                        'class' => 'form-control',
-                        'placeholder' => '',
-                        'type' => 'select',
-                        'style' => 'font-size: 12px',
-                        'options' => $optionYesNo,
-                    )); ?>
+                                'label' => 'Se requiere plan de atención en',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'style' => 'font-size: 12px',
+                                'options' => $optionYesNo,
+                            )); ?>
                         </div>
                     </div>
                 </div>
@@ -585,45 +582,45 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
-function agregarOpcionSeleccion() {
+    function agregarOpcionSeleccion() {
 
-    $("#PrimerainfanciaFamiliaId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
-    $("#PrimerainfanciaPersonaId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
-}
-
-function validar() {
-    var todo_correcto = true;
-
-    if (document.getElementById('status').value == '') {
-        todo_correcto = false;
+        $("#PrimerainfanciaFamiliaId").prepend(
+            "<option value='' selected='selected'>Seleccione</option>");
+        $("#PrimerainfanciaPersonaId").prepend(
+            "<option value='' selected='selected'>Seleccione</option>");
     }
 
-    if (!todo_correcto) {
-        alert('Algunos campos no están correctos, vuelva a revisarlos');
+    function validar() {
+        var todo_correcto = true;
+
+        if (document.getElementById('status').value == '') {
+            todo_correcto = false;
+        }
+
+        if (!todo_correcto) {
+            alert('Algunos campos no están correctos, vuelva a revisarlos');
+        }
+
+        return todo_correcto;
     }
 
-    return todo_correcto;
-}
 
 
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
 
-function mostrar(id) {
-    if (id == "si") {
-        $("#si").show();
-        $("#no").hide();
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
 
-    } else if (id == "no") {
-        $("#si").hide();
-        $("#no").show();
-
+        }
     }
-}
 </script>

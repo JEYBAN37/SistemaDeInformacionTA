@@ -15,89 +15,90 @@ $bd = 'fichafamiliar';
 
 </div>
 <div class="row">
-	<div class="col-lg-8">
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<div class="p-2 bg-light border">ID:
-					<?php echo ($familia['Familia']['id']); ?> - Fecha:
-					<?php
+    <div class="col-lg-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="p-2 bg-light border">ID:
+                    <?php echo ($familia['Familia']['id']); ?> - Fecha:
+                    <?php
 					echo ($familia['Sociambiental']['fecha']); ?>
-					Familia:
-					<?php echo $this->Html->link($familia['Sociambiental']['apellidosfamilia'], array('controller' => 'sociambientals', 'action' => 'view', $familia['Sociambiental']['id'])); ?>
+                    Familia:
+                    <?php echo $this->Html->link($familia['Sociambiental']['apellidosfamilia'], array('controller' => 'sociambientals', 'action' => 'view', $familia['Sociambiental']['id'])); ?>
 
-					Curso vida familia:
-					<?php echo ($familia['Familia']['cursovidafamilia']); ?>
-					- Personas LGTBIQ+: <?php echo ($familia['Familia']['lgtbi']); ?>
-					Estilo de Vida:
-					<?php echo ($familia['Familia']['estilodevidapredominante']); ?>
-				</div>
-
-
-
-			</div>
-
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					Personas del gurpo familiar
-				</div>
-				<!-- /.panel-heading -->
-				<div class="panel-body">
-					<!-- Nav tabs -->
-					<ul class="nav nav-pills">
-						<li class="active"><a href="#home-pills" data-toggle="tab">Menor de 1 año</a>
-						</li>
-						<li><a href="#profile-pills" data-toggle="tab">2 a 5 años</a>
-						</li>
-						<li><a href="#messages-pills" data-toggle="tab">6 a 11 años</a>
-						</li>
-						<li><a href="#settings-pills" data-toggle="tab">12 a 17 años</a>
-						</li>
-						<li><a href="#actas-pills" data-toggle="tab">18 a 29 años</a>
-						</li>
-					</ul>
-
-					<!-- Tab panes -->
-					<div class="tab-content">
-						<div class="tab-pane fade in active" id="home-pills">
-							<h4>Primera infancia menor de un año <div class="actions">
-									<li><?php echo $this->Html->link(('Add menor de año'), array('controller' => 'Primerainfancias', 'action' => 'add?primerainfancia=' . $familia['Familia']['id'])); ?>
+                    Curso vida familia:
+                    <?php echo ($familia['Familia']['cursovidafamilia']); ?>
+                    - Personas LGTBIQ+: <?php echo ($familia['Familia']['lgtbi']); ?>
+                    Estilo de Vida:
+                    <?php echo ($familia['Familia']['estilodevidapredominante']); ?>
+                </div>
 
 
 
+            </div>
 
-								</div>
-							</h4>
-							<div class="card-body">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Personas del gurpo familiar
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="#home-pills" data-toggle="tab">Menor de 1 año</a>
+                        </li>
+                        <li><a href="#profile-pills" data-toggle="tab">2 a 5 años</a>
+                        </li>
+                        <li><a href="#messages-pills" data-toggle="tab">6 a 11 años</a>
+                        </li>
+                        <li><a href="#settings-pills" data-toggle="tab">12 a 17 años</a>
+                        </li>
+                        <li><a href="#actas-pills" data-toggle="tab">18 a 29 años</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="home-pills">
+                            <h4>Primera infancia menor de dos años <div class="actions">
+                                    <li><?php echo $this->Html->link(('Add menor de año'), array('controller' => 'Primerainfancias', 'action' => 'add?primerainfancia=' . $familia['Familia']['id'])); ?>
 
 
-								<?php if (!empty($producto['Proactividad'])) : ?>
-									Prueba
-								<?php endif; ?>
-								<!--prueba t5 min 38;41-->
 
 
-								<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-									<!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
-									<thead>
-										<tr>
-											<th>Id</th>
-											<th>Nombre</th>
-											<th>Remision</th>
-											<th>Remision</th>
-											<th>Acciones</th>
+                                </div>
+                            </h4>
+                            <div class="card-body">
 
 
-										</tr>
-										<thead>
-										<tbody>
-											<?php foreach ($familia['Primerainfancia'] as $primerainfancia) :
+                                <?php if (!empty($producto['Proactividad'])) : ?>
+                                Prueba
+                                <?php endif; ?>
+                                <!--prueba t5 min 38;41-->
+
+
+                                <table width="100%" class="table table-striped table-bordered table-hover"
+                                    id="dataTables-example">
+                                    <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Nombre</th>
+                                            <th>Remision</th>
+                                            <th>Remision</th>
+                                            <th>Acciones</th>
+
+
+                                        </tr>
+                                        <thead>
+                                        <tbody>
+                                            <?php foreach ($familia['Primerainfancia'] as $primerainfancia) :
 												if (!empty($primerainfancia['id'])) {
 											?>
-													<tr class="gradeA odd">
+                                            <tr class="gradeA odd">
 
-														<td class="sorting_1"><?php echo $primerainfancia['id']; ?></td>
+                                                <td class="sorting_1"><?php echo $primerainfancia['id']; ?></td>
 
-														<td><?php
+                                                <td><?php
 															//echo $plsesion['responsable_id']; 
 															$link = mysqli_connect($serv, $userS, $passS);
 															mysqli_select_db($link, $bd);
@@ -108,75 +109,87 @@ $bd = 'fichafamiliar';
 
 																mysqli_close($link);
 															}
-															?></td>
-														<td><?php echo $primerainfancia['canalizacionuno']; ?></td>
-														<td><?php echo $primerainfancia['canalizaciondos']; ?></td>
+															?> <?php
+																//echo $plsesion['responsable_id']; 
+																$link = mysqli_connect($serv, $userS, $passS);
+																mysqli_select_db($link, $bd);
+																$tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+																$result = mysqli_query($link, "SELECT primerapellido FROM Personas WHERE id = " . $primerainfancia['persona_id']);
+																while ($fila = mysqli_fetch_array($result)) {
+																	echo $fila['primerapellido'];
+
+																	mysqli_close($link);
+																}
+																?></td>
+                                                <td><?php echo $primerainfancia['canalizacionuno']; ?></td>
+                                                <td><?php echo $primerainfancia['canalizaciondos']; ?></td>
 
 
-														<td class="actions">
+                                                <td class="actions">
 
-															<div class="btn-group">
-																<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-																	<li><?php echo $this->Html->link(('Opciones'), array('controller' => 'Primerainfancias', 'action' => 'add?primerainfancia=' . $familia['Familia']['id'])); ?>
-																</button>
-																<ul class="dropdown-menu" role="menu">
-																	<li><?php echo $this->Html->link("Ver", "../primerainfancias/view/" . $primerainfancia['id'], array('target' => '_blank')); ?>
-																	</li>
-																	<li><?php echo $this->Html->link("Editar", "../primerainfancias/edit/" . $primerainfancia['id'], array('target' => '_blank')); ?>
-																	</li>
-																	<li><?php echo $this->Html->link(('Nueva sistematización'), array('controller' => 'primerainfancias', 'action' => 'add')); ?>
-																	</li>
-
-																</ul>
-															</div>
-
-														</td>
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-default dropdown-toggle"
+                                                            data-toggle="dropdown">
+                                                            Opciones
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><?php echo $this->Html->link("Ver", "../primerainfancias/view/" . $primerainfancia['id'], array('target' => '_blank')); ?>
+                                                            </li>
+                                                            <li><?php echo $this->Html->link("Editar ", "../primerainfancias/edit/" . $primerainfancia['id'], array('target' => '_blank')); ?>
+                                                            </li>
 
 
+                                                        </ul>
+                                                    </div>
+
+                                                </td>
 
 
-													</tr>
-											<?php }
+
+
+                                            </tr>
+                                            <?php }
 											endforeach; ?>
-										</tbody>
-								</table>
+                                        </tbody>
+                                </table>
 
 
 
 
 
 
-							</div>
+                            </div>
 
-						</div>
-						<div class="tab-pane fade" id="profile-pills">
-							<h4>Sistematización actividades</h4>
-							<div class="card-body">
+                        </div>
+                        <div class="tab-pane fade" id="profile-pills">
+                            <h4>Sistematización actividades</h4>
+                            <div class="card-body">
 
 
-								<?php if (!empty($producto['Actividad'])) : ?>
-									<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-actividades">
-										<thead>
-											<tr>
-												<th>Id</th>
-												<th>Fecha</th>
-												<th>Tema</th>
-												<th>Barrio</th>
-												<th>Tipo</th>
-												<th>Anexo</th>
-												<th>Responsable</th>
-												<th>Acciones</th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php foreach ($producto['Actividad'] as $actividad) :
+                                <?php if (!empty($producto['Actividad'])) : ?>
+                                <table width="100%" class="table table-striped table-bordered table-hover"
+                                    id="dataTables-actividades">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Fecha</th>
+                                            <th>Tema</th>
+                                            <th>Barrio</th>
+                                            <th>Tipo</th>
+                                            <th>Anexo</th>
+                                            <th>Responsable</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($producto['Actividad'] as $actividad) :
 												if (!empty($actividad['id'])) {
 											?>
-													<tr class="gradeA even">
-														<td class="sorting_1"><?php echo $actividad['id']; ?></td>
-														<td><?php echo $actividad['fecha']; ?></td>
-														<td><?php echo $actividad['tema']; ?></td>
-														<td><?php
+                                        <tr class="gradeA even">
+                                            <td class="sorting_1"><?php echo $actividad['id']; ?></td>
+                                            <td><?php echo $actividad['fecha']; ?></td>
+                                            <td><?php echo $actividad['tema']; ?></td>
+                                            <td><?php
 															//echo $actividad['ubicacion_id']; 
 															$link = mysqli_connect($serv, $userS, $passS);
 															mysqli_select_db($link, $bd);
@@ -188,9 +201,9 @@ $bd = 'fichafamiliar';
 																mysqli_close($link);
 															}
 															?></td>
-														<td><?php echo $actividad['caracteristicasesion']; ?></td>
-														<td><?php echo $actividad['anexo']; ?></td>
-														<td><?php
+                                            <td><?php echo $actividad['caracteristicasesion']; ?></td>
+                                            <td><?php echo $actividad['anexo']; ?></td>
+                                            <td><?php
 															//echo $actividad['responsable_id']; 
 															$link = mysqli_connect($serv, $userS, $passS);
 															mysqli_select_db($link, $bd);
@@ -203,69 +216,71 @@ $bd = 'fichafamiliar';
 															}
 															?></td>
 
-														<td class="actions">
+                                            <td class="actions">
 
-															<div class="btn-group">
-																<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-																	<?php echo ('Acciones'); ?> <span class="caret"></span>
-																</button>
-																<ul class="dropdown-menu" role="menu">
-																	<li><?php echo $this->Html->link("Ver", "../personas/view/" . $persona['id'], array('target' => '_blank')); ?>
-																	</li>
-																	<li><?php echo $this->Html->link("Editar", "../persona/edit/" . $persona['id'], array('target' => '_blank')); ?>
-																	</li>
-																	<li><?php echo $this->Html->link(('Nueva persona'), array('controller' => 'personas', 'action' => 'add')); ?>
-																	</li>
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-default dropdown-toggle"
+                                                        data-toggle="dropdown">
+                                                        <?php echo ('Acciones'); ?> <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role="menu">
+                                                        <li><?php echo $this->Html->link("Ver", "../personas/view/" . $persona['id'], array('target' => '_blank')); ?>
+                                                        </li>
+                                                        <li><?php echo $this->Html->link("Editar", "../persona/edit/" . $persona['id'], array('target' => '_blank')); ?>
+                                                        </li>
+                                                        <li><?php echo $this->Html->link(('Nueva persona'), array('controller' => 'personas', 'action' => 'add')); ?>
+                                                        </li>
 
-																</ul>
-															</div>
+                                                    </ul>
+                                                </div>
 
-														</td>
-													</tr>
-											<?php
+                                            </td>
+                                        </tr>
+                                        <?php
 												}
 											endforeach;
 											?>
-										</tbody>
-									</table>
-								<?php endif; ?>
+                                    </tbody>
+                                </table>
+                                <?php endif; ?>
 
 
-							</div>
+                            </div>
 
-						</div>
-						<div class="tab-pane fade" id="messages-pills">
-							<h4>Planes de sesión</h4>
-							<div class="card-body">
+                        </div>
+                        <div class="tab-pane fade" id="messages-pills">
+                            <h4>Planes de sesión</h4>
+                            <div class="card-body">
 
 
-								<?php if (!empty($producto['Plsesion'])) : ?>
-									<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-planes">
-										<thead>
+                                <?php if (!empty($producto['Plsesion'])) : ?>
+                                <table width="100%" class="table table-striped table-bordered table-hover"
+                                    id="dataTables-planes">
+                                    <thead>
 
-											<tr>
-												<th>Id</th>
-												<th>Fecha</th>
-												<th>Tema</th>
-												<th>Intension</th>
-												<th>Dimension</th>
-												<th>Responsable</th>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Fecha</th>
+                                            <th>Tema</th>
+                                            <th>Intension</th>
+                                            <th>Dimension</th>
+                                            <th>Responsable</th>
 
-												<th class="actions"><?php echo ('Acciones'); ?></th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php foreach ($producto['Plsesion'] as $plsesion) :
+                                            <th class="actions"><?php echo ('Acciones'); ?></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($producto['Plsesion'] as $plsesion) :
 												if (!empty($plsesion['id'])) {
 											?>
-													<tr class="gradeA odd">
-														<td class="sorting_1"><?php echo $plsesion['id']; ?></td>
+                                        <tr class="gradeA odd">
+                                            <td class="sorting_1"><?php echo $plsesion['id']; ?></td>
 
-														<td><?php echo $plsesion['fecha']; ?></td>
-														<td><?php echo $plsesion['tema']; ?></td>
-														<td><?php echo $plsesion['intension']; ?></td>
-														<td><?php echo $plsesion['dimension']; ?></td>
-														<td><?php
+                                            <td><?php echo $plsesion['fecha']; ?></td>
+                                            <td><?php echo $plsesion['tema']; ?></td>
+                                            <td><?php echo $plsesion['intension']; ?></td>
+                                            <td><?php echo $plsesion['dimension']; ?></td>
+                                            <td><?php
 															//echo $plsesion['responsable_id']; 
 															$link = mysqli_connect($serv, $userS, $passS);
 															mysqli_select_db($link, $bd);
@@ -278,62 +293,63 @@ $bd = 'fichafamiliar';
 															}
 															?></td>
 
-														<td class="actions">
-															<?php //echo $this->Html->link(('Ver'), array('target' => '_blank','controller' => 'plsesiones', 'action' => 'view', $plsesion['id'])); 
+                                            <td class="actions">
+                                                <?php //echo $this->Html->link(('Ver'), array('target' => '_blank','controller' => 'plsesiones', 'action' => 'view', $plsesion['id'])); 
 															echo $this->Html->link("Ver", "../plsesiones/view/" . $plsesion['id'], array('target' => '_blank'));
 															?>
-															<?php //echo $this->Html->link(('Editar'), array('controller' => 'plsesiones', 'action' => 'edit', $plsesion['id'])); 
+                                                <?php //echo $this->Html->link(('Editar'), array('controller' => 'plsesiones', 'action' => 'edit', $plsesion['id'])); 
 															echo $this->Html->link("Editar", "../plsesiones/edit/" . $plsesion['id'], array('target' => '_blank'));
 															?>
-														</td>
-													</tr>
-											<?php }
+                                            </td>
+                                        </tr>
+                                        <?php }
 											endforeach; ?>
-										</tbody>
-									</table>
-								<?php endif; ?>
+                                    </tbody>
+                                </table>
+                                <?php endif; ?>
 
-								<div class="actions">
-									<ul>
-										<li><?php echo $this->Html->link(('Nuevo Plan de Sesión'), array('controller' => 'plsesiones', 'action' => 'add')); ?>
-										</li>
-									</ul>
-								</div>
+                                <div class="actions">
+                                    <ul>
+                                        <li><?php echo $this->Html->link(('Nuevo Plan de Sesión'), array('controller' => 'plsesiones', 'action' => 'add')); ?>
+                                        </li>
+                                    </ul>
+                                </div>
 
-							</div>
-						</div>
-						<div class="tab-pane fade" id="settings-pills">
-							<h4>Informes eventos</h4>
-							<div class="card-body">
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="settings-pills">
+                            <h4>Informes eventos</h4>
+                            <div class="card-body">
 
-								<?php if (!empty($producto['Infoevento'])) : ?>
-									<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-informes">
-										<thead>
-											<tr>
-												<th><?php echo ('Id'); ?></th>
-												<th><?php echo ('Fecha'); ?></th>
-												<th><?php echo ('Tema'); ?></th>
-												<th><?php echo ('Tipo'); ?></th>
-												<th><?php echo ('anexo'); ?></th>
-												<th><?php echo ('Observacion'); ?></th>
-												<th><?php echo ('Responsable'); ?></th>
+                                <?php if (!empty($producto['Infoevento'])) : ?>
+                                <table width="100%" class="table table-striped table-bordered table-hover"
+                                    id="dataTables-informes">
+                                    <thead>
+                                        <tr>
+                                            <th><?php echo ('Id'); ?></th>
+                                            <th><?php echo ('Fecha'); ?></th>
+                                            <th><?php echo ('Tema'); ?></th>
+                                            <th><?php echo ('Tipo'); ?></th>
+                                            <th><?php echo ('anexo'); ?></th>
+                                            <th><?php echo ('Observacion'); ?></th>
+                                            <th><?php echo ('Responsable'); ?></th>
 
-												<th class="actions"><?php echo ('Acciones'); ?></th>
-											</tr>
-										</thead>
+                                            <th class="actions"><?php echo ('Acciones'); ?></th>
+                                        </tr>
+                                    </thead>
 
-										<body>
-											<?php foreach ($producto['Infoevento'] as $infoevento) :
+                                    <body>
+                                        <?php foreach ($producto['Infoevento'] as $infoevento) :
 												if (!empty($infoevento['id'])) {
 											?>
-													<tr class="gradeA odd">
-														<td class="sorting_1"><?php echo $infoevento['id']; ?></td>
-														<td><?php echo $infoevento['fecha']; ?></td>
-														<td><?php echo $infoevento['tema']; ?></td>
-														<td><?php echo $infoevento['tipo']; ?></td>
-														<td><?php echo $infoevento['anexo']; ?></td>
-														<td><?php echo $infoevento['observacion']; ?></td>
-														<td><?php
+                                        <tr class="gradeA odd">
+                                            <td class="sorting_1"><?php echo $infoevento['id']; ?></td>
+                                            <td><?php echo $infoevento['fecha']; ?></td>
+                                            <td><?php echo $infoevento['tema']; ?></td>
+                                            <td><?php echo $infoevento['tipo']; ?></td>
+                                            <td><?php echo $infoevento['anexo']; ?></td>
+                                            <td><?php echo $infoevento['observacion']; ?></td>
+                                            <td><?php
 															//echo $plsesion['responsable_id']; 
 															$link = mysqli_connect($serv, $userS, $passS);
 															mysqli_select_db($link, $bd);
@@ -346,62 +362,63 @@ $bd = 'fichafamiliar';
 															}
 															?></td>
 
-														<td class="actions">
-															<?php //echo $this->Html->link(('Ver'), array('target' => '_blank','controller' => 'plsesiones', 'action' => 'view', $plsesion['id'])); 
+                                            <td class="actions">
+                                                <?php //echo $this->Html->link(('Ver'), array('target' => '_blank','controller' => 'plsesiones', 'action' => 'view', $plsesion['id'])); 
 															echo $this->Html->link("Ver", "../infoeventos/view/" . $infoevento['id'], array('target' => '_blank'));
 															?>
-															<?php //echo $this->Html->link(('Editar'), array('controller' => 'plsesiones', 'action' => 'edit', $plsesion['id'])); 
+                                                <?php //echo $this->Html->link(('Editar'), array('controller' => 'plsesiones', 'action' => 'edit', $plsesion['id'])); 
 															echo $this->Html->link("Editar", "../infoeventos/edit/" . $infoevento['id'], array('target' => '_blank'));
 															?>
-														</td>
-													</tr>
-											<?php }
+                                            </td>
+                                        </tr>
+                                        <?php }
 											endforeach; ?>
-										</body>
-									</table>
-								<?php endif; ?>
+                                    </body>
+                                </table>
+                                <?php endif; ?>
 
-								<div class="actions">
-									<ul>
-										<li><?php echo $this->Html->link(('Nuevo informe'), array('controller' => 'infoeventos', 'action' => 'add')); ?>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="tab-pane fade" id="actas-pills">
-							<h4>Actas</h4>
-							<div class="card-body">
+                                <div class="actions">
+                                    <ul>
+                                        <li><?php echo $this->Html->link(('Nuevo informe'), array('controller' => 'infoeventos', 'action' => 'add')); ?>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="actas-pills">
+                            <h4>Actas</h4>
+                            <div class="card-body">
 
-								<?php if (!empty($producto['Acta'])) : ?>
-									<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-actas">
-										<thead>
-
-
-											<tr>
-												<th><?php echo ('Id'); ?></th>
-												<th><?php echo ('Fecha'); ?></th>
-												<th><?php echo ('Tema'); ?></th>
-												<th><?php echo ('barrio'); ?></th>
-												<th><?php echo ('Responsable Id'); ?></th>
-												<th><?php echo ('Objetivo'); ?></th>
-												<th><?php echo ('Anexo'); ?></th>
-												<th class="actions"><?php echo ('Acciones'); ?></th>
-											</tr>
-										</thead>
-
-										<body>
+                                <?php if (!empty($producto['Acta'])) : ?>
+                                <table width="100%" class="table table-striped table-bordered table-hover"
+                                    id="dataTables-actas">
+                                    <thead>
 
 
-											<?php foreach ($producto['Acta'] as $acta) :
+                                        <tr>
+                                            <th><?php echo ('Id'); ?></th>
+                                            <th><?php echo ('Fecha'); ?></th>
+                                            <th><?php echo ('Tema'); ?></th>
+                                            <th><?php echo ('barrio'); ?></th>
+                                            <th><?php echo ('Responsable Id'); ?></th>
+                                            <th><?php echo ('Objetivo'); ?></th>
+                                            <th><?php echo ('Anexo'); ?></th>
+                                            <th class="actions"><?php echo ('Acciones'); ?></th>
+                                        </tr>
+                                    </thead>
+
+                                    <body>
+
+
+                                        <?php foreach ($producto['Acta'] as $acta) :
 
 												if (!empty($acta['id'])) {
 											?>
-													<tr class="gradeA odd">
-														<td class="sorting_1"><?php echo $acta['id']; ?></td>
-														<td><?php echo $acta['fecha']; ?></td>
-														<td><?php echo $acta['tema']; ?></td>
-														<td><?php
+                                        <tr class="gradeA odd">
+                                            <td class="sorting_1"><?php echo $acta['id']; ?></td>
+                                            <td><?php echo $acta['fecha']; ?></td>
+                                            <td><?php echo $acta['tema']; ?></td>
+                                            <td><?php
 															//echo $acta['ubicacion_id']; 
 															$link = mysqli_connect($serv, $userS, $passS);
 															mysqli_select_db($link, $bd);
@@ -414,7 +431,7 @@ $bd = 'fichafamiliar';
 															}
 
 															?></td>
-														<td><?php
+                                            <td><?php
 															//echo $acta['responsable_id']; 
 															$link = mysqli_connect($serv, $userS, $passS);
 															mysqli_select_db($link, $bd);
@@ -427,45 +444,45 @@ $bd = 'fichafamiliar';
 															}
 
 															?></td>
-														<td><?php echo $acta['objactividad']; ?></td>
-														<td><?php echo $acta['anexo']; ?></td>
-														<td class="actions">
-															<?php echo $this->Html->link("Ver", "../actas/view/" . $acta['id'], array('target' => '_blank')); ?>
-															<?php echo $this->Html->link("Editar", "../actas/edit/" . $acta['id'], array('target' => '_blank')); ?>
-														</td>
-													</tr>
-											<?php
+                                            <td><?php echo $acta['objactividad']; ?></td>
+                                            <td><?php echo $acta['anexo']; ?></td>
+                                            <td class="actions">
+                                                <?php echo $this->Html->link("Ver", "../actas/view/" . $acta['id'], array('target' => '_blank')); ?>
+                                                <?php echo $this->Html->link("Editar", "../actas/edit/" . $acta['id'], array('target' => '_blank')); ?>
+                                            </td>
+                                        </tr>
+                                        <?php
 												}
 											endforeach;
 											?>
-										</body>
-									</table>
-								<?php endif; ?>
+                                    </body>
+                                </table>
+                                <?php endif; ?>
 
-								<div class="actions">
-									<ul>
-										<li><?php echo $this->Html->link(('../actas/view/'), array('controller' => 'actas', 'action' => 'add')); ?>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-
-						<?php echo $this->Html->link(('Add hogar'), array('controller' => 'familias', 'action' => 'add?hogar=' . $familia['Sociambiental']['id'])); ?>
+                                <div class="actions">
+                                    <ul>
+                                        <li><?php echo $this->Html->link(('../actas/view/'), array('controller' => 'actas', 'action' => 'add')); ?>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
 
 
-
-					</div>
-				</div>
-				<!-- /.panel-body -->
-			</div>
+                        <?php echo $this->Html->link(('Add hogar'), array('controller' => 'familias', 'action' => 'add?hogar=' . $familia['Sociambiental']['id'])); ?>
 
 
 
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
 
-		</div>
-	</div>
+
+
+
+        </div>
+    </div>
 </div>
 
 
@@ -703,29 +720,29 @@ $bd = 'fichafamiliar';
 
 
 <script>
-	$(document).ready(function() {
-		$('#dataTables-example').DataTable({
-			responsive: true
-		});
-	});
-	$(document).ready(function() {
-		$('#dataTables-actividades').DataTable({
-			responsive: true
-		});
-	});
-	$(document).ready(function() {
-		$('#dataTables-informes').DataTable({
-			responsive: true
-		});
-	});
-	$(document).ready(function() {
-		$('#dataTables-planes').DataTable({
-			responsive: true
-		});
-	});
-	$(document).ready(function() {
-		$('#dataTables-actas').DataTable({
-			responsive: true
-		});
-	});
+$(document).ready(function() {
+    $('#dataTables-example').DataTable({
+        responsive: true
+    });
+});
+$(document).ready(function() {
+    $('#dataTables-actividades').DataTable({
+        responsive: true
+    });
+});
+$(document).ready(function() {
+    $('#dataTables-informes').DataTable({
+        responsive: true
+    });
+});
+$(document).ready(function() {
+    $('#dataTables-planes').DataTable({
+        responsive: true
+    });
+});
+$(document).ready(function() {
+    $('#dataTables-actas').DataTable({
+        responsive: true
+    });
+});
 </script>>

@@ -7,7 +7,7 @@
 
             <div class="col-12 text-center">
                 <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Infancia</h1>
-                <h6 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: -10px; ">6 a 11 años</h6>
+                <h5 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: -10px; ">6 a 11 años</h5>
             </div>
 
 
@@ -21,7 +21,7 @@
 
                         <div class="form-group col-md-6">
                             <?php
-                            $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No');
+
                             echo $this->Form->input('familia_id', [
                                 'label' => 'ID_Familia/N° Hogar/Nombres',
                                 'class' => 'form-control',
@@ -57,17 +57,17 @@
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <?php
-                            $option = array('' => 'Elegir', 'No presenta' => 'No presenta', 'Fisica' => 'Fisica', 'Cognitiva' => 'Cognitiva', 'Sensorial' => 'Sensorial');
+                            $optionDiscapacidad = array('' => 'Elegir', 'No presenta' => 'No presenta', 'Fisica' => 'Fisica', 'Cognitiva' => 'Cognitiva', 'Sensorial' => 'Sensorial');
                             echo $this->Form->input('discapacidad', array(
-                                'label' => 'Presenta alguna de las siguientes discapacidades',
+                                'label' => '¿Presenta alguna de las siguientes discapacidades?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
-                                'class' => 'form-control select-search',
                                 'style' => 'font-size: 12px',
-                                'options' => $option
+                                'options' => $optionDiscapacidad
                             ));
-                            ?></div>
+                            ?>
+                        </div>
                         <div class="form-group col-md-6">
                             <?php
                             echo $this->Form->input('peso', array(
@@ -110,22 +110,27 @@
                             )); ?>
                         </div>
                         <div class="form-group col-md-6">
-
                             <?php
-                            $option = array('' => 'Elegir', 'Otro' => 'Otro', 'otro2' => 'Otros', 'a' => 'Elegir');
-                            $option = array(
-                                '' => 'Elegir', 'neurológica' => 'neurológica', 'cardiovascular' => 'cardiovascular',
-                                'respiratoria' => 'respiratoria', 'metabólica' => 'metabólica', 'endocrinológica' => 'endocrinológica',
-                                'gastrointestinal' => 'gastrointestinal', 'renal o de otro tipo' => 'renal o de otro tipo'
+                            $optionCronica = array(
+                                '' => 'Elegir',
+                                'Neurológica' => 'Neurológica',
+                                'Cardiovascular' => 'Cardiovascular',
+                                'Respiratoria' => 'Respiratoria',
+                                'Metabolica' => 'Metabólica',
+                                'Endocrinologica' => 'Endocrinológica',
+                                'Gastrointestinal' => 'Gastrointestinal',
+                                'Endocrinologica' => 'Endocrinológica',
+                                'renal o de otro tipo' => 'renal o de otro tipo',
                             );
+
                             echo $this->Form->input('condicioncronica', array(
-                                'label' => 'Presenta una enfermedad crónica',
+                                'label' => 'Presenta alguna de las siguientes enfermedades crónicas',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
-                                'options' => $option,
+                                'options' => $optionCronica,
                                 'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
+
                             )); ?>
                         </div>
                     </div>
@@ -140,57 +145,104 @@
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
                     <div class="form-group row">
                         <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('esquemavacunacion', array(
-                                'label' => 'Esquema de vacunación al día para su edad',
+                            <?php
+                            $optionVacuna = array(
+                                '' => 'Elegir',
+                                'Incompleto' => 'Esquema incompleto a su edad',
+                                'Completo' => 'Esquema al día a su edad con refuerzo adicionales',
+                                'No informa' => 'Desconoce la información/no presenta carnet de vacuanas',
+                                'SD' => 'Sin dato',
+
+                            );
+                            echo $this->Form->input('esquemavacunacion', array(
+                                'label' => '¿Le han aplicado las vacunas correspondientes a la edad de menor? ',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
+                                'options' => $optionVacuna,
                                 'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
+
                             )); ?>
                         </div>
 
                         <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('desparasitacion', array(
+                            <?php
+                            $optionYesNo = [
+                                '' => 'Elegir',
+                                'Si' => 'Si',
+                                'No' => 'No',
+                                'SD' => 'Sin dato',
+
+                            ];
+                            echo $this->Form->input('desparasitacion', array(
                                 'label' => 'Desparasitado en los últimos seis meses',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
-                                'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
+                                'options' => $optionYesNo,
+                                'style' => 'font-size: 12px'
+
                             )); ?>
                         </div>
 
                         <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('crecimientoydesarrollo', array(
-                                'label' => 'Asiste a control de Crecimiento y desarrollo',
+                            <?php
+                            $optionCyD = array(
+                                '' => 'Elegir',
+                                'No inscrito en CYD' => 'No está inscrito en CYD',
+                                'Si CYD' => 'Si Asistió a último control programado',
+                                'Si no asistiio ulitimo ctrl. ' => 'No Asistió a último control programado',
+                                'No informa' => 'Desconoce la información/no presenta carnet de CYD',
+                                'SD' => 'Sin dato',
+
+                            );
+
+                            echo $this->Form->input('crecimientoydesarrollo', array(
+                                'label' => '¿Asistió al ultimo control de Crecimiento y Desarrollo?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
+                                'options' => $optionCyD,
                                 'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
+
+                            )); ?>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <?php
+                            $optionMalnutricion = array(
+                                '' => 'Elegir',
+                                'Desnutricion Aguda' => 'Bajo peso para la edad',
+                                'Desnutricion Cronica' => 'Baja talla para la edad',
+                                'Sobrepeso' => 'Sobrepeso',
+                                'Obesidad' => 'Obesidad',
+                                'No informa' => 'Desconoce la información/no presenta carnet de CYD',
+                                'SD' => 'Sin dato',
+
+                            );
+
+                            echo $this->Form->input('desnutricion', array(
+                                'label' => '¿Le han informado si el menor tiene un diagnóstico de Malnutrición?',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'options' => $optionMalnutricion,
+                                'style' => 'font-size: 12px',
+
                             )); ?>
                         </div>
 
                         <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('desnutricion', array(
-                                'label' => 'Informa sobre diagnóstico de desnutrición',
-                                'class' => 'form-control',
-                                'placeholder' => '',
-                                'type' => 'select',
-                                'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
-                            )); ?>
-                        </div>
+                            <?php
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('higieneoral', array(
-                                'label' => 'Asistió a consulta de odontología en los últimos seis meses',
+
+                            echo $this->Form->input('higieneoral', array(
+                                'label' => '¿Asistió a consulta de odontología en los últimos seis meses?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
+                                'options' => $optionYesNo,
                                 'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
+
                             )); ?>
                         </div>
 
@@ -199,11 +251,12 @@
                                 'label' => 'Informa sobre alguna dificultad del desarrollo',
                                 'class' => 'form-control',
                                 'placeholder' => '',
-                                'type' => 'select',
+
                                 'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
+
                             )); ?>
                         </div>
+
 
                     </div>
                 </div>
@@ -218,46 +271,75 @@
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <?php
-                            $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No');
+                            $optionEstudio = [
+                                '' => 'Elegir',
+                                'Jardin Infantil' => 'Jardin Infantil',
+                                'Institucion educativa' => 'Escuela',
+                                'No estudia' => 'No estudia',
+                                'Pronico' => 'Proinco',
+                                'Descercion escolar ' => 'Se retiro de estudiar',
+                                'No informa' => 'No informa',
+                                'SD' => 'Sin dato'
+                            ];
+
                             echo $this->Form->input('estudio', array(
-                                'label' => 'El menor nació prematuro',
+                                'label' => '¿El menor asiste a una institución educativa o de cuidado?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
+                                'options' => $optionEstudio,
                                 'type' => 'select',
-                                'options' => $option,
                                 'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
-                            ));
-                            ?></div>
 
-                        <div class="form-group col-md-6">
-                            <?php
-                            $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No');
-                            echo $this->Form->input('rendimientoescolar', array(
-                                'label' => 'El menor nació prematuro',
-                                'class' => 'form-control',
-                                'placeholder' => '',
-                                'type' => 'select',
-                                'options' => $option,
-                                'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
-                            ));
-                            ?></div>
-
-                        <div class="form-group col-md-6">
-                            <?php
-                            $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No');
-                            echo $this->Form->input('sopechamaltrato', array(
-                                'label' => 'El menor nació prematuro',
-                                'class' => 'form-control',
-                                'placeholder' => '',
-                                'type' => 'select',
-                                'options' => $option,
-                                'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
-                            ));
-                            ?>
+                            )); ?>
                         </div>
+
+                        <div class="form-group col-md-6">
+                            <?php
+                            $optionRendimientoEstudio = [
+                                '' => 'Elegir',
+                                'Alto' => 'Aprende y es dedicado en sus tareas',
+                                'Medio' => 'Se le dificulta comprender las tematicas ',
+                                'Bajo' => 'Tiene bajas notas y no hace tareas',
+                                'No aplica' => 'No aplica',
+                                'No informa' => 'No informa',
+                                'SD' => 'Sin dato'
+                            ];
+                            echo $this->Form->input('rendimientoescolar', array(
+                                'label' => '¿Como es el rendiminento escolar del menor:',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'options' => $optionRendimientoEstudio,
+                                'style' => 'font-size: 12px',
+                                'class' => 'form-control select-search'
+                            ));
+                            ?></div>
+
+                        <div class="form-group col-md-6">
+                            <?php
+                            $optionTiposViolencia = [
+                                '' => 'Eletgir',
+                                'No' => 'No se identifica',
+                                'Violencia Fisica' => 'Signos de maltrato físico(golpes, quemadura, heridas)',
+                                'Violencia Emocional' => 'Menor retarido, timido o agresivo',
+                                'Violencia Sexual' => 'Tocamientos de personas adultas, relaciones sexuales ',
+                                'Abondono_Negligencia' => 'Falta de atencion a necesidades básicas(alimentación, salud, educación)',
+                                'No informa' => 'No informa',
+                                'SD' => 'Sin dato'
+                            ];
+
+
+                            echo $this->Form->input('sopechamaltrato', array(
+                                'label' => '¿Sospecha de algun tipo de vulneración o violencia?',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'options' => $optionTiposViolencia,
+                                'type' => 'select',
+                                'style' => 'font-size: 12px',
+
+                            )); ?>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -270,57 +352,48 @@
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
                     <div class="form-group row">
                         <div class="form-group col-md-6">
-                            <?php
-                            $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No');
-                            echo $this->Form->input('canalizacionuno', array(
-                                'label' => 'El menor nació prematuro',
+                            <?php echo $this->Form->input('canalizacionuno', array(
+                                'label' => 'Se canaliza a',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
-                                'options' => $option,
+                                'options' => $optionYesNo,
                                 'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
-                            ));
-                            ?></div>
+
+                            )); ?>
+                        </div>
+
                         <div class="form-group col-md-6">
-                            <?php
-                            $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No');
-                            echo $this->Form->input('canalizaciondos', array(
-                                'label' => 'El menor nació prematuro',
+                            <?php echo $this->Form->input('canalizaciondos', array(
+                                'label' => 'Se canaliza a',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
-                                'options' => $option,
                                 'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
-                            ));
-                            ?></div>
+                                'options' => $optionYesNo,
+                            )); ?>
+                        </div>
+
                         <div class="form-group col-md-6">
-                            <?php
-                            $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No');
-                            echo $this->Form->input('eduacionuno', array(
-                                'label' => 'El menor nació prematuro',
+                            <?php echo $this->Form->input('eduacionuno', array(
+                                'label' => 'Se requiere plan de atención en',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
-                                'options' => $option,
                                 'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
-                            ));
-                            ?></div>
+                                'options' => $optionYesNo,
+                            )); ?>
+                        </div>
+
                         <div class="form-group col-md-6">
-                            <?php
-                            $option = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No');
-                            echo $this->Form->input('educaciondos', array(
-                                'label' => 'El menor nació prematuro',
+                            <?php echo $this->Form->input('educaciondos', array(
+                                'label' => 'Se requiere plan de atención en',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
-                                'options' => $option,
                                 'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search'
-                            ));
-                            ?>
+                                'options' => $optionYesNo,
+                            )); ?>
                         </div>
                     </div>
                 </div>

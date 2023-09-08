@@ -1,25 +1,14 @@
 <div>
-
     <div class="form-group col-sm-12">
-
-
         <?php echo $this->Form->create('Primerainfancia'); ?>
-
-
         <fieldset>
-
-
             <div class="col-12 text-center">
                 <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Primera Infancia
                     menor de 2 años
                 </h1>
-
             </div>
-
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
-
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -264,8 +253,7 @@
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -376,8 +364,7 @@
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Condiciones de vulnerabilidad</h2>
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Condiciones de vulnerabilidad</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 
@@ -463,8 +450,7 @@
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de Atención integral</h2>
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de Atención integral</h2>
             <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -517,38 +503,33 @@
                     </div>
                 </div>
             </div>
-            <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?>
+            <?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
     </div>
     </fieldset>
-
-
-
-
-
 </div>
 
 
 <!--div class="actions">
-    <?php echo __('Actions'); ?>
+    <?php echo ('Actions'); ?>
 
 
 
     <ul>
 
         <li>
-            <?php echo $this->Html->link(__('List Primerainfancias'), array('action' => 'index')); ?>
+            <?php echo $this->Html->link(('List Primerainfancias'), array('action' => 'index')); ?>
         </li>
         <li>
-            <?php echo $this->Html->link(__('List Familias'), array('controller' => 'familias', 'action' => 'index')); ?>
+            <?php echo $this->Html->link(('List Familias'), array('controller' => 'familias', 'action' => 'index')); ?>
         </li>
         <li>
-            <?php echo $this->Html->link(__('New Familia'), array('controller' => 'familias', 'action' => 'add')); ?>
+            <?php echo $this->Html->link(('New Familia'), array('controller' => 'familias', 'action' => 'add')); ?>
         </li>
         <li>
-            <?php echo $this->Html->link(__('List Personas'), array('controller' => 'personas', 'action' => 'index')); ?>
+            <?php echo $this->Html->link(('List Personas'), array('controller' => 'personas', 'action' => 'index')); ?>
         </li>
         <li>
-            <?php echo $this->Html->link(__('New Persona'), array('controller' => 'personas', 'action' => 'add')); ?>
+            <?php echo $this->Html->link(('New Persona'), array('controller' => 'personas', 'action' => 'add')); ?>
         </li>
     </ul>
 </div-->
@@ -568,45 +549,45 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
-function agregarOpcionSeleccion() {
+    function agregarOpcionSeleccion() {
 
-    $("#PrimerainfanciaFamiliaId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
-    $("#PrimerainfanciaPersonaId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
-}
-
-function validar() {
-    var todo_correcto = true;
-
-    if (document.getElementById('status').value == '') {
-        todo_correcto = false;
+        $("#PrimerainfanciaFamiliaId").prepend(
+            "<option value='' selected='selected'>Seleccione</option>");
+        $("#PrimerainfanciaPersonaId").prepend(
+            "<option value='' selected='selected'>Seleccione</option>");
     }
 
-    if (!todo_correcto) {
-        alert('Algunos campos no están correctos, vuelva a revisarlos');
+    function validar() {
+        var todo_correcto = true;
+
+        if (document.getElementById('status').value == '') {
+            todo_correcto = false;
+        }
+
+        if (!todo_correcto) {
+            alert('Algunos campos no están correctos, vuelva a revisarlos');
+        }
+
+        return todo_correcto;
     }
 
-    return todo_correcto;
-}
 
 
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
 
-function mostrar(id) {
-    if (id == "si") {
-        $("#si").show();
-        $("#no").hide();
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
 
-    } else if (id == "no") {
-        $("#si").hide();
-        $("#no").show();
-
+        }
     }
-}
 </script>

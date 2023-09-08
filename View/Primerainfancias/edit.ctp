@@ -43,6 +43,8 @@
 
 
 
+
+
                         <div class="form-group col-md-6">
                             <?php
 							echo $this->Form->input('persona_id', [
@@ -54,6 +56,8 @@
 							]);
 							?>
                         </div>
+
+
                     </div>
                 </div>
 

@@ -9,6 +9,7 @@ App::uses('AppModel', 'Model');
 class Primerainfancia extends AppModel
 {
 
+
 	/**
 	 * Validation rules
 	 *

@@ -104,6 +104,7 @@ class PrimerainfanciasController extends AppController
 
 
 
+
 	/**
 	 * edit method
 	 *
@@ -117,6 +118,8 @@ class PrimerainfanciasController extends AppController
 			throw new NotFoundException(__('Invalid primerainfancia'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+			$primerainfancia = $this->Primerainfancia->patchEntity($primerainfancia, $this->request->getData());
+			$persona = $this->Primerainfancia->Persona->get($primerainfancia->persona_id);
 			if ($this->Primerainfancia->save($this->request->data)) {
 				$this->Session->setFlash(__('The primerainfancia has been saved.'));
 				//return $this->redirect(array('action' => 'index'));
@@ -133,6 +136,13 @@ class PrimerainfanciasController extends AppController
 		$personas = $this->Primerainfancia->Persona->find('list');
 		$this->set(compact('familias', 'personas'));
 	}
+
+
+
+
+
+
+
 
 	public function edit2_5($id = null)
 	{
