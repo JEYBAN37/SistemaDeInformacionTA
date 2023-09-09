@@ -20,15 +20,15 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         <?php echo $this->fetch('APS - Ficha Familia'); ?>
     </title>
     <?php
-	echo $this->Html->meta('icon');
+    echo $this->Html->meta('icon');
 
 
-	echo $this->Html->css(array('cake.generic.css'));
-	echo $this->Html->script(array('jquery-1.11.0', 'metisMenu.min', 'sb-admin-2', 'bootstrap.min'));
-	echo $this->fetch('css');
-	echo $this->fetch('script');
+    echo $this->Html->css(array('cake.generic.css'));
+    echo $this->Html->script(array('jquery-1.11.0', 'metisMenu.min', 'sb-admin-2', 'bootstrap.min'));
+    echo $this->fetch('css');
+    echo $this->fetch('script');
 
-	?>
+    ?>
 
     <!-- Latest compiled and minified CSS -->
     <meta charset="UTF-8">
@@ -58,11 +58,11 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             <?php echo $this->fetch('content'); ?>
         </div>
         <?php echo $this->Html->link(
-			$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-			'http://www.cakephp.org/',
-			array('target' => '_blank', 'escape' => false)
-		);
-		?>
+            $this->Html->image('alcaldiapasto.gif', array('alt' => $cakeDescription, 'border' => '1')),
+            'https://www.saludpasto.gov.co/',
+            array('target' => '_blank', 'escape' => false)
+        );
+        ?>
     </div>
 </body>
 

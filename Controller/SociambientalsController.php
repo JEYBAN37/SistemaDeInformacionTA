@@ -53,11 +53,11 @@ class SociambientalsController extends AppController
 		if ($this->request->is('post')) {
 			$this->Sociambiental->create();
 			if ($this->Sociambiental->save($this->request->data)) {
-				$this->Session->setFlash(__('Informacion Socioambiental se guardo con exito!'));
+				$this->Session->setFlash('Registro se guradado con exito', 'default', array('class' => 'alert alert-success'));
 				//return $this->redirect(array('action' => 'index'));
 				return $this->redirect(array('controller' => 'Familias', 'action' => 'add?hogar=' . $this->Sociambiental->id));
 			} else {
-				$this->Session->setFlash(__('The sociambiental could not be saved. Please, try again.'));
+				$this->Session->setFlash('Registro no se guradado, por favor revisar la información', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$responsables = $this->Sociambiental->Responsable->find('list');
@@ -79,10 +79,10 @@ class SociambientalsController extends AppController
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Sociambiental->save($this->request->data)) {
-				$this->Session->setFlash(__('The sociambiental has been saved.'));
+				$this->Session->setFlash('Registro se guradado con exito', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The sociambiental could not be saved. Please, try again.'));
+				$this->Session->setFlash('Registro no se guradado, por favor revisar la información', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Sociambiental.' . $this->Sociambiental->primaryKey => $id));

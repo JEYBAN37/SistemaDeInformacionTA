@@ -8,10 +8,11 @@
 
         <fieldset>
 
-            <?php echo $this->Form->input('id');?>
+            <?php echo $this->Form->input('id'); ?>
 
             <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Sociambiental</h1>
+                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Socioambiental
+                </h1>
             </div>
 
             <h2 class="titulo-general-pwa-govco col-md-12  "
@@ -21,6 +22,8 @@
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
                     <div class="form-group row">
+
+
 
                         <div class="form-group col-md-6">
                             <!-- Coloca el campo en una mitad de la pantalla en dispositivos medianos y grandes -->
