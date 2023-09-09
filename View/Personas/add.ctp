@@ -11,6 +11,24 @@
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 					<div class="form-group row">
+						<?php
+
+						$idAux = $_GET['primerainfancia'];
+						echo $this->Form->input('familia_id', array('value' => '' . $idAux, 'type' => 'hidden'));
+
+						?>
+						<!--div class="form-group col-md-6">
+				<?php
+				echo $this->Form->input('familia_id', [
+					'label' => 'ID_Familia/N° Hogar/Nombres',
+					'class' => 'form-control',
+					'placeholder' => '',
+					'type' => 'select',
+					'class' => 'form-control select-search',
+					'style' => 'font-size: 12px',
+				]);
+				?>
+					</div-->
 						<div class="form-group col-md-6">
 							<?php
 							$TipoDeDocumentoOptions = array('' => 'Elegir', 'Casa_Apto.' => 'Casa/Apartamento', 'Pieza' => 'Pieza', 'Cuarto improvisado' => 'Cuarto improvisado');
