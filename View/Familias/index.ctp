@@ -128,10 +128,17 @@ $bd = 'fichafamiliar';
                                                                     'style' => 'color: blue; font-size: 16px; font-weight: bold;'
                                                                 )
                                                             ); ?>
+<<<<<<< HEAD
                                                     </li>
                                                     <li>
                                                         <?php
                                                             echo $this->Html->link(('Agregar mennor de 2 años'),
+=======
+                                                        </li>
+                                                        <li>
+                                                            <?php
+                                                            echo $this->Html->link(('Agregar menor de 2 años'),
+>>>>>>> 313ce23a196a85c7f48c91a03a72d0388a2a6a36
                                                                 array(
                                                                     'controller' => 'Primerainfancias',
                                                                     'action' => 'add?primerainfancia=' . $familia['Familia']['id']
@@ -156,6 +163,7 @@ $bd = 'fichafamiliar';
                                                                 )
 
                                                             ); ?>
+<<<<<<< HEAD
                                                     </li>
                                                     <li><?php echo $this->Html->link(('Agregar menor de 6 a 11 años'), array('controller' => 'Infantils', 'action' => 'add?infancia=' . $familia['Familia']['id'])); ?>
                                                     </li>
@@ -163,6 +171,24 @@ $bd = 'fichafamiliar';
                                                     </li>
                                                     <li><?php echo $this->Html->link(('Agregar menor de 18 a 28 años'), array('controller' => 'Juventudadultos', 'action' => 'add?juevntud=' . $familia['Familia']['id'])); ?>
                                                     </li>
+=======
+                                                        </li>
+                                                        <li><?php echo $this->Html->link(('Agregar menor de 6 a 11 años'),
+                                                                array(
+                                                                    'controller' => 'Infantils',
+                                                                    'action' => 'add?infantils=' . $familia['Familia']['id']
+                                                                ),
+                                                                array(
+                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                                )
+                                                            ); ?>
+                                                        </li>
+                                                        <li><?php echo $this->Html->link(('Agregar menor de 12 a 17 años'), array('controller' => 'Adolescencias', 'action' => 'add?adolescencia=' . $familia['Familia']['id'])); ?>
+                                                        </li>
+                                                        <li><?php echo $this->Html->link(('Agregar menor de 18 a 28 años'), array('controller' => 'Juventudadultos', 'action' => 'add?juevntud=' . $familia['Familia']['id'])); ?>
+                                                        </li>
+>>>>>>> 313ce23a196a85c7f48c91a03a72d0388a2a6a36
 
 
                                                     <li>
