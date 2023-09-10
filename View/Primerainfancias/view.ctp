@@ -1,5 +1,5 @@
 <div class="primerainfancias view">
-<h2><?php echo __('Primerainfancia'); ?></h2>
+	<h2><?php echo __('Primerainfancia'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -171,13 +171,19 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Primerainfancia'), array('action' => 'edit', $primerainfancia['Primerainfancia']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Primerainfancia'), array('action' => 'delete', $primerainfancia['Primerainfancia']['id']), array(), __('Are you sure you want to delete # %s?', $primerainfancia['Primerainfancia']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Edit Primerainfancia'), array('action' => 'edit', $primerainfancia['Primerainfancia']['id'])); ?>
+		</li>
+		<li><?php echo $this->Form->postLink(__('Delete Primerainfancia'), array('action' => 'delete', $primerainfancia['Primerainfancia']['id']), array(), __('Are you sure you want to delete # %s?', $primerainfancia['Primerainfancia']['id'])); ?>
+		</li>
 		<li><?php echo $this->Html->link(__('List Primerainfancias'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Primerainfancia'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Familias'), array('controller' => 'familias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Familia'), array('controller' => 'familias', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Personas'), array('controller' => 'personas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Persona'), array('controller' => 'personas', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Familias'), array('controller' => 'familias', 'action' => 'index')); ?>
+		</li>
+		<li><?php echo $this->Html->link(__('New Familia'), array('controller' => 'familias', 'action' => 'add')); ?>
+		</li>
+		<li><?php echo $this->Html->link(__('List Personas'), array('controller' => 'personas', 'action' => 'index')); ?>
+		</li>
+		<li><?php echo $this->Html->link(__('New Persona'), array('controller' => 'personas', 'action' => 'add')); ?>
+		</li>
 	</ul>
 </div>

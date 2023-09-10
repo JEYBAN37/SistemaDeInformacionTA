@@ -28,7 +28,6 @@
 
                     <div class="form-group row">
 
-
                         <div class="form-group col-md-6">
                             <?php
 							echo $this->Form->input('familia_id', [

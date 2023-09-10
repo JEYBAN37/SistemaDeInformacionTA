@@ -61,14 +61,14 @@ class PersonasController extends AppController
 			$this->Persona->create();
 			if ($this->Persona->save($this->request->data)) {
 				$this->Session->setFlash(__('The persona has been saved.'));
-				//return $this->redirect(array('action' => 'index'));
+
 				return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The persona could not be saved. Please, try again.'));
 			}
 		}
 		$familias = $this->Persona->Familia->find('list');
-		//$this->set(compact('familias'));
+
 		$this->set(compact('familias'));
 	}
 
@@ -85,15 +85,16 @@ class PersonasController extends AppController
 		if (!$this->Persona->exists($id)) {
 			throw new NotFoundException(__('Invalid persona'));
 		}
+
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Persona->save($this->request->data)) {
 				$this->Session->setFlash(__('The persona has been saved.'));
-				//return $this->redirect(array('action' => 'index'));
-				//return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
 
-				return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Persona"]["familia_id"]));
+				// Obtén el valor de familia_id desde $this->request->data
+				$familiaId = $this->request->data["Persona"]["familia_id"];
 
-				//return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["familia"]["id"]));
+				// Redirecciona a la vista de familia con el valor de familia_id
+				return $this->redirect(array('controller' => 'familias', 'action' => 'view', $familiaId));
 			} else {
 				$this->Session->setFlash(__('The persona could not be saved. Please, try again.'));
 			}
@@ -101,13 +102,14 @@ class PersonasController extends AppController
 			$options = array('conditions' => array('Persona.' . $this->Persona->primaryKey => $id));
 			$this->request->data = $this->Persona->find('first', $options);
 		}
+
 		$familias = $this->Persona->Familia->find('list', array(
 			'order' => array('Familia.id' => 'desc'),
-
 		));
 
 		$this->set(compact('familias'));
 	}
+
 
 
 

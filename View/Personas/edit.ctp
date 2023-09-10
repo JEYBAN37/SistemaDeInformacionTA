@@ -1,11 +1,20 @@
+<?php
+// Recuperar el valor familia_id de la URL
+if (isset($this->request->query['familia_id'])) {
+	$familiaId = $this->request->query['familia_id'];
+} else {
+	$familiaId = null;
+}
+?>
 <div class="personas form">
+
 	<?php echo $this->Form->create('Persona'); ?>
 	<fieldset>
 		<legend><?php echo __('Edit Persona'); ?></legend>
 		<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('tipodocumento');
-		echo $this->Form->input('familia_id');
+		echo $this->Form->input('familia_id', array('value' => $familiaId, 'type' => 'hidden'));
 		echo $this->Form->input('numerodoc');
 		echo $this->Form->input('primerapellido');
 		echo $this->Form->input('segundoapellido');
