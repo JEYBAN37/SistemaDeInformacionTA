@@ -12,8 +12,6 @@
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 					<div class="form-group row">
 						<?php
-
-						$idAux = $_GET['primerainfancia'];
 						echo $this->Form->input('familia_id', array('value' => '' . $idAux, 'type' => 'hidden'));
 
 						?>
