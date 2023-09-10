@@ -6,33 +6,36 @@ App::uses('AppController', 'Controller');
  * @property Infantil $Infantil
  * @property PaginatorComponent $Paginator
  */
-class InfantilsController extends AppController {
+class InfantilsController extends AppController
+{
 
-/**
- * Components
- *
- * @var array
- */
+	/**
+	 * Components
+	 *
+	 * @var array
+	 */
 	public $components = array('Paginator');
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
+	/**
+	 * index method
+	 *
+	 * @return void
+	 */
+	public function index()
+	{
 		$this->Infantil->recursive = 0;
 		$this->set('infantils', $this->Paginator->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
+	/**
+	 * view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function view($id = null)
+	{
 		if (!$this->Infantil->exists($id)) {
 			throw new NotFoundException(__('Invalid infantil'));
 		}
@@ -40,34 +43,50 @@ class InfantilsController extends AppController {
 		$this->set('infantil', $this->Infantil->find('first', $options));
 	}
 
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
+	/**
+	 * add method
+	 *
+	 * @return void
+	 */
+	public function add()
+	{
 		if ($this->request->is('post')) {
 			$this->Infantil->create();
 			if ($this->Infantil->save($this->request->data)) {
 				$this->Session->setFlash(__('The infantil has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$familiaId = isset($this->data["Infantil"]["familia_id"]) ? $this->data["Infantil"]["familia_id"] : null;
+
+				return $this->redirect(array(
+					'controller' => 'personas',
+					'action' => 'edit',
+					$this->data["Infantil"]["persona_id"],
+					'?' => array(
+						'familia_id' => $familiaId
+					)
+				));
 			} else {
-				$this->Session->setFlash(__('The infantil could not be saved. Please, try again.'));
+				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
+
 		$familias = $this->Infantil->Familia->find('list');
-		$personas = $this->Infantil->Persona->find('list');
+		$personas = $this->Infantil->Persona->find('list', array(
+			'order' => array('Persona.edad' => 'asc'),
+			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
+			'conditions' => array('Persona.edad >=' => 6, 'Persona.edad <=' => 11),
+			'recursive' => 0
+		));
 		$this->set(compact('familias', 'personas'));
 	}
-
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
+	/**
+	 * edit method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function edit($id = null)
+	{
 		if (!$this->Infantil->exists($id)) {
 			throw new NotFoundException(__('Invalid infantil'));
 		}
@@ -87,14 +106,15 @@ class InfantilsController extends AppController {
 		$this->set(compact('familias', 'personas'));
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
+	/**
+	 * delete method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function delete($id = null)
+	{
 		$this->Infantil->id = $id;
 		if (!$this->Infantil->exists()) {
 			throw new NotFoundException(__('Invalid infantil'));
