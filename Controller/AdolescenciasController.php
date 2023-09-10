@@ -54,14 +54,29 @@ class AdolescenciasController extends AppController
 		if ($this->request->is('post')) {
 			$this->Adolescencia->create();
 			if ($this->Adolescencia->save($this->request->data)) {
-				$this->Session->setFlash(__('The adolescencia has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('The infantil has been saved.'));
+				$familiaId = isset($this->data["Adolescencia"]["familia_id"]) ? $this->data["Adolescencia"]["familia_id"] : null;
+
+				return $this->redirect(array(
+					'controller' => 'personas',
+					'action' => 'edit',
+					$this->data["Adolescencia"]["persona_id"],
+					'?' => array(
+						'familia_id' => $familiaId
+					)
+				));
 			} else {
-				$this->Session->setFlash(__('The adolescencia could not be saved. Please, try again.'));
+				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
+
 		$familias = $this->Adolescencia->Familia->find('list');
-		$personas = $this->Adolescencia->Persona->find('list');
+		$personas = $this->Adolescencia->Persona->find('list', array(
+			'order' => array('Persona.edad' => 'asc'),
+			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
+			'conditions' => array('Persona.edad >=' => 12, 'Persona.edad <=' => 17),
+			'recursive' => 0
+		));
 		$this->set(compact('familias', 'personas'));
 	}
 

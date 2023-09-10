@@ -54,13 +54,28 @@ class JuventudadultosController extends AppController
 			$this->Juventudadulto->create();
 			if ($this->Juventudadulto->save($this->request->data)) {
 				$this->Session->setFlash(__('The juventudadulto has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$familiaId = isset($this->data["Juventudadulto"]["familia_id"]) ? $this->data["Infantil"]["familia_id"] : null;
+
+				return $this->redirect(array(
+					'controller' => 'personas',
+					'action' => 'edit',
+					$this->data["Juventudadulto"]["persona_id"],
+					'?' => array(
+						'familia_id' => $familiaId
+					)
+				));
 			} else {
-				$this->Session->setFlash(__('The juventudadulto could not be saved. Please, try again.'));
+				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
+
 		$familias = $this->Juventudadulto->Familia->find('list');
-		$personas = $this->Juventudadulto->Persona->find('list');
+		$personas = $this->Juventudadulto->Persona->find('list', array(
+			'order' => array('Persona.edad' => 'asc'),
+			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
+			'conditions' => array('Persona.edad >=' => 18, 'Persona.edad <=' => 28),
+			'recursive' => 0
+		));
 		$this->set(compact('familias', 'personas'));
 	}
 

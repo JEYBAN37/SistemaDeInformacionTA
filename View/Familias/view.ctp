@@ -323,8 +323,18 @@ $bd = 'fichafamiliar';
                         <div class="tab-pane fade" id="messages-pills">
                             <h4>Planes de sesión</h4>
                             <div class="card-body">
-
-
+                                <h4>
+                                    <?php echo $this->Html->link(('Agregar menor de 12 a 17 años'),
+                                        array(
+                                            'controller' => 'Adolescencias',
+                                            'action' => 'add?adolescencias=' . $familia['Familia']['id']
+                                        ),
+                                        array(
+                                            'onclick' => "return confirm('¿Estás seguro de agregar un menor de 12 a 17 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                            'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                        )
+                                    ); ?>
+                                </h4>
                                 <?php if (!empty($producto['Plsesion'])) : ?>
                                     <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-planes">
                                         <thead>
@@ -390,6 +400,19 @@ $bd = 'fichafamiliar';
                         </div>
                         <div class="tab-pane fade" id="settings-pills">
                             <h4>Informes eventos</h4>
+
+                            <h4>
+                                <?php echo $this->Html->link(('Agregar adulto de 18 a 28 años'),
+                                    array(
+                                        'controller' => 'Juventudadultos',
+                                        'action' => 'add?juventudadultos=' . $familia['Familia']['id']
+                                    ),
+                                    array(
+                                        'onclick' => "return confirm('¿Estás seguro de agregar un adulto de 18 a 28 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                        'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                    )
+                                ); ?>
+                            </h4>
                             <div class="card-body">
 
                                 <?php if (!empty($producto['Infoevento'])) : ?>

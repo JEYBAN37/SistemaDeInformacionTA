@@ -20,8 +20,8 @@
 					<div class="form-group row">
 
 						<?php
-
-						$idAux = $_GET['primerainfancia'];
+						$idAux = $_GET['juventudadultos'];
+						$idAux = $_GET['juventudadultos'];
 						echo $this->Form->input('familia_id', array('value' => '' . $idAux, 'type' => 'hidden'));
 
 						?>
