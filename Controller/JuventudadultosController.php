@@ -94,7 +94,7 @@ class JuventudadultosController extends AppController
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Juventudadulto->save($this->request->data)) {
 				$this->Session->setFlash(__('The juventudadulto has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Juventudadulto"]["familia_id"]));
 			} else {
 				$this->Session->setFlash(__('The juventudadulto could not be saved. Please, try again.'));
 			}
@@ -102,7 +102,7 @@ class JuventudadultosController extends AppController
 			$options = array('conditions' => array('Juventudadulto.' . $this->Juventudadulto->primaryKey => $id));
 			$this->request->data = $this->Juventudadulto->find('first', $options);
 		}
-		$familias = $this->Juventudadulto->Familium->find('list');
+		$familias = $this->Juventudadulto->familia->find('list');
 		$personas = $this->Juventudadulto->Persona->find('list');
 		$this->set(compact('familias', 'personas'));
 	}

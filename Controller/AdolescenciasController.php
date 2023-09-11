@@ -95,7 +95,7 @@ class AdolescenciasController extends AppController
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Adolescencia->save($this->request->data)) {
 				$this->Session->setFlash(__('The adolescencia has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Adolescencia"]["familia_id"]));
 			} else {
 				$this->Session->setFlash(__('The adolescencia could not be saved. Please, try again.'));
 			}

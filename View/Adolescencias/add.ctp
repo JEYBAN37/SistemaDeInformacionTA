@@ -441,18 +441,6 @@
 	</div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
 <?php echo $this->Html->link(('List Adolescencias'), array('action' => 'index')); ?>
 <?php echo $this->Html->link(('List Familias'), array('controller' => 'familias', 'action' => 'index')); ?>
 <?php echo $this->Html->link(('New Familia'), array('controller' => 'familias', 'action' => 'add')); ?>

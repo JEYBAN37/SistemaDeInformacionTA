@@ -93,7 +93,7 @@ class InfantilsController extends AppController
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Infantil->save($this->request->data)) {
 				$this->Session->setFlash(__('The infantil has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Infantil"]["familia_id"]));
 			} else {
 				$this->Session->setFlash(__('The infantil could not be saved. Please, try again.'));
 			}
