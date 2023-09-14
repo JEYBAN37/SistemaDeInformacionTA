@@ -102,7 +102,7 @@ class JuventudadultosController extends AppController
 			$options = array('conditions' => array('Juventudadulto.' . $this->Juventudadulto->primaryKey => $id));
 			$this->request->data = $this->Juventudadulto->find('first', $options);
 		}
-		$familias = $this->Juventudadulto->familia->find('list');
+		$familias = $this->Juventudadulto->Familia->find('list');
 		$personas = $this->Juventudadulto->Persona->find('list');
 		$this->set(compact('familias', 'personas'));
 	}
