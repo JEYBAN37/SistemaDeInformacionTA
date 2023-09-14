@@ -45,30 +45,93 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
     ?>
 
+
+    <!-- Estilos de DataTables -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js">
-    </script>
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css">
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js">
-    </script>
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-
-
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchbuilder/1.0.0/css/searchBuilder.dataTables.min.css">
 
+    <!-- Scripts de DataTables -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Scripts de DataTables Buttons y otras extensiones -->
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js">
-    </script>
+    <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.colVis.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/searchbuilder/1.0.0/js/dataTables.searchBuilder.min.js"></script>
+
+    <style>
+        /* Estilos para la barra de navegación */
+        .navbar {
+            background-color: #3366CC;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar-brand img {
+            max-height: 100px;
+            max-width: 1000px;
+            margin-top: -10px;
+        }
+
+        /* Estilos para el botón de alternancia */
+        .navbar-toggler {
+            display: none;
+            /* Oculta el botón en pantallas grandes */
+        }
+
+        /* Estilos para la lista de menú en dispositivos pequeños */
+        .navbar-nav {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar-nav li {
+            margin-right: 20px;
+        }
+
+        /* Estilos para el icono del botón de alternancia */
+        .navbar-toggler-icon {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            display: block;
+        }
+
+        /* Estilos para el botón de alternancia en dispositivos pequeños */
+        .navbar-toggle-button {
+            display: block;
+            cursor: pointer;
+        }
+
+        /* Estilos para la lista de menú en dispositivos pequeños */
+        .navbar-collapse {
+            display: none;
+            /* Oculta la lista en pantallas grandes */
+        }
+
+        .navbar-collapse.active {
+            display: block;
+            /* Muestra la lista en dispositivos pequeños */
+        }
+
+        /* Estilos para los elementos de menú */
+        .navbar-nav li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
 
 </head>
 
@@ -77,24 +140,15 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
     <div class="contanier">
 
-        <nav class="navbar" style="background-color: #3366CC;">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1 JustifyCenter">
-                    <img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
-                </span>
-            </div>
-
-
+        <nav class="navbar">
+            <!-- Marca de la barra de navegación -->
+            <span class="navbar-brand">
+                <img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
+            </span>
         </nav>
-        <?php echo $this->element('nav'); ?>
         <div>
             <div>
-                <!--h1>ficha familiar</h1-->
-            </div>
-            <div>
-
                 <?php echo $this->Session->flash(); ?>
-
                 <?php echo $this->fetch('content'); ?>
             </div>
             <!--div>
@@ -105,22 +159,15 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             );
             ?>
 		</div-->
-
             <!--?php echo $this->element('sql_dump'); ?-->
-
-
         </div>
     </div>
     </div>
-
     </div>
-
 </body>
-
 
 <footer class="footer">
     <div class="container">
-
         <div class="row">
             <div class="col-md-12 text-center">
                 <br>

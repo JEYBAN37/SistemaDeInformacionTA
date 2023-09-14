@@ -10,14 +10,14 @@ $bd = 'fichafamiliar';
 
 <!--h3><a><img src="../../img/ciudad.png" width="40" height="auto"></a> Atención Primaria en Salud </h3-->
 <div class="col-12 text-center">
-    <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Atención Primaria en Salud
-    </h1>
+    <h4 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Atención Primaria en Salud
+    </h4>
 </div>
 
 
 <div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
+    <div class="col-lg-12 JustifyCenter" style="text-align: center;">
+        <div class=" panel ">
             <!--div class="panel-heading">
                 <p>Anexo tecnico PIC-2020</p>
                 <div class="btn-group">
@@ -38,196 +38,182 @@ $bd = 'fichafamiliar';
 
          </div-->
             <!-- /.panel-heading -->
-            <div class="panel-body">
-                <div class="dataTable_wrapper">
 
-                    <div class="row">
-                        <div class="col-sm-12">
+            <div style="margin-left: -8px;">
+                <div class="row col-sm-12">
+                    <div class="row col-sm-12 JustifyCenter ">
+                        <table width="80%" class="table table-striped table-bordered table-hover" style="margin-top: 20px;" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Encuestador</th>
+                                    <th>Familia</th>
+                                    <th>Nombres</th>
+                                    <th>Apellidos</th>
+                                    <th>celular</th>
+                                    <!--Dato de tabla sociambiental junto con direccion , apellidos familia,encuestador,fecha y numero familia :) -->
+                                    <th>Direccion</th>
+                                    <th>N° de hogar</th>
+                                    <th>Opciones</th>
+                                    <th>fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                <thead>
-                                    <tr>
+                                <?php foreach ($familias as $familia) : ?>
+                                    <tr class="gradeA odd">
+
+                                        <td class="sorting_1"><?php echo ($familia['Familia']['id']); ?>
+                                        </td>
+
+                                        <td><?php
+                                            //echo $plsesion['responsable_id']; 
+                                            $link = mysqli_connect($serv, $userS, $passS);
+                                            mysqli_select_db($link, $bd);
+                                            $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+                                            $result = mysqli_query($link, "SELECT nombres FROM responsables WHERE id = " . $familia['Sociambiental']['responsable_id']);
+                                            while ($fila = mysqli_fetch_array($result)) {
+                                                echo $fila['nombres'];
+
+                                                mysqli_close($link);
+                                            }
+                                            ?></td>
+                                        </td>
+                                        </td>
+                                        <td><?php echo $this->Html->link($familia['Sociambiental']['apellidosfamilia'], array('controller' => 'sociambientals', 'action' => 'view', $familia['Sociambiental']['id'])); ?>
+                                        <td><?php echo ($familia['Familia']['nombres']); ?></td>
+                                        <td><?php echo ($familia['Familia']['apellidos']); ?></td>
+                                        <td><?php echo ($familia['Familia']['celular']); ?></td>
+                                        <td><?php echo ($familia['Sociambiental']['direccion']); ?></td>
+                                        <td><?php echo ($familia['Familia']['hogar']); ?></td>
+                                        <td class="actions">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                    <?php echo ('Acciones'); ?> <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><?php echo $this->Html->link(('Ver famlia'),
+                                                            array('action' => 'view', $familia['Familia']['id']),
+                                                            array(
+                                                                'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                            )
+                                                        ); ?>
+                                                    </li>
+                                                    <li><?php echo $this->Html->link(('Editar hogar'),
+                                                            array('action' => 'edit',  $familia['Familia']['id']),
+                                                            array(
+                                                                'onclick' => "return confirm('¿Estás seguro que deseas editar la información del hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                                                'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                            )
+                                                        ); ?>
+                                                    </li>
+                                                    <li><?php echo $this->Html->link(('Agregar hogar'),
+                                                            array('controller' => 'familias', 'action' => 'add?hogar=' . $familia['Sociambiental']['id']),
+                                                            array(
+                                                                'onclick' => "return confirm('¿Estás seguro de agregar un nuevo hogar en la familia " . $familia['Sociambiental']['apellidosfamilia'] . "?');",
+                                                                'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                            )
+                                                        ); ?>
+                                                    </li>
+                                                    <li>
+                                                        <?php
+                                                        echo $this->Html->link(('Agregar menor de 2 años'),
+                                                            array(
+                                                                'controller' => 'Primerainfancias',
+                                                                'action' => 'add?primerainfancia=' . $familia['Familia']['id']
+                                                            ),
+                                                            array(
+                                                                'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
+                                                                'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                            )
+                                                        ); ?>
+                                                    </li>
 
 
-                                        <th>id</th>
-                                        <th>Encuestador</th>
-                                        <th>Familia</th>
-                                        <th>Nombres</th>
-                                        <th>Apellidos</th>
-                                        <th>celular</th>
-                                        <!--Dato de tabla sociambiental junto con direccion , apellidos familia,encuestador,fecha y numero familia :) -->
-                                        <th>Direccion</th>
-                                        <th>N° de hogar</th>
-                                        <th>Opciones</th>
-                                        <th>fecha</th>
+
+                                                    <li><?php echo $this->Html->link(('Agregar menor de 2 a 5 años'),
+                                                            array(
+                                                                'controller' => 'Primerainfancias',
+                                                                'action' => 'add2_5?primerainfancia=' . $familia['Familia']['id']
+                                                            ),
+                                                            array(
+                                                                'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                                                'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                            )
+
+                                                        ); ?>
+                                                    </li>
+                                                    <li><?php echo $this->Html->link(('Agregar menor de 6 a 11 años'),
+                                                            array(
+                                                                'controller' => 'Infantils',
+                                                                'action' => 'add?infantils=' . $familia['Familia']['id']
+                                                            ),
+                                                            array(
+                                                                'onclick' => "return confirm('¿Estás seguro de agregar un menor de 6 a 11 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                                                'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                            )
+                                                        ); ?>
+                                                    </li>
+                                                    <li>
+                                                        <?php echo $this->Html->link(('Agregar menor de 12 a 17 años'),
+                                                            array(
+                                                                'controller' => 'Adolescencias',
+                                                                'action' => 'add?adolescencias=' . $familia['Familia']['id']
+                                                            ),
+                                                            array(
+                                                                'onclick' => "return confirm('¿Estás seguro de agregar un menor de 12 a 17 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                                                'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                            )
+                                                        ); ?>
+
+                                                    <li><?php echo $this->Html->link(('Agregar adulto de 18 a 28 años'),
+                                                            array(
+                                                                'controller' => 'Juventudadultos',
+                                                                'action' => 'add?juventudadultos=' . $familia['Familia']['id']
+                                                            ),
+                                                            array(
+                                                                'onclick' => "return confirm('¿Estás seguro de agregar un adulto de 18 a 28 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                                                'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                            )
+                                                        ); ?>
+                                                    </li>
+                                                    <li>
+                                                        <?php
+                                                        echo $this->Html->link(
+                                                            'Editar inf.sociambiental',
+                                                            array(
+                                                                'controller' => 'sociambientals',
+                                                                'action' => 'edit',
+                                                                $familia['Sociambiental']['id']
+                                                            ),
+                                                            array(
+                                                                'onclick' => "return confirm('¿Estás seguro de que deseas editar la información sociambiental de la familia " . $familia['Sociambiental']['apellidosfamilia'] . "?');",
+                                                                'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                            )
+                                                        );
+                                                        ?>
+                                                    </li>
 
 
+                                                </ul>
+                                            </div>
+                                        </td>
+                                        <td><?php echo $this->Time->format('d-m-Y h:i A', ($familia['Sociambiental']['fecha'])); ?>
+                                        </td>
 
                                     </tr>
-                                </thead>
-                                <tbody>
-
-                                    <?php foreach ($familias as $familia) : ?>
-                                        <tr class="gradeA odd">
-
-                                            <td class="sorting_1"><?php echo ($familia['Familia']['id']); ?>
-                                            </td>
-
-                                            <td><?php
-                                                //echo $plsesion['responsable_id']; 
-                                                $link = mysqli_connect($serv, $userS, $passS);
-                                                mysqli_select_db($link, $bd);
-                                                $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-                                                $result = mysqli_query($link, "SELECT nombres FROM responsables WHERE id = " . $familia['Sociambiental']['responsable_id']);
-                                                while ($fila = mysqli_fetch_array($result)) {
-                                                    echo $fila['nombres'];
-
-                                                    mysqli_close($link);
-                                                }
-                                                ?></td>
-
-                                            </td>
-
-                                            </td>
-
-                                            <td><?php echo $this->Html->link($familia['Sociambiental']['apellidosfamilia'], array('controller' => 'sociambientals', 'action' => 'view', $familia['Sociambiental']['id'])); ?>
-                                            <td><?php echo ($familia['Familia']['nombres']); ?></td>
-                                            <td><?php echo ($familia['Familia']['apellidos']); ?></td>
-                                            <td><?php echo ($familia['Familia']['celular']); ?></td>
-                                            <td><?php echo ($familia['Sociambiental']['direccion']); ?></td>
-                                            <td><?php echo ($familia['Familia']['hogar']); ?></td>
 
 
-                                            <td class="actions">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                                        <?php echo ('Acciones'); ?> <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu" role="menu">
-                                                        <li><?php echo $this->Html->link(('Ver famlia'),
-                                                                array('action' => 'view', $familia['Familia']['id']),
-                                                                array(
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                                )
-                                                            ); ?>
-                                                        </li>
-                                                        <li><?php echo $this->Html->link(('Editar hogar'),
-                                                                array('action' => 'edit',  $familia['Familia']['id']),
-                                                                array(
-                                                                    'onclick' => "return confirm('¿Estás seguro que deseas editar la información del hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                                )
-                                                            ); ?>
-                                                        </li>
-                                                        <li><?php echo $this->Html->link(('Agregar hogar'),
-                                                                array('controller' => 'familias', 'action' => 'add?hogar=' . $familia['Sociambiental']['id']),
-                                                                array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un nuevo hogar en la familia " . $familia['Sociambiental']['apellidosfamilia'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                                )
-                                                            ); ?>
-                                                        </li>
-                                                        <li>
-                                                            <?php
-                                                            echo $this->Html->link(('Agregar menor de 2 años'),
-                                                                array(
-                                                                    'controller' => 'Primerainfancias',
-                                                                    'action' => 'add?primerainfancia=' . $familia['Familia']['id']
-                                                                ),
-                                                                array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                                )
-                                                            ); ?>
-                                                        </li>
-
-
-
-                                                        <li><?php echo $this->Html->link(('Agregar menor de 2 a 5 años'),
-                                                                array(
-                                                                    'controller' => 'Primerainfancias',
-                                                                    'action' => 'add2_5?primerainfancia=' . $familia['Familia']['id']
-                                                                ),
-                                                                array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                                )
-
-                                                            ); ?>
-                                                        </li>
-                                                        <li><?php echo $this->Html->link(('Agregar menor de 6 a 11 años'),
-                                                                array(
-                                                                    'controller' => 'Infantils',
-                                                                    'action' => 'add?infantils=' . $familia['Familia']['id']
-                                                                ),
-                                                                array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 6 a 11 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                                )
-                                                            ); ?>
-                                                        </li>
-                                                        <li>
-                                                            <?php echo $this->Html->link(('Agregar menor de 12 a 17 años'),
-                                                                array(
-                                                                    'controller' => 'Adolescencias',
-                                                                    'action' => 'add?adolescencias=' . $familia['Familia']['id']
-                                                                ),
-                                                                array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 12 a 17 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                                )
-                                                            ); ?>
-
-                                                        <li><?php echo $this->Html->link(('Agregar adulto de 18 a 28 años'),
-                                                                array(
-                                                                    'controller' => 'Juventudadultos',
-                                                                    'action' => 'add?juventudadultos=' . $familia['Familia']['id']
-                                                                ),
-                                                                array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un adulto de 18 a 28 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                                )
-                                                            ); ?>
-                                                        </li>
-                                                        <li>
-                                                            <?php
-                                                            echo $this->Html->link(
-                                                                'Editar inf.sociambiental',
-                                                                array(
-                                                                    'controller' => 'sociambientals',
-                                                                    'action' => 'edit',
-                                                                    $familia['Sociambiental']['id']
-                                                                ),
-                                                                array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de que deseas editar la información sociambiental de la familia " . $familia['Sociambiental']['apellidosfamilia'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                                )
-                                                            );
-                                                            ?>
-                                                        </li>
-
-
-                                                    </ul>
-                                                </div>
-                                            </td>
-                                            <td><?php echo $this->Time->format('d-m-Y h:i A', ($familia['Sociambiental']['fecha'])); ?>
-                                            </td>
-
-                                        </tr>
-
-
-                                    <?php endforeach; ?>
-
-
-                                </tbody>
-                            </table>
-                        </div>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
-
                 </div>
-                <!-- /.table-responsive -->
 
             </div>
+            <!-- /.table-responsive -->
+
+
             <!-- /.panel-body -->
         </div>
         <!-- /.panel -->
