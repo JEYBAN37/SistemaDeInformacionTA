@@ -1,16 +1,16 @@
 <div class="useres form">
-<?php echo $this->Form->create('User'); ?>
+	<?php echo $this->Form->create('User'); ?>
 	<fieldset>
 		<legend><?php echo __('Add User'); ?></legend>
-	<?php
+		<?php
 		echo $this->Form->input('username');
 		echo $this->Form->input('password');
 		echo $this->Form->input('nivel');
 		echo $this->Form->input('nombre');
 		echo $this->Form->input('group_id');
-	?>
+		?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
+	<?php echo $this->Form->end(__('Submit')); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

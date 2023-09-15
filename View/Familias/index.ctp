@@ -10,13 +10,13 @@ $bd = 'fichafamiliar';
 
 <!--h3><a><img src="../../img/ciudad.png" width="40" height="auto"></a> Atención Primaria en Salud </h3-->
 <div class="col-12 text-center">
-    <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Atención Primaria en Salud
+    <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;font-size: 3rem;">Atención Primaria en Salud
     </h1>
 </div>
 
 
-<div class="row">
-    <div class="col-lg-12">
+<div class="row" style="margin: 5px;">
+    <div class="col-lg-12" style="justify-items: center; ">
         <div class="panel panel-default">
             <!--div class="panel-heading">
                 <p>Anexo tecnico PIC-2020</p>
@@ -37,18 +37,16 @@ $bd = 'fichafamiliar';
             </div>
 
          </div-->
+
+            </ul>
             <!-- /.panel-heading -->
-            <div class="panel-body">
-                <div class="dataTable_wrapper">
-
-                    <div class="row">
+            <div class="table-responsive" style="justify-items: center; margin-top: 10px; ">
+                <div class="row col-sm-12 JustifyCenter " style="margin: 20px; ">
+                    <div class=" row">
                         <div class="col-sm-12">
-
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-
-
                                         <th>id</th>
                                         <th>Encuestador</th>
                                         <th>Familia</th>
@@ -60,9 +58,6 @@ $bd = 'fichafamiliar';
                                         <th>N° de hogar</th>
                                         <th>Opciones</th>
                                         <th>fecha</th>
-
-
-
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -74,7 +69,6 @@ $bd = 'fichafamiliar';
                                             </td>
 
                                             <td><?php
-                                                //echo $plsesion['responsable_id']; 
                                                 $link = mysqli_connect($serv, $userS, $passS);
                                                 mysqli_select_db($link, $bd);
                                                 $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
@@ -237,6 +231,7 @@ $bd = 'fichafamiliar';
 <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
+            "pagingType": "simple",
             responsive: true,
             dom: 'Bfrtip',
             language: {
@@ -253,6 +248,7 @@ $bd = 'fichafamiliar';
                 'searchBuilder'
             ]
         });
+
     });
 
     function fnExcelReport() {

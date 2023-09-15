@@ -14,7 +14,7 @@
 			</div>
 
 			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos del Encuestado</h2>
-			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -101,7 +101,7 @@
 			</div>
 
 			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Vivienda</h2>
-			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -237,7 +237,7 @@
 
 			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Composición
 				Familiar</h2>
-			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -331,7 +331,7 @@
 
 			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Riesgos de salud
 			</h2>
-			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -453,7 +453,7 @@
 
 			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Dinamica
 				Familiar</h2>
-			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -564,7 +564,7 @@
 
 			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Apoyo Social
 			</h2>
-			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -627,7 +627,7 @@
 
 			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Aseo e Higiene
 			</h2>
-			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">

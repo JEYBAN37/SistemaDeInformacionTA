@@ -15,9 +15,8 @@
                 </h1>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Basicos</h2>
-            <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Basicos</h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -121,9 +120,8 @@
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
-            <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -224,9 +222,8 @@
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
-            <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -524,11 +521,10 @@
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Mascotas en el
                 hogar </h2>
-            <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="col-md-4">
-                <select id="status" name="status" required onChange="mostrar(this.value);"
-                    style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
+                <select id="status" name="status" required onChange="mostrar(this.value);" style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
                     <option value="no">NO</option>
                     <option value="si">SI</option>
 
@@ -649,50 +645,50 @@ $this->Html->script([
 ], ['block' => 'script']);
 ?>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
 
 
-function agregarOpcionSeleccion() {
-    $("#ActaUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
-    $("#ActaProductoId").prepend("<option value='' selected='selected'>Seleccione</option>");
-    $("#ActaResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
-}
-
-function mostrarBarrio(id) {
-    if (id == "2")
-        $("#divActualizarBarrio").show();
-    else
-        $("#divActualizarBarrio").hide();
-}
-
-function validar() {
-    var todo_correcto = true;
-
-    if (document.getElementById('status').value == '') {
-        todo_correcto = false;
+    function agregarOpcionSeleccion() {
+        $("#ActaUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#ActaProductoId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#ActaResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
     }
 
-    if (!todo_correcto) {
-        alert('Algunos campos no están correctos, vuelva a revisarlos');
+    function mostrarBarrio(id) {
+        if (id == "2")
+            $("#divActualizarBarrio").show();
+        else
+            $("#divActualizarBarrio").hide();
     }
 
-    return todo_correcto;
-}
+    function validar() {
+        var todo_correcto = true;
 
-function mostrar(id) {
-    if (id == "si") {
-        $("#si").show();
-        $("#no").hide();
+        if (document.getElementById('status').value == '') {
+            todo_correcto = false;
+        }
 
-    } else if (id == "no") {
-        $("#si").hide();
-        $("#no").show();
+        if (!todo_correcto) {
+            alert('Algunos campos no están correctos, vuelva a revisarlos');
+        }
 
+        return todo_correcto;
     }
-}
+
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
+
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
+
+        }
+    }
 </script>
