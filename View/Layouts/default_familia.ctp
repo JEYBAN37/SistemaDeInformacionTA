@@ -70,6 +70,73 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.colVis.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/searchbuilder/1.0.0/js/dataTables.searchBuilder.min.js"></script>
 
+    <style>
+        /* Estilos para la barra de navegación */
+        .navbar {
+            background-color: #3366CC;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .navbar-brand img {
+            max-height: 100px;
+            max-width: 1000px;
+            margin-top: -10px;
+        }
+
+        /* Estilos para el botón de alternancia */
+        .navbar-toggler {
+            display: none;
+            /* Oculta el botón en pantallas grandes */
+        }
+
+        /* Estilos para la lista de menú en dispositivos pequeños */
+        .navbar-nav {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar-nav li {
+            margin-right: 20px;
+        }
+
+        /* Estilos para el icono del botón de alternancia */
+        .navbar-toggler-icon {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            display: block;
+        }
+
+        /* Estilos para el botón de alternancia en dispositivos pequeños */
+        .navbar-toggle-button {
+            display: block;
+            cursor: pointer;
+        }
+
+        /* Estilos para la lista de menú en dispositivos pequeños */
+        .navbar-collapse {
+            display: none;
+            /* Oculta la lista en pantallas grandes */
+        }
+
+        .navbar-collapse.active {
+            display: block;
+            /* Muestra la lista en dispositivos pequeños */
+        }
+
+        /* Estilos para los elementos de menú */
+        .navbar-nav li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+
+
 </head>
 
 <body>
@@ -77,14 +144,11 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
     <div class="contanier">
 
-        <nav class="navbar" style="background-color: #3366CC;">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1 JustifyCenter">
-                    <img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
-                </span>
-            </div>
-
-
+        <nav class="navbar">
+            <!-- Marca de la barra de navegación -->
+            <span class="navbar-brand">
+                <img src="https://m.www.gov.co/assets/logos/transversales/GOVCO.svg" alt="">
+            </span>
         </nav>
         <?php echo $this->element('nav'); ?>
         <div>
