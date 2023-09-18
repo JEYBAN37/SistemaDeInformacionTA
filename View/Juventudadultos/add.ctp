@@ -16,7 +16,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 			</div>
 
 			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
-			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -85,7 +85,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 			<h2 class="titulo-general-pwa-govco col-md-6  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
 				Valoracion de Salud</h2>
-			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -336,7 +336,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Salud
 				Sexual y Reproductiva</h2>
-			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -408,7 +408,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
 					<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Salud de la Mujer</h2>
-					<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+					<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 					<div class="form-group row">
 						<div class="form-group col-md-6">
@@ -460,6 +460,11 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'placeholder' => ''
 							)); ?>
 						</div>
+
+
+						<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Antecedentes
+							ginecológicos/obsetétricos</h2>
+
 
 						<div class="form-group col-md-6">
 							<?php
@@ -514,13 +519,147 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							)); ?>
 						</div>
 
+						<div class="form-group col-md-6">
+							<label for="status">¿Mujer en embarazo?</label>
+
+							<select id="status" name="status" required onChange="gestacion(this.value);" required class="form-control" style="font-size: 12px;">
+								<option value="">Elegir</option>
+								<option value="not">No</option>
+								<option value="yes">Si</option>
+							</select>
+							<p class="help-block"> Registre infomración de mujer en gestación o puerperio</p>
+						</div>
+
+					</div>
+
+					<div id="yes" class="form-group row">
+						<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Gestación</h2>
+
+						<div class="form-group col-md-6">
+							<?php
+							$optionControlPrenatal = [
+								'No aplica ' =>  'Elegir',
+								'No' => 'No',
+								'Asistente CPN' => 'Si, Control al dia',
+								'Inasistente CPN' => 'Si, inasistente a ultimo control',
+								'Puerperio' => 'En etapa de puerperio',
+								'No informa' => 'No informa',
+								'SD' => 'Sin dato',
+
+
+							];
+							echo $this->Form->input('controprenatal', array(
+								'label' => '¿Esta inscrita en control prenatal?',
+								'class' => 'form-control',
+								'style' => 'font-size: 12px',
+								'type' => 'select',
+								'options' => $optionControlPrenatal,
+								'placeholder' => '',
+
+							)); ?>
+
+						</div>
+						<div class="form-group col-md-6">
+							<?php
+							$optionRiesgoEmbarazo = [
+								'No aplica ' =>  'Elegir',
+								'Bajo' => 'Bajo',
+								'Alto' => 'Alto',
+								'No informa' => 'No informa',
+								'SD' => 'Sin dato',
+
+
+							];
+							echo $this->Form->input('riesgoembarazo', array(
+								'label' => '¿El riesgo del embarazo es?',
+								'class' => 'form-control',
+								'style' => 'font-size: 12px',
+								'type' => 'select',
+								'options' => $optionRiesgoEmbarazo,
+								'placeholder' => '',
+
+							)); ?>
+
+						</div>
+						<div class="form-group col-md-6">
+							<?php
+							$optionRiesgoEmbarazo = [
+								'No' => 'No',
+								'Dolor de Cabeza' => 'Dolor de cabeza',
+								'Mareo_zumbido' => 'Mareo/zumbido en el oido',
+								'Dolor del vientre' => 'Dolor del vientre tipo contracción',
+								'Disminucion o ausencia de movimientos del bebe' => 'Disminución o ausencia de movimientos del bebé',
+								'Hinchazon de cara y extremidades' => 'Hinchazón de manos, cara, piernas y pies',
+								'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
+								'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
+								'Sangrado vaginal' => 'Sangrado vaginal',
+								'No informa' => 'No informa',
+								'SD' => 'Sin dato',
+
+
+							];
+							echo $this->Form->input('riesgoembarazo', array(
+								'label' => '¿Presenta algun signo o sintoma de alarma?',
+								'class' => 'form-control',
+								'style' => 'font-size: 12px',
+								'type' => 'select',
+								'options' => $optionRiesgoEmbarazo,
+								'placeholder' => '',
+
+							)); ?>
+
+						</div>
+
+						<div class="form-group col-md-6">
+
+							<?php
+							$optionCursoVida = [
+								'No aplica ' => 'Elegir',
+								'Juventud' => 'Juventud',
+								'Adultez' => 'adultez',
+							];
+
+							echo $this->Form->input('cursovida', array(
+								'label' => '¿El curso de vida de la gestante es?',
+								'class' => 'form-control',
+								'style' => 'font-size: 12px',
+								'type' => 'select',
+								'options' => $optionCursoVida,
+								'placeholder' => ''
+							)); ?>
+						</div>
+
+						<div class="form-group col-md-6">
+							<?php
+							$optionAlternativa = [
+								'No aplica ' => 'Elegir',
+								'Medicina indigena' => 'Medicina Tradicional/indigena',
+								'Homeopatía' => 'Homeopatía',
+								'Medicina tradicional china' => 'Medicina tradicional china',
+								'Acupuntura' => 'Acupuntura',
+								'Quiropraxia' => 'Quiropraxia',
+								'Otro' => 'Otro',
+								'No refiere' => 'No refiere',
+								'SD' => 'Sin dato'
+							];
+							echo $this->Form->input('saludalternativa', [
+								'label' => '¿Hacen uso de otras opciones para el cuidado de su salud durante la gestación?',
+								'class' => 'form-control',
+								'type' => 'select',
+								'options' => $optionAlternativa,
+								'style' => 'font-size: 12px',
+							]);
+							?>
+						</div>
+
 
 					</div>
 				</div>
 			</div>
+
 			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Riesgo
 				Psicosocial</h2>
-			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -650,10 +789,10 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							$optionTiposViolencia = [
 								'' => 'Eletgir',
 								'No' => 'No se identifica',
-								'Violencia Fisica' => 'Signos de maltrato físico(golpes, quemadura, heridas)',
-								'Violencia Emocional' => 'Menor retarido, timido o agresivo',
-								'Violencia Sexual' => 'Tocamientos de personas adultas, relaciones sexuales ',
-								'Abondono_Negligencia' => 'Falta de atencion a necesidades básicas(alimentación, salud, educación)',
+								'Sospecha Violencia Fisica' => 'Signos de maltrato físico(golpes, quemadura, heridas)',
+								'Sospecha Violencia Emocional' => 'Persona retarida, timida o agresiva',
+								'sospecha Violencia Sexual' => 'Tocamientos de personas, relaciones sexuales sin consentimiento ',
+								'Sospecha Abondono_Negligencia' => 'Falta de atencion a necesidades básicas(alimentación, salud, educación)',
 								'No informa' => 'No informa',
 								'SD' => 'Sin dato'
 							];
@@ -675,7 +814,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 			</div>
 			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
 				Atención integral</h2>
-			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+			<hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">

@@ -197,6 +197,20 @@
 		});
 	});
 
+	function gestacion(id) {
+        if (id == "yes") {
+            $("#yes").show();
+            $("#not").hide();
+
+
+        } else if (id == "not") {
+            $("#yes").hide();
+            $("#not").show();
+
+
+        }
+    }
+
 
 	function mostrar(id) {
 		if (id == "si") {
