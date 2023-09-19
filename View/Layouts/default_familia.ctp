@@ -69,7 +69,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     </script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.colVis.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/searchbuilder/1.0.0/js/dataTables.searchBuilder.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nombre+de+la+fuente">
 
 
 
@@ -250,12 +249,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             </a>
 
         </nav>
-
-
-
-
-
-
+        <?php echo $this->element('nav'); ?>
         <div>
             <?php echo $this->Session->flash(); ?>
             <?php echo $this->fetch('content'); ?>
@@ -266,7 +260,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             <div class="cont-menu">
                 <nav>
                     <a href="#">
-                        <?php echo $this->Html->link(('Modulo Sociambiental'), array('controller' => 'Sociambientals', 'action' => 'add'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
+                        <?php echo $this->Html->link(('Agregar Nuevo Registro'), array('controller' => 'Sociambientals', 'action' => 'add'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
                     </a>
                     <a href="#">Servicios</a>
                     <a href="#">Suscribirse</a>
