@@ -4,8 +4,6 @@
 	<h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 25px;font-size: 3.5rem ;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Listado de Adolescencias
 	</h1>
 </div>
-
-
 <div class="row" style="margin: 5px;">
 	<div class="col-lg-12" style="justify-items: center; ">
 		<div class="panel panel-default">
@@ -169,7 +167,6 @@
 																	'style' => 'color: blue; font-size: 16px; font-weight: bold;'
 																)
 															); ?>
-
 														<li><?php echo $this->Html->link(('Agregar adulto de 18 a 28 años'),
 																array(
 																	'controller' => 'Juventudadultos',
@@ -197,19 +194,12 @@
 															);
 															?>
 														</li>
-
-
 													</ul>
 												</div>
 											</td>
 											</td>
-
 										</tr>
-
-
 									<?php endforeach; ?>
-
-
 								</tbody>
 							</table>
 						</div>
