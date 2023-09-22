@@ -1,5 +1,5 @@
 <div class="gestantes view">
-<h2><?php echo __('Gestante'); ?></h2>
+	<h2><?php echo __('Gestante'); ?></h2>
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
