@@ -3,7 +3,6 @@
 *.tmp
 
 # Ignorar el directorio "node_modules" completamente
-node_modules/
 tmp/
 Vendor/
 
