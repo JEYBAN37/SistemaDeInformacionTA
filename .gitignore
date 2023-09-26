@@ -1,0 +1,10 @@
+# Ignorar archivos temporales
+*.log
+*.tmp
+
+# Ignorar el directorio "node_modules" completamente
+node_modules/
+
+# Ignorar archivos generados por el sistema
+.DS_Store
+Thumbs.db
