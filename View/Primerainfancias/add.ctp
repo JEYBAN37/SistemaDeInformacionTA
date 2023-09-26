@@ -187,100 +187,100 @@
                             )); ?>
                         </div>
 
-                        <!--div class="form-group col-md-6">
+                        <div class="form-group col-md-6">
                             <?php echo $this->Form->input('tensionarterial', array(
                                 'label' => 'Registre Tensión arterial',
                                 'class' => 'form-control',
                                 'style' => 'font-size: 12px',
                                 'placeholder' => ''
                             )); ?>
-                        </div-->
+                            </div-->
 
-                        <div class="form-group col-md-6">
-                            <?php
-                            $optionLactancia = array(
-                                '' => 'Elegir',
-                                'Lactancia materna exclusiva' => 'Solo Leche materna',
-                                'Lactancia materna y Alimentacion complementaria' => 'Lactancia materna Alimentación complementaria',
-                                'Leche materna y leche de formula' => 'Leche materna y leche de formula',
-                                'Leche materna y otros liquidos' => 'Leche materna y otros liquidos(jugos, agua, aromatica, colada)',
-                                'Leche de formula' => 'Solo Leche de formula',
-                                'leche de formula y alimentos solidos' => 'leche de formula y alimentos solidos',
-                                'Leche materna y alimentos solidos' => 'Leche materna y alimentos solidos(huevo, arroz, pollo, carne)',
+                            <div class="form-group col-md-6">
+                                <?php
+                                $optionLactancia = array(
+                                    '' => 'Elegir',
+                                    'Lactancia materna exclusiva' => 'Solo Leche materna',
+                                    'Lactancia materna y Alimentacion complementaria' => 'Lactancia materna Alimentación complementaria',
+                                    'Leche materna y leche de formula' => 'Leche materna y leche de formula',
+                                    'Leche materna y otros liquidos' => 'Leche materna y otros liquidos(jugos, agua, aromatica, colada)',
+                                    'Leche de formula' => 'Solo Leche de formula',
+                                    'leche de formula y alimentos solidos' => 'leche de formula y alimentos solidos',
+                                    'Leche materna y alimentos solidos' => 'Leche materna y alimentos solidos(huevo, arroz, pollo, carne)',
 
-                            );
-                            echo $this->Form->input('lactanciamaterna', array(
-                                'label' => '¿El alimento en El/La menor es: ?',
-                                'class' => 'form-control',
-                                'placeholder' => '',
-                                'type' => 'select',
-                                'options' => $optionLactancia,
-                                'style' => 'font-size: 12px',
+                                );
+                                echo $this->Form->input('lactanciamaterna', array(
+                                    'label' => '¿El alimento en El/La menor es: ?',
+                                    'class' => 'form-control',
+                                    'placeholder' => '',
+                                    'type' => 'select',
+                                    'options' => $optionLactancia,
+                                    'style' => 'font-size: 12px',
 
-                            )); ?>
-                            <p class="help-block"> NOTA: Tener encuenta la edad del menor</p>
+                                )); ?>
+                                <p class="help-block"> NOTA: Tener encuenta la edad del menor</p>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                $optionCronica = array(
+                                    '' => 'Elegir',
+                                    'Neurológica' => 'Neurológica',
+                                    'Cardiovascular' => 'Cardiovascular',
+                                    'Respiratoria' => 'Respiratoria',
+                                    'Metabolica' => 'Metabólica',
+                                    'Endocrinologica' => 'Endocrinológica',
+                                    'Gastrointestinal' => 'Gastrointestinal',
+                                    'Endocrinologica' => 'Endocrinológica',
+                                    'renal o de otro tipo' => 'renal o de otro tipo',
+                                );
+
+                                echo $this->Form->input('condicioncronica', array(
+                                    'label' => 'Presenta alguna de las siguientes enfermedades crónicas',
+                                    'class' => 'form-control',
+                                    'placeholder' => '',
+                                    'type' => 'select',
+                                    'options' => $optionCronica,
+                                    'style' => 'font-size: 12px',
+
+                                )); ?>
+                            </div>
+
 
                         </div>
-
-                        <div class="form-group col-md-6">
-                            <?php
-                            $optionCronica = array(
-                                '' => 'Elegir',
-                                'Neurológica' => 'Neurológica',
-                                'Cardiovascular' => 'Cardiovascular',
-                                'Respiratoria' => 'Respiratoria',
-                                'Metabolica' => 'Metabólica',
-                                'Endocrinologica' => 'Endocrinológica',
-                                'Gastrointestinal' => 'Gastrointestinal',
-                                'Endocrinologica' => 'Endocrinológica',
-                                'renal o de otro tipo' => 'renal o de otro tipo',
-                            );
-
-                            echo $this->Form->input('condicioncronica', array(
-                                'label' => 'Presenta alguna de las siguientes enfermedades crónicas',
-                                'class' => 'form-control',
-                                'placeholder' => '',
-                                'type' => 'select',
-                                'options' => $optionCronica,
-                                'style' => 'font-size: 12px',
-
-                            )); ?>
-                        </div>
-
 
                     </div>
-
                 </div>
-            </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+                <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
+                <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
-            <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <?php
-                            $optionVacuna = array(
-                                '' => 'Elegir',
-                                'Incompleto' => 'Esquema incompleto a su edad',
-                                'Completo' => 'Esquema al día a su edad',
-                                'No informa' => 'Desconoce la información/no presenta carnet de vacuanas',
-                                'SD' => 'Sin dato',
+                <div class="grow justify-content-center" display="none" style="margin-top:20px">
+                    <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+                        <div class="form-group row">
+                            <div class="form-group col-md-6">
+                                <?php
+                                $optionVacuna = array(
+                                    '' => 'Elegir',
+                                    'Incompleto' => 'Esquema incompleto a su edad',
+                                    'Completo' => 'Esquema al día a su edad',
+                                    'No informa' => 'Desconoce la información/no presenta carnet de vacuanas',
+                                    'SD' => 'Sin dato',
 
-                            );
-                            echo $this->Form->input('esquemavacunacion', array(
-                                'label' => '¿Le han aplicado las vacunas correspondientes a la edad de menor? ',
-                                'class' => 'form-control',
-                                'placeholder' => '',
-                                'type' => 'select',
-                                'options' => $optionVacuna,
-                                'style' => 'font-size: 12px',
+                                );
+                                echo $this->Form->input('esquemavacunacion', array(
+                                    'label' => '¿Le han aplicado las vacunas correspondientes a la edad de menor? ',
+                                    'class' => 'form-control',
+                                    'placeholder' => '',
+                                    'type' => 'select',
+                                    'options' => $optionVacuna,
+                                    'style' => 'font-size: 12px',
 
-                            )); ?>
-                        </div>
+                                )); ?>
+                            </div>
 
-                        <!--div class="form-group col-md-6">
+
                             <?php echo $this->Form->input('desparasitacion', array(
                                 'label' => 'Desparasitado en los últimos seis meses',
                                 'class' => 'form-control',
@@ -290,7 +290,7 @@
                                 'style' => 'font-size: 12px',
 
                             )); ?>
-                        </div-->
+                        </div>
 
                         <div class="form-group col-md-6">
                             <?php
