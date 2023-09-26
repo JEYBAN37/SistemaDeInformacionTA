@@ -4,6 +4,8 @@
 
 # Ignorar el directorio "node_modules" completamente
 node_modules/
+tmp/
+Vendor/
 
 # Ignorar archivos generados por el sistema
 .DS_Store
