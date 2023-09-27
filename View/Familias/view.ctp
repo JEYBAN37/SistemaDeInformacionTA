@@ -163,8 +163,7 @@ $bd = 'fichafamiliar';
 
 
 
-
-
+            </div>
 
         </fieldset>
     </div>
@@ -187,36 +186,29 @@ $bd = 'fichafamiliar';
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <!-- Nav tabs -->
-                        <ul class="nav nav-pills">
-                            <li class="active"><a href="#home-pills" data-toggle="tab">Primera infancia 0 a 5 años</a>
-                            </li>
-                            <li><a href="#profile-pills" data-toggle="tab">Infancia 6 a 11 años</a>
-                            </li>
-                            <li><a href="#messages-pills" data-toggle="tab">Adolecencia</a>
-                            </li>
-                            <li><a href="#settings-pills" data-toggle="tab">Personas mayores de 18 años</a>
-                            </li>
-                            <li><a href="#actas-pills" data-toggle="tab">Observación</a>
-                            </li>
-                        </ul>
 
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="home-pills">
-                                <h4>Primera infancia 0 a 5 años
-                                </h4>
-                                <h4>
-                                    <?php
-                                    echo $this->Html->link(('Agregar mennor de 2 años'),
-                                        array(
-                                            'controller' => 'Primerainfancias',
-                                            'action' => 'add?primerainfancia=' . $familia['Familia']['id']
-                                        ),
-                                        array(
-                                            'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
-                                            'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                        )
-                                    ); ?></h4>
+
+                                <div class="col-12 text-center">
+                                    <h3 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;">Menores de 0 a 5 años
+                                    </h3>
+                                </div>
+
+                                <button> <?php
+                                            echo $this->Html->link(('Agregar menor de 2 años'),
+                                                array(
+                                                    'controller' => 'Primerainfancias',
+                                                    'action' => 'add?primerainfancia=' . $familia['Familia']['id']
+                                                ),
+                                                array(
+                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
+                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                )
+                                            ); ?></button>
+
+
                                 <div class="card-body">
 
 
@@ -227,10 +219,6 @@ $bd = 'fichafamiliar';
                                                 <th>Id</th>
                                                 <th>Nombre</th>
                                                 <th>Acciones</th>
-                                                <th>canalización</th>
-                                                <th>Canalización</th>
-
-
 
                                             </tr>
 
@@ -298,13 +286,6 @@ $bd = 'fichafamiliar';
                                                             </div>
 
                                                         </td>
-
-                                                        <td> <?php echo $primerainfancia['canalizacionuno']; ?></td>
-                                                        <td> <?php echo $primerainfancia['canalizaciondos']; ?></td>
-
-
-
-
                                                     </tr>
                                             <?php }
                                             endforeach; ?>
@@ -321,6 +302,11 @@ $bd = 'fichafamiliar';
 
                             </div>
                             <div class="tab-pane fade" id="profile-pills">
+
+                                <div class="col-12 text-center">
+                                    <h3 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;">Menores de 6 a 11 años
+                                    </h3>
+                                </div>
 
                                 <h4>
                                     <?php
@@ -464,8 +450,11 @@ $bd = 'fichafamiliar';
 
                             </div>
                             <div class="tab-pane fade" id="messages-pills">
-
                                 <div class="card-body">
+                                    <div class="col-12 text-center">
+                                        <h3 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;">Menores de 12 a 17 años
+                                        </h3>
+                                    </div>
                                     <h4>
                                         <?php echo $this->Html->link(('Agregar menor de 12 a 17 años'),
                                             array(
@@ -551,7 +540,10 @@ $bd = 'fichafamiliar';
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="settings-pills">
-
+                                <div class="col-12 text-center">
+                                    <h3 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;">Mayores de 18 años
+                                    </h3>
+                                </div>
 
                                 <h4>
                                     <?php echo $this->Html->link(('Agregar persona mayor de 18 años '),
