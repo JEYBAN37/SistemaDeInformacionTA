@@ -1,3 +1,61 @@
+<style>
+    /* Estilos para la lista de píldoras */
+    .nav-pills {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .nav-pills li {
+        margin: 0 10px;
+        justify-content: center;
+
+    }
+
+    .nav-pills a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #3366CC;
+        transition: background-color 0.3s ease;
+
+    }
+
+    .nav-pills a:hover {}
+
+
+
+    /* Estilos para hacer que la lista de píldoras sea responsiva */
+    @media (max-width: 768px) {
+        .nav-pills {
+            flex-wrap: wrap;
+        }
+
+        .nav-pills li {
+            flex: 0 0 100%;
+            margin: 10px 0;
+            justify-content: center;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
 <?php $this->layout = 'default_familia' ?>
 
 <?php
@@ -10,6 +68,9 @@ $bd = 'fichafamiliar';
 ?>
 <div class="d-grid gap-3 col-md-6">
 </div>
+
+
+
 
 
 <div>
@@ -64,35 +125,41 @@ $bd = 'fichafamiliar';
                     <div class="panel panel-default">
 
 
-                        </ul>
+
                         <!-- /.panel-heading -->
                         <div class="table-responsive" style="justify-items: center; margin-top: 5px; ">
                             <div class="row col-sm-12 JustifyCenter " style="margin: 20px; ">
                                 <div class=" row">
                                     <div class="col-sm-12">
-                                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                            <thead>
-                                                aaa
-                                            </thead>
-                                            <tbody>
+                                        <div class="panel-body">
+                                            <!-- Nav tabs -->
+                                            <ul class="nav nav-pills">
+                                                <li class="active"><a href="#home-pills" data-toggle="tab">Primera infancia 0 a 5 años</a>
+                                                </li>
+                                                <li><a href="#profile-pills" data-toggle="tab">Infancia 6 a 11 años</a>
+                                                </li>
+                                                <li><a href="#messages-pills" data-toggle="tab">Adolecencia</a>
+                                                </li>
+                                                <li><a href="#settings-pills" data-toggle="tab">Personas mayores de 18 años</a>
+                                                </li>
+                                                <li><a href="#actas-pills" data-toggle="tab">Observación</a>
+                                                </li>
+                                            </ul>
 
+                                        </div>
 
-
-                                            </tbody>
-                                        </table>
                                     </div>
+
                                 </div>
+                                <!-- /.table-responsive -->
 
                             </div>
-                            <!-- /.table-responsive -->
-
+                            <!-- /.panel-body -->
                         </div>
-                        <!-- /.panel-body -->
+                        <!-- /.panel -->
                     </div>
-                    <!-- /.panel -->
+                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.col-lg-12 -->
-            </div>
 
 
 
@@ -118,10 +185,6 @@ $bd = 'fichafamiliar';
             <div class="panel-heading">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Personas del gurpo familiar
-                    </div>
-                    <!-- /.panel-heading -->
                     <div class="panel-body">
                         <!-- Nav tabs -->
                         <ul class="nav nav-pills">
@@ -366,7 +429,7 @@ $bd = 'fichafamiliar';
                                                                         <li><?php echo $this->Html->link("Editar ", "../primerainfancias/edit/" . $primerainfancia['id'], array('target' => '_blank')); ?>
                                                                         </li>
                                                                         <li><?php echo $this->Form->postLink(
-                                                                                __('Borrar'),
+                                                                                ('Borrar'),
                                                                                 array(
                                                                                     'controller' => 'primerainfancias',
                                                                                     'action' => 'delete', $primerainfancia['id']
