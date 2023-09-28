@@ -1,158 +1,244 @@
-<div class="adolescencias view">
-<h2><?php echo __('Adolescencia'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Familia'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($adolescencia['Familia']['apellidosfamilia'], array('controller' => 'familias', 'action' => 'view', $adolescencia['Familia']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Persona'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($adolescencia['Persona']['apellidosnombre'], array('controller' => 'personas', 'action' => 'view', $adolescencia['Persona']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Discapacidad'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['discapacidad']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Peso'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['peso']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Talla'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['talla']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Indicemasacorporal'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['indicemasacorporal']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Tensionarterial'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['tensionarterial']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Condicioncronica'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['condicioncronica']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Esquemavacunacion'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['esquemavacunacion']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Desparasitacion'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['desparasitacion']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Valoracionmedica'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['valoracionmedica']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Saludoral'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['saludoral']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Higieneoral'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['higieneoral']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Iniciovidasexual'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['iniciovidasexual']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Metodosanticonceptivos'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['metodosanticonceptivos']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Infeccionestransmisionsexual'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['infeccionestransmisionsexual']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Consumospa'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['consumospa']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Consumospa1'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['consumospa1']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Riesgopsicosocial'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['riesgopsicosocial']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Riesgopsicosocial1'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['riesgopsicosocial1']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Estudio'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['estudio']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Rendimientoescolar'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['rendimientoescolar']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Sopechamaltrato'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['sopechamaltrato']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Canalizacionuno'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['canalizacionuno']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Canalizaciondos'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['canalizaciondos']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Eduacionuno'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['eduacionuno']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Educaciondos'); ?></dt>
-		<dd>
-			<?php echo h($adolescencia['Adolescencia']['educaciondos']); ?>
-			&nbsp;
-		</dd>
-	</dl>
+<div class="row" style="justify-content: center;">
+	<div class="col-lg-10">
+		<div class="panel panel-default">
+
+
+
+			<div class="panel-body">
+				<div class="dataTable_wrapper">
+
+					<div class="row" style="justify-content: center;">
+						<div class=" col-sm-11">
+
+							<table width="100%" class="table table-striped table-bordered table-hover">
+
+								<thead>
+
+									<div class="panel-body">
+										<div class="dataTable_wrapper">
+
+											<div class="row">
+												<div class="col-sm-11">
+
+													<table width="100%" class="table table-striped table-bordered table-hover">
+														<tr>
+														<tr>
+															<td rowspan="4"><img src="../../img/escudosms.png" width="100" height="auto"></td>
+														</tr>
+														<tr>
+															<td colspan="6">Atencion Primaria En Salud</td>
+														</tr>
+														<tr>
+															<td colspan="6">Nombre de Formato : Datos de Gestantes</td>
+														</tr>
+														<td>Vigencia 00-00-000</td>
+														<td>Version 1.0</td>
+														<td>Codigo ID Adolecencias</td>
+														<td><?php echo ($adolescencia['Adolescencia']['id']); ?></td>
+
+
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="panel-body">
+										<div class="dataTable_wrapper">
+
+											<div class="row" style="justify-content: center;">
+												<div class="col-sm-11">
+
+													<table width="100%" class="table table-striped table-bordered table-hover">
+														<tr>
+															<td colspan="6">Nombre del Menor</td>
+															<td colspan="6">Familia Asociada</td>
+														</tr>
+														<tr>
+
+															<td colspan="6"><?php echo $this->Html->link($adolescencia['Persona']['apellidosnombre'], array('controller' => 'personas', 'action' => 'view', $adolescencia['Persona']['id'])); ?></td>
+															<td colspan="6"> <?php echo $this->Html->link($adolescencia['Familia']['apellidosfamilia'], array('controller' => 'familias', 'action' => 'view', $adolescencia['Familia']['id'])); ?></td>
+
+														</tr>
+														<tr>
+															<td colspan="12" style="text-align: center;">Valoracion En Salud</td>
+
+														</tr>
+
+														<tr>
+															<td colspan="2"> Talla</td>
+															<td colspan="2"> <?php echo ($adolescencia['Adolescencia']['talla']); ?></td>
+															<td colspan="2">Peso</td>
+															<td colspan="2"><?php echo ($adolescencia['Adolescencia']['peso']); ?></td>
+															<td colspan="2">Indice de Masa Corporal</td>
+															<td colspan="2"><?php echo ($adolescencia['Adolescencia']['indicemasacorporal']); ?></td>
+
+														</tr>
+
+														<tr>
+															<td colspan="2">Tension Arterial</td>
+															<td colspan="4"><?php echo ($adolescencia['Adolescencia']['tensionarterial']); ?></td>
+															<td colspan="2">Discapacidad</td>
+															<td colspan="4"><?php echo ($adolescencia['Adolescencia']['discapacidad']); ?></td>
+
+														</tr>
+
+
+
+														<tr>
+															<td colspan="2">Enfermedad Cronica</td>
+															<td colspan="4"><?php echo ($adolescencia['Adolescencia']['condicioncronica']); ?></td>
+															<td colspan="2">Valoracion Medica</td>
+															<td colspan="4"><?php echo ($adolescencia['Adolescencia']['valoracionmedica']); ?></td>
+														</tr>
+
+														<tr>
+															<td colspan="12" style="text-align: center;">Atencion En Salud</td>
+
+														</tr>
+														<tr>
+															<td colspan="6" style="text-align: center;">Esquema de Vacunacion</td>
+															<td colspan="6" style="text-align: center;">Desparasitacion</td>
+
+														</tr>
+														<tr>
+															<td colspan="6"><?php echo ($adolescencia['Adolescencia']['esquemavacunacion']); ?></td>
+															<td colspan="6"> <?php echo ($adolescencia['Adolescencia']['desparasitacion']); ?></td>
+														</tr>
+														<tr>
+															<td colspan="2">Salud Oral</td>
+															<td colspan="4"><?php echo ($adolescencia['Adolescencia']['higieneoral']); ?></td>
+															<td colspan="2">Higiene Oral</td>
+															<td colspan="4"><?php echo ($adolescencia['Adolescencia']['saludoral']); ?></td>
+
+														</tr>
+														<tr>
+															<td colspan="12" style="text-align: center;">Salud Sexual y Reproductiva</td>
+
+														</tr>
+
+														<tr>
+															<td colspan="2">Inicio vida Sexual</td>
+															<td colspan="2"><?php echo ($adolescencia['Adolescencia']['iniciovidasexual']); ?></td>
+															<td colspan="2">Metodods Anticonceptivos</td>
+															<td colspan="2"><?php echo ($adolescencia['Adolescencia']['metodosanticonceptivos']); ?></td>
+															<td colspan="2">Infecciones de trasmision Sexual</td>
+															<td colspan="2"> <?php echo ($adolescencia['Adolescencia']['infeccionestransmisionsexual']); ?></td>
+														</tr>
+
+
+														<tr>
+															<td colspan="12" style="text-align: center;">Condiciones de Vulnerabilidad</td>
+
+														</tr>
+														<tr>
+															<td colspan="4">Riesgo de Maltrato</td>
+															<td colspan="8"><?php echo ($adolescencia['Adolescencia']['sopechamaltrato']); ?></td>
+														</tr>
+
+
+														<tr>
+															<td colspan="3">Riesgo Psicosocial</td>
+															<td colspan="3"><?php echo ($adolescencia['Adolescencia']['riesgopsicosocial']); ?></td>
+															<td colspan="3">otro..</td>
+															<td colspan="3"><?php echo ($adolescencia['Adolescencia']['riesgopsicosocial1']); ?></td>
+														</tr>
+														<tr>
+															<td colspan="3">Consume sustancias Psicoactivas</td>
+															<td colspan="3"><?php echo ($adolescencia['Adolescencia']['consumospa']); ?></td>
+															<td colspan="3">otro..</td>
+															<td colspan="3"><?php echo ($adolescencia['Adolescencia']['consumospa1']); ?></td>
+														</tr>
+														<tr>
+															<td colspan="3">Estudio</td>
+															<td colspan="3"><?php echo ($adolescencia['Adolescencia']['estudio']); ?></td>
+															<td colspan="3">Rendimineto Escolar</td>
+															<td colspan="3"><?php echo ($adolescencia['Adolescencia']['rendimientoescolar']); ?></td>
+														</tr>
+														<tr>
+															<td colspan="12" style="text-align: center;">Plan de Atencion Integral</td>
+
+														</tr>
+
+														<tr>
+															<td colspan="3">Canalizacion</td>
+															<td colspan="3"><?php echo ($adolescencia['Adolescencia']['canalizacionuno']); ?></td>
+															<td colspan="3">otro..</td>
+															<td colspan="3"><?php echo ($adolescencia['Adolescencia']['canalizaciondos']); ?></td>
+														</tr>
+
+														<tr>
+															<td colspan="2">Educacion</td>
+															<td colspan="10"><?php echo ($adolescencia['Adolescencia']['eduacionuno']); ?></td>
+														</tr>
+
+														<tr>
+															<td colspan="2">Otro...</td>
+															<td colspan="10"><?php echo ($adolescencia['Adolescencia']['educaciondos']); ?></td>
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+
+									<div class="panel-body">
+										<div class="dataTable_wrapper">
+
+											<div class="row" style="justify-content: center;">
+												<div class="col-sm-11">
+
+													<table width="100%" class="table table-striped table-bordered table-hover">
+														<tr>
+															<td style="text-align: center;"><a href=" javascript:window.print();">
+																	Imprimir
+																</a></td>
+														</tr>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<thead>
+
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Adolescencia'), array('action' => 'edit', $adolescencia['Adolescencia']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Adolescencia'), array('action' => 'delete', $adolescencia['Adolescencia']['id']), array(), __('Are you sure you want to delete # %s?', $adolescencia['Adolescencia']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Adolescencias'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Adolescencia'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Familias'), array('controller' => 'familias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Familia'), array('controller' => 'familias', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Personas'), array('controller' => 'personas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Persona'), array('controller' => 'personas', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+
+
+
+<?php
+/*$this->Html->css([
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
+        ], ['block' => 'css']
+);
+$this->Html->script([
+    'https://code.jquery.com/jquery-3.2.1.min.js',
+    'https://cdn.ckeditor.com/4.9.2/basic/ckeditor.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+        ], ['block' => 'script']
+);*/
+?>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('textarea').eac(function() {
+			this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+		}).on('input', function() {
+			this.style.height = 'auto';
+			this.style.height = (this.scrollHeight) + 'px';
+		});
+
+	});
+</script>
+<li><?php echo $this->Html->link(__('Edit Adolescencia'), array('action' => 'edit', $adolescencia['Adolescencia']['id'])); ?> </li>

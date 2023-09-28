@@ -68,63 +68,45 @@
 														</tr>
 
 														<tr>
-															<td style=""><?php echo __('Proposito'); ?></td>
-															<td colspan="6"></td>
-														</tr>
-														<tr>
-															<td style="">Proposito</td>
-															<td colspan="6"></td>
+															<td colspan="3"> Curso de Vida</td>
+															<td colspan="3"><?php echo ($gestante['Gestante']['cursovida']); ?></td>
+															<td colspan="3">Control Prenatal</td>
+															<td colspan="3"><?php echo ($gestante['Gestante']['controprenatal']); ?></td>
 														</tr>
 
 														<tr>
-															<td>Lugar</td>
-
-															<td></td>
-															<td></td>
-
-															<td colspan="4"></td>
-
+															<td colspan="3">Riesgo Materno</td>
+															<td colspan="3"><?php echo ($gestante['Gestante']['riesgomaterno']); ?></td>
+															<td colspan="3">Riesgo Psicosocial</td>
+															<td colspan="3"><?php echo ($gestante['Gestante']['riesgopsicosocial']); ?></td>
 														</tr>
 
 														<tr>
-															<td colspan="8">PERSONAS QUE INTERVIENEN EN LA REUNIÓN</td>
+															<td colspan="2">Valoracion Medica</td>
+															<td colspan="12"><?php echo ($gestante['Gestante']['valoracionmedica']); ?></td>
 
-														</tr>
-
-
-														<tr>
-
-															<td colspan="2">NOMBRE</td>
-															<td colspan="2">CARGO</td>
-															<td colspan="2">INSTITUCION</td>
-															<td colspan="2">FIRMA</td>
-														</tr>
-
-														<tr>
-															<td colspan="2">1.</td>
-															<td colspan="2"></td>
-															<td colspan="2"></td>
-															<td colspan="2"></td>
 
 														</tr>
 														<tr>
-															<td colspan="2">2.</td>
-															<td colspan="2"></td>
-															<td colspan="2"></td>
-															<td colspan="2"></td>
-
+															<td colspan="2">Paraclinicos</td>
+															<td colspan="10"> <?php echo ($gestante['Gestante']['paraclinicos']); ?></td>
 														</tr>
-														<tr>
-															<td colspan="2">3.</td>
-															<td colspan="2"></td>
-															<td colspan="2"></td>
-															<td colspan="2"></td>
 
+														<tr>
+															<td colspan="3">Canalizacion</td>
+															<td colspan="3"><?php echo ($gestante['Gestante']['canalizacionuno']); ?></td>
+															<td colspan="3">otro..</td>
+															<td colspan="3"><?php echo ($gestante['Gestante']['canalizaciondos']); ?></td>
 														</tr>
+
 														<tr>
-															<td colspan="8">Anexo registro de asistencia demás participantes</td>
+															<td colspan="2">Educacion</td>
+															<td colspan="10"><?php echo ($gestante['Gestante']['eduacionuno']); ?></td>
+														</tr>
 
-
+														<tr>
+															<td colspan="2">Otro...</td>
+															<td colspan="10"><?php echo ($gestante['Gestante']['educaciondos']); ?></td>
 														</tr>
 
 													</table>
@@ -133,106 +115,7 @@
 										</div>
 									</div>
 
-									<div class="panel-body">
-										<div class="dataTable_wrapper">
 
-											<div class="row" style="justify-content: center;">
-												<div class="col-sm-11">
-
-													<table width="100%" class="table table-striped table-bordered table-hover">
-
-														<tr>
-															<td colspan="8">ORDEN DEL DÍA</td>
-														</tr>
-
-														<tr>
-															<td>
-
-															</td>
-														</tr>
-
-														<td>COMPROMISOS PREVIOS</td>
-
-														<tr>
-
-
-															<td>
-
-															</td>
-														</tr>
-
-
-														<td>DESARROLLO DE LA REUNIÓN</td>
-
-														<tr>
-															<td>
-
-															</td>
-														</tr>
-
-														<td>COMPROMISOS</td>
-
-
-														<tr>
-															<td>
-
-
-															</td>
-														</tr>
-
-														<tr>
-															<td>PRÓXIMA CONVOCATORIA</td>
-														</tr>
-														<tr>
-															<td></td>
-														</tr>
-
-
-
-													</table>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="panel-body">
-										<div class="dataTable_wrapper">
-
-											<div class="row" style="justify-content: center;">
-												<div class="col-sm-11">
-
-													<table width="100%" class="table table-striped table-bordered table-hover">
-
-														<tr>
-
-
-
-															<td colspan="8">Anexo: </td>
-
-														</tr>
-
-														<tr>
-
-															<td>Responsable de elaboración del acta: </td>
-															<td>Dimensión:</td>
-
-
-
-														</tr>
-														<tr>
-															<td>Producto:</td>
-															<td>Entorno:</td>
-
-														</tr>
-														<tr>
-															<td colspan="8">Tarea:</td>
-														</tr>
-
-													</table>
-												</div>
-											</div>
-										</div>
-									</div>
 
 									<div class="panel-body">
 										<div class="dataTable_wrapper">
@@ -242,9 +125,9 @@
 
 													<table width="100%" class="table table-striped table-bordered table-hover">
 														<tr>
-															<td></td>
-															<td></td>
-															<td><a href="javascript:window.print();">Imprimir</a></td>
+															<td style="text-align: center;"><a href=" javascript:window.print();">
+																	Imprimir
+																</a></td>
 														</tr>
 													</table>
 												</div>
@@ -289,104 +172,3 @@ $this->Html->script([
 
 	});
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="gestantes view">
-	<h2><?php echo __('Gestante'); ?></h2>
-	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Familia'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($gestante['Familia']['apellidosfamilia'], array('controller' => 'familias', 'action' => 'view', $gestante['Familia']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Persona'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($gestante['Persona']['apellidosnombre'], array('controller' => 'personas', 'action' => 'view', $gestante['Persona']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Cursovida'); ?></dt>
-		<dd>
-			<?php echo h($gestante['Gestante']['cursovida']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Controprenatal'); ?></dt>
-		<dd>
-			<?php echo h($gestante['Gestante']['controprenatal']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Riesgomaterno'); ?></dt>
-		<dd>
-			<?php echo h($gestante['Gestante']['riesgomaterno']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Valoracionmedica'); ?></dt>
-		<dd>
-			<?php echo h($gestante['Gestante']['valoracionmedica']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Paraclinicos'); ?></dt>
-		<dd>
-			<?php echo h($gestante['Gestante']['paraclinicos']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Riesgopsicosocial'); ?></dt>
-		<dd>
-			<?php echo h($gestante['Gestante']['riesgopsicosocial']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Canalizacionuno'); ?></dt>
-		<dd>
-			<?php echo h($gestante['Gestante']['canalizacionuno']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Canalizaciondos'); ?></dt>
-		<dd>
-			<?php echo h($gestante['Gestante']['canalizaciondos']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Eduacionuno'); ?></dt>
-		<dd>
-			<?php echo h($gestante['Gestante']['eduacionuno']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Educaciondos'); ?></dt>
-		<dd>
-			<?php echo h($gestante['Gestante']['educaciondos']); ?>
-			&nbsp;
-		</dd>
-	</dl>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('Edit Gestante'), array('action' => 'edit', $gestante['Gestante']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Gestante'), array('action' => 'delete', $gestante['Gestante']['id']), array(), __('Are you sure you want to delete # %s?', $gestante['Gestante']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Gestantes'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Gestante'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Familias'), array('controller' => 'familias', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Familia'), array('controller' => 'familias', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Personas'), array('controller' => 'personas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Persona'), array('controller' => 'personas', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
