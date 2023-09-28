@@ -24,7 +24,11 @@ class JuventudadultosController extends AppController
 	public function index()
 	{
 		$this->Juventudadulto->recursive = 0;
-		$this->set('juventudadultos', $this->Paginator->paginate());
+
+		$count = $this->Juventudadulto->find('count');
+		$this->Paginator->settings['limit'] = $count;
+
+		$this->set('juventudadultos', $this->paginate());
 	}
 
 	/**
@@ -53,7 +57,7 @@ class JuventudadultosController extends AppController
 		if ($this->request->is('post')) {
 			$this->Juventudadulto->create();
 			if ($this->Juventudadulto->save($this->request->data)) {
-				$this->Session->setFlash(__('The juventudadulto has been saved.'));
+				$this->Session->setFlash('Se ha guardado correctamente, por favor actulizar datos personales', 'default', array('class' => 'alert alert-success'));
 				$familiaId = isset($this->data["Juventudadulto"]["familia_id"]) ? $this->data["Infantil"]["familia_id"] : null;
 
 				return $this->redirect(array(
@@ -70,13 +74,14 @@ class JuventudadultosController extends AppController
 		}
 
 		$familias = $this->Juventudadulto->Familia->find('list');
+		$canalizaciones = $this->Juventudadulto->Canalizacion->find('list');
 		$personas = $this->Juventudadulto->Persona->find('list', array(
 			'order' => array('Persona.edad' => 'asc'),
 			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
-			'conditions' => array('Persona.edad >=' => 18, 'Persona.edad <=' => 28),
+			'conditions' => array('Persona.edad >=' => 18),
 			'recursive' => 0
 		));
-		$this->set(compact('familias', 'personas'));
+		$this->set(compact('familias', 'personas', 'canalizaciones'));
 	}
 
 	/**
@@ -93,18 +98,19 @@ class JuventudadultosController extends AppController
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Juventudadulto->save($this->request->data)) {
-				$this->Session->setFlash(__('The juventudadulto has been saved.'));
+				$this->Session->setFlash('Se ha guardado correctamente, por favor actulizar datos personales', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Juventudadulto"]["familia_id"]));
 			} else {
-				$this->Session->setFlash(__('The juventudadulto could not be saved. Please, try again.'));
+				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Juventudadulto.' . $this->Juventudadulto->primaryKey => $id));
 			$this->request->data = $this->Juventudadulto->find('first', $options);
 		}
 		$familias = $this->Juventudadulto->Familia->find('list');
+		$canalizaciones = $this->Juventudadulto->Canalizacion->find('list');
 		$personas = $this->Juventudadulto->Persona->find('list');
-		$this->set(compact('familias', 'personas'));
+		$this->set(compact('familias', 'personas', 'canalizaciones'));
 	}
 
 	/**
@@ -122,7 +128,7 @@ class JuventudadultosController extends AppController
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Juventudadulto->delete()) {
-			$this->Session->setFlash(__('The juventudadulto has been deleted.'));
+			$this->Session->setFlash('El registro se borro exitosamente', 'default', array('class' => 'alert alert-success'));
 		} else {
 			$this->Session->setFlash(__('The juventudadulto could not be deleted. Please, try again.'));
 		}

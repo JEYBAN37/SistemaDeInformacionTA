@@ -383,7 +383,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'options' => $optionYesNo,
-								'placeholder' => ''
+								'placeholder' => '',
+								'id' => 'infeccionestransmisionsexual'
 
 							)); ?>
 						</div>
@@ -502,7 +503,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							<p class="help-block">Selecione otra respuesta si requiere, de lo contrario elija la opción
 								'No ' </p>
 							<?php
-							echo $this->Form->input('ancededenteginecologico1', array(
+							echo $this->Form->input('ancedenteginecologico1', array(
 								'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
@@ -516,7 +517,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							<label for="status">¿Mujer en embarazo?</label>
 
 							<select id="status" name="status" required onChange="gestacion(this.value);" required class="form-control" style="font-size: 12px;">
-								<option value="">Elegir</option>
+								<option value="not">Elegir</option>
 								<option value="not">No</option>
 								<option value="yes">Si</option>
 							</select>
@@ -539,7 +540,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'No informa' => 'No sabe/No informa',
 								'SD' => 'Sin dato',
 							];
-							echo $this->Form->input('controprenatal', array(
+							echo $this->Form->input('controlprenatal', array(
 								'label' => '¿Esta inscrita en control prenatal?',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
@@ -569,12 +570,14 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'options' => $optionRiesgoEmbarazo,
 								'placeholder' => '',
 
+
 							)); ?>
 
 						</div>
 						<div class="form-group col-md-6">
 							<?php
-							$optionRiesgoEmbarazo = [
+							$optionAlarmaEmbarazo = [
+								'No aplica ' =>  'Elegir',
 								'No' => 'No',
 								'Dolor de Cabeza' => 'Dolor de cabeza',
 								'Mareo_zumbido' => 'Mareo/zumbido en el oido',
@@ -589,13 +592,14 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 
 							];
-							echo $this->Form->input('riesgoembarazo', array(
+							echo $this->Form->input('signoAlarma', array(
 								'label' => '¿En el momento presenta alguno de los siguientes signo o síntoma de alarma?',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'type' => 'select',
-								'options' => $optionRiesgoEmbarazo,
+								'options' => $optionAlarmaEmbarazo,
 								'placeholder' => '',
+								'id' => 'riesgoembarazo'
 
 							)); ?>
 
@@ -794,6 +798,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'label' => '¿Sospecha de algun tipo de vulneración o violencia?',
 								'class' => 'form-control',
 								'placeholder' => '',
+
 								'options' => $optionTiposViolencia,
 								'type' => 'select',
 								'style' => 'font-size: 12px',
@@ -816,40 +821,100 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 						<div class="form-group col-md-6">
 							<?php
+							$optionCanlizacion = [
+								'' => 'Elegir',
+								'Vacunacion ' => 'Vacunación ',
+								'Atencion de PyM Medico' => 'Atención en salud de promoción y mantenimiento por médico',
+								'Atencion medicina general' => ' Atención en salud por medicina general',
+								'Atencion  Urgencias ' => 'Atención en salud en un servicio de Urgencias ',
+								'Salud oral' => 'profilaxis y remoción de placa bacteriana y/o detartraje supragingival.',
+								'Activacion de ruta por sospecha de violencias' => 'Activación de ruta por sospecha de violencias',
+								'Prueba rapida treponemica' => 'Prueba rápida treponémica',
+								'Prueba rapida para VIH' => 'Prueba rápida para VIH',
+								'Asesoria pre y post test VIH' => 'Asesoría pre y post test VIH',
+								'Prueba rápida hepatitis B' => 'Prueba rápida de hepatitis B',
+								'Prueba rápida hepatitis C' => 'Prueba rápida de hepatitis C',
+								'Prueba de embarazo' => 'Prueba de embarazo',
+								'Asesoría en anticoncepcion' => 'Asesoría en anticoncepción por médico o enfermera',
+								'Tamizaje de riesgo cardiovascular' => 'Tamizaje de riesgo cardiovascular',
+								'Citologia' => 'Tamizaje de cáncer de cuello uterino (citología)',
+								'Suministro de anticonceptivos  ' => 'Suministro de anticonceptivos  ',
+								'Suministro de preservativos' => 'Suministro de preservativos',
+								'Asesoria en anticoncepcion' => 'Asesoría en anticoncepción',
+								'Tamizaje para cancer de mama' => 'Tamizaje para cáncer de mama',
+								'Tamizaje para cancer de prostata ' => 'Tamizaje para cáncer de próstata (PSA)',
+								'Tamizaje para cancer de colon' => 'Tamizaje para cáncer de colon',
+
+							];
+
 							echo $this->Form->input('canalizacionuno', array(
-								'label' => 'canalizacionuno',
+								'label' => 'Canalización',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
-								'placeholder' => ''
+								'placeholder' => '',
+								'class' => 'form-control select-search',
+								'options' => $optionCanlizacion,
+								'type' => 'select',
+								'style' => 'font-size: 12px',
 							)); ?>
 						</div>
 						<div class="form-group col-md-6">
 							<?php
 							echo $this->Form->input('canalizaciondos', array(
-								'label' => 'canalizaciondos',
+								'label' => 'Canalización',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
-								'placeholder' => ''
+								'placeholder' => '',
+								'class' => 'form-control select-search',
+								'options' => $optionCanlizacion,
+								'type' => 'select',
+								'style' => 'font-size: 12px'
+							));
+							?>
+						</div>
+
+						<div class="form-group col-md-6">
+							<?php
+							$optionEducacion = [
+								'Educacion individual' => 'Educación para la salud individual',
+								'Educacion familiar' => 'Educación para la salud familiar',
+								'Educacion grupal' => 'Educación para la salud grupal',
+							];
+							echo $this->Form->input('canalizaciontres', array(
+								'label' => 'Canalización',
+								'class' => 'form-control',
+								'style' => 'font-size: 12px',
+								'placeholder' => '',
+								'class' => 'form-control select-search',
+								'options' => $optionCanlizacion,
+								'type' => 'select',
+								'style' => 'font-size: 12px',
 							)); ?>
 						</div>
 
 						<div class="form-group col-md-6">
 							<?php
-							echo $this->Form->input('eduacionuno', array(
-								'label' => 'eduacionuno',
+							echo $this->Form->input('educacion', array(
+								'label' => 'Educación',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
-								'placeholder' => ''
+								'placeholder' => '',
+								'options' => $optionEducacion,
+								'type' => 'select',
+								'style' => 'font-size: 12px',
 							)); ?>
 						</div>
 
 						<div class="form-group col-md-6">
 							<?php
-							echo $this->Form->input('educaciondos', array(
-								'label' => 'eduacion ll',
+							echo $this->Form->input('canalizacion_id', array(
+								'label' => 'Enlace de canalizacion',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
-								'placeholder' => ''
+								'class' => 'form-control select-search',
+								'placeholder' => '',
+								'type' => 'select',
+								'style' => 'font-size: 12px',
 							)); ?>
 						</div>
 
@@ -895,3 +960,43 @@ $this->Html->script([
 	'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
 ], ['block' => 'script']);
 ?>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.select-search').select2();
+		agregarOpcionSeleccion();
+	});
+
+
+	function agregarOpcionSeleccion() {
+
+		$("#JuventudadultoFamiliaId").prepend(
+			"<option value='' selected='selected'>Seleccione</option>");
+		$("#JuventudadultoPersonaId").prepend(
+			"<option value='' selected='selected'>Seleccione</option>");
+		$("#JuventudadultoCanalizacionId").prepend(
+			"<option value='' selected='selected'>Seleccione</option>");
+
+
+	}
+
+
+
+
+
+
+
+	function gestacion(id) {
+		if (id == "yes") {
+			$("#yes").show();
+			$("#not").hide();
+
+
+		} else if (id == "not") {
+			$("#yes").hide();
+			$("#not").show();
+
+
+		}
+	}
+</script>

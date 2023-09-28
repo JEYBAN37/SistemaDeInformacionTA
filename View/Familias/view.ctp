@@ -64,7 +64,7 @@ $bd = 'fichafamiliar';
                             </h4>
                             <h4>
                                 <?php
-                                echo $this->Html->link(('Agregar mennor de 2 años'),
+                                echo $this->Html->link(('Agregar menor de 2 años'),
                                     array(
                                         'controller' => 'Primerainfancias',
                                         'action' => 'add?primerainfancia=' . $familia['Familia']['id']
@@ -73,7 +73,17 @@ $bd = 'fichafamiliar';
                                         'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
                                         'style' => 'color: blue; font-size: 16px; font-weight: bold;'
                                     )
-                                ); ?></h4>
+                                ); ?> - - <?php
+                                            echo $this->Html->link(('Agregar menor entre 2 años a 5 años'),
+                                                array(
+                                                    'controller' => 'Primerainfancias',
+                                                    'action' => 'add2_5?primerainfancia=' . $familia['Familia']['id']
+                                                ),
+                                                array(
+                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
+                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                )
+                                            ); ?></h4>
                             <div class="card-body">
 
 
@@ -85,6 +95,7 @@ $bd = 'fichafamiliar';
                                             <th>Id</th>
                                             <th>Nombre</th>
                                             <th>Acciones</th>
+                                            <th>Edad</th>
                                             <th>canalización</th>
                                             <th>Canalización</th>
 
@@ -157,6 +168,20 @@ $bd = 'fichafamiliar';
                                                 </div>
 
                                             </td>
+                                            <td><?php
+
+                                                        ?> <?php
+                                                            //echo $adolescencia['responsable_id']; 
+                                                            $link = mysqli_connect($serv, $userS, $passS);
+                                                            mysqli_select_db($link, $bd);
+                                                            $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+                                                            $result = mysqli_query($link, "SELECT edad FROM Personas WHERE id = " . $primerainfancia['persona_id']);
+                                                            while ($fila = mysqli_fetch_array($result)) {
+                                                                echo $fila['edad'];
+
+                                                                mysqli_close($link);
+                                                            }
+                                                            ?></td>
 
                                             <td> <?php echo $primerainfancia['canalizacionuno']; ?></td>
                                             <td> <?php echo $primerainfancia['canalizaciondos']; ?></td>
@@ -189,7 +214,7 @@ $bd = 'fichafamiliar';
                                         'action' => 'add?infantils=' . $familia['Familia']['id']
                                     ),
                                     array(
-                                        'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                        'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] ." " .  $familia['Familia']['apellidos'] . "?');",
                                         'style' => 'color: blue; font-size: 16px; font-weight: bold;'
                                     )
                                 ); ?></h4>
@@ -435,12 +460,12 @@ $bd = 'fichafamiliar';
                                     <thead>
                                         <tr>
                                             <th><?php echo ('Id'); ?></th>
-                                            <th><?php echo ('Fecha'); ?></th>
-                                            <th><?php echo ('Tema'); ?></th>
-                                            <th><?php echo ('Tipo'); ?></th>
+                                            <th><?php echo ('IMC'); ?></th>
+                                            <th><?php echo ('Cronico'); ?></th>
+                                            <th><?php echo ('Embarazo'); ?></th>
                                             <th><?php echo ('anexo'); ?></th>
                                             <th><?php echo ('Observacion'); ?></th>
-                                            <th><?php echo ('Responsable'); ?></th>
+                                            <th><?php echo ('Persona'); ?></th>
 
                                             <th class="actions"><?php echo ('Acciones'); ?></th>
                                         </tr>

@@ -5,6 +5,7 @@ App::uses('AppModel', 'Model');
  *
  * @property Familia $Familia
  * @property Persona $Persona
+ * @property Persona $Canalizacion
  */
 class Juventudadulto extends AppModel
 {
@@ -30,6 +31,17 @@ class Juventudadulto extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'canalizacion_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+
 
 		'discapacidad' => array(
 			'notEmpty' => array(
@@ -172,7 +184,7 @@ class Juventudadulto extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'ancededenteginecologico1' => array(
+		'antecedenteginecologico1' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -182,7 +194,7 @@ class Juventudadulto extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'controprenatal' => array(
+		'controlprenatal' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -193,6 +205,16 @@ class Juventudadulto extends AppModel
 			),
 		),
 		'riesgoembarazo' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'signoAlarma' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -309,7 +331,7 @@ class Juventudadulto extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'eduacionuno' => array(
+		'canalizaciontres' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -319,7 +341,7 @@ class Juventudadulto extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'educaciondos' => array(
+		'educacion' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -349,6 +371,13 @@ class Juventudadulto extends AppModel
 		'Familia' => array(
 			'className' => 'Familia',
 			'foreignKey' => 'familia_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Canalizacion' => array(
+			'className' => 'Canalizacion',
+			'foreignKey' => 'canalizacion_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

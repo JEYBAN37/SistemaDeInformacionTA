@@ -1,32 +1,7 @@
 
-	$(document).ready(function() {
-		$('.select-search').select2();
-		agregarOpcionSeleccion();
-	});
+	
 
-
-	function agregarOpcionSeleccion() {
-
-		$("#JuventudadultoFamiliaId").prepend(
-			"<option value='' selected='selected'>Seleccione</option>");
-		$("#JuventudadultoPersonaId").prepend(
-			"<option value='' selected='selected'>Seleccione</option>");
-	}
-
-	function validar() {
-		var todo_correcto = true;
-
-		if (document.getElementById('status').value == '') {
-			todo_correcto = false;
-		}
-
-		if (!todo_correcto) {
-			alert('Algunos campos no están correctos, vuelva a revisarlos');
-		}
-
-		return todo_correcto;
-	}
-
+	
 	document.addEventListener('DOMContentLoaded', function() {
         var condicioncronicaSelect = document.getElementById('condicioncronica');
         var condicioncronica1Select = document.getElementById('condicioncronica1');
@@ -58,9 +33,10 @@
 
 	document.addEventListener('DOMContentLoaded', function() {
         var saludoralSelect = document.getElementById('saludoral');
-        var metodopfSelect = document.getElementById('metodosanticonceptivos');
+        var metodopfSelect = document.getElementById('metodosanticonceptivos');		
 		var citologiaSelect = document.getElementById('tomacitologia');
 		var vacunacionSelect = document.getElementById('esquemavacunacion'); 
+		
 	
     
         // Función para aplicar la validación de color rojo
@@ -84,6 +60,9 @@
             applyRedValidation(metodopfSelect);
         });
 
+		
+
+
 		 citologiaSelect.addEventListener('change',function()
 		 {
 			applyRedValidation(citologiaSelect);
@@ -92,15 +71,14 @@
 
 		 vacunacionSelect.addEventListener('change',function(){
 			applyRedValidation(vacunacionSelect);
-		 });
+		 });		
 
-		
-
-        // Aplica la validación cuando se carga la página
+		// Aplica la validación cuando se carga la página
         applyRedValidation(saludoralSelect);
-		applyRedValidation(metodopfSelect);
+		applyRedValidation(metodopfSelect);		
 		applyRedValidation(citologiaSelect);
-		applyRedValidation(vacunacionSelect);
+		applyRedValidation(vacunacionSelect);	
+		
 		
       
     });
@@ -111,6 +89,7 @@
 		var maltratoSelect = document.getElementById('sopechamaltrato');
 		var riesgoSelect = document.getElementById('riesgopsicosocial');
 		var riesgo1Select = document.getElementById('riesgopsicosocial1');
+		var alarmaSelect = document.getElementById('riesgoembarazo');
     
         // Función para aplicar la validación de color rojo
         function applyRedValidation(selectElement) {
@@ -144,17 +123,56 @@
 		 riesgoSelect.addEventListener('change',function(){
 			applyRedValidation(riesgoSelect);
 		 });
+		 alarmaSelect.addEventListener('change',function(){
+			applyRedValidation(alarmaSelect);
+		 });		 
 
-        // Aplica la validación cuando se carga la página
-        applyRedValidation(saludoralSelect);
-		applyRedValidation(metodopfSelect);
-		applyRedValidation(citologiaSelect);
-		applyRedValidation(vacunacionSelect);
+        // Aplica la validación cuando se carga la página        
+		
+				
 		applyRedValidation(spaSelect);
 		applyRedValidation(spa1Select);
-		applyRedValidation(maltratoSelect);
+		applyRedValidation(maltratoSelect);		
 		applyRedValidation(riesgo1Select);
-		applyRedValidation(riesgo1Select);
+		applyRedValidation(riesgoSelect);
+		applyRedValidation(alarmaSelect);
+		
+      
+    });
+
+	document.addEventListener('DOMContentLoaded', function() {
+      
+		var itsSelect = document.getElementById('infeccionestransmisionsexual');
+		
+		
+    
+        // Función para aplicar la validación de color rojo
+        function applyRedValidation(selectElement) {
+            var selectedValue = selectElement.value;
+			
+    
+            if (selectedValue == 'Si' ) {
+                selectElement.style.color = 'red';
+            } else {
+                selectElement.style.color = '';
+            }
+        }
+    
+        // Agrega eventos de cambio para los campos Cosumo SPA, maltrato, riesgo 
+       
+		 
+
+		 itsSelect.addEventListener('change',function(){
+			applyRedValidation(itsSelect);
+		 });
+
+		
+		 
+
+        // Aplica la validación cuando se carga la página
+        applyRedValidation(itsSelect);
+		
+		
       
     });
 
@@ -197,19 +215,7 @@
 		});
 	});
 
-	function gestacion(id) {
-        if (id == "yes") {
-            $("#yes").show();
-            $("#not").hide();
-
-
-        } else if (id == "not") {
-            $("#yes").hide();
-            $("#not").show();
-
-
-        }
-    }
+	
 
 
 	function mostrar(id) {

@@ -1,34 +1,36 @@
 <div>
 
-	<div class="form-group col-sm-12">
+    <div class="form-group col-sm-12">
 
 
-		<?php echo $this->Form->create('Primerainfancia'); ?>
+        <?php echo $this->Form->create('Primerainfancia'); ?>
 
 
-		<fieldset>
+        <fieldset>
 
-			<?php echo $this->Form->input('id'); ?>
-
-
-			<div class="col-12 text-center">
-				<h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Primera Infancia
-					menor de 2 años
-				</h1>
-
-			</div>
-
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
-			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
-
-			<div class="grow justify-content-center" display="none" style="margin-top:20px">
-				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+            <?php echo $this->Form->input('id'); ?>
 
 
-					<div class="form-group row">
+            <div class="col-12 text-center">
+                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Primera Infancia
+                    menor de 5 años
+                </h1>
 
-						<div class="form-group col-md-6">
-							<?php
+            </div>
+
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+
+            <div class="grow justify-content-center" display="none" style="margin-top:20px">
+                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+
+
+                    <div class="form-group row">
+
+                        <div class="form-group col-md-6">
+                            <?php
 							echo $this->Form->input('familia_id', [
 								'label' => 'ID_Familia/N° Hogar/Nombres',
 								'class' => 'form-control',
@@ -37,14 +39,14 @@
 								'type' => 'hidden'
 							]);
 							?>
-						</div>
+                        </div>
 
 
 
 
 
-						<div class="form-group col-md-6">
-							<?php
+                        <div class="form-group col-md-6">
+                            <?php
 							echo $this->Form->input('persona_id', [
 								'label' => 'Docuemento/Nombre del Menor/Edad',
 								'class' => 'form-control',
@@ -53,29 +55,30 @@
 								'disabled' => 'disabled'
 							]);
 							?>
-						</div>
+                        </div>
 
 
-					</div>
-				</div>
+                    </div>
+                </div>
 
-			</div>
+            </div>
 
 
 
-			<h2 class="titulo-general-pwa-govco col-md-6  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
-				Valoracion de Salud</h2>
-			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-6  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+                Valoracion de Salud</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
-			<div class="grow justify-content-center" display="none" style="margin-top:20px">
-				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+            <div class="grow justify-content-center" display="none" style="margin-top:20px">
+                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
-					<div class="form-group row">
+                    <div class="form-group row">
 
-						<div class="form-group col-md-6">
-							<?php
+                        <div class="form-group col-md-6">
+                            <?php
 							$optionYesNo = [
-								'' => 'Elegir',
+
 								'Si' => 'Si',
 								'No' => 'No',
 								'SD' => 'Sin dato',
@@ -91,11 +94,11 @@
 
 							));
 							?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php
-							$optionDiscapacidad = array('' => 'Elegir', 'No presenta' => 'No presenta', 'Fisica' => 'Fisica', 'Cognitiva' => 'Cognitiva', 'Sensorial' => 'Sensorial');
+                        <div class="form-group col-md-6">
+                            <?php
+							$optionDiscapacidad = array('No presenta' => 'No presenta', 'Fisica' => 'Fisica', 'Cognitiva' => 'Cognitiva', 'Sensorial' => 'Sensorial');
 							echo $this->Form->input('discapacidad', array(
 								'label' => '¿Presenta alguna de las siguientes discapacidades?',
 								'class' => 'form-control',
@@ -106,9 +109,9 @@
 								'options' => $optionDiscapacidad
 							));
 							?>
-						</div>
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('anomaliacongenita', array(
+                        </div>
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('anomaliacongenita', array(
 								'label' => 'Presenta una anomalía congénita',
 								'class' => 'form-control',
 								'placeholder' => '',
@@ -117,10 +120,10 @@
 								'style' => 'font-size: 12px',
 
 							)); ?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php
+                        <div class="form-group col-md-6">
+                            <?php
 							echo $this->Form->input('peso', array(
 								'label' => 'Registre su Peso en Kg.',
 								'class' => 'form-control',
@@ -128,10 +131,10 @@
 								'placeholder' => ''
 							));
 							?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php
+                        <div class="form-group col-md-6">
+                            <?php
 							echo $this->Form->input('talla', array(
 								'label' => 'Registre su talla en cm',
 								'class' => 'form-control',
@@ -139,10 +142,10 @@
 								'placeholder' => ''
 							));
 							?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php
+                        <div class="form-group col-md-6">
+                            <?php
 
 							echo $this->Form->input('bajopeso', array(
 								'label' => 'Antecedente de bajo peso al nacer',
@@ -154,45 +157,45 @@
 
 							));
 							?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('perimetrocefalico', array(
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('perimetrocefalico', array(
 								'label' => 'Registre su perímetro cefálico (cm)',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'placeholder' => ''
 							)); ?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('perimetrobraquial', array(
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('perimetrobraquial', array(
 								'label' => 'Registre su perímetro braquial (cm)',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'placeholder' => ''
 							)); ?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('perimetrocintura', array(
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('perimetrocintura', array(
 								'label' => 'Registre perímetro cintura (cm)',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'placeholder' => ''
 							)); ?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('perimetrocadera', array(
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('perimetrocadera', array(
 								'label' => 'Registre perímetro cadera (cm)',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'placeholder' => ''
 							)); ?>
-						</div>
+                        </div>
 
-						<!--div class="form-group col-md-6">
+                        <!--div class="form-group col-md-6">
                             <?php echo $this->Form->input('tensionarterial', array(
 								'label' => 'Registre Tensión arterial',
 								'class' => 'form-control',
@@ -201,10 +204,10 @@
 							)); ?>
                         </div-->
 
-						<div class="form-group col-md-6">
-							<?php
+                        <div class="form-group col-md-6">
+                            <?php
 							$optionLactancia = array(
-								'' => 'Elegir',
+
 								'Lactancia materna exclusiva' => 'Solo Leche materna',
 								'Lactancia materna y Alimentacion complementaria' => 'Lactancia materna Alimentación complementaria',
 								'Leche materna y leche de formula' => 'Leche materna y leche de formula',
@@ -212,6 +215,8 @@
 								'Leche de formula' => 'Solo Leche de formula',
 								'leche de formula y alimentos solidos' => 'leche de formula y alimentos solidos',
 								'Leche materna y alimentos solidos' => 'Leche materna y alimentos solidos(huevo, arroz, pollo, carne)',
+								'Alimentacion nutritiva' => 'Alimentación balaceada(Frutas, Verduras, Proteina)',
+								'Alimentación no nutritiva' => 'Alimentación No balenceada(Empaquedados, Dulces, gaseosa, Harinas)',
 
 							);
 							echo $this->Form->input('lactanciamaterna', array(
@@ -223,14 +228,14 @@
 								'style' => 'font-size: 12px',
 
 							)); ?>
-							<p class="help-block"> NOTA: Tener encuenta la edad del menor</p>
+                            <p class="help-block"> NOTA: Tener encuenta la edad del menor</p>
 
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php
+                        <div class="form-group col-md-6">
+                            <?php
 							$optionCronica = array(
-								'' => 'Elegir',
+
 								'Neurológica' => 'Neurológica',
 								'Cardiovascular' => 'Cardiovascular',
 								'Respiratoria' => 'Respiratoria',
@@ -252,24 +257,26 @@
 							)); ?>
 
 
-						</div>
+                        </div>
 
 
-					</div>
+                    </div>
 
-				</div>
-			</div>
+                </div>
+            </div>
 
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
-			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
-			<div class="grow justify-content-center" display="none" style="margin-top:20px">
-				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
-					<div class="form-group row">
-						<div class="form-group col-md-6">
-							<?php
+            <div class="grow justify-content-center" display="none" style="margin-top:20px">
+                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+                    <div class="form-group row">
+                        <div class="form-group col-md-6">
+                            <?php
 							$optionVacuna = array(
-								'' => 'Elegir',
+
 								'Incompleto' => 'Esquema incompleto a su edad',
 								'Completo' => 'Esquema al día a su edad',
 								'No informa' => 'Desconoce la información/no presenta carnet de vacuanas',
@@ -285,9 +292,9 @@
 								'style' => 'font-size: 12px',
 
 							)); ?>
-						</div>
+                        </div>
 
-						<!--div class="form-group col-md-6">
+                        <!--div class="form-group col-md-6">
                             <?php echo $this->Form->input('desparasitacion', array(
 								'label' => 'Desparasitado en los últimos seis meses',
 								'class' => 'form-control',
@@ -299,10 +306,10 @@
 							)); ?>
                         </div-->
 
-						<div class="form-group col-md-6">
-							<?php
+                        <div class="form-group col-md-6">
+                            <?php
 							$optionCyD = array(
-								'' => 'Elegir',
+
 								'No inscrito en CYD' => 'No está inscrito en CYD',
 								'Si CYD' => 'Si Asistió a último control programado',
 								'Si no asistiio ulitimo ctrl. ' => 'No Asistió a último control programado',
@@ -320,12 +327,12 @@
 								'style' => 'font-size: 12px',
 
 							)); ?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php
+                        <div class="form-group col-md-6">
+                            <?php
 							$optionMalnutricion = array(
-								'' => 'Elegir',
+
 								'Desnutricion Aguda' => 'Bajo peso para la edad',
 								'Desnutricion Cronica' => 'Baja talla para la edad',
 								'Sobrepeso' => 'Sobrepeso',
@@ -344,10 +351,10 @@
 								'style' => 'font-size: 12px',
 
 							)); ?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('higieneoral', array(
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('higieneoral', array(
 								'label' => '¿Asistió a consulta de odontología en los últimos seis meses?',
 								'class' => 'form-control',
 								'placeholder' => '',
@@ -356,33 +363,35 @@
 								'style' => 'font-size: 12px',
 
 							)); ?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('desarrolloinfantil', array(
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('desarrolloinfantil', array(
 								'label' => 'Informa sobre alguna dificultad del desarrollo',
 								'class' => 'form-control',
 								'placeholder' => '',
 								'style' => 'font-size: 12px',
 
 							)); ?>
-						</div>
-					</div>
-				</div>
-			</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Condiciones de vulnerabilidad</h2>
-			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Condiciones de vulnerabilidad</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 
-			<div class="grow justify-content-center" display="none" style="margin-top:20px">
+            <div class="grow justify-content-center" display="none" style="margin-top:20px">
 
 
-				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
-					<div class="form-group row">
+                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+                    <div class="form-group row">
 
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('era', array(
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('era', array(
 								'label' => 'En momento presenta algún signo de Enferemeda respiratoria Aguda',
 								'class' => 'form-control',
 								'placeholder' => '',
@@ -391,9 +400,9 @@
 								'style' => 'font-size: 12px',
 
 							)); ?>
-						</div>
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('eda', array(
+                        </div>
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('eda', array(
 								'label' => 'En momento presenta algún signo de Enferemeda diarreica Aguda',
 								'class' => 'form-control',
 								'placeholder' => '',
@@ -402,12 +411,12 @@
 								'style' => 'font-size: 12px',
 
 							)); ?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php
+                        <div class="form-group col-md-6">
+                            <?php
 							$optionCuidado = [
-								'' => 'Elegir',
+
 								'Continuo familiar reponsable' => 'Continuo por un familiar adulto',
 								'Continuo familiar vulnerable' => 'Continuo por un familiar menor/persona mayor',
 								'Continuo acompañante' => 'Continuo por un acompañante no familiar',
@@ -426,10 +435,33 @@
 								'style' => 'font-size: 12px',
 
 							)); ?>
-						</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <?php
+							$optionEstudio = [
+								'' => 'Elegir',
+								'Jardin Infantil' => 'Jardin Infantil',
+								'Hogar Comuitario' => 'Hogar Comuitario',
+								'CDI' => 'CDI',
+								'No' => 'Mantiene en casa',
+								'No refiere' => 'No informa',
+								'SD' => 'Sin dato'
+							];
 
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('padresconsumo', array(
+							echo $this->Form->input('estudio', array(
+								'label' => '¿El menor asiste a una institucion educativa o de cuidado?',
+								'class' => 'form-control',
+								'placeholder' => '',
+								'options' => $optionEstudio,
+								'type' => 'select',
+								'style' => 'font-size: 12px',
+
+							)); ?>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('padresconsumo', array(
 								'label' => 'Hijo de padres (especialmente la madre) con consumo de sustancias psicoactivas',
 								'class' => 'form-control',
 								'placeholder' => '',
@@ -438,10 +470,10 @@
 								'style' => 'font-size: 12px',
 
 							)); ?>
-						</div>
+                        </div>
 
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('sopechamaltrato', array(
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('sopechamaltrato', array(
 								'label' => 'Indicios de menor víctima de vulneración o violencia',
 								'class' => 'form-control',
 								'placeholder' => '',
@@ -450,69 +482,117 @@
 								'style' => 'font-size: 12px',
 
 							)); ?>
-						</div>
+                        </div>
 
-					</div>
-				</div>
-			</div>
+                    </div>
+                </div>
+            </div>
 
 
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de Atención integral</h2>
-			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de Atención integral</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
-			<div class="grow justify-content-center" display="none" style="margin-top:20px">
-				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
-					<div class="form-group row">
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('canalizacionuno', array(
-								'label' => 'Se canaliza a',
+            <div class="grow justify-content-center" display="none" style="margin-top:20px">
+                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+                    <div class="form-group row">
+
+                        <div class="form-group col-md-6">
+                            <?php
+							$optionCanlizacion = [
+								'' => 'Elegir',
+								'Vacunación ' => 'Vacunación',
+								'Atención en salud del recién nacido ' => 'Atención en salud del recién nacido',
+								'Atención en salud de promoción y mantenimiento por médico o enfermera ' => 'Atención en salud de promoción y mantenimiento por médico o enfermera',
+								'Atención en salud bucal' => 'Atención en salud bucal',
+								'aplicación de sellantes' => 'aplicación de sellantes, fluor, barniz',
+								'Atención medicina general ' => 'Atención en salud por medicina general',
+								'Atención Urgencias ' => 'Atención en salud en un servicio de Urgencias',
+								'Asesoría en Lactancia Materna ' => 'Asesoría en Lactancia Materna',
+								'Activación de ruta por sospecha de violencias ' => 'Activación de ruta por sospecha de violencias',
+
+
+							];
+
+							echo $this->Form->input('canalizacionuno', array(
+								'label' => 'Canalización',
 								'class' => 'form-control',
-								'placeholder' => '',
-								'type' => 'select',
-								'options' => $optionYesNo,
 								'style' => 'font-size: 12px',
-
-							)); ?>
-						</div>
-
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('canalizaciondos', array(
-								'label' => 'Se canaliza a',
-								'class' => 'form-control',
 								'placeholder' => '',
-								'type' => 'select',
-								'style' => 'font-size: 12px',
-								'options' => $optionYesNo,
-							)); ?>
-						</div>
-
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('eduacionuno', array(
-								'label' => 'Se requiere plan de atención en',
-								'class' => 'form-control',
-								'placeholder' => '',
-								'type' => 'select',
-								'style' => 'font-size: 12px',
-								'options' => $optionYesNo,
-							)); ?>
-						</div>
-
-						<div class="form-group col-md-6">
-							<?php echo $this->Form->input('educaciondos', array(
-								'label' => 'Se requiere plan de atención en',
-								'class' => 'form-control',
-								'placeholder' => '',
+								'class' => 'form-control select-search',
+								'options' => $optionCanlizacion,
 								'type' => 'select',
 								'style' => 'font-size: 12px',
-								'options' => $optionYesNo,
 							)); ?>
-						</div>
-					</div>
-				</div>
-			</div>
-			<?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?>
-	</div>
-	</fieldset>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <?php
+							echo $this->Form->input('canalizaciondos', array(
+								'label' => 'Canalización',
+								'class' => 'form-control',
+								'style' => 'font-size: 12px',
+								'placeholder' => '',
+								'class' => 'form-control select-search',
+								'options' => $optionCanlizacion,
+								'type' => 'select',
+								'style' => 'font-size: 12px'
+							));
+							?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php
+							$optionEducacion = [
+								'Educacion individual' => 'Educación para la salud individual',
+								'Educacion familiar' => 'Educación para la salud familiar',
+								'Educacion grupal' => 'Educación para la salud grupal',
+							];
+							echo $this->Form->input('canalizaciontres', array(
+								'label' => 'Canalización',
+								'class' => 'form-control',
+								'style' => 'font-size: 12px',
+								'placeholder' => '',
+								'class' => 'form-control select-search',
+								'options' => $optionCanlizacion,
+								'type' => 'select',
+								'style' => 'font-size: 12px',
+							)); ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php
+							echo $this->Form->input('educacion', array(
+								'label' => 'Educación',
+								'class' => 'form-control',
+								'style' => 'font-size: 12px',
+								'placeholder' => '',
+								'options' => $optionEducacion,
+								'type' => 'select',
+								'style' => 'font-size: 12px',
+							)); ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php
+							echo $this->Form->input('canalizacion_id', array(
+								'label' => 'Enlace de canalizacion',
+								'class' => 'form-control',
+								'style' => 'font-size: 12px',
+								'class' => 'form-control select-search',
+								'placeholder' => '',
+								'type' => 'select',
+								'style' => 'font-size: 12px',
+							)); ?>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?>
+    </div>
+
 
 
 
@@ -561,38 +641,8 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$('.select-search').select2();
-		agregarOpcionSeleccion();
-	});
-
-
-
-	function validar() {
-		var todo_correcto = true;
-
-		if (document.getElementById('status').value == '') {
-			todo_correcto = false;
-		}
-
-		if (!todo_correcto) {
-			alert('Algunos campos no están correctos, vuelva a revisarlos');
-		}
-
-		return todo_correcto;
-	}
-
-
-
-	function mostrar(id) {
-		if (id == "si") {
-			$("#si").show();
-			$("#no").hide();
-
-		} else if (id == "no") {
-			$("#si").hide();
-			$("#no").show();
-
-		}
-	}
+$(document).ready(function() {
+    $('.select-search').select2();
+    agregarOpcionSeleccion();
+});
 </script>

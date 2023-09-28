@@ -7,8 +7,10 @@
                     menor de 2 años
                 </h1>
             </div>
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -60,7 +62,8 @@
 
             <h2 class="titulo-general-pwa-govco col-md-6  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Valoracion de Salud</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -253,8 +256,10 @@
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -364,8 +369,10 @@
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Condiciones de vulnerabilidad</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Condiciones de vulnerabilidad</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -420,6 +427,29 @@
 
                             )); ?>
                         </div>
+                        <div class="form-group col-md-6">
+                            <?php
+							$optionEstudio = [
+								'' => 'Elegir',
+								'Jardin Infantil' => 'Jardin Infantil',
+								'Hogar Comuitario' => 'Hogar Comuitario',
+								'CDI' => 'CDI',
+								'No' => 'Mantiene en casa',
+								'No refiere' => 'No informa',
+								'SD' => 'Sin dato'
+							];
+
+							echo $this->Form->input('estudio', array(
+								'label' => '¿El menor asiste a una institucion educativa o de cuidado?',
+								'class' => 'form-control',
+								'placeholder' => '',
+								'options' => $optionEstudio,
+								'type' => 'select',
+								'style' => 'font-size: 12px',
+
+							)); ?>
+                        </div>
+
 
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('padresconsumo', array(
@@ -450,62 +480,112 @@
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de Atención integral</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
-
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de Atención integral</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+
                     <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('canalizacionuno', array(
-                                'label' => 'Se canaliza a',
-                                'class' => 'form-control',
-                                'placeholder' => '',
-                                'type' => 'select',
-                                'options' => $optionYesNo,
-                                'style' => 'font-size: 12px',
 
+                        <div class="form-group col-md-6">
+                            <?php
+                            $optionCanlizacion = [
+                                '' => 'Elegir',
+                                'Vacunación ' => 'Vacunación',
+                                'Atención en salud del recién nacido ' => 'Atención en salud del recién nacido',
+                                'Atención en salud de promoción y mantenimiento por médico o enfermera ' => 'Atención en salud de promoción y mantenimiento por médico o enfermera',
+                                'Atención en salud bucal' => 'Atención en salud bucal',
+                                'aplicación de sellantes' => 'aplicación de sellantes, fluor, barniz',
+                                'Atención medicina general ' => 'Atención en salud por medicina general',
+                                'Atención Urgencias ' => 'Atención en salud en un servicio de Urgencias',
+                                'Asesoría en Lactancia Materna ' => 'Asesoría en Lactancia Materna',
+                                'Activación de ruta por sospecha de violencias ' => 'Activación de ruta por sospecha de violencias',
+
+
+                            ];
+
+                            echo $this->Form->input('canalizacionuno', array(
+                                'label' => 'Canalización',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                                'placeholder' => '',
+                                'class' => 'form-control select-search',
+                                'options' => $optionCanlizacion,
+                                'type' => 'select',
+                                'style' => 'font-size: 12px',
+                            )); ?>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <?php
+                            echo $this->Form->input('canalizaciondos', array(
+                                'label' => 'Canalización',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                                'placeholder' => '',
+                                'class' => 'form-control select-search',
+                                'options' => $optionCanlizacion,
+                                'type' => 'select',
+                                'style' => 'font-size: 12px'
+                            ));
+                            ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php
+                            $optionEducacion = [
+                                'Educacion individual' => 'Educación para la salud individual',
+                                'Educacion familiar' => 'Educación para la salud familiar',
+                                'Educacion grupal' => 'Educación para la salud grupal',
+                            ];
+                            echo $this->Form->input('canalizaciontres', array(
+                                'label' => 'Canalización',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                                'placeholder' => '',
+                                'class' => 'form-control select-search',
+                                'options' => $optionCanlizacion,
+                                'type' => 'select',
+                                'style' => 'font-size: 12px',
                             )); ?>
                         </div>
 
                         <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('canalizaciondos', array(
-                                'label' => 'Se canaliza a',
+                            <?php
+                            echo $this->Form->input('educacion', array(
+                                'label' => 'Educación',
                                 'class' => 'form-control',
+                                'style' => 'font-size: 12px',
                                 'placeholder' => '',
+                                'options' => $optionEducacion,
                                 'type' => 'select',
                                 'style' => 'font-size: 12px',
-                                'options' => $optionYesNo,
                             )); ?>
                         </div>
 
                         <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('eduacionuno', array(
-                                'label' => 'Se requiere plan de atención en',
+                            <?php
+                            echo $this->Form->input('canalizacion_id', array(
+                                'label' => 'Enlace de canalizacion',
                                 'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                                'class' => 'form-control select-search',
                                 'placeholder' => '',
                                 'type' => 'select',
                                 'style' => 'font-size: 12px',
-                                'options' => $optionYesNo,
                             )); ?>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('educaciondos', array(
-                                'label' => 'Se requiere plan de atención en',
-                                'class' => 'form-control',
-                                'placeholder' => '',
-                                'type' => 'select',
-                                'style' => 'font-size: 12px',
-                                'options' => $optionYesNo,
-                            )); ?>
-                        </div>
                     </div>
+
                 </div>
             </div>
-            <?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
+        </fieldset>
+
+        <?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
     </div>
-    </fieldset>
+
 </div>
 
 
@@ -549,45 +629,19 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.select-search').select2();
-        agregarOpcionSeleccion();
-    });
+$(document).ready(function() {
+    $('.select-search').select2();
+    agregarOpcionSeleccion();
+});
 
 
-    function agregarOpcionSeleccion() {
+function agregarOpcionSeleccion() {
 
-        $("#PrimerainfanciaFamiliaId").prepend(
-            "<option value='' selected='selected'>Seleccione</option>");
-        $("#PrimerainfanciaPersonaId").prepend(
-            "<option value='' selected='selected'>Seleccione</option>");
-    }
-
-    function validar() {
-        var todo_correcto = true;
-
-        if (document.getElementById('status').value == '') {
-            todo_correcto = false;
-        }
-
-        if (!todo_correcto) {
-            alert('Algunos campos no están correctos, vuelva a revisarlos');
-        }
-
-        return todo_correcto;
-    }
-
-
-
-    function mostrar(id) {
-        if (id == "si") {
-            $("#si").show();
-            $("#no").hide();
-
-        } else if (id == "no") {
-            $("#si").hide();
-            $("#no").show();
-
-        }
-    }
+    $("#PrimerainfanciaFamiliaId").prepend(
+        "<option value='' selected='selected'>Seleccione</option>");
+    $("#PrimerainfanciaPersonaId").prepend(
+        "<option value='' selected='selected'>Seleccione</option>");
+    $("#PrimerainfanciaCanalizacionId").prepend(
+        "<option value='' selected='selected'>Seleccione</option>");
+}
 </script>

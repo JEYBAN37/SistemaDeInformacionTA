@@ -12,8 +12,8 @@
 
 
 			<div class="col-12 text-center">
-				<h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Primera Infancia 2
-					a 5 años
+				<h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Primera Infancia menor de
+					5 años
 				</h1>
 
 			</div>

@@ -74,13 +74,14 @@ class PrimerainfanciasController extends AppController
 
 
 		$familias = $this->Primerainfancia->Familia->find('list');
+		$canalizaciones = $this->Primerainfancia->Canalizacion->find('list');
 		$personas = $this->Primerainfancia->Persona->find('list', array(
 			'order' => array('Persona.edad' => 'asc'),
 			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
 			'conditions' => array('Persona.edad <' => '2'),
 			'recursive' => 0
 		));
-		$this->set(compact('familias', 'personas'));
+		$this->set(compact('familias', 'personas', 'canalizaciones'));
 	}
 
 	public function add2_5()
@@ -107,13 +108,14 @@ class PrimerainfanciasController extends AppController
 		}
 
 		$familias = $this->Primerainfancia->Familia->find('list');
+		$canalizaciones = $this->Primerainfancia->Canalizacion->find('list');
 		$personas = $this->Primerainfancia->Persona->find('list', array(
 			'order' => array('Persona.edad' => 'asc'),
 			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
 			'conditions' => array('Persona.edad >=' => '2', 'Persona.edad <=' => '5'),
 			'recursive' => 0
 		));
-		$this->set(compact('familias', 'personas'));
+		$this->set(compact('familias', 'personas', 'canalizaciones'));
 	}
 
 
@@ -157,7 +159,8 @@ class PrimerainfanciasController extends AppController
 
 		));
 		$personas = $this->Primerainfancia->Persona->find('list');
-		$this->set(compact('familias', 'personas'));
+		$canalizaciones = $this->Primerainfancia->Canalizacion->find('list');
+		$this->set(compact('familias', 'personas', 'canalizaciones'));
 	}
 
 

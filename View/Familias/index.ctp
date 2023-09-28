@@ -10,7 +10,8 @@ $bd = 'fichafamiliar';
 
 <!--h3><a><img src="../../img/ciudad.png" width="40" height="auto"></a> Atención Primaria en Salud </h3-->
 <div class="col-12 text-center " style="margin: 20px; margin-top: 40px;">
-    <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;font-size: 3.5rem ;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Atención Primaria en Salud
+    <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;font-size: 3.5rem ;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        Atención Primaria en Salud
     </h1>
 </div>
 
@@ -108,7 +109,7 @@ $bd = 'fichafamiliar';
                                                         <li><?php echo $this->Html->link(('Editar hogar'),
                                                                 array('action' => 'edit',  $familia['Familia']['id']),
                                                                 array(
-                                                                    'onclick' => "return confirm('¿Estás seguro que deseas editar la información del hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                                                    'onclick' => "return confirm('¿Estás seguro que deseas editar la información del hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
                                                                     'style' => 'color: blue; font-size: 16px; font-weight: bold;'
                                                                 )
                                                             ); ?>
@@ -129,7 +130,7 @@ $bd = 'fichafamiliar';
                                                                     'action' => 'add?primerainfancia=' . $familia['Familia']['id']
                                                                 ),
                                                                 array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
+                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
                                                                     'style' => 'color: blue; font-size: 16px; font-weight: bold;'
                                                                 )
                                                             ); ?>
@@ -143,7 +144,7 @@ $bd = 'fichafamiliar';
                                                                     'action' => 'add2_5?primerainfancia=' . $familia['Familia']['id']
                                                                 ),
                                                                 array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
                                                                     'style' => 'color: blue; font-size: 16px; font-weight: bold;'
                                                                 )
 
@@ -155,7 +156,7 @@ $bd = 'fichafamiliar';
                                                                     'action' => 'add?infantils=' . $familia['Familia']['id']
                                                                 ),
                                                                 array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 6 a 11 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 6 a 11 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
                                                                     'style' => 'color: blue; font-size: 16px; font-weight: bold;'
                                                                 )
                                                             ); ?>
@@ -167,7 +168,7 @@ $bd = 'fichafamiliar';
                                                                     'action' => 'add?adolescencias=' . $familia['Familia']['id']
                                                                 ),
                                                                 array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 12 a 17 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 12 a 17 años en el hogar de " .  $familia['Familia']['nombres'] . " " .   $familia['Familia']['apellidos'] . "?');",
                                                                     'style' => 'color: blue; font-size: 16px; font-weight: bold;'
                                                                 )
                                                             ); ?>
@@ -178,7 +179,7 @@ $bd = 'fichafamiliar';
                                                                     'action' => 'add?juventudadultos=' . $familia['Familia']['id']
                                                                 ),
                                                                 array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un adulto de 18 a 28 años en el hogar de " .  $familia['Familia']['nombres'] .   $familia['Familia']['apellidos'] . "?');",
+                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un adulto de 18 a 28 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
                                                                     'style' => 'color: blue; font-size: 16px; font-weight: bold;'
                                                                 )
                                                             ); ?>

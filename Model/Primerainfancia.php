@@ -5,6 +5,7 @@ App::uses('AppModel', 'Model');
  *
  * @property Persona $Persona
  * @property Familia $Familia
+ * @property Familia $Canalizacion
  */
 class Primerainfancia extends AppModel
 {
@@ -36,6 +37,7 @@ class Primerainfancia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		
 		'estudio' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -297,6 +299,16 @@ class Primerainfancia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'canalizacion_id' => array(
+			alphaNumeric' => array(
+				'rule' => array('alphaNumeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'canalizaciondos' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -317,7 +329,7 @@ class Primerainfancia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'educaciondos' => array(
+		'canalizaciontres' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -356,6 +368,13 @@ class Primerainfancia extends AppModel
 		'Familia' => array(
 			'className' => 'Familia',
 			'foreignKey' => 'familia_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Canalizacion' => array(
+			'className' => 'Canalizacion',
+			'foreignKey' => 'canalizacion_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
