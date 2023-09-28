@@ -72,7 +72,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 
 
-    <style>
+    <!--style>
         /* Enlaza las fuentes locales */
         @font-face {
             font-family: 'MiFuenteRegular';
@@ -228,7 +228,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 
         /*Fin de Menù lateral*/
-    </style>
+    </style-->
 
 
 </head>
@@ -238,7 +238,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
     <div class="contanier">
 
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3366CC;">
+        <!--nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3366CC;">
 
             <div class="btn-menu">
                 <label for="btn-menu" style="color: white;  font-size: 30px; padding-right: 100px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  ">☰</label>
@@ -248,10 +248,11 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                 <img src="https://tramites.pasto.gov.co/info/pasto_se/media/bloque3.png" alt="">
             </a>
 
-        </nav>
+        </nav-->
 
         <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
             <?php echo $this->Session->flash(); ?>
+            <?php echo $this->element('nav'); ?>
             <?php echo $this->fetch('content'); ?>
         </div>
 

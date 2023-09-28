@@ -1,20 +1,27 @@
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a href="#" class="nav-link active">INICIO</a>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-            aria-expanded="false">Curos de vida</a>
-        <div class="dropdown-menu">
-            <a class="dropdown-item" href="../new/primerainfancias/">Registros menores 1 año</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="../new/infantils/">Registros 1 a 5 años</a>
+<!DOCTYPE html>
+<html lang="en">
 
-    </li>
-    <li>
-        <?php echo $this->Html->link(('Agregar nuevo registro'), array('controller' => 'sociambientals', 'action' => 'add')); ?>
-    </li>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+    }
+  </style>
 
+</head>
 
+<body>
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+    </h1>
 
-</ul>
+</body>
+
+</html>
