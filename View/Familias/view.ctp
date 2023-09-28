@@ -162,16 +162,26 @@ $bd = 'fichafamiliar';
                                                     </h4>
                                                     <h4>
                                                         <?php
-                                                        echo $this->Html->link(('Agregar mennor de 2 años'),
-                                                            array(
-                                                                'controller' => 'Primerainfancias',
-                                                                'action' => 'add?primerainfancia=' . $familia['Familia']['id']
-                                                            ),
-                                                            array(
-                                                                'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
-                                                                'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                            )
-                                                        ); ?></h4>
+                                echo $this->Html->link(('Agregar menor de 2 años'),
+                                    array(
+                                        'controller' => 'Primerainfancias',
+                                        'action' => 'add?primerainfancia=' . $familia['Familia']['id']
+                                    ),
+                                    array(
+                                        'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
+                                        'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                    )
+                                ); ?> - - <?php
+                                            echo $this->Html->link(('Agregar menor entre 2 años a 5 años'),
+                                                array(
+                                                    'controller' => 'Primerainfancias',
+                                                    'action' => 'add2_5?primerainfancia=' . $familia['Familia']['id']
+                                                ),
+                                                array(
+                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
+                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                )
+                                            ); ?></h4>
                                                     <div class="card-body">
 
 
