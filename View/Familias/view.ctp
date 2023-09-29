@@ -152,38 +152,12 @@ $bd = 'fichafamiliar';
 
                                 </div>
                                 <!-- /.table-responsive -->
-
                             </div>
                             <!-- /.panel-body -->
                         </div>
                         <!-- /.panel -->
                     </div>
-                    <!-- /.col-lg-12 -->
-                </div>
 
-
-
-            </div>
-
-        </fieldset>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<div class="row">
-    <div class="col-sm-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-
-                <div class="panel panel-default">
                     <div class="panel-body">
                         <!-- Nav tabs -->
 
@@ -233,6 +207,10 @@ $bd = 'fichafamiliar';
                                                 <th>Id</th>
                                                 <th>Nombre</th>
                                                 <th>Acciones</th>
+                                                <th>Edad</th>
+                                                <th>canalización</th>
+                                                <th>Canalización</th>
+
 
                                             </tr>
 
@@ -299,6 +277,28 @@ $bd = 'fichafamiliar';
                                                                 </ul>
                                                             </div>
 
+                                                        </td>
+                                                        <td>
+                                                            <?php
+
+                                                            ?> <?php
+                                                                //echo $adolescencia['responsable_id']; 
+                                                                $link = mysqli_connect($serv, $userS, $passS);
+                                                                mysqli_select_db($link, $bd);
+                                                                $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+                                                                $result = mysqli_query($link, "SELECT edad FROM Personas WHERE id = " . $primerainfancia['persona_id']);
+                                                                while ($fila = mysqli_fetch_array($result)) {
+                                                                    echo $fila['edad'];
+
+                                                                    mysqli_close($link);
+                                                                }
+                                                                ?>
+                                                        </td>
+
+
+                                                        <td> <?php echo $primerainfancia['canalizacionuno']; ?>
+                                                        </td>
+                                                        <td> <?php echo $primerainfancia['canalizaciondos']; ?>
                                                         </td>
                                                     </tr>
                                             <?php }
@@ -720,18 +720,30 @@ $bd = 'fichafamiliar';
 
                         </div>
                     </div>
-                    <!-- /.panel-body -->
+                    <!-- /.col-lg-12 -->
                 </div>
 
 
 
-
             </div>
-        </div>
+
+        </fieldset>
     </div>
+</div>
 
 
-    <!--div row>
+
+
+
+
+
+
+
+
+
+
+
+<!--div row>
 
 
 
@@ -841,7 +853,7 @@ $bd = 'fichafamiliar';
 	</dd>
 	</dl>
 </div-->
-    <!--div class="actions">
+<!--div class="actions">
     <h3><?php echo __('Actions'); ?></h3>
     <ul>
         <li><?php echo $this->Html->link(__('Edit Familia'), array('action' => 'edit', $familia['Familia']['id'])); ?>
@@ -868,7 +880,7 @@ $bd = 'fichafamiliar';
         </li>
     </ul>
 </div-->
-    <!--div class="related">
+<!--div class="related">
 	<h3><?php echo __('Related Primerainfancias'); ?></h3>
 	<?php if (!empty($familia['Primerainfancia'])) : ?>
 		<table cellpadding="0" cellspacing="0">
@@ -964,30 +976,30 @@ $bd = 'fichafamiliar';
 
 
 
-    <script>
-        $(document).ready(function() {
-            $('#dataTables-example').DataTable({
-                responsive: true
-            });
+<script>
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
         });
-        $(document).ready(function() {
-            $('#dataTables-actividades').DataTable({
-                responsive: true
-            });
+    });
+    $(document).ready(function() {
+        $('#dataTables-actividades').DataTable({
+            responsive: true
         });
-        $(document).ready(function() {
-            $('#dataTables-informes').DataTable({
-                responsive: true
-            });
+    });
+    $(document).ready(function() {
+        $('#dataTables-informes').DataTable({
+            responsive: true
         });
-        $(document).ready(function() {
-            $('#dataTables-planes').DataTable({
-                responsive: true
-            });
+    });
+    $(document).ready(function() {
+        $('#dataTables-planes').DataTable({
+            responsive: true
         });
-        $(document).ready(function() {
-            $('#dataTables-actas').DataTable({
-                responsive: true
-            });
+    });
+    $(document).ready(function() {
+        $('#dataTables-actas').DataTable({
+            responsive: true
         });
-    </script>>
+    });
+</script>>

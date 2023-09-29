@@ -1,21 +1,4 @@
 <?php
-
-/**
- *
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
 $cakeDescription = __d('cake_dev', 'Aplicativo APS - Pasto');
 $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 ?>
@@ -72,7 +55,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 
 
-    <style>
+    <!--style>
         /* Enlaza las fuentes locales */
         @font-face {
             font-family: 'MiFuenteRegular';
@@ -228,7 +211,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 
         /*Fin de Menù lateral*/
-    </style>
+    </style-->
 
 
 </head>
@@ -238,7 +221,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
     <div class="contanier">
 
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3366CC;">
+        <!--nav class="navbar navbar-expand-lg navbar-light" style="background-color: #3366CC;">
 
             <div class="btn-menu">
                 <label for="btn-menu" style="color: white;  font-size: 30px; padding-right: 100px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  ">☰</label>
@@ -248,9 +231,10 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                 <img src="https://tramites.pasto.gov.co/info/pasto_se/media/bloque3.png" alt="">
             </a>
 
-        </nav>
+        </nav-->
 
         <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <?php echo $this->element('nav'); ?>
             <?php echo $this->Session->flash(); ?>
             <?php echo $this->fetch('content'); ?>
         </div>

@@ -200,7 +200,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
         </nav>
 
-        <div>
+        <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
             <?php echo $this->Session->flash(); ?>
             <?php echo $this->fetch('content'); ?>
         </div>
@@ -229,8 +229,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         );
         ?>
         </div-->
-
-        <!--?php echo $this->element('sql_dump'); ?-->
 
 
     </div>
