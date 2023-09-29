@@ -5,14 +5,16 @@ App::uses('AppModel', 'Model');
  *
  * @property Familia $Familia
  * @property Persona $Persona
+ * @property Persona $Canalizacion
  */
-class Adolescencia extends AppModel {
+class Adolescencia extends AppModel
+{
 
-/**
- * Validation rules
- *
- * @var array
- */
+	/**
+	 * Validation rules
+	 *
+	 * @var array
+	 */
 	public $validate = array(
 		'familia_id' => array(
 			'numeric' => array(
@@ -25,6 +27,16 @@ class Adolescencia extends AppModel {
 			),
 		),
 		'persona_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'canalizacion_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				//'message' => 'Your custom message here',
@@ -104,16 +116,7 @@ class Adolescencia extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'higieneoral' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+
 		'riesgopsicosocial1' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -154,7 +157,7 @@ class Adolescencia extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'educaciondos' => array(
+		'canalizaciontres' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -168,11 +171,11 @@ class Adolescencia extends AppModel {
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-/**
- * belongsTo associations
- *
- * @var array
- */
+	/**
+	 * belongsTo associations
+	 *
+	 * @var array
+	 */
 	public $belongsTo = array(
 		'Familia' => array(
 			'className' => 'Familia',
@@ -187,6 +190,14 @@ class Adolescencia extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Canalizacion' => array(
+			'className' => 'Canalizacion',
+			'foreignKey' => 'canalizacion_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
+
 	);
 }

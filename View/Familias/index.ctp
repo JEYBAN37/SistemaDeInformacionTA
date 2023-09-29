@@ -173,13 +173,13 @@ $bd = 'fichafamiliar';
                                                                 )
                                                             ); ?>
 
-                                                        <li><?php echo $this->Html->link(('Agregar adulto de 18 a 28 años'),
+                                                        <li><?php echo $this->Html->link(('Agregar adulto mayor de 18 años'),
                                                                 array(
                                                                     'controller' => 'Juventudadultos',
                                                                     'action' => 'add?juventudadultos=' . $familia['Familia']['id']
                                                                 ),
                                                                 array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un adulto de 18 a 28 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
+                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un adulto mayor de 18 en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
                                                                     'style' => 'color: blue; font-size: 16px; font-weight: bold;'
                                                                 )
                                                             ); ?>

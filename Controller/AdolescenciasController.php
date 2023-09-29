@@ -25,7 +25,11 @@ class AdolescenciasController extends AppController
 	public function index()
 	{
 		$this->Adolescencia->recursive = 0;
-		$this->set('adolescencias', $this->Paginator->paginate());
+
+		$count = $this->Adolescencia->find('count');
+		$this->Paginator->settings['limit'] = $count;
+
+		$this->set('adolescencias', $this->paginate());
 	}
 
 	/**
@@ -54,7 +58,7 @@ class AdolescenciasController extends AppController
 		if ($this->request->is('post')) {
 			$this->Adolescencia->create();
 			if ($this->Adolescencia->save($this->request->data)) {
-				$this->Session->setFlash(__('The infantil has been saved.'));
+				$this->Session->setFlash('Se ha guardado correctamente, por favor actulizar datos personales', 'default', array('class' => 'alert alert-success'));
 				$familiaId = isset($this->data["Adolescencia"]["familia_id"]) ? $this->data["Adolescencia"]["familia_id"] : null;
 
 				return $this->redirect(array(
@@ -71,13 +75,14 @@ class AdolescenciasController extends AppController
 		}
 
 		$familias = $this->Adolescencia->Familia->find('list');
+		$canalizaciones = $this->Adolescencia->Canalizacion->find('list');
 		$personas = $this->Adolescencia->Persona->find('list', array(
 			'order' => array('Persona.edad' => 'asc'),
 			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
 			'conditions' => array('Persona.edad >=' => 12, 'Persona.edad <=' => 17),
 			'recursive' => 0
 		));
-		$this->set(compact('familias', 'personas'));
+		$this->set(compact('familias', 'personas', 'canalizaciones'));
 	}
 
 	/**
@@ -94,7 +99,7 @@ class AdolescenciasController extends AppController
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Adolescencia->save($this->request->data)) {
-				$this->Session->setFlash(__('The adolescencia has been saved.'));
+				$this->Session->setFlash('Se ha guardado correctamente, por favor actulizar datos personales', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Adolescencia"]["familia_id"]));
 			} else {
 				$this->Session->setFlash(__('The adolescencia could not be saved. Please, try again.'));
@@ -104,8 +109,9 @@ class AdolescenciasController extends AppController
 			$this->request->data = $this->Adolescencia->find('first', $options);
 		}
 		$familias = $this->Adolescencia->Familia->find('list');
+		$canalizaciones = $this->Adolescencia->Canalizacion->find('list');
 		$personas = $this->Adolescencia->Persona->find('list');
-		$this->set(compact('familias', 'personas'));
+		$this->set(compact('familias', 'personas', 'canalizaciones'));
 	}
 
 	/**
@@ -123,9 +129,9 @@ class AdolescenciasController extends AppController
 		}
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Adolescencia->delete()) {
-			$this->Session->setFlash(__('The adolescencia has been deleted.'));
+			$this->Session->setFlash('El registro se borro exitosamente', 'default', array('class' => 'alert alert-success'));
 		} else {
-			$this->Session->setFlash(__('The adolescencia could not be deleted. Please, try again.'));
+			$this->Session->setFlash('El registro se borro exitosamente', 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}

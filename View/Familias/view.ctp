@@ -170,16 +170,16 @@ $bd = 'fichafamiliar';
                                                                 'style' => 'color: blue; font-size: 16px; font-weight: bold;'
                                                             )
                                                         ); ?> - - <?php
-                                            echo $this->Html->link(('Agregar menor entre 2 años a 5 años'),
-                                                array(
-                                                    'controller' => 'Primerainfancias',
-                                                    'action' => 'add2_5?primerainfancia=' . $familia['Familia']['id']
-                                                ),
-                                                array(
-                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
-                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                )
-                                            ); ?></h4>
+                                                                    echo $this->Html->link(('Agregar menor entre 2 años a 5 años'),
+                                                                        array(
+                                                                            'controller' => 'Primerainfancias',
+                                                                            'action' => 'add2_5?primerainfancia=' . $familia['Familia']['id']
+                                                                        ),
+                                                                        array(
+                                                                            'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
+                                                                            'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                                        )
+                                                                    ); ?></h4>
                                                     <div class="card-body">
 
 
@@ -314,14 +314,14 @@ $bd = 'fichafamiliar';
                                                                 'action' => 'add?infantils=' . $familia['Familia']['id']
                                                             ),
                                                             array(
-                                                                'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
+                                                                'onclick' => "return confirm('¿Estás seguro de agregar un menor de 6 a 11 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
                                                                 'style' => 'color: blue; font-size: 16px; font-weight: bold;'
                                                             )
                                                         ); ?></h4>
                                                     <div class="card-body">
 
 
-                                                        <?php if (!empty($familia['Primerainfancia'])) : ?>
+                                                        <?php if (!empty($familia['Infantil'])) : ?>
                                                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                                                 <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
                                                                 <thead>
@@ -345,42 +345,12 @@ $bd = 'fichafamiliar';
                                                                                 </td>
 
 
-                                                                                <!--td> <?php
-                                                                                        // Conectar a la base de datos
-                                                                                        $link = mysqli_connect($serv, $userS, $passS);
-
-                                                                                        if (!$link) {
-                                                                                            die("Error en la conexión: " . mysqli_connect_error());
-                                                                                        }
-
-                                                                                        // Configura el juego de caracteres UTF-8
-                                                                                        mysqli_set_charset($link, "utf8");
-
-                                                                                        // Consulta para seleccionar personas menores de 2 años
-                                                                                        $query = "SELECT primernombre, primerapellido FROM Personas WHERE edad < 2";
-
-                                                                                        $resultado = mysqli_query($link, $query);
-
-                                                                                        if ($resultado) {
-                                                                                            while ($fila = mysqli_fetch_assoc($resultado)) {
-                                                                                                echo "Nombre: " . $fila['primernombre'] . ", Apellido: " . $fila['primerapellido'] . "<br>";
-                                                                                            }
-                                                                                            mysqli_free_result($resultado);
-                                                                                        } else {
-                                                                                            echo "Error en la consulta: " . mysqli_error($link);
-                                                                                        }
-
-                                                                                        // Cierra la conexión a la base de datos
-                                                                                        mysqli_close($link);
-                                                                                        ?></td-->
-
-
                                                                                 <td><?php
 
                                                                                     $link = mysqli_connect($serv, $userS, $passS);
                                                                                     mysqli_select_db($link, $bd);
                                                                                     $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-                                                                                    $result = mysqli_query($link, "SELECT primernombre FROM Personas WHERE id = " . $primerainfancia['persona_id']);
+                                                                                    $result = mysqli_query($link, "SELECT primernombre FROM Personas WHERE id = " . $infantil['persona_id']);
                                                                                     while ($fila = mysqli_fetch_array($result)) {
                                                                                         echo $fila['primernombre'];
 
@@ -391,9 +361,21 @@ $bd = 'fichafamiliar';
                                                                                         $link = mysqli_connect($serv, $userS, $passS);
                                                                                         mysqli_select_db($link, $bd);
                                                                                         $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-                                                                                        $result = mysqli_query($link, "SELECT primerapellido FROM Personas WHERE id = " . $primerainfancia['persona_id']);
+                                                                                        $result = mysqli_query($link, "SELECT primerapellido FROM Personas WHERE id = " . $infantil['persona_id']);
                                                                                         while ($fila = mysqli_fetch_array($result)) {
                                                                                             echo $fila['primerapellido'];
+
+                                                                                            mysqli_close($link);
+                                                                                        }
+                                                                                        ?></td>
+                                                                                <td> <?php
+
+                                                                                        $link = mysqli_connect($serv, $userS, $passS);
+                                                                                        mysqli_select_db($link, $bd);
+                                                                                        $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+                                                                                        $result = mysqli_query($link, "SELECT edad FROM Personas WHERE id = " . $infantil['persona_id']);
+                                                                                        while ($fila = mysqli_fetch_array($result)) {
+                                                                                            echo $fila['edad'];
 
                                                                                             mysqli_close($link);
                                                                                         }
@@ -409,18 +391,18 @@ $bd = 'fichafamiliar';
                                                                                             Opciones
                                                                                         </button>
                                                                                         <ul class="dropdown-menu" role="menu">
-                                                                                            <li><?php echo $this->Html->link("Ver", "../primerainfancias/view/" . $primerainfancia['id'], array('target' => '_blank')); ?>
+                                                                                            <li><?php echo $this->Html->link("Ver", "../infantils/view/" . $infantil['id'], array('target' => '_blank')); ?>
                                                                                             </li>
-                                                                                            <li><?php echo $this->Html->link("Editar ", "../primerainfancias/edit/" . $primerainfancia['id'], array('target' => '_blank')); ?>
+                                                                                            <li><?php echo $this->Html->link("Editar ", "../infantils/edit/" . $infantil['id'], array('target' => '_blank')); ?>
                                                                                             </li>
                                                                                             <li><?php echo $this->Form->postLink(
                                                                                                     ('Borrar'),
                                                                                                     array(
-                                                                                                        'controller' => 'primerainfancias',
-                                                                                                        'action' => 'delete', $primerainfancia['id']
+                                                                                                        'controller' => 'infantils',
+                                                                                                        'action' => 'delete', $infantil['id']
                                                                                                     ),
                                                                                                     array('style' => 'color: blue; font-size: 16px; font-weight: bold;'),
-                                                                                                    __('Are you sure you want to delete # %s?', $primerainfancia['id'])
+                                                                                                    __('Are you sure you want to delete # %s?', $infantil['id'])
                                                                                                 ); ?>
                                                                                             </li>
 

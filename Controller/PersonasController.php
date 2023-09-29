@@ -60,11 +60,11 @@ class PersonasController extends AppController
 		if ($this->request->is('post')) {
 			$this->Persona->create();
 			if ($this->Persona->save($this->request->data)) {
-				$this->Session->setFlash(__('The persona has been saved.'));
+				$this->Session->setFlash('El registro se ha guardado correctamente', 'default', array('class' => 'alert alert-success'));
 
 				return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The persona could not be saved. Please, try again.'));
+				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$familias = $this->Persona->Familia->find('list');
@@ -88,7 +88,7 @@ class PersonasController extends AppController
 
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Persona->save($this->request->data)) {
-				$this->Session->setFlash(__('The persona has been saved.'));
+				$this->Session->setFlash('El registro se ha guardado correctamente', 'default', array('class' => 'alert alert-success'));
 
 				// Obtén el valor de familia_id desde $this->request->data
 				$familiaId = $this->request->data["Persona"]["familia_id"];
@@ -96,7 +96,7 @@ class PersonasController extends AppController
 				// Redirecciona a la vista de familia con el valor de familia_id
 				return $this->redirect(array('controller' => 'familias', 'action' => 'view', $familiaId));
 			} else {
-				$this->Session->setFlash(__('The persona could not be saved. Please, try again.'));
+				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Persona.' . $this->Persona->primaryKey => $id));
