@@ -79,7 +79,7 @@
 
 														<tr>
 															<td colspan="2">Tension Arterial</td>
-															<td colspan="0"><?php echo h($primerainfancia['Primerainfancia']['tensionarterial']); ?></td>
+															<td colspan="0"><?php echo ($primerainfancia['Primerainfancia']['tensionarterial']); ?></td>
 															<td colspan="2">Discapacidad</td>
 															<td colspan="0"><?php echo ($primerainfancia['Primerainfancia']['discapacidad']); ?></td>
 															<td colspan="2">Prematuro</td>
@@ -150,8 +150,12 @@
 														<tr>
 															<td colspan="3">Canalizacion</td>
 															<td colspan="3"> <?php echo ($primerainfancia['Primerainfancia']['canalizacionuno']); ?></td>
-															<td colspan="3">otro..</td>
+															<td colspan="3">Canalizacion dos</td>
 															<td colspan="3"> <?php echo ($primerainfancia['Primerainfancia']['canalizaciondos']); ?></td>
+														</tr>
+														<tr>
+															<td colspan="2">Otro...</td>
+															<td colspan="10"><?php echo ($primerainfancia['Primerainfancia']['canalizaciontres']); ?></td>
 														</tr>
 
 														<tr>
@@ -159,10 +163,7 @@
 															<td colspan="10"><?php echo ($primerainfancia['Primerainfancia']['eduacionuno']); ?></td>
 														</tr>
 
-														<tr>
-															<td colspan="2">Otro...</td>
-															<td colspan="10"><?php echo ($primerainfancia['Primerainfancia']['educaciondos']); ?></td>
-														</tr>
+
 													</table>
 												</div>
 											</div>
@@ -258,11 +259,11 @@ $this->Html->script([
 
 <dt><?php echo __('Eda'); ?></dt>
 <dd>
-	<?php echo h($primerainfancia['Primerainfancia']['eda']); ?>
+	<?php echo ($primerainfancia['Primerainfancia']['eda']); ?>
 	&nbsp;
 </dd>
 <dt><?php echo __('Era'); ?></dt>
 <dd>
-	<?php echo h($primerainfancia['Primerainfancia']['era']); ?>
+	<?php echo ($primerainfancia['Primerainfancia']['era']); ?>
 	&nbsp;
 </dd>
