@@ -218,10 +218,11 @@ class PrimerainfanciasController extends AppController
 		$this->request->allowMethod('post', 'delete');
 
 		if ($this->Primerainfancia->delete()) {
-			$this->Session->setFlash(__('The primerainfancia has been deleted.'));
+			$this->Session->setFlash('El registro se borro exitosamente', 'default', array('class' => 'alert alert-success'));
 		} else {
-			$this->Session->setFlash(__('The primerainfancia could not be deleted. Please, try again.'));
+			$this->Session->setFlash('El registro no se pudo borrar', 'default', array('class' => 'alert alert-danger'));
 		}
+
 
 		// Redirigir al controller "familias" y a la acción "view" con el familia_id
 		return $this->redirect(array('controller' => 'familias', 'action' => 'view', $familiaId));

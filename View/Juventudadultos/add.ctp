@@ -64,8 +64,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 							<select id="status" name="status" required onChange="mostrar(this.value);" required class="form-control" style="font-size: 12px;">
 								<option value="">Elegir</option>
-								<option value="no">Hombre</option>
-								<option value="si">Mujer</option>
+								<option value="no">Masculino</option>
+								<option value="si">Femenino</option>
 							</select>
 							<p class="help-block"> Por favor realice la selección de la persona le permite mostar o
 								ocultar preguntas de acuerdo al Sexo</p>
@@ -282,25 +282,6 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							)); ?>
 						</div>
 
-						<!--div class="form-group col-md-6">
-                            <?php
-							echo $this->Form->input('valoracionrias', array(
-								'label' => 'valoracionrias',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'placeholder' => ''
-							)); ?>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <?php
-							echo $this->Form->input('valoracionrias1', array(
-								'label' => 'valoracionrias',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'placeholder' => ''
-							)); ?>
-                        </div-->
 
 
 
@@ -746,6 +727,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'SENA' => 'SENA',
 								'Universidad' => 'Universidad',
 								'No' => 'No estudia',
+								'No aplica' => 'No aplica',
 								'No informa' => 'No informa',
 								'SD' => 'Sin dato'
 							];
@@ -979,11 +961,6 @@ $this->Html->script([
 
 
 	}
-
-
-
-
-
 
 
 	function gestacion(id) {

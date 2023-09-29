@@ -57,7 +57,7 @@ class JuventudadultosController extends AppController
 		if ($this->request->is('post')) {
 			$this->Juventudadulto->create();
 			if ($this->Juventudadulto->save($this->request->data)) {
-				$this->Session->setFlash('Se ha guardado correctamente, por favor actulizar datos personales', 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash('Se ha guardado correctamente', 'default', array('class' => 'alert alert-success'));
 				$familiaId = isset($this->data["Juventudadulto"]["familia_id"]) ? $this->data["Infantil"]["familia_id"] : null;
 
 				return $this->redirect(array(
@@ -130,7 +130,7 @@ class JuventudadultosController extends AppController
 		if ($this->Juventudadulto->delete()) {
 			$this->Session->setFlash('El registro se borro exitosamente', 'default', array('class' => 'alert alert-success'));
 		} else {
-			$this->Session->setFlash(__('The juventudadulto could not be deleted. Please, try again.'));
+			$this->Session->setFlash('El registro se borro exitosamente', 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
