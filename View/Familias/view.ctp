@@ -89,31 +89,67 @@ $bd = 'fichafamiliar';
 
                             <table width="100%" class="table table-responsive table-striped table-bordered  ">
                                 <tr>
-                                    <td colspan="8">
+                                    <td>Fecha Registro:
+                                        <?php
+                                        echo ($familia['Sociambiental']['fecha']); ?></td>
+
+                                    <td>Familia:
                                         <?php echo $this->Html->link($familia['Sociambiental']['apellidosfamilia'], array('controller' => 'sociambientals', 'action' => 'view', $familia['Sociambiental']['id'])); ?>
                                     </td>
-                                    <td colspan="2">ID</td>
-                                    <td colspan="2"><?php echo ($familia['Familia']['id']); ?></td>
+                                    <td>ID:
+                                        <?php echo ($familia['Familia']['id']); ?></td>
+                                    <!--td>N° Hogares:
+                                        <?php echo ($familia['Sociambiental']['numerohogares']); ?></td-->
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Representante:</td>
-                                    <td colspan="10">
+                                    <td colspan="2">Representante:
+
                                         <?php echo '<strong>' . $familia['Familia']['nombres'] . '</strong> <strong>' . $familia['Familia']['apellidos'] . '</strong>'; ?>
                                     </td>
+                                    <td colspan="2">Curso de Vida:
+                                        <?php echo ($familia['Familia']['cursovidafamilia']); ?></td>
                                 </tr>
-                                <td colspan="2">Fecha de Registro:</td>
-                                <td colspan="10"> <?php
-                                                    echo ($familia['Sociambiental']['fecha']); ?></td>
+
 
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Curso de Vida:</td>
-                                    <td colspan="10"><?php echo ($familia['Familia']['cursovidafamilia']); ?></td>
+
+                                    <td>Paredes:
+                                        <?php echo ($familia['Sociambiental']['estadoparedes']); ?></td>
+                                    <td>Techo:
+                                        <?php echo ($familia['Sociambiental']['estadotecho']); ?></td>
+                                    <td>Hacinamiento:
+                                        <?php echo ($familia['Sociambiental']['hacinamiento']); ?></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Estilo de Vida:</td>
-                                    <td colspan="10"> <?php echo ($familia['Familia']['estilodevidapredominante']); ?>
+
+                                    <td>Perros:
+                                        <?php echo ($familia['Sociambiental']['numeroPerros']); ?></td>
+                                    <td>Gatos:
+                                        <?php echo ($familia['Sociambiental']['numeroGatos']); ?></td>
+                                    <td>Vacunacion:
+                                        <?php echo ($familia['Sociambiental']['vacunamascotas']); ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Riesgo:
+                                        <?php echo ($familia['Sociambiental']['riesgoexterno']); ?>
                                     </td>
+                                    <td>Riesgo:
+                                        <?php echo ($familia['Sociambiental']['otroriesgo']); ?>
+                                    </td>
+                                    <td>Riesgo:
+                                        <?php echo ($familia['Sociambiental']['riesgo']); ?>
+                                    </td>
+
+                                </tr>
+                                <tr>
+
+                                    <td>Hacinamiento:
+                                        <?php echo ($familia['Sociambiental']['hacinamiento']); ?></td>
+                                    <td>No acceso:
+                                        <?php echo ($familia['Sociambiental']['acceso']); ?></td>
+                                    <td>No acceso:
+                                        <?php echo ($familia['Sociambiental']['accesoDos']); ?></td>
                                 </tr>
                             </table>
                         </div>
@@ -337,16 +373,16 @@ $bd = 'fichafamiliar';
 
                                 <h4>
                                     <?php
-                                                        echo $this->Html->link(('Agregar menor de 6 a 11 años'),
-                                                            array(
-                                                                'controller' => 'Infantils',
-                                                                'action' => 'add?infantils=' . $familia['Familia']['id']
-                                                            ),
-                                                            array(
-                                                                'onclick' => "return confirm('¿Estás seguro de agregar un menor de 6 a 11 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
-                                                                'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                            )
-                                                        ); ?></h4>
+                                    echo $this->Html->link(('Agregar menor de 6 a 11 años'),
+                                        array(
+                                            'controller' => 'Infantils',
+                                            'action' => 'add?infantils=' . $familia['Familia']['id']
+                                        ),
+                                        array(
+                                            'onclick' => "return confirm('¿Estás seguro de agregar un menor de 6 a 11 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
+                                            'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                        )
+                                    ); ?></h4>
                                 <div class="card-body">
 
 
@@ -399,16 +435,16 @@ $bd = 'fichafamiliar';
                                                                     ?></td>
                                                 <td> <?php
 
-                                                                                        $link = mysqli_connect($serv, $userS, $passS);
-                                                                                        mysqli_select_db($link, $bd);
-                                                                                        $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-                                                                                        $result = mysqli_query($link, "SELECT edad FROM Personas WHERE id = " . $infantil['persona_id']);
-                                                                                        while ($fila = mysqli_fetch_array($result)) {
-                                                                                            echo $fila['edad'];
+                                                                    $link = mysqli_connect($serv, $userS, $passS);
+                                                                    mysqli_select_db($link, $bd);
+                                                                    $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
+                                                                    $result = mysqli_query($link, "SELECT edad FROM Personas WHERE id = " . $infantil['persona_id']);
+                                                                    while ($fila = mysqli_fetch_array($result)) {
+                                                                        echo $fila['edad'];
 
-                                                                                            mysqli_close($link);
-                                                                                        }
-                                                                                        ?></td>
+                                                                        mysqli_close($link);
+                                                                    }
+                                                                    ?></td>
 
 
 
