@@ -121,6 +121,17 @@ class Familia extends AppModel
 			),
 		),
 
+		'vivienda' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				'message' => 'Revisar campo',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+
 		'tenencia' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),

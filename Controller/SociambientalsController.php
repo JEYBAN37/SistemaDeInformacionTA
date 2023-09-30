@@ -53,7 +53,7 @@ class SociambientalsController extends AppController
 		if ($this->request->is('post')) {
 			$this->Sociambiental->create();
 			if ($this->Sociambiental->save($this->request->data)) {
-				$this->Session->setFlash('Registro se guradado con exito', 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash('Registro se guradado con exito, continuar con informacion de la familia / hogar', 'default', array('class' => 'alert alert-success'));
 				//return $this->redirect(array('action' => 'index'));
 				return $this->redirect(array('controller' => 'Familias', 'action' => 'add?hogar=' . $this->Sociambiental->id));
 			} else {

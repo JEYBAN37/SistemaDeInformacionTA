@@ -42,12 +42,12 @@
                             <?php
                             $generoOption = [
                                 ' ' => 'Elegir',
-                                'Hombre' => 'Hombre',
-                                'Mujer' => 'Mujer',
+                                'Hombre' => 'Masculino',
+                                'Mujer' => 'Femenino',
                                 'Otro' => 'Otro'
                             ];
                             echo $this->Form->input('genero', [
-                                'label' => 'Género',
+                                'label' => 'Sexo',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -94,7 +94,11 @@
                                 'class' => 'form-control',
                                 'style' => 'font-size: 12px',
                             ]); ?>
+
+                            <p class="help-block"> Agregar la estructura de correo electronico nombre@proveedor.com</p>
+
                         </div>
+
                     </div>
 
                 </div>
@@ -121,21 +125,29 @@
                             <?php
                             $option = ['' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'];
                             echo $this->Form->input('hogar', [
-                                'label' => 'Número de hogar',
+                                'label' => 'Número de hogar encuestado en la vivienda',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
                                 'options' => $option,
-
                                 'style' => 'font-size: 12px',
                             ]); ?>
                         </div>
 
                         <div class="form-group col-md-6">
                             <?php
-                            $viviendaOptions = ['' => 'Elegir', 'Casa_Apto.' => 'Casa/Apartamento', 'Pieza' => 'Pieza', 'Cuarto improvisado' => 'Cuarto improvisado'];
+                            $viviendaOptions = [
+                                '' => 'Elegir',
+                                'Casa' => 'Toda la Casa',
+                                'Apartamento' => 'En un Apartamento',
+                                'Pieza' => 'En una Pieza',
+                                'Cuarto improvisado' => 'En un Cuarto improvisado',
+                                'Cuarto en inquilinato' => 'En Cuarto del inquilinato',
+                                'Espacion improvisado' => 'En un Espacio improvisado',
+                                'No aplica' => 'No Aplica',
+                            ];
                             echo $this->Form->input('vivienda', [
-                                'label' => '¿Su núcleo familiar vive en?',
+                                'label' => '¿Su núcleo familiar dentro de la vivienda en?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -147,7 +159,15 @@
 
                         <div class="form-group col-md-6">
                             <?php
-                            $option = ['' => 'Elegir', 'Propia pagando' => 'Propia pagando', 'Propia paganda' => 'Propia paganda', 'Anticres' => 'Anticres', 'Arriendo' => 'Arriendo', 'Subarriendo' => 'Subarriendo', 'Prestada' => 'Prestada sin costo'];
+                            $option = [
+                                '' => 'Elegir',
+                                'Propia pagando' => 'Propia pagando',
+                                'Propia paganda' => 'Propia paganda',
+                                'Anticres' => 'Anticres',
+                                'Arriendo' => 'Arriendo',
+                                'Subarriendo' => 'Subarriendo',
+                                'Prestada' => 'Prestada sin costo'
+                            ];
                             echo $this->Form->input('tenencia', [
                                 'label' => '¿Tenencia de la Vivienda es?',
                                 'class' => 'form-control',
@@ -161,9 +181,14 @@
 
                         <div class="form-group col-md-6">
                             <?php
-                            $option = ['' => 'Elegir', 'Permante' => 'Permanente', 'Permanecen fuera de Pasto' => 'Permanecen fuera de Pasto', 'Sin Dato' => 'Sin Dato'];
+                            $option = [
+                                '' => 'Elegir',
+                                'Permante' => 'Permanente',
+                                'Permanecen fuera de Pasto' => 'Permanecen fuera de la ciudad',
+                                'Sin Dato' => 'Sin Dato'
+                            ];
                             echo $this->Form->input('permanenciaresidencia', [
-                                'label' => '¿Las personas del hogar permanecen en la ciudad?',
+                                'label' => '¿La permanencia de las personas en el hogar es?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -191,15 +216,11 @@
                                 'style' => 'font-size: 12px',
                             ]); ?>
                         </div>
-
-
-
-
                         <div class="form-group col-md-6">
                             <?php
                             $option = ['' => 'Elegir', 'Electricidad' => 'Electricidad', 'Cilindro de Gas' => 'Cilindro de Gas', 'Gas domiciliario' => 'Gas domiciliario', 'Gas domiciliario' => 'Gas domiciliario', 'Carbon, leña' => 'Carbon, leña', 'Gasolina' => 'Gasolina'];
                             echo $this->Form->input('combustible', [
-                                'label' => '¿Cuál fuente de energía o combustible que se usa para cocinar?',
+                                'label' => '¿Cuál fuente principal de energía o combustible que usa para cocinar?',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $option,
@@ -249,9 +270,21 @@
 
                         <div class="form-group col-md-6">
                             <?php
-                            $option = ['' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => '7', '8' => '8', '9' => '9', '10' => 'Más de 10'];
+                            $option = [
+                                '' => 'Elegir',
+                                '1' => '1',
+                                '2' => '2',
+                                '3' => '3',
+                                '4' => '4',
+                                '5' => '5',
+                                '6' => '6',
+                                '7' => '7',
+                                '8' => '8',
+                                '9' => '9',
+                                '10' => 'Más de 10'
+                            ];
                             echo $this->Form->input('numeropersonas', [
-                                'label' => '¿De cuántas personas está compuesta el hogar?',
+                                'label' => '¿De cuántas personas está compuesto el hogar?',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $option,
@@ -263,7 +296,18 @@
 
                         <div class="form-group col-md-6">
                             <?php
-                            $optionEtnia = ['' => 'Elegir', 'Indígena' => 'Indígena', 'Afro' => 'Afro', 'Víctima conflicto' => 'Víctima del conflicto', 'Discapacidad' => 'Discapacidad', 'Migrante irregular' => 'Migrante irregular', 'Migrante regular' => 'Migrante regular', 'Otro' => 'Otro', 'No aplica' => 'No aplica', 'Sin Dato' => 'Sin Dato'];
+                            $optionEtnia = [
+                                '' => 'Elegir',
+                                'Indígena' => 'Indígena',
+                                'Afro' => 'Afro',
+                                'Víctima conflicto' => 'Víctima del conflicto',
+                                'Discapacidad' => 'Discapacidad',
+                                'Migrante irregular' => 'Migrante irregular',
+                                'Migrante regular' => 'Migrante regular',
+                                'Otro' => 'Otro',
+                                'No aplica' => 'No aplica',
+                                'Sin Dato' => 'Sin Dato'
+                            ];
                             echo $this->Form->input('poblacionvulnerable', [
                                 'label' => '¿Hay personas dentro del hogar que pertenecen a población vulnerable?',
                                 'class' => 'form-control',
@@ -290,9 +334,18 @@
 
                         <div class="form-group col-md-6">
                             <?php
-                            $option = ['' => 'Elegir', 'Formación' => 'Formación', 'Expansión' => 'Expansión', 'Consolidación' => 'Consolidación', 'Apertura' => 'Apertura', 'Nido vacío' => 'Nido vacío', 'Disolución' => 'Disolución'];
+                            $option = [
+                                '' => 'Elegir',
+                                'Formación' => 'Formación',
+                                'Expansión' => 'Expansión',
+                                'Consolidación' => 'Consolidación',
+                                'Apertura' => 'Apertura',
+                                'Nido vacío' => 'Nido vacío',
+                                'Disolución' => 'Disolución',
+                                'SD' => 'Sin dato'
+                            ];
                             echo $this->Form->input('cursovidafamilia', [
-                                'label' => 'Curso de vida de hogar',
+                                'label' => 'Curso de vida en el que se encuentra el hogar',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $option,
@@ -368,18 +421,7 @@
                             ?>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('antecedenteenfermedad2', [
-                                'label' => 'Agregue otro Antecedentes enfermedad si requiere',
-                                'class' => 'form-control',
-                                'type' => 'select',
-                                'options' => $optionEnferemedadAntecedentes,
-                                'class' => 'form-control select-search',
-                                'style' => 'font-size: 12px',
-                            ]);
-                            ?>
-                        </div>
+
 
                         <div class="form-group col-md-6">
                             <?php
@@ -394,10 +436,22 @@
                             ];
 
                             echo $this->Form->input('estilodevidapredominante', [
-                                'label' => 'Estilos de Vida predominante en el hogar',
+                                'label' => 'Estilos de Vida en el hogar',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $option,
+                                'style' => 'font-size: 12px',
+                            ]);
+                            ?>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <?php
+                            echo $this->Form->input('antecedenteenfermedad2', [
+                                'label' => 'Agregue otro Estilos de Vida si se requiere',
+                                'class' => 'form-control',
+                                'type' => 'select',
+                                'options' => $option,
+                                'class' => 'form-control select-search',
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
@@ -645,7 +699,7 @@
                         <div class="form-group col-md-6">
                             <?php
                             echo $this->Form->input('higienealimentos', [
-                                'label' => '¿Almacenamiento y conservación adecuada de alimentos?',
+                                'label' => '¿Disponen de Almacenamiento y conservación adecuada de alimentos?',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionYesNo,
@@ -657,7 +711,7 @@
                         <div class="form-group col-md-6">
                             <?php
                             echo $this->Form->input('aseococina', [
-                                'label' => '¿Procura mantener limpia de la cocina?',
+                                'label' => '¿Procuran mantener limpia de la cocina?',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionYesNo,

@@ -58,19 +58,23 @@ class PersonasController extends AppController
 	public function add()
 	{
 		if ($this->request->is('post')) {
-			$this->Persona->create();
+			// Obtiene el valor de familia_id del formulario
+			$familia_id = $this->request->data['Persona']['familia_id'];
+
 			if ($this->Persona->save($this->request->data)) {
 				$this->Session->setFlash('El registro se ha guardado correctamente', 'default', array('class' => 'alert alert-success'));
 
-				return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
+				// Redirige al controlador 'Familias' y la acción 'ver' con el familia_id
+				return $this->redirect(array('controller' => 'Familias', 'action' => 'view', $familia_id));
 			} else {
 				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
-		$familias = $this->Persona->Familia->find('list');
 
+		$familias = $this->Persona->Familia->find('list');
 		$this->set(compact('familias'));
 	}
+
 
 
 	/**

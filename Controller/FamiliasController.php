@@ -72,11 +72,10 @@ class FamiliasController extends AppController
 						'action' => $aux, '?' => array('view' => 'familias'), '#' => 'top'
 					)
 				);
+			} else {
+				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$this->Session->setFlash('Agregar información de este formulario', 'default', array('class' => 'alert alert-success'));
 		}
-
 		$sociambientals = $this->Familia->Sociambiental->find('list', array('order' => array('sociambiental.id' => 'desc')));
 
 		$this->set(compact('sociambientals'));
