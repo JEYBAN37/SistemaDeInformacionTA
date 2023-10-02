@@ -34,7 +34,7 @@
 														<td>Vigencia 00-00-000</td>
 														<td>Version 1.0</td>
 														<td>Codigo ID Gestante</td>
-														<td><?php echo ($gestante['Gestante']['id']); ?> </td>
+														<td><?php echo ($observacion['Observacion']['id']); ?></td>
 
 
 														</tr>
@@ -53,14 +53,12 @@
 
 													<table width="100%" class="table table-striped table-bordered table-hover">
 														<tr>
-															<td colspan="6">Nombre del Menor</td>
 															<td colspan="6">Familia Asociada</td>
+															<td colspan="6"><?php echo ($observacion['Observacion']['familia_id']); ?></td>
 														</tr>
 														<tr>
-
-															<td colspan="6"><?php echo $this->Html->link($gestante['Persona']['apellidosnombre'], array('controller' => 'personas', 'action' => 'view', $gestante['Persona']['id'])); ?></td>
-															<td colspan="6"><?php echo $this->Html->link($gestante['Persona']['apellidosnombre'], array('controller' => 'personas', 'action' => 'view', $gestante['Persona']['id'])); ?> <?php echo $this->Html->link($gestante['Familia']['apellidosfamilia'], array('controller' => 'familias', 'action' => 'view', $gestante['Familia']['id'])); ?></td>
-
+															<td colspan="6"><?php echo ($observacion['Observacion']['familia_id']); ?></td>
+															<td colspan="6"><?php echo ($observacion['Observacion']['riesgovivienda']); ?></td>
 														</tr>
 														<tr>
 															<td colspan="12" style="text-align: center;">Valoracion En Salud</td>
