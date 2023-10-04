@@ -89,7 +89,7 @@ class PrimerainfanciasController extends AppController
 		if ($this->request->is('post')) {
 			$this->Primerainfancia->create();
 			if ($this->Primerainfancia->save($this->request->data)) {
-				$this->Session->setFlash('Registro de Primerainfancia guardado, por favor actualice datos de la Primerainfancia', 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash('Registro de Primerainfancia guardado, por favor actualice datos personales del menor', 'default', array('class' => 'alert alert-success'));
 
 				// Verificar si el valor es nulo o no
 				$familiaId = isset($this->data["Primerainfancia"]["familia_id"]) ? $this->data["Primerainfancia"]["familia_id"] : null;
@@ -140,7 +140,7 @@ class PrimerainfanciasController extends AppController
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Primerainfancia->save($this->request->data)) {
-				$this->Session->setFlash(__('The Primerainfancia has been saved.'));
+				$this->Session->setFlash('Registro de Primerainfancia actualizado', 'default', array('class' => 'alert alert-success'));
 				//return $this->redirect(array('action' => 'index'));
 				//return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
 
@@ -163,35 +163,6 @@ class PrimerainfanciasController extends AppController
 		$this->set(compact('familias', 'personas', 'canalizaciones'));
 	}
 
-
-
-
-
-
-
-
-	public function edit2_5($id = null)
-	{
-		if (!$this->Primerainfancia->exists($id)) {
-			throw new NotFoundException(__('Invalid primerainfancia'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Primerainfancia->save($this->request->data)) {
-				$this->Session->setFlash(__('The primerainfancia has been saved.'));
-				//return $this->redirect(array('action' => 'index'));
-				//return $this->redirect(array('controller' => 'Primerainfancias', 'action' => 'edit/' . $this->data["Primerainfancia"]["Primerainfancia_id"]));
-				return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Primerainfancia"]["familia_id"]));
-			} else {
-				$this->Session->setFlash(__('The primerainfancia could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('Primerainfancia.' . $this->Primerainfancia->primaryKey => $id));
-			$this->request->data = $this->Primerainfancia->find('first', $options);
-		}
-		$familias = $this->Primerainfancia->Familia->find('list');
-		$personas = $this->Primerainfancia->Persona->find('list');
-		$this->set(compact('familias', 'personas'));
-	}
 
 
 

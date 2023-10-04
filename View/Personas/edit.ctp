@@ -185,7 +185,7 @@ if (isset($this->request->query['familia_id'])) {
     </div>
 </div>
 
-<div class="actions">
+<!--div class="actions">
     <h3><?php echo __('Actions'); ?></h3>
     <ul>
 
@@ -197,7 +197,7 @@ if (isset($this->request->query['familia_id'])) {
         <li><?php echo $this->Html->link(__('New Primerainfancia'), array('controller' => 'primerainfancias', 'action' => 'add')); ?>
         </li>
     </ul>
-</div>
+</div-->
 
 <?php
 $this->Html->css([

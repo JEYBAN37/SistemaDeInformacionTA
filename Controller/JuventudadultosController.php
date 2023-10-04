@@ -57,8 +57,8 @@ class JuventudadultosController extends AppController
 		if ($this->request->is('post')) {
 			$this->Juventudadulto->create();
 			if ($this->Juventudadulto->save($this->request->data)) {
-				$this->Session->setFlash('Se ha guardado correctamente', 'default', array('class' => 'alert alert-success'));
-				$familiaId = isset($this->data["Juventudadulto"]["familia_id"]) ? $this->data["Infantil"]["familia_id"] : null;
+				$this->Session->setFlash('Se ha guardado correctamente, por favor actulizar datos personales', 'default', array('class' => 'alert alert-success'));
+				$familiaId = isset($this->data["Juventudadulto"]["familia_id"]) ? $this->data["Juventudadulto"]["familia_id"] : null;
 
 				return $this->redirect(array(
 					'controller' => 'personas',
@@ -98,7 +98,7 @@ class JuventudadultosController extends AppController
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Juventudadulto->save($this->request->data)) {
-				$this->Session->setFlash('Se ha guardado correctamente, por favor actulizar datos personales', 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash('Se ha guardado correctamente', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Juventudadulto"]["familia_id"]));
 			} else {
 				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
