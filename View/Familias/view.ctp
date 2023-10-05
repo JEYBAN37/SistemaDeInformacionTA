@@ -1,48 +1,48 @@
 <style>
-/* Estilos para la lista de píldoras */
-.nav-pills {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-
-    border-radius: 5px;
-    text-align: center;
-}
-
-.nav-pills li {
-    margin: 0 10px;
-    justify-content: center;
-
-}
-
-.nav-pills a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #3366CC;
-    transition: background-color 0.3s ease;
-
-}
-
-.nav-pills a:hover {}
-
-
-
-/* Estilos para hacer que la lista de píldoras sea responsiva */
-@media (max-width: 768px) {
+    /* Estilos para la lista de píldoras */
     .nav-pills {
-        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+
+        border-radius: 5px;
+        text-align: center;
     }
 
     .nav-pills li {
-        flex: 0 0 100%;
-        margin: 10px 0;
+        margin: 0 10px;
         justify-content: center;
+
     }
-}
+
+    .nav-pills a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: #3366CC;
+        transition: background-color 0.3s ease;
+
+    }
+
+    .nav-pills a:hover {}
+
+
+
+    /* Estilos para hacer que la lista de píldoras sea responsiva */
+    @media (max-width: 768px) {
+        .nav-pills {
+            flex-wrap: wrap;
+        }
+
+        .nav-pills li {
+            flex: 0 0 100%;
+            margin: 10px 0;
+            justify-content: center;
+        }
+    }
 </style>
 
 
@@ -157,10 +157,8 @@ $bd = 'fichafamiliar';
                 </div>
             </div>
 
-            <h3 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: -5px; ">Personas en la Familia</h3>
-            <hr
-                style=" background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 15px; margin-top: 1px;">
+            <h3 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: -5px; ">Personas en la Familia</h3>
+            <hr style=" background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 15px; margin-top: 1px;">
 
 
             <div class="row" style="margin: 5px;">
@@ -246,8 +244,7 @@ $bd = 'fichafamiliar';
                                 <div class="card-body">
 
 
-                                    <table width="100%" class="table table-striped table-bordered table-hover"
-                                        id="dataTables-example">
+                                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                         <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
                                         <thead>
                                             <tr>
@@ -265,11 +262,11 @@ $bd = 'fichafamiliar';
                                             <?php foreach ($familia['Primerainfancia'] as $primerainfancia) :
                                                 if (!empty($primerainfancia['id'])) {
                                             ?>
-                                            <tr class="gradeA odd">
+                                                    <tr class="gradeA odd">
 
-                                                <td class="sorting_1"><?php echo $primerainfancia['id']; ?></td>
+                                                        <td class="sorting_1"><?php echo $primerainfancia['id']; ?></td>
 
-                                                <td><?php
+                                                        <td><?php
                                                             //echo $adolescencia['responsable_id']; 
                                                             $link = mysqli_connect($serv, $userS, $passS);
                                                             mysqli_select_db($link, $bd);
@@ -295,19 +292,18 @@ $bd = 'fichafamiliar';
 
 
 
-                                                <td class="actions">
+                                                        <td class="actions">
 
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default dropdown-toggle"
-                                                            data-toggle="dropdown">
-                                                            Opciones
-                                                        </button>
-                                                        <ul class="dropdown-menu" role="menu">
-                                                            <li><?php echo $this->Html->link("Ver", "../primerainfancias/view/" . $primerainfancia['id'], array('target' => '_blank')); ?>
-                                                            </li>
-                                                            <li><?php echo $this->Html->link("Editar ", "../primerainfancias/edit/" . $primerainfancia['id'], array('target' => '_blank')); ?>
-                                                            </li>
-                                                            <li><?php echo $this->Form->postLink(
+                                                            <div class="btn-group">
+                                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                                    Opciones
+                                                                </button>
+                                                                <ul class="dropdown-menu" role="menu">
+                                                                    <li><?php echo $this->Html->link("Ver", "../primerainfancias/view/" . $primerainfancia['id'], array('target' => '_blank')); ?>
+                                                                    </li>
+                                                                    <li><?php echo $this->Html->link("Editar ", "../primerainfancias/edit/" . $primerainfancia['id'], array('target' => '_blank')); ?>
+                                                                    </li>
+                                                                    <li><?php echo $this->Form->postLink(
                                                                             __('Borrar'),
                                                                             array(
                                                                                 'controller' => 'primerainfancias',
@@ -316,18 +312,18 @@ $bd = 'fichafamiliar';
                                                                             array('style' => 'color: blue; font-size: 16px; font-weight: bold;'),
                                                                             __('Are you sure you want to delete # %s?', $primerainfancia['id'])
                                                                         ); ?>
-                                                            </li>
+                                                                    </li>
 
 
 
 
 
-                                                        </ul>
-                                                    </div>
+                                                                </ul>
+                                                            </div>
 
-                                                </td>
-                                                <td>
-                                                    <?php
+                                                        </td>
+                                                        <td>
+                                                            <?php
 
                                                             ?> <?php
                                                                 //echo $adolescencia['responsable_id']; 
@@ -341,14 +337,14 @@ $bd = 'fichafamiliar';
                                                                     mysqli_close($link);
                                                                 }
                                                                 ?>
-                                                </td>
+                                                        </td>
 
 
-                                                <td> <?php echo $primerainfancia['canalizacionuno']; ?>
-                                                </td>
-                                                <td> <?php echo $primerainfancia['canalizaciondos']; ?>
-                                                </td>
-                                            </tr>
+                                                        <td> <?php echo $primerainfancia['canalizacionuno']; ?>
+                                                        </td>
+                                                        <td> <?php echo $primerainfancia['canalizaciondos']; ?>
+                                                        </td>
+                                                    </tr>
                                             <?php }
                                             endforeach; ?>
                                         </tbody>
@@ -387,30 +383,29 @@ $bd = 'fichafamiliar';
 
 
                                     <?php if (!empty($familia['Infantil'])) : ?>
-                                    <table width="100%" class="table table-striped table-bordered table-hover"
-                                        id="dataTables-example">
-                                        <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
-                                        <thead>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Nombre</th>
-                                                <th>Edad</th>
-                                                <th>Acciones</th>
+                                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                            <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
+                                            <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>Nombre</th>
+                                                    <th>Edad</th>
+                                                    <th>Acciones</th>
 
 
 
-                                            </tr>
+                                                </tr>
 
-                                        <tbody>
-                                            <?php foreach ($familia['Infantil'] as $infantil) :
+                                            <tbody>
+                                                <?php foreach ($familia['Infantil'] as $infantil) :
                                                     if (!empty($infantil['id'])) {
                                                 ?>
-                                            <tr class="gradeA odd">
+                                                        <tr class="gradeA odd">
 
-                                                <td class="sorting_1"><?php echo $infantil['id']; ?></td>
+                                                            <td class="sorting_1"><?php echo $infantil['id']; ?></td>
 
 
-                                                <td><?php
+                                                            <td><?php
 
                                                                 $link = mysqli_connect($serv, $userS, $passS);
                                                                 mysqli_select_db($link, $bd);
@@ -433,7 +428,7 @@ $bd = 'fichafamiliar';
                                                                         mysqli_close($link);
                                                                     }
                                                                     ?></td>
-                                                <td> <?php
+                                                            <td> <?php
 
                                                                     $link = mysqli_connect($serv, $userS, $passS);
                                                                     mysqli_select_db($link, $bd);
@@ -449,19 +444,18 @@ $bd = 'fichafamiliar';
 
 
 
-                                                <td class="actions">
+                                                            <td class="actions">
 
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-default dropdown-toggle"
-                                                            data-toggle="dropdown">
-                                                            Opciones
-                                                        </button>
-                                                        <ul class="dropdown-menu" role="menu">
-                                                            <li><?php echo $this->Html->link("Ver", "../infantils/view/" . $infantil['id'], array('target' => '_blank')); ?>
-                                                            </li>
-                                                            <li><?php echo $this->Html->link("Editar ", "../infantils/edit/" . $infantil['id'], array('target' => '_blank')); ?>
-                                                            </li>
-                                                            <li><?php echo $this->Form->postLink(
+                                                                <div class="btn-group">
+                                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                                        Opciones
+                                                                    </button>
+                                                                    <ul class="dropdown-menu" role="menu">
+                                                                        <li><?php echo $this->Html->link("Ver", "../infantils/view/" . $infantil['id'], array('target' => '_blank')); ?>
+                                                                        </li>
+                                                                        <li><?php echo $this->Html->link("Editar ", "../infantils/edit/" . $infantil['id'], array('target' => '_blank')); ?>
+                                                                        </li>
+                                                                        <li><?php echo $this->Form->postLink(
                                                                                 ('Borrar'),
                                                                                 array(
                                                                                     'controller' => 'infantils',
@@ -470,26 +464,26 @@ $bd = 'fichafamiliar';
                                                                                 array('style' => 'color: blue; font-size: 16px; font-weight: bold;'),
                                                                                 __('Are you sure you want to delete # %s?', $infantil['id'])
                                                                             ); ?>
-                                                            </li>
+                                                                        </li>
 
 
 
 
 
-                                                        </ul>
-                                                    </div>
+                                                                    </ul>
+                                                                </div>
 
-                                                </td>
-
-
+                                                            </td>
 
 
 
-                                            </tr>
-                                            <?php }
+
+
+                                                        </tr>
+                                                <?php }
                                                 endforeach; ?>
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
                                     <?php endif; ?>
 
 
@@ -516,33 +510,32 @@ $bd = 'fichafamiliar';
                                         ); ?>
                                     </h4>
                                     <?php if (!empty($familia['Adolescencia'])) : ?>
-                                    <table width="100%" class="table table-striped table-bordered table-hover"
-                                        id="dataTables-planes">
-                                        <thead>
+                                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-planes">
+                                            <thead>
 
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Fecha</th>
-                                                <th>Tema</th>
-                                                <th>Intension</th>
-                                                <th>Dimension</th>
-                                                <th>Responsable</th>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>Fecha</th>
+                                                    <th>Tema</th>
+                                                    <th>Intension</th>
+                                                    <th>Dimension</th>
+                                                    <th>Responsable</th>
 
-                                                <th class="actions"><?php echo ('Acciones'); ?></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($familia['Adolescencia'] as $adolescencia) :
+                                                    <th class="actions"><?php echo ('Acciones'); ?></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($familia['Adolescencia'] as $adolescencia) :
                                                     if (!empty($adolescencia['id'])) {
                                                 ?>
-                                            <tr class="gradeA odd">
-                                                <td class="sorting_1"><?php echo $adolescencia['id']; ?></td>
+                                                        <tr class="gradeA odd">
+                                                            <td class="sorting_1"><?php echo $adolescencia['id']; ?></td>
 
-                                                <td><?php echo $adolescencia['familia_id']; ?></td>
-                                                <td><?php echo $adolescencia['indicemasacorporal']; ?></td>
-                                                <td><?php echo $adolescencia['consumospa']; ?></td>
-                                                <td><?php echo $adolescencia['metodosanticonceptivos']; ?></td>
-                                                <td><?php
+                                                            <td><?php echo $adolescencia['familia_id']; ?></td>
+                                                            <td><?php echo $adolescencia['indicemasacorporal']; ?></td>
+                                                            <td><?php echo $adolescencia['consumospa']; ?></td>
+                                                            <td><?php echo $adolescencia['metodosanticonceptivos']; ?></td>
+                                                            <td><?php
                                                                 $link = mysqli_connect($serv, $userS, $passS);
                                                                 mysqli_select_db($link, $bd);
                                                                 $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
@@ -565,23 +558,23 @@ $bd = 'fichafamiliar';
                                                                     ?>
 
 
-                                                </td>
+                                                            </td>
 
 
 
-                                                <td class="actions">
-                                                    <?php //echo $this->Html->link(('Ver'), array('target' => '_blank','controller' => 'plsesiones', 'action' => 'view', $adolescencia['id'])); 
+                                                            <td class="actions">
+                                                                <?php //echo $this->Html->link(('Ver'), array('target' => '_blank','controller' => 'plsesiones', 'action' => 'view', $adolescencia['id'])); 
                                                                 echo $this->Html->link("Ver", "../adolescentes/view/" . $adolescencia['id'], array('target' => '_blank'));
                                                                 ?>
-                                                    <?php //echo $this->Html->link(('Editar'), array('controller' => 'plsesiones', 'action' => 'edit', $adolescencia['id'])); 
+                                                                <?php //echo $this->Html->link(('Editar'), array('controller' => 'plsesiones', 'action' => 'edit', $adolescencia['id'])); 
                                                                 echo $this->Html->link("Editar", "../adolecentes/edit/" . $adolescencia['id'], array('target' => '_blank'));
                                                                 ?>
-                                                </td>
-                                            </tr>
-                                            <?php }
+                                                            </td>
+                                                        </tr>
+                                                <?php }
                                                 endforeach; ?>
-                                        </tbody>
-                                    </table>
+                                            </tbody>
+                                        </table>
                                     <?php endif; ?>
 
 
@@ -610,34 +603,33 @@ $bd = 'fichafamiliar';
                                 <div class="card-body">
 
                                     <?php if (!empty($familia['Juventudadulto'])) : ?>
-                                    <table width="100%" class="table table-striped table-bordered table-hover"
-                                        id="dataTables-informes">
-                                        <thead>
-                                            <tr>
-                                                <th><?php echo ('Id'); ?></th>
-                                                <th><?php echo ('Fecha'); ?></th>
-                                                <th><?php echo ('Tema'); ?></th>
-                                                <th><?php echo ('Tipo'); ?></th>
-                                                <th><?php echo ('anexo'); ?></th>
-                                                <th><?php echo ('Observacion'); ?></th>
-                                                <th><?php echo ('Responsable'); ?></th>
+                                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-informes">
+                                            <thead>
+                                                <tr>
+                                                    <th><?php echo ('Id'); ?></th>
+                                                    <th><?php echo ('Fecha'); ?></th>
+                                                    <th><?php echo ('Tema'); ?></th>
+                                                    <th><?php echo ('Tipo'); ?></th>
+                                                    <th><?php echo ('anexo'); ?></th>
+                                                    <th><?php echo ('Observacion'); ?></th>
+                                                    <th><?php echo ('Responsable'); ?></th>
 
-                                                <th class="actions"><?php echo ('Acciones'); ?></th>
-                                            </tr>
-                                        </thead>
+                                                    <th class="actions"><?php echo ('Acciones'); ?></th>
+                                                </tr>
+                                            </thead>
 
-                                        <body>
-                                            <?php foreach ($familia['Juventudadulto'] as $juventudadulto) :
+                                            <body>
+                                                <?php foreach ($familia['Juventudadulto'] as $juventudadulto) :
                                                     if (!empty($juventudadulto['id'])) {
                                                 ?>
-                                            <tr class="gradeA odd">
-                                                <td class="sorting_1"><?php echo $juventudadulto['id']; ?></td>
-                                                <td><?php echo $juventudadulto['indicemasacorporal']; ?></td>
-                                                <td><?php echo $juventudadulto['condicioncronica']; ?></td>
-                                                <td><?php echo $juventudadulto['controlprenatal']; ?></td>
-                                                <td><?php echo $juventudadulto['canalizacionuno']; ?></td>
-                                                <td><?php echo $juventudadulto['canalizaciondos']; ?></td>
-                                                <td><?php
+                                                        <tr class="gradeA odd">
+                                                            <td class="sorting_1"><?php echo $juventudadulto['id']; ?></td>
+                                                            <td><?php echo $juventudadulto['indicemasacorporal']; ?></td>
+                                                            <td><?php echo $juventudadulto['condicioncronica']; ?></td>
+                                                            <td><?php echo $juventudadulto['controlprenatal']; ?></td>
+                                                            <td><?php echo $juventudadulto['canalizacionuno']; ?></td>
+                                                            <td><?php echo $juventudadulto['canalizaciondos']; ?></td>
+                                                            <td><?php
 
                                                                 $link = mysqli_connect($serv, $userS, $passS);
                                                                 mysqli_select_db($link, $bd);
@@ -650,19 +642,19 @@ $bd = 'fichafamiliar';
                                                                 }
                                                                 ?></td>
 
-                                                <td class="actions">
-                                                    <?php //echo $this->Html->link(('Ver'), array('target' => '_blank','controller' => 'plsesiones', 'action' => 'view', $adolescencia['id'])); 
+                                                            <td class="actions">
+                                                                <?php //echo $this->Html->link(('Ver'), array('target' => '_blank','controller' => 'plsesiones', 'action' => 'view', $adolescencia['id'])); 
                                                                 echo $this->Html->link("Ver", "../juventudadultos/view/" . $juventudadulto['id'], array('target' => '_blank'));
                                                                 ?>
-                                                    <?php //echo $this->Html->link(('Editar'), array('controller' => 'plsesiones', 'action' => 'edit', $adolescencia['id'])); 
+                                                                <?php //echo $this->Html->link(('Editar'), array('controller' => 'plsesiones', 'action' => 'edit', $adolescencia['id'])); 
                                                                 echo $this->Html->link("Editar", "../juventudadultos/edit/" . $juventudadulto['id'], array('target' => '_blank'));
                                                                 ?>
-                                                </td>
-                                            </tr>
-                                            <?php }
+                                                            </td>
+                                                        </tr>
+                                                <?php }
                                                 endforeach; ?>
-                                        </body>
-                                    </table>
+                                            </body>
+                                        </table>
                                     <?php endif; ?>
 
 
@@ -673,35 +665,34 @@ $bd = 'fichafamiliar';
                                 <div class="card-body">
 
                                     <?php if (!empty($producto['Acta'])) : ?>
-                                    <table width="100%" class="table table-striped table-bordered table-hover"
-                                        id="dataTables-actas">
-                                        <thead>
+                                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-actas">
+                                            <thead>
 
 
-                                            <tr>
-                                                <th><?php echo ('Id'); ?></th>
-                                                <th><?php echo ('Fecha'); ?></th>
-                                                <th><?php echo ('Tema'); ?></th>
-                                                <th><?php echo ('barrio'); ?></th>
-                                                <th><?php echo ('Responsable Id'); ?></th>
-                                                <th><?php echo ('Objetivo'); ?></th>
-                                                <th><?php echo ('Anexo'); ?></th>
-                                                <th class="actions"><?php echo ('Acciones'); ?></th>
-                                            </tr>
-                                        </thead>
+                                                <tr>
+                                                    <th><?php echo ('Id'); ?></th>
+                                                    <th><?php echo ('Fecha'); ?></th>
+                                                    <th><?php echo ('Tema'); ?></th>
+                                                    <th><?php echo ('barrio'); ?></th>
+                                                    <th><?php echo ('Responsable Id'); ?></th>
+                                                    <th><?php echo ('Objetivo'); ?></th>
+                                                    <th><?php echo ('Anexo'); ?></th>
+                                                    <th class="actions"><?php echo ('Acciones'); ?></th>
+                                                </tr>
+                                            </thead>
 
-                                        <body>
+                                            <body>
 
 
-                                            <?php foreach ($producto['Acta'] as $acta) :
+                                                <?php foreach ($producto['Acta'] as $acta) :
 
                                                     if (!empty($acta['id'])) {
                                                 ?>
-                                            <tr class="gradeA odd">
-                                                <td class="sorting_1"><?php echo $acta['id']; ?></td>
-                                                <td><?php echo $acta['fecha']; ?></td>
-                                                <td><?php echo $acta['tema']; ?></td>
-                                                <td><?php
+                                                        <tr class="gradeA odd">
+                                                            <td class="sorting_1"><?php echo $acta['id']; ?></td>
+                                                            <td><?php echo $acta['fecha']; ?></td>
+                                                            <td><?php echo $acta['tema']; ?></td>
+                                                            <td><?php
                                                                 //echo $acta['ubicacion_id']; 
                                                                 $link = mysqli_connect($serv, $userS, $passS);
                                                                 mysqli_select_db($link, $bd);
@@ -714,7 +705,7 @@ $bd = 'fichafamiliar';
                                                                 }
 
                                                                 ?></td>
-                                                <td><?php
+                                                            <td><?php
                                                                 //echo $acta['responsable_id']; 
                                                                 $link = mysqli_connect($serv, $userS, $passS);
                                                                 mysqli_select_db($link, $bd);
@@ -727,19 +718,19 @@ $bd = 'fichafamiliar';
                                                                 }
 
                                                                 ?></td>
-                                                <td><?php echo $acta['objactividad']; ?></td>
-                                                <td><?php echo $acta['anexo']; ?></td>
-                                                <td class="actions">
-                                                    <?php echo $this->Html->link("Ver", "../actas/view/" . $acta['id'], array('target' => '_blank')); ?>
-                                                    <?php echo $this->Html->link("Editar", "../actas/edit/" . $acta['id'], array('target' => '_blank')); ?>
-                                                </td>
-                                            </tr>
-                                            <?php
+                                                            <td><?php echo $acta['objactividad']; ?></td>
+                                                            <td><?php echo $acta['anexo']; ?></td>
+                                                            <td class="actions">
+                                                                <?php echo $this->Html->link("Ver", "../actas/view/" . $acta['id'], array('target' => '_blank')); ?>
+                                                                <?php echo $this->Html->link("Editar", "../actas/edit/" . $acta['id'], array('target' => '_blank')); ?>
+                                                            </td>
+                                                        </tr>
+                                                <?php
                                                     }
                                                 endforeach;
                                                 ?>
-                                        </body>
-                                    </table>
+                                            </body>
+                                        </table>
                                     <?php endif; ?>
 
                                     <div class="actions">
@@ -1015,29 +1006,29 @@ $bd = 'fichafamiliar';
 
 
 <script>
-$(document).ready(function() {
-    $('#dataTables-example').DataTable({
-        responsive: true
+    $(document).ready(function() {
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
     });
-});
-$(document).ready(function() {
-    $('#dataTables-actividades').DataTable({
-        responsive: true
+    $(document).ready(function() {
+        $('#dataTables-actividades').DataTable({
+            responsive: true
+        });
     });
-});
-$(document).ready(function() {
-    $('#dataTables-informes').DataTable({
-        responsive: true
+    $(document).ready(function() {
+        $('#dataTables-informes').DataTable({
+            responsive: true
+        });
     });
-});
-$(document).ready(function() {
-    $('#dataTables-planes').DataTable({
-        responsive: true
+    $(document).ready(function() {
+        $('#dataTables-planes').DataTable({
+            responsive: true
+        });
     });
-});
-$(document).ready(function() {
-    $('#dataTables-actas').DataTable({
-        responsive: true
+    $(document).ready(function() {
+        $('#dataTables-actas').DataTable({
+            responsive: true
+        });
     });
-});
-</script>>
+</script>

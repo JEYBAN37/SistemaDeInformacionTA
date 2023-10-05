@@ -153,6 +153,16 @@ class Sociambiental extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'dormitorios' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 
 		'hacinamiento' => array(
 			'notEmpty' => array(
@@ -204,7 +214,7 @@ class Sociambiental extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'accesoDos' => array(
+		/*'accesoDos' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -213,7 +223,7 @@ class Sociambiental extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'apellidosfamilia' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -355,7 +365,7 @@ class Sociambiental extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'otramascota' => array(
+		/*'otramascota' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -364,7 +374,7 @@ class Sociambiental extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'desparasitamascotas' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),

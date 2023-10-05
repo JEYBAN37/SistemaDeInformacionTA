@@ -209,20 +209,22 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         <div class="container-menu">
             <div class="cont-menu" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                 <nav>
-                    <a href="#">
-                        <?php echo $this->Html->link(('Agregar Nuevo Registro'), array('controller' => 'Sociambientals', 'action' => 'add'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
+                    <a>
+                        <?php echo $this->Html->link(('Agregar Nueva vivienda'), array('controller' => 'Sociambientals', 'action' => 'add'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
                     </a>
-                    <a href="#">Servicios</a>
-                    <a href="#">Suscribirse</a>
-                    <a href="#">Facebook</a>
-                    <a href="#">Youtube</a>
-                    <a href="#">Instagram</a>
+                    <a>
+                        <?php echo $this->Html->link(('Registros familias'), array('controller' => 'familias', 'action' => 'index'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
+                    </a>
+                    <a href="#">Registros primera infancia</a>
+                    <a href="#">Registros infancia</a>
+                    <a href="#">Registros adolescencia</a>
+                    <a href="#">Registros mayores 18 años </a>
                 </nav>
                 <label for="btn-menu" style="color: white;">x
                 </label>
             </div>
         </div>
-        <?php echo $this->Html->link(
+        <!--?php echo $this->Html->link(
             $this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
             'http://www.cakephp.org/',
             array('target' => '_blank', 'escape' => false)
@@ -237,5 +239,19 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
     </div>
 </body>
+
+<footer class="footer">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br>
+                <div class="copyright">&copy; Gestión de la Salud Publica. Versión 1.0 - 2023
+                    <a href="https://www.saludpasto.gov.co/">Secretaria Municipal de Salud</a>.
+                </div>
+            </div>
+        </div>
+    </div><!-- end container -->
+</footer><!-- end footer -->
 
 </html>

@@ -9,13 +9,12 @@
         <fieldset>
 
             <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Sociambiental</h1>
+                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Socioambiental
+                </h1>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Basicos</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Basicos</h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -119,7 +118,7 @@
                                 'placeholder' => '',
                                 'options' => $numhogaresOptions
                             )); ?>
-                            <p class="help-block"> Si todos comen de la misma olla se considera una sola familia/hpgar
+                            <p class="help-block"> Si todos comen de la misma olla se considera una sola familia/hogar
                             </p>
 
                         </div>
@@ -128,10 +127,8 @@
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -274,10 +271,8 @@
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -358,19 +353,23 @@
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
+                            <p class="help-block"> Relacione el más importante
+                            </p>
                         </div>
 
                         <div class="col-md-6">
                             <?php
 
                             echo $this->Form->input('accesoDos', [
-                                'label' => 'Agregue otra opcion si lo requiere',
+                                'label' => 'Agregue otra asepecto de dificil acceso',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $accessOptions,
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
+                            <p class="help-block"> Relacione el más importante
+                            </p>
                         </div>
 
                         <div class="col-md-6">
@@ -431,7 +430,7 @@
                             <?php
                             $waterSupplyOptions = [
                                 '' => 'Elegir',
-                                'Acueducto Empopasto' => 'Acuducto Empopasto',
+                                'Acueducto Empopasto' => 'Acueducto Empopasto',
                                 'Acueducto Comunitario' => 'Acueducto Comunitario',
                                 'agua envasada ' => 'agua envasada',
                                 'Carro tanque ' => 'Carro tanque',
@@ -583,13 +582,14 @@
                             <?php
                             $vectoresOption = [
                                 '' => 'Elegir',
-                                'No aplica' => 'No Aplica',
+                                'No' => 'No',
                                 'Mosicos' => 'Moscos',
                                 'Zancudos' => 'Zancudos',
                                 'Pulgas' => 'Pulgas',
                                 'Piojos' => 'Piojos',
                                 'Ratones' => 'Ratones',
-                                'Cucarachas' => 'Cucarachas'
+                                'Cucarachas' => 'Cucarachas',
+                                'SD' => 'Sin dato'
                             ];
                             echo $this->Form->input('vector', [
                                 'label' => 'Hay presencia vectores transmisores de enfermedades en la vivienda o en su entorno inmediato?',
@@ -610,12 +610,10 @@
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Mascotas o
                 animales de crianza en el hogar </h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="col-md-4">
-                <select id="status" name="status" required onChange="mostrar(this.value);"
-                    style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
+                <select id="status" name="status" required onChange="mostrar(this.value);" style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
                     <option value="no">NO</option>
                     <option value="si">SI</option>
 
@@ -634,7 +632,7 @@
                             '3' => '3',
                             '4' => '4',
                             '5' => '5 y mas',
-                           
+
                         ];
                         echo $this->Form->input('numeroGatos', [
                             'label' => '¿Cuantos Gatos tiene?',
@@ -774,50 +772,50 @@ $this->Html->script([
 ], ['block' => 'script']);
 ?>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
 
 
-function agregarOpcionSeleccion() {
-    $("#ActaUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
-    $("#ActaProductoId").prepend("<option value='' selected='selected'>Seleccione</option>");
-    $("#ActaResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
-}
-
-function mostrarBarrio(id) {
-    if (id == "2")
-        $("#divActualizarBarrio").show();
-    else
-        $("#divActualizarBarrio").hide();
-}
-
-function validar() {
-    var todo_correcto = true;
-
-    if (document.getElementById('status').value == '') {
-        todo_correcto = false;
+    function agregarOpcionSeleccion() {
+        $("#ActaUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#ActaProductoId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#ActaResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
     }
 
-    if (!todo_correcto) {
-        alert('Algunos campos no están correctos, vuelva a revisarlos');
+    function mostrarBarrio(id) {
+        if (id == "2")
+            $("#divActualizarBarrio").show();
+        else
+            $("#divActualizarBarrio").hide();
     }
 
-    return todo_correcto;
-}
+    function validar() {
+        var todo_correcto = true;
 
-function mostrar(id) {
-    if (id == "si") {
-        $("#si").show();
-        $("#no").hide();
+        if (document.getElementById('status').value == '') {
+            todo_correcto = false;
+        }
 
-    } else if (id == "no") {
-        $("#si").hide();
-        $("#no").show();
+        if (!todo_correcto) {
+            alert('Algunos campos no están correctos, vuelva a revisarlos');
+        }
 
+        return todo_correcto;
     }
-}
+
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
+
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
+
+        }
+    }
 </script>
