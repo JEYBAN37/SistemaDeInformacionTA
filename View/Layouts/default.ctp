@@ -40,7 +40,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-    <style>
+    <!--style>
         /* Estilos para la barra de navegación */
         .navbar {
             background-color: #3366CC;
@@ -181,7 +181,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 
         /*Fin de Menù lateral*/
-    </style>
+    </style-->
 
 
 </head>
@@ -189,18 +189,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <body>
     <div class="contanier">
 
-        <nav class="row navbar navbar-expand-lg navbar-light" style=" background-color: #3366CC;">
-
-
-            <label for="btn-menu" style="color: white;  font-size: 30px; padding-left: 15px;  ">☰</label>
-
-            <a class="navbar-brand" href="#">
-                <img src="https://tramites.pasto.gov.co/info/pasto_se/media/bloque3.png" alt="">
-            </a>
-
-        </nav>
 
         <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            <?php echo $this->element('navbar'); ?>
             <?php echo $this->Session->flash(); ?>
             <?php echo $this->fetch('content'); ?>
         </div>
