@@ -2,7 +2,7 @@
   /* Estilos para la barra de navegación */
   .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 10px;
     background-color: #3366CC;
   }
@@ -21,14 +21,38 @@
     /* Oculta el botón en pantallas grandes */
   }
 
-  /* Estilos para la lista de menú en dispositivos pequeños */
-  .navbar-nav {
-    justify-content: space-between;
-    list-style: none;
-    align-items: flex-start;
-    display: flex;
-    padding: 40px;
+  @media screen and (max-width: 768px) {
+
+    /* Estilos para la lista de menú en dispositivos pequeños */
+    .navbar {
+      justify-content: space-between;
+      list-style: none;
+      align-items: flex-start;
+      display: flex;
+      padding: 10px;
+    }
+
+    .navbar-collapse.active {
+      display: block;
+      /* Muestra la lista en dispositivos pequeños */
+    }
+
+    /* Estilos para el botón de alternancia en dispositivos pequeños */
+    .navbar-toggle-button {
+      display: block;
+      cursor: pointer;
+    }
+
+    /* Estilos para la lista de menú en dispositivos pequeños */
+    .navbar-collapse {
+      display: none;
+      /* Oculta la lista en pantallas grandes */
+    }
+
   }
+
+
+
 
   .navbar-nav li {
     justify-content: space-between;
@@ -45,23 +69,6 @@
     height: 3px;
     background-color: white;
     display: block;
-  }
-
-  /* Estilos para el botón de alternancia en dispositivos pequeños */
-  .navbar-toggle-button {
-    display: block;
-    cursor: pointer;
-  }
-
-  /* Estilos para la lista de menú en dispositivos pequeños */
-  .navbar-collapse {
-    display: none;
-    /* Oculta la lista en pantallas grandes */
-  }
-
-  .navbar-collapse.active {
-    display: block;
-    /* Muestra la lista en dispositivos pequeños */
   }
 
   /* Estilos para los elementos de menú */
@@ -135,19 +142,14 @@
     font-size: 40px;
 
   }
-
-  /*Fin de Menù lateral*/
 </style>
 
 
 
 <div class="contanier">
 
-  <nav class="row navbar navbar-expand-lg navbar-light">
-
-
+  <nav class="navbar ">
     <label for="btn-menu" style="color: white;  font-size: 30px; margin-left: -20px; ">☰</label>
-
     <a class="navbar-brand" href="#">
       <img src="https://tramites.pasto.gov.co/info/pasto_se/media/bloque3.png" alt="">
     </a>
