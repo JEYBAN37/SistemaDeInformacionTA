@@ -113,7 +113,7 @@ class FamiliasController extends AppController
 		}
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Familia->save($this->request->data)) {
-				$this->Session->setFlash(__('The familia has been saved.'));
+				$this->Session->setFlash('Registro de hogar se actualizo correctamente', 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The familia could not be saved. Please, try again.'));

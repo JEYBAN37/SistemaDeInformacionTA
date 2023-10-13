@@ -22,7 +22,17 @@ class Persona extends AppModel
 	 * @var array
 	 */
 	public $validate = array(
-		'primerapellido' => array(
+		/*	'primerapellido' => array(
+			'notEmpty' => array(
+				'rule' => 'notEmpty',
+				'message' => 'Este campo no puede estar vacío',
+			),
+			'validarLetras' => array(
+				'rule' => array('custom', '/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/'),
+				'message' => 'Este campo solo permite letras',
+			),
+		),
+		'tipodocumento' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -33,8 +43,9 @@ class Persona extends AppModel
 			),
 		),
 		'numerodoc' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+			'numeric' => array(
+				'rule' => array('numeric'),
+				'message' => 'Solo valor numerico',
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -44,32 +55,33 @@ class Persona extends AppModel
 		),
 		'segundoapellido' => array(
 			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'rule' => 'notEmpty',
+				'message' => 'Este campo no puede estar vacío',
+			),
+			'validarLetras' => array(
+				'rule' => array('custom', '/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/'),
+				'message' => 'Este campo solo permite letras',
 			),
 		),
+
 		'primernombre' => array(
 			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'rule' => 'notEmpty',
+				'message' => 'Este campo no puede estar vacío',
+			),
+			'validarLetras' => array(
+				'rule' => array('custom', '/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/'),
+				'message' => 'Este campo solo permite letras',
 			),
 		),
 		'segundonombre' => array(
 			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'rule' => 'notEmpty',
+				'message' => 'Este campo no puede estar vacío',
+			),
+			'validarLetras' => array(
+				'rule' => array('custom', '/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/'),
+				'message' => 'Este campo solo permite letras',
 			),
 		),
 		'fechanac' => array(
@@ -132,8 +144,7 @@ class Persona extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
-	);
+		),*/);
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 

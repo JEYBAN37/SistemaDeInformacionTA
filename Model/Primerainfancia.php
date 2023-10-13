@@ -27,7 +27,7 @@ class Primerainfancia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'persona_id' => array(
+		/*'persona_id' => array(
 			'alphaNumeric' => array(
 				'rule'     =>  'isUnique',
 				'message'  =>  'La persona ya esta asociada a un hogar.',
@@ -35,6 +35,17 @@ class Primerainfancia extends AppModel
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),*/
+
+		'edad' => array(
+			'numeric' => array(
+				'rule' => 'decimal',
+				'message' => 'La edad debe ser un valor numérico',
+			),
+			'range' => array(
+				'rule' => array('comparison', '<', 24.00),
+				'message' => 'La edad debe ser menor a 24.00 meses',
 			),
 		),
 

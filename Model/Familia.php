@@ -89,7 +89,7 @@ class Familia extends AppModel
 		),
 		'correo' => array(
 			'email' => array(
-				'rule' => array('email', true),
+				'rule' => array('email', false),
 				'message' => 'diligencie correctamente ejemplo@correo.xxx',
 				//'rule'     =>  'isUnique' , 
 				//'message'  =>  'el correo ya esta registrado.' ,
@@ -204,7 +204,7 @@ class Familia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'poblacionvulnerable1' => array(
+		/*'poblacionvulnerable1' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Revisar campo',
@@ -213,7 +213,7 @@ class Familia extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'hogar' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -234,7 +234,7 @@ class Familia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'antecedenteenfermedad1' => array(
+		/*'antecedenteenfermedad1' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Revisar campo',
@@ -243,7 +243,7 @@ class Familia extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'antecedenteenfermedad2' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -264,7 +264,7 @@ class Familia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'riesgopsicosocial1' => array(
+		/*'riesgopsicosocial1' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Revisar campo',
@@ -283,7 +283,7 @@ class Familia extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'programasocial' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -294,7 +294,7 @@ class Familia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'programasocial1' => array(
+		/*'programasocial1' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Revisar campo',
@@ -313,7 +313,7 @@ class Familia extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'cepilladodientes' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -415,7 +415,7 @@ class Familia extends AppModel
 			),
 		),
 
-		'enfermedadtransmible1' => array(
+		/*'enfermedadtransmible1' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Revisar campo',
@@ -424,7 +424,7 @@ class Familia extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'tiemporesidencia' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),

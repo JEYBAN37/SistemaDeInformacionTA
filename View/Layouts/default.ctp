@@ -40,6 +40,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
+
     <!--style>
         /* Estilos para la barra de navegación */
         .navbar {

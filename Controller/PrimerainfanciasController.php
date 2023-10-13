@@ -25,7 +25,14 @@ class PrimerainfanciasController extends AppController
 	public function index()
 	{
 		$this->Primerainfancia->recursive = 0;
-		$this->set('primerainfancias', $this->Paginator->paginate());
+
+		$count = $this->Primerainfancia->find('count');
+		$this->Paginator->settings['limit'] = $count;
+
+		$this->set(
+			"primerainfancias",
+			$this->paginate()
+		);
 	}
 
 	/**
@@ -49,20 +56,35 @@ class PrimerainfanciasController extends AppController
 	 *
 	 * @return void
 	 */
+
 	public function add()
 	{
 		if ($this->request->is('post')) {
 			$this->Primerainfancia->create();
+
+			// Obtener la fecha de nacimiento del formulario
+			$fechaNacimiento = $this->request->data['Primerainfancia']['fechanac'];
+
+
+
+			// Calcular la edad
+			$edad = $this->calcularEdad($fechaNacimiento);
+			// Verificar si la edad es igual a 1 y realizar la división
+
+
+			// Asignar la edad al campo correspondiente en el formulario
+			$this->request->data['Primerainfancia']['edad'] = $edad;
+
 			if ($this->Primerainfancia->save($this->request->data)) {
-				$this->Session->setFlash('Registro de Primerainfancia guradado, por favor actualice datos de la Primerainfancia', 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash('Registro de Primerainfancia guardado, por favor actualice datos de la Primerainfancia', 'default', array('class' => 'alert alert-success'));
 
 				// Verificar si el valor es nulo o no
 				$familiaId = isset($this->data["Primerainfancia"]["familia_id"]) ? $this->data["Primerainfancia"]["familia_id"] : null;
 
 				return $this->redirect(array(
-					'controller' => 'personas',
-					'action' => 'edit',
-					$this->data["Primerainfancia"]["persona_id"],
+					'controller' => 'familias',
+					'action' => 'view',
+					$this->data["Primerainfancia"]["familia_id"],
 					'?' => array(
 						'familia_id' => $familiaId
 					)
@@ -72,32 +94,52 @@ class PrimerainfanciasController extends AppController
 			}
 		}
 
-
 		$familias = $this->Primerainfancia->Familia->find('list');
 		$canalizaciones = $this->Primerainfancia->Canalizacion->find('list');
-		$personas = $this->Primerainfancia->Persona->find('list', array(
-			'order' => array('Persona.edad' => 'asc'),
-			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
-			'conditions' => array('Persona.edad <' => '2'),
-			'recursive' => 0
-		));
-		$this->set(compact('familias', 'personas', 'canalizaciones'));
+		$this->set(compact('familias', 'canalizaciones'));
+	}
+
+
+	private function calcularEdad($fechaNacimiento)
+	{
+		$fechaActual = new DateTime();
+		$fechaNacimiento = new DateTime($fechaNacimiento['year'] . '-' . $fechaNacimiento['month'] . '-' . $fechaNacimiento['day']);
+		$diferencia = $fechaNacimiento->diff($fechaActual);
+
+		$mesesTotales = $diferencia->y * 12 + $diferencia->m + $diferencia->d / 30;
+
+
+		return number_format($mesesTotales, 1);
 	}
 
 	public function add2_5()
 	{
 		if ($this->request->is('post')) {
 			$this->Primerainfancia->create();
+
+			// Obtener la fecha de nacimiento del formulario
+			$fechaNacimiento = $this->request->data['Primerainfancia']['fechanac'];
+
+
+
+			// Calcular la edad
+			$edad = $this->calcularEdad5($fechaNacimiento);
+			// Verificar si la edad es igual a 1 y realizar la división
+
+
+			// Asignar la edad al campo correspondiente en el formulario
+			$this->request->data['Primerainfancia']['edad'] = $edad;
+
 			if ($this->Primerainfancia->save($this->request->data)) {
-				$this->Session->setFlash('Registro de Primerainfancia guardado, por favor actualice datos personales del menor', 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash('Registro de Primerainfancia guardado, por favor actualice datos de la Primerainfancia', 'default', array('class' => 'alert alert-success'));
 
 				// Verificar si el valor es nulo o no
 				$familiaId = isset($this->data["Primerainfancia"]["familia_id"]) ? $this->data["Primerainfancia"]["familia_id"] : null;
 
 				return $this->redirect(array(
-					'controller' => 'personas',
-					'action' => 'edit',
-					$this->data["Primerainfancia"]["persona_id"],
+					'controller' => 'familias',
+					'action' => 'view',
+					$this->data["Primerainfancia"]["familia_id"],
 					'?' => array(
 						'familia_id' => $familiaId
 					)
@@ -109,17 +151,20 @@ class PrimerainfanciasController extends AppController
 
 		$familias = $this->Primerainfancia->Familia->find('list');
 		$canalizaciones = $this->Primerainfancia->Canalizacion->find('list');
-		$personas = $this->Primerainfancia->Persona->find('list', array(
-			'order' => array('Persona.edad' => 'asc'),
-			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
-			'conditions' => array('Persona.edad >=' => '2', 'Persona.edad <=' => '5'),
-			'recursive' => 0
-		));
-		$this->set(compact('familias', 'personas', 'canalizaciones'));
+		$this->set(compact('familias', 'canalizaciones'));
 	}
 
+	private function calcularEdad5($fechaNacimiento)
+	{
+		$fechaActual = new DateTime();
+		$fechaNacimiento = new DateTime($fechaNacimiento['year'] . '-' . $fechaNacimiento['month'] . '-' . $fechaNacimiento['day']);
+		$diferencia = $fechaNacimiento->diff($fechaActual);
+
+		$anosTotales = $diferencia->y;
 
 
+		return number_format($anosTotales, 1);
+	}
 
 
 
@@ -158,9 +203,9 @@ class PrimerainfanciasController extends AppController
 			'order' => array('Familia.id' => 'desc'),
 
 		));
-		$personas = $this->Primerainfancia->Persona->find('list');
+
 		$canalizaciones = $this->Primerainfancia->Canalizacion->find('list');
-		$this->set(compact('familias', 'personas', 'canalizaciones'));
+		$this->set(compact('familias', 'canalizaciones'));
 	}
 
 

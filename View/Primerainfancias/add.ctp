@@ -12,10 +12,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                     menor de 2 años
                 </h1>
             </div>
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -28,7 +26,9 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         echo $this->Form->input('familia_id', array('value' => '' . $idAux, 'type' => 'hidden'));
 
                         ?>
+
                         <!--div class="form-group col-md-6">
+
                             <?php
                             echo $this->Form->input('familia_id', [
                                 'label' => 'ID_Familia/N° Hogar/Nombres',
@@ -41,27 +41,208 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                             ?>
                         </div-->
 
-
-
                         <div class="form-group col-md-6">
                             <?php
-                            echo $this->Form->input('persona_id', [
-                                'label' => 'Documento/Nombre del Menor/Edad',
+                            $TipoDeDocumentoOptions = array(
+                                '' => 'Elegir',
+
+                                'RC' => 'Registro Civil',
+                                'PPT' => 'Permiso Protección Temporal',
+                                'RNV' => 'Registro nacido vivo'
+
+                            );
+                            echo $this->Form->input('tipodocumento', array(
+                                'label' => 'Tipo de Documento:',
                                 'class' => 'form-control',
+                                'style' => 'font-size: 12px;',
                                 'placeholder' => '',
                                 'type' => 'select',
-                                'class' => 'form-control select-search',
-                                'style' => 'font-size: 12px',
-                            ]);
+                                'options' => $TipoDeDocumentoOptions
+                            ));
                             ?>
                         </div>
 
                         <div class="form-group col-md-6">
-                            <h5><?php echo $this->Html->link(('Agregar Persona'), array('controller' => 'Personas', 'action' => 'add', 'style' => 'color: blue; font-size: 16px; font-weight: bold')); ?>
-                            </h5>
-                            <p class="help-block"> Si la persona no aparece en la lista desplegables de personas ir a la
-                                opción "agregar personas"</p>
+                            <?php echo $this->Form->input('numerodoc', [
+                                'label' => 'N° de documento',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                            ]);  ?>
                         </div>
+
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('primerapellido', [
+                                'label' => 'Primer Apellido',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                            ]);  ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('segundoapellido', [
+                                'label' => 'Segundo Apellido',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                            ]);  ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('primernombre', [
+                                'label' => 'Primer Nombre',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                            ]);  ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('segundonombre', [
+                                'label' => 'Segundo Nombre',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                            ]);  ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <!-- Campo de fecha de nacimiento -->
+                            <?php echo $this->Form->input('fechanac', [
+                                'label' => 'Fecha de nacimiento:',
+                                'type' => 'date',
+                                'minYear' => date('Y') - 2,
+                                'maxYear' => date('Y'),
+                                'style' => 'font-size: 16px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;',
+                                'id' => 'fechanac', // Agrega este identificador al campo de fecha de nacimiento
+                            ]); ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <!-- Campo de edad calculada (se llenará automáticamente con JavaScript) -->
+                            <?php echo $this->Form->input('edad', [
+                                'label' => 'Edad en meses',
+                                'style' => 'font-size: 16px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;',
+                                'id' => 'edad', // Agrega este identificador al campo de edad
+                                'readonly' => true, // Hace que el campo de edad sea de solo lectura
+                                'type' => 'number',
+                                'class' => 'form-control',
+                                'step' => '0.01'
+
+                            ]); ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php
+                            $generoOption = [
+                                ' ' => 'Elegir',
+                                'Hombre' => 'Hombre',
+                                'Mujer' => 'Mujer',
+
+                            ];
+                            echo $this->Form->input('sexo', [
+                                'label' => 'Sexo',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'options' => $generoOption,
+
+                                'style' => 'font-size: 12px',
+                            ]); ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php
+                            $aseguradoraOption = [
+                                ' ' => 'Elegir',
+                                'Sanitas' => 'Sanitas',
+                                'Emssanar' => 'Emssanar',
+                                'Nueva EPS' => 'Nueva EPS',
+                                'Mallamas' => 'Mallamas',
+                                'Famisanar' => 'Famisanar',
+                                'Asmet Salud' => 'Asmet Salud',
+                                'Sanidad PONAL' => 'Sanidad PONAL',
+                                'PROINSALUD' => 'PRONISALUD',
+                                'Fondo UNDENAR' => 'Fondo UDENAR',
+                                'Medicina Prepagada' => 'Medicina Prepagada',
+                                'Sin afiliacion' => 'Sin afiliación',
+                                'SD' => 'Sin dato',
+
+                            ];
+                            echo $this->Form->input('aseguradora', [
+                                'label' => 'Aseguradora',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                                'options' => $aseguradoraOption,
+                            ]);  ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php
+                            $regimenOption = [
+                                ' ' => 'Elegir',
+                                'Subsidiado' => 'Subsidiado',
+                                'Contributivo' => 'Contributivo',
+                                'Regimen especial' => 'Regimen especial',
+                                'Regimen exepcion' => 'Regimen exepción',
+                                'Particular' => 'Particular',
+                                'SD' => 'Sin dato',
+
+                            ];
+                            echo $this->Form->input('regimen', [
+                                'label' => 'Regimen',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                                'options' => $regimenOption,
+                            ]);  ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php $estadoAfiliacionOption = [
+                                ' ' => 'Elegir',
+                                'Activo' => 'Activo',
+                                'Inactivo' => 'Inactivo',
+                                'No aplica' => 'No aplica',
+                                'SD' => 'Sin dato',
+
+                            ];
+                            echo $this->Form->input('estadoafiliacion', [
+                                'label' => 'Estado de Afiliación',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                                'options' => $estadoAfiliacionOption,
+                            ]);  ?>
+                        </div>
+
+                        <!--div class="form-group col-md-6">
+                            <?php echo $this->Form->input('barrio', [
+                                'label' => 'Barrio',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                            ]);  ?>
+                        </div-->
+
+                        <!--div class="form-group col-md-6">
+                            <?php echo $this->Form->input('direccion', [
+                                'label' => 'Direccion',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                            ]);  ?>
+                        </div-->
+
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('telefono', [
+                                'label' => 'Telefono',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                            ]);  ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php echo $this->Form->input('email', [
+                                'label' => 'Email',
+                                'class' => 'form-control',
+                                'style' => 'font-size: 12px',
+                            ]);  ?>
+                        </div>
+
+
                     </div>
                 </div>
 
@@ -69,11 +250,9 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Valoración de Salud</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -103,7 +282,17 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
                         <div class="form-group col-md-6">
                             <?php
-                            $optionDiscapacidad = array('' => 'Elegir', 'No presenta' => 'No presenta', 'Fisica' => 'Fisica', 'Cognitiva' => 'Cognitiva', 'Sensorial' => 'Sensorial');
+                            $optionDiscapacidad = array(
+                                '' => 'Elegir',
+                                'No' => 'No presenta',
+                                'Fisica' => 'Fisica',
+                                'Auditiva' => 'Auditiva',
+                                'Visual' => 'Visual',
+                                'Sodoceguera' => 'Sodoceguera',
+                                'Cognitiva o intelectual' => 'Cognitiva o intelectual',
+                                'Metal' => 'Mental',
+
+                            );
                             echo $this->Form->input('discapacidad', array(
                                 'label' => '¿Presenta alguna de las siguientes discapacidades?',
                                 'class' => 'form-control',
@@ -215,11 +404,14 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 '' => 'Elegir',
                                 'Lactancia materna exclusiva' => 'Solo Leche materna',
                                 'Lactancia materna y Alimentacion complementaria' => 'Lactancia materna Alimentación complementaria',
+                                'Leche de formula y Alimentacion complementaria' => 'Leche de formula Alimentación complementaria',
                                 'Leche materna y leche de formula' => 'Leche materna y leche de formula',
                                 'Leche materna y otros liquidos' => 'Leche materna y otros liquidos(jugos, agua, aromatica, colada)',
-                                'Leche de formula' => 'Solo Leche de formula',
+                                'Solo Leche de formula' => 'Solo Leche de formula',
                                 'leche de formula y alimentos solidos' => 'leche de formula y alimentos solidos',
-                                'Leche materna y alimentos solidos' => 'Leche materna y alimentos solidos(huevo, arroz, pollo, carne)',
+                                'Leche materna y canasta básica familiar' => 'Leche materna y alimentos solidos(huevo, arroz, pollo, carne)',
+                                'Alimentación de la canasta básica familiar' => 'Alimentación de la canasta básica familiar',
+
 
                             );
                             echo $this->Form->input('lactanciamaterna', array(
@@ -239,6 +431,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                             <?php
                             $optionCronica = array(
                                 '' => 'Elegir',
+                                'No' => 'No presenta',
                                 'Neurológica' => 'Neurológica',
                                 'Cardiovascular' => 'Cardiovascular',
                                 'Respiratoria' => 'Respiratoria',
@@ -266,10 +459,9 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Atención en Salud</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+                Atención en Salud</h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -334,17 +526,20 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                             <?php
                             $optionMalnutricion = array(
                                 '' => 'Elegir',
+                                'No informa' => 'Desconoce la información/no presenta carnet de CYD',
+                                'Peso adecuado para la talla' => ' Peso adecuado para la talla',
+                                'Talla adecuada para la edad' => ' Talla adecuada para la edad',
+                                'Desnutricion Aguda' => 'Bajo peso para la edad',
+                                'Desnutricion Cronica' => 'Baja talla para la edad',
                                 'Desnutricion Aguda' => 'Bajo peso para la edad',
                                 'Desnutricion Cronica' => 'Baja talla para la edad',
                                 'Sobrepeso' => 'Sobrepeso',
                                 'Obesidad' => 'Obesidad',
-                                'No informa' => 'Desconoce la información/no presenta carnet de CYD',
-                                'SD' => 'Sin dato',
-
+                                'SD' => 'Sin dato'
                             );
 
                             echo $this->Form->input('desnutricion', array(
-                                'label' => '¿Le han informado si el menor tiene un diagnóstico de Malnutrición?',
+                                'label' => '¿Reconoce el diagnóstico de Nutricional del menor?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -374,16 +569,17 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'style' => 'font-size: 12px',
 
                             )); ?>
+                            <p class="help-block"> NOTA:Registre alguna situación adicional que la persona refiera
+                            </p>
+
                         </div>
                     </div>
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Condiciones de vulnerabilidad</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -394,7 +590,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('era', array(
-                                'label' => 'En momento presenta algún signo de Enferemeda respiratoria Aguda',
+                                'label' => 'En momento presenta algún signo de Enfermedad respiratoria Aguda',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -402,10 +598,12 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'style' => 'font-size: 12px',
 
                             )); ?>
+                            <p class="help-block"> NOTA:Tener en cuenta signos y síntomas de alarma AIEPI
+                            </p>
                         </div>
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('eda', array(
-                                'label' => 'En momento presenta algún signo de Enferemeda diarreica Aguda',
+                                'label' => 'En momento presenta algún signo de Enferemedad diarreica Aguda',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -413,6 +611,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'style' => 'font-size: 12px',
 
                             )); ?>
+                            <p class="help-block"> NOTA:Tener en cuenta signos y síntomas de alarma AIEPI
+                            </p>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -491,11 +691,9 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
                 Atención integral</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -567,7 +765,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         <div class="form-group col-md-6">
                             <?php
                             echo $this->Form->input('educacionuno', array(
-                                'label' => 'Educación',
+                                'label' => 'Refieran el tipo de Educación a desarrollar',
                                 'class' => 'form-control',
                                 'style' => 'font-size: 12px',
                                 'placeholder' => '',
@@ -642,19 +840,19 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
-function agregarOpcionSeleccion() {
+    function agregarOpcionSeleccion() {
 
-    $("#PrimerainfanciaFamiliaId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
-    $("#PrimerainfanciaPersonaId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
-    $("#PrimerainfanciaCanalizacionId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
-}
+        $("#PrimerainfanciaFamiliaId").prepend(
+            "<option value='' selected='selected'>Seleccione</option>");
+        $("#PrimerainfanciaPersonaId").prepend(
+            "<option value='' selected='selected'>Seleccione</option>");
+        $("#PrimerainfanciaCanalizacionId").prepend(
+            "<option value='' selected='selected'>Seleccione</option>");
+    }
 </script>

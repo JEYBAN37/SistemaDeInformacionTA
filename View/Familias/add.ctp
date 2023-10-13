@@ -42,8 +42,8 @@
                             <?php
                             $generoOption = [
                                 ' ' => 'Elegir',
-                                'Hombre' => 'Masculino',
-                                'Mujer' => 'Femenino',
+                                'Hombre' => 'Hombre',
+                                'Mujer' => 'Mujer',
                                 'Otro' => 'Otro'
                             ];
                             echo $this->Form->input('genero', [
@@ -384,6 +384,7 @@
                             <?php
                             $optionEnferemedadAntecedentes = [
                                 '' => 'Elegir',
+                                'No' => 'No refiere',
                                 'Alteraciones mentales : Esquizofrenia, TAB, depresión.' => 'Alteraciones mentales : Esquizofrenia, TAB, depresión.',
                                 'Cánceres (Mama, cuello uterino, estómago, prostata, colon, recto, pulmonar, leucemia.' => 'Cánceres (Mama, cuello uterino, estómago, prostata, colon, recto, pulmonar, leucemia.',
                                 'Enfermedad cardio- cerebro- vascular: (hipertensión, infarto agudo al miocardio)' => 'Enfermedad cardio- cerebro- vascular: (hipertensión, infarto agudo al miocardio)',
@@ -393,7 +394,6 @@
                                 'Obesidad' => 'Obesidad',
                                 'Enfermedad renal crónica' => 'Enfermedad renal crónica',
                                 'Enfermedades huérfanas' => 'Enfermedades huérfanas',
-                                'No refiere' => 'No refiere',
                                 'SD' => 'Sin dato'
                             ];
 
@@ -421,7 +421,18 @@
                             ?>
                         </div>
 
-
+                        <div class="form-group col-md-6">
+                            <?php
+                            echo $this->Form->input('antecedenteenfermedad2', [
+                                'label' => 'Agregue otro Antecedentes enfermedad si requiere',
+                                'class' => 'form-control',
+                                'type' => 'select',
+                                'options' => $optionEnferemedadAntecedentes,
+                                'class' => 'form-control select-search',
+                                'style' => 'font-size: 12px',
+                            ]);
+                            ?>
+                        </div>
 
                         <div class="form-group col-md-6">
                             <?php
@@ -480,13 +491,15 @@
                         <div class="form-group col-md-6">
                             <?php
                             echo $this->Form->input('enfermedadtransmible1', [
-                                'label' => 'Si requiere agregue otra opción',
+                                'label' => 'En los últimos 15 dias algún miembro del hogar a presentado',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionTranmisibles,
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
+                            <p class="help-block">Agregue otra situación si se requiere</p>
+
                         </div>
 
 
@@ -507,6 +520,7 @@
                             <?php
                             $optionConflictos = [
                                 '' => 'Elegir',
+                                'No' => 'No refiere',
                                 'Conflictos conyugales' => 'Conflictos conyugales',
                                 'Conflictos entre padres e hijos' => 'Conflictos entre padres e hijos',
                                 'Conflictos entre hermanos' => 'Conflictos entre hermanos',
@@ -516,7 +530,7 @@
                                 'Violencias de género' => 'Violencias de género',
                                 'Problemas o Transtornos mentales diangnosticados' => 'Problemas o Transtornos mentales diangnosticados',
                                 'Consumo de alcohol o psicoactivos' => 'Consumo de alcohol o psicoactivos',
-                                'No refiere' => 'No refiere',
+
                                 'SD' => 'Sin dato'
                             ];
 
@@ -534,7 +548,7 @@
                         <div class="form-group col-md-6">
                             <?php
                             echo $this->Form->input('riesgopsicosocial1', [
-                                'label' => 'Agregue otra situación si se requiere',
+                                'label' => '¿En su hogar se ha presentado alguna de las siguientes situaciones en el ultimo mes?',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionConflictos,
@@ -542,12 +556,14 @@
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
+                            <p class="help-block">Agregue otra situación si se requiere</p>
+
                         </div>
 
                         <div class="form-group col-md-6">
                             <?php
                             echo $this->Form->input('riesgopsicosocial2', [
-                                'label' => 'Agregue otra situación si se requiere',
+                                'label' => '¿En su hogar se ha presentado alguna de las siguientes situaciones en el ultimo mes?',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionConflictos,
@@ -555,18 +571,19 @@
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
+                            <p class="help-block">Agregue otra situación si se requiere</p>
                         </div>
                         <div class="form-group col-md-6">
                             <?php
                             $optionAlternativa = [
                                 '' => 'Elegir',
+                                'No' => 'No refiere',
                                 'Medicina indigena' => 'Medicina Tradicional/indigena',
                                 'Homeopatía' => 'Homeopatía',
                                 'Medicina tradicional china' => 'Medicina tradicional china',
                                 'Acupuntura' => 'Acupuntura',
                                 'Quiropraxia' => 'Quiropraxia',
                                 'Otro' => 'Otro',
-                                'No refiere' => 'No refiere',
                                 'SD' => 'Sin dato'
                             ];
                             echo $this->Form->input('saludalternativa', [
@@ -578,28 +595,7 @@
                             ]);
                             ?>
                         </div>
-                        <div class="form-group col-md-6">
-                            <?php
-                            $optionCuidado = [
-                                '' => 'Elegir',
-                                'Continuo familiar reponsable' => 'Continuo por un familiar adulto',
-                                'Continuo familiar vulnerable' => 'Continuo por un familiar menor/persona mayor',
-                                'Continuo acompañante' => 'Continuo por un acompañante no familiar',
-                                'Cuidado institucional' => 'Continuo en una institución o grupo',
-                                'Permanece solo' => 'Permanece solo',
-                                'No refiere' => 'No refiere',
-                                'No aplica' => 'No Aplica',
-                                'SD' => 'Sin dato'
-                            ];
-                            echo $this->Form->input('cuidadopermanente', [
-                                'label' => '¿El cuidado de menores de cinco años, Personas mayores o Personas con discapacidad es?',
-                                'class' => 'form-control',
-                                'type' => 'select',
-                                'options' => $optionCuidado,
-                                'style' => 'font-size: 12px',
-                            ]);
-                            ?>
-                        </div>
+
                     </div>
 
 
@@ -719,9 +715,9 @@
                             ]);
                             ?>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
+
+
                         <div class="form-group col-md-6">
                             <?php
                             $optionLavadoManos = [
@@ -772,9 +768,7 @@
                             ]);
                             ?>
                         </div>
-                    </div>
 
-                    <div class="form-group row">
                         <div class="form-group col-md-6">
                             <?php
                             $optionCepilladoDientes = [
@@ -797,47 +791,49 @@
                             ?>
                         </div>
                     </div>
-                </div>
-            </div>
         </fieldset>
 
         <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?>
     </div>
 
+</div>
 
-    <?php
-    $this->Html->css([
-        'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css',
-        'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
-    ], ['block' => 'css']);
-    $this->Html->script([
-        'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js',
-        'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
-    ], ['block' => 'script']);
-    ?>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.select-search').select2();
-            agregarOpcionSeleccion();
-        });
+</div>
 
 
-        function agregarOpcionSeleccion() {
+<?php
+$this->Html->css([
+    'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
+], ['block' => 'css']);
+$this->Html->script([
+    'https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js',
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
+], ['block' => 'script']);
+?>
 
-            $("#PrimerainfanciaFamiliaId").prepend("<option value='' selected='selected'>Seleccione</option>");
-            $("#PrimerainfanciaPersonaId").prepend("<option value='' selected='selected'>Seleccione</option>");
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
+
+
+    function agregarOpcionSeleccion() {
+
+        $("#PrimerainfanciaFamiliaId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#PrimerainfanciaPersonaId").prepend("<option value='' selected='selected'>Seleccione</option>");
+    }
+
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
+
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
+
         }
-
-        function mostrar(id) {
-            if (id == "si") {
-                $("#si").show();
-                $("#no").hide();
-
-            } else if (id == "no") {
-                $("#si").hide();
-                $("#no").show();
-
-            }
-        }
-    </script>
+    }
+</script>

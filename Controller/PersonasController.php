@@ -91,21 +91,29 @@ class PersonasController extends AppController
 		}
 
 		if ($this->request->is(array('post', 'put'))) {
+
 			if ($this->Persona->save($this->request->data)) {
-				$this->Session->setFlash('El registro se ha guardado correctamente', 'default', array('class' => 'alert alert-success'));
 
-				// Obtén el valor de familia_id desde $this->request->data
-				$familiaId = $this->request->data["Persona"]["familia_id"];
+				if ($this->request->data['btn'] == 'Guardar Otro') {
+					//$session->setFlash("registro guardado");
+					$this->Session->setFlash(__('El Plan de sesion ha sido guardado.'));
+					//echo '<script> alert("registro guardado"); </script>';
+					return $this->redirect(array('controller' => 'Personas', 'action' => 'add?sesion=' . $this->data["Persona"]["persona_id"]));
+				} else {
+					//return $this->redirect(array('controller' => 'plsesiones', 'action' => 'nuebus'));  
 
-				// Redirecciona a la vista de familia con el valor de familia_id
-				return $this->redirect(array('controller' => 'familias', 'action' => 'view', $familiaId));
+
+					return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Persona"]["familia_id"]));
+				}
 			} else {
-				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('The plsmomento could not be saved. Please, try again.'));
 			}
-		} else {
-			$options = array('conditions' => array('Persona.' . $this->Persona->primaryKey => $id));
-			$this->request->data = $this->Persona->find('first', $options);
 		}
+
+
+
+
+
 
 		$familias = $this->Persona->Familia->find('list', array(
 			'order' => array('Familia.id' => 'desc'),
