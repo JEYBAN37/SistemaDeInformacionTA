@@ -219,15 +219,15 @@
 
 
 	function mostrar(id) {
-		if (id == "si") {
+		if (id === "Mujer") {
 			$("#si").show();
 			$("#no").hide();
-
-		} else if (id == "no") {
+		} else if (id === "Hombre") {
 			$("#si").hide();
 			$("#no").hide();
-
 		}
+
+	
 
 		document.getElementById('calcularIMC').addEventListener('click', function() {
 			var peso = parseFloat(document.getElementById('peso').value);

@@ -61,9 +61,9 @@ class JuventudadultosController extends AppController
 				$familiaId = isset($this->data["Juventudadulto"]["familia_id"]) ? $this->data["Juventudadulto"]["familia_id"] : null;
 
 				return $this->redirect(array(
-					'controller' => 'personas',
-					'action' => 'edit',
-					$this->data["Juventudadulto"]["persona_id"],
+					'controller' => 'familias',
+					'action' => 'view',
+					$this->data["Juventudadulto"]["famiila_id"],
 					'?' => array(
 						'familia_id' => $familiaId
 					)
@@ -75,13 +75,8 @@ class JuventudadultosController extends AppController
 
 		$familias = $this->Juventudadulto->Familia->find('list');
 		$canalizaciones = $this->Juventudadulto->Canalizacion->find('list');
-		$personas = $this->Juventudadulto->Persona->find('list', array(
-			'order' => array('Persona.edad' => 'asc'),
-			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
-			'conditions' => array('Persona.edad >=' => 18),
-			'recursive' => 0
-		));
-		$this->set(compact('familias', 'personas', 'canalizaciones'));
+
+		$this->set(compact('familias',  'canalizaciones'));
 	}
 
 	/**

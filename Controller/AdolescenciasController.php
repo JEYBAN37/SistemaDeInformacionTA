@@ -62,9 +62,9 @@ class AdolescenciasController extends AppController
 				$familiaId = isset($this->data["Adolescencia"]["familia_id"]) ? $this->data["Adolescencia"]["familia_id"] : null;
 
 				return $this->redirect(array(
-					'controller' => 'personas',
-					'action' => 'edit',
-					$this->data["Adolescencia"]["persona_id"],
+					'controller' => 'familias',
+					'action' => 'view',
+					$this->data["Adolescencia"]["familia_id"],
 					'?' => array(
 						'familia_id' => $familiaId
 					)
@@ -76,13 +76,8 @@ class AdolescenciasController extends AppController
 
 		$familias = $this->Adolescencia->Familia->find('list');
 		$canalizaciones = $this->Adolescencia->Canalizacion->find('list');
-		$personas = $this->Adolescencia->Persona->find('list', array(
-			'order' => array('Persona.edad' => 'asc'),
-			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
-			'conditions' => array('Persona.edad >=' => 12, 'Persona.edad <=' => 17),
-			'recursive' => 0
-		));
-		$this->set(compact('familias', 'personas', 'canalizaciones'));
+
+		$this->set(compact('familias',  'canalizaciones'));
 	}
 
 	/**

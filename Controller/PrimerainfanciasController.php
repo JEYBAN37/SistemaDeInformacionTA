@@ -184,6 +184,19 @@ class PrimerainfanciasController extends AppController
 			throw new NotFoundException(__('Invalid Primerainfancia'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+
+			// Obtener la fecha de nacimiento del formulario
+			$fechaNacimiento = $this->request->data['Primerainfancia']['fechanac'];
+
+
+
+			// Calcular la edad
+			$edad = $this->calcularEdadTodos5($fechaNacimiento);
+			// Verificar si la edad es igual a 1 y realizar la división
+
+
+			// Asignar la edad al campo correspondiente en el formulario
+			$this->request->data['Primerainfancia']['edad'] = $edad;
 			if ($this->Primerainfancia->save($this->request->data)) {
 				$this->Session->setFlash('Registro de Primerainfancia actualizado', 'default', array('class' => 'alert alert-success'));
 				//return $this->redirect(array('action' => 'index'));
@@ -207,6 +220,18 @@ class PrimerainfanciasController extends AppController
 		$canalizaciones = $this->Primerainfancia->Canalizacion->find('list');
 		$this->set(compact('familias', 'canalizaciones'));
 	}
+	private function calcularEdadTodos5($fechaNacimiento)
+	{
+		$fechaActual = new DateTime();
+		$fechaNacimiento = new DateTime($fechaNacimiento['year'] . '-' . $fechaNacimiento['month'] . '-' . $fechaNacimiento['day']);
+		$diferencia = $fechaNacimiento->diff($fechaActual);
+
+		$anosTotales = $diferencia->y;
+
+
+		return number_format($anosTotales, 1);
+	}
+
 
 
 

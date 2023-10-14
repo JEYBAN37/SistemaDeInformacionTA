@@ -52,14 +52,19 @@ class InfantilsController extends AppController
 	{
 		if ($this->request->is('post')) {
 			$this->Infantil->create();
+			$fechaNacimiento = $this->request->data['Infantil']['fechanac'];
+			$edad = $this->calcularEdad($fechaNacimiento);
+			$this->request->data['Infantil']['edad'] = $edad;
+
+
 			if ($this->Infantil->save($this->request->data)) {
 				$this->Session->setFlash('Se ha guardado correctamente, por favor actulizar datos personales', 'default', array('class' => 'alert alert-success'));
 				$familiaId = isset($this->data["Infantil"]["familia_id"]) ? $this->data["Infantil"]["familia_id"] : null;
 
 				return $this->redirect(array(
-					'controller' => 'personas',
-					'action' => 'edit',
-					$this->data["Infantil"]["persona_id"],
+					'controller' => 'familias',
+					'action' => 'view',
+					$this->data["Infantil"]["familia_id"],
 					'?' => array(
 						'familia_id' => $familiaId
 					)
@@ -71,14 +76,22 @@ class InfantilsController extends AppController
 
 		$familias = $this->Infantil->Familia->find('list');
 		$canalizaciones = $this->Infantil->Canalizacion->find('list');
-		$personas = $this->Infantil->Persona->find('list', array(
-			'order' => array('Persona.edad' => 'asc'),
-			'fields' => array('Persona.id', 'Persona.apellidosnombre'),
-			'conditions' => array('Persona.edad >=' => 6, 'Persona.edad <=' => 11),
-			'recursive' => 0
-		));
-		$this->set(compact('familias', 'personas', 'canalizaciones'));
+
+		$this->set(compact('familias', 'canalizaciones'));
 	}
+
+	private function calcularEdad($fechaNacimiento)
+	{
+		$fechaActual = new DateTime();
+		$fechaNacimiento = new DateTime($fechaNacimiento['year'] . '-' . $fechaNacimiento['month'] . '-' . $fechaNacimiento['day']);
+		$diferencia = $fechaNacimiento->diff($fechaActual);
+
+		$anosTotales = $diferencia->y;
+
+
+		return number_format($anosTotales, 1);
+	}
+
 	/**
 	 * edit method
 	 *
