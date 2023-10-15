@@ -101,8 +101,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							<?php echo $this->Form->input('fechanac', [
 								'label' => 'Fecha de nacimiento:',
 								'type' => 'date',
-								'minYear' => date('Y') - 2,
-								'maxYear' => date('Y'),
+								'minYear' => date('Y') - 17,
+								'maxYear' => date('Y') - 12,
 								'style' => 'font-size: 16px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;',
 								'id' => 'fechanac', // Agrega este identificador al campo de fecha de nacimiento
 							]); ?>
@@ -111,7 +111,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 						<div class="form-group col-md-6">
 							<!-- Campo de edad calculada (se llenará automáticamente con JavaScript) -->
 							<?php echo $this->Form->input('edad', [
-								'label' => 'Edad en meses',
+								'label' => 'Edad',
 								'style' => 'font-size: 16px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;',
 								'id' => 'edad', // Agrega este identificador al campo de edad
 								'readonly' => true, // Hace que el campo de edad sea de solo lectura
@@ -373,6 +373,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'type' => 'select',
 								'options' => $optionCronica,
 								'style' => 'font-size: 12px',
+								'id' => 'condicioncronica',
 
 							)); ?>
 						</div>
@@ -412,7 +413,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'options' => $optionYesNo,
-								'placeholder' => ''
+								'placeholder' => '',
+								'id' => 'saludoral',
 							)); ?>
 						</div>
 					</div>
@@ -1016,4 +1018,40 @@ $this->Html->script([
 
 		}
 	}
+
+	document.getElementById('calcularIMC').addEventListener('click', function() {
+		var peso = parseFloat(document.getElementById('peso').value);
+		var talla = parseFloat(document.getElementById('talla').value);
+
+		if (!isNaN(peso) && !isNaN(talla) && talla > 0) {
+			var altura = talla / 100; // Convertir de cm a m
+			var imc = peso / (altura * altura);
+
+			// Mostrar el IMC calculado en el campo indicemasacorporal
+			var imcField = document.getElementById('indicemasacorporal');
+			imcField.value = imc.toFixed(2); // Redondear a 2 decimales
+
+			// Determinar el mensaje y el color según el rango del IMC
+			var mensaje = '';
+			if (imc < 18.5) {
+				mensaje = 'Peso insuficiente';
+				imcField.style.color = 'red'; // Cambiar el color del texto a rojo
+			} else if (imc >= 18.5 && imc <= 24.9) {
+				mensaje = 'Peso normal o saludable';
+				imcField.style.color = 'green'; // Cambiar el color del texto a verde
+			} else if (imc >= 25.0 && imc <= 29.9) {
+				mensaje = 'Sobrepeso';
+				imcField.style.color = 'orange'; // Cambiar el color del texto a naranja
+			} else {
+				mensaje = 'Obesidad';
+				imcField.style.color = 'red'; // Cambiar el color del texto a rojo
+			}
+
+			// Mostrar el mensaje en el elemento mensajeIMC
+			var mensajeIMC = document.getElementById('mensajeIMC');
+			mensajeIMC.textContent = mensaje;
+		} else {
+			alert('Por favor, ingrese valores válidos para peso y talla.');
+		}
+	});
 </script>

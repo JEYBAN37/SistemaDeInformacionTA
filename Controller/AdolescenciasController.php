@@ -57,6 +57,11 @@ class AdolescenciasController extends AppController
 	{
 		if ($this->request->is('post')) {
 			$this->Adolescencia->create();
+
+			$fechaNacimiento = $this->request->data['Adolescencia']['fechanac'];
+			$edad = $this->calcularEdad($fechaNacimiento);
+			$this->request->data['Adolescencia']['edad'] = $edad;
+
 			if ($this->Adolescencia->save($this->request->data)) {
 				$this->Session->setFlash('Se ha guardado correctamente, por favor actulizar datos personales', 'default', array('class' => 'alert alert-success'));
 				$familiaId = isset($this->data["Adolescencia"]["familia_id"]) ? $this->data["Adolescencia"]["familia_id"] : null;
@@ -79,6 +84,19 @@ class AdolescenciasController extends AppController
 
 		$this->set(compact('familias',  'canalizaciones'));
 	}
+
+	private function calcularEdad($fechaNacimiento)
+	{
+		$fechaActual = new DateTime();
+		$fechaNacimiento = new DateTime($fechaNacimiento['year'] . '-' . $fechaNacimiento['month'] . '-' . $fechaNacimiento['day']);
+		$diferencia = $fechaNacimiento->diff($fechaActual);
+
+		$anosTotales = $diferencia->y;
+
+
+		return number_format($anosTotales, 1);
+	}
+
 
 	/**
 	 * edit method

@@ -36,6 +36,16 @@ class Adolescencia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'edad' => array(
+			'numeric' => array(
+				'rule' => 'decimal',
+				'message' => 'La edad debe ser un valor numérico',
+			),
+			'range' => array(
+				'rule' => array('range', 11.00, 18.00),
+				'message' => 'La edad debe estar entre 12 a 17 años',
+			),
+		),
 		'canalizacion_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),

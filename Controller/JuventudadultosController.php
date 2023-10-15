@@ -56,6 +56,11 @@ class JuventudadultosController extends AppController
 	{
 		if ($this->request->is('post')) {
 			$this->Juventudadulto->create();
+
+			$fechaNacimiento = $this->request->data['Juventudadulto']['fechanac'];
+			$edad = $this->calcularEdad($fechaNacimiento);
+			$this->request->data['Juventudadulto']['edad'] = $edad;
+
 			if ($this->Juventudadulto->save($this->request->data)) {
 				$this->Session->setFlash('Se ha guardado correctamente, por favor actulizar datos personales', 'default', array('class' => 'alert alert-success'));
 				$familiaId = isset($this->data["Juventudadulto"]["familia_id"]) ? $this->data["Juventudadulto"]["familia_id"] : null;
@@ -63,7 +68,7 @@ class JuventudadultosController extends AppController
 				return $this->redirect(array(
 					'controller' => 'familias',
 					'action' => 'view',
-					$this->data["Juventudadulto"]["famiila_id"],
+					$this->data["Juventudadulto"]["familia_id"],
 					'?' => array(
 						'familia_id' => $familiaId
 					)
@@ -78,6 +83,19 @@ class JuventudadultosController extends AppController
 
 		$this->set(compact('familias',  'canalizaciones'));
 	}
+
+	private function calcularEdad($fechaNacimiento)
+	{
+		$fechaActual = new DateTime();
+		$fechaNacimiento = new DateTime($fechaNacimiento['year'] . '-' . $fechaNacimiento['month'] . '-' . $fechaNacimiento['day']);
+		$diferencia = $fechaNacimiento->diff($fechaActual);
+
+		$anosTotales = $diferencia->y;
+
+
+		return number_format($anosTotales, 1);
+	}
+
 
 	/**
 	 * edit method

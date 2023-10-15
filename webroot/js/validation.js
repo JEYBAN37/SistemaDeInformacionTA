@@ -1,7 +1,4 @@
 
-	
-
-	
 	document.addEventListener('DOMContentLoaded', function() {
         var condicioncronicaSelect = document.getElementById('condicioncronica');
         var condicioncronica1Select = document.getElementById('condicioncronica1');
