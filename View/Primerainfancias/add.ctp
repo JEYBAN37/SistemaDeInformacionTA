@@ -12,8 +12,10 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                     menor de 2 años
                 </h1>
             </div>
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -250,9 +252,11 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Valoración de Salud</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -459,9 +463,11 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Atención en Salud</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -577,9 +583,11 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Condiciones de vulnerabilidad</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -691,9 +699,11 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
                 Atención integral</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -765,7 +775,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         <div class="form-group col-md-6">
                             <?php
                             echo $this->Form->input('educacionuno', array(
-                                'label' => 'Refieran el tipo de Educación a desarrollar',
+                                'label' => 'Refiera el tipo de Educación a desarrollar',
                                 'class' => 'form-control',
                                 'style' => 'font-size: 12px',
                                 'placeholder' => '',
@@ -840,19 +850,19 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.select-search').select2();
-        agregarOpcionSeleccion();
-    });
+$(document).ready(function() {
+    $('.select-search').select2();
+    agregarOpcionSeleccion();
+});
 
 
-    function agregarOpcionSeleccion() {
+function agregarOpcionSeleccion() {
 
-        $("#PrimerainfanciaFamiliaId").prepend(
-            "<option value='' selected='selected'>Seleccione</option>");
-        $("#PrimerainfanciaPersonaId").prepend(
-            "<option value='' selected='selected'>Seleccione</option>");
-        $("#PrimerainfanciaCanalizacionId").prepend(
-            "<option value='' selected='selected'>Seleccione</option>");
-    }
+    $("#PrimerainfanciaFamiliaId").prepend(
+        "<option value='' selected='selected'>Seleccione</option>");
+    $("#PrimerainfanciaPersonaId").prepend(
+        "<option value='' selected='selected'>Seleccione</option>");
+    $("#PrimerainfanciaCanalizacionId").prepend(
+        "<option value='' selected='selected'>Seleccione</option>");
+}
 </script>

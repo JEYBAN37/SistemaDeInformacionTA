@@ -669,16 +669,27 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="status">¿Mujer en embarazo?</label>
-
-                            <select id="status" name="status" required onChange="gestacion(this.value);" required
-                                class="form-control" style="font-size: 12px;">
-                                <option value="not">Elegir</option>
-                                <option value="not">No</option>
-                                <option value="yes">Si</option>
-                            </select>
+                            <?php
+							$gestanteOption = [
+								' ' => 'Elegir',
+								'No' => 'No',
+								'Si' => 'Si',
+							];
+							echo $this->Form->input('gestacion', [
+								'label' => '¿Mujer en embarazo?',
+								'class' => 'form-control',
+								'placeholder' => '',
+								'type' => 'select',
+								'options' => $gestanteOption,
+								'style' => 'font-size: 12px',
+								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+								'onChange' => 'gestacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
+							]);
+							?>
                             <p class="help-block"> Registre infomración de mujer en gestación o puerperio</p>
                         </div>
+
+
 
                     </div>
 
@@ -944,7 +955,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         <div class="form-group col-md-6">
                             <?php
 							$optionTiposViolencia = [
-								'' => 'Eletgir',
+								'' => 'Elegir',
 								'No' => 'No se identifica',
 								'Sospecha Violencia Fisica' => 'Signos de maltrato físico(golpes, quemadura, heridas)',
 								'Sospecha Violencia Emocional' => 'Persona retarida, timida o agresiva',
@@ -1057,7 +1068,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         <div class="form-group col-md-6">
                             <?php
 							echo $this->Form->input('educacion', array(
-								'label' => 'Educación',
+								'label' => 'Refiera el tipo de Educación a desarrollar',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'placeholder' => '',
@@ -1142,7 +1153,7 @@ function agregarOpcionSeleccion() {
 }
 
 
-function gestacion(id) {
+/*function gestacion(id) {
     if (id == "yes") {
         $("#yes").show();
         $("#not").hide();
@@ -1154,7 +1165,17 @@ function gestacion(id) {
 
 
     }
+}*/
+function gestacion(id) {
+    if (id === "Si") {
+        $("#yes").show();
+        $("#not").hide();
+    } else if (id === "No") {
+        $("#yes").hide();
+        $("#noy").hide();
+    }
 }
+
 document.getElementById('calcularIMC').addEventListener('click', function() {
     var peso = parseFloat(document.getElementById('peso').value);
     var talla = parseFloat(document.getElementById('talla').value);

@@ -21,16 +21,7 @@ class Sociambiental extends AppModel
 	 * @var array
 	 */
 	public $validate = array(
-		'fecha' => array(
-			'date' => array(
-				'rule' => array('date'),
-				'message' => 'Ingrese fecha',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+
 		'responsable_id' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),

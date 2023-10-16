@@ -9,25 +9,18 @@
         <fieldset>
 
             <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Socioambiental
+                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Módulo Socioambiental
                 </h1>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Basicos</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Básicos</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
                     <div class="form-group row">
-
-                        <div class="form-group col-md-6">
-                            <!-- Coloca el campo en una mitad de la pantalla en dispositivos medianos y grandes -->
-                            <?php echo $this->Form->input('fecha', array(
-                                'label' => 'Fecha de visita : ',
-                                'style' => 'font-size: 12px'
-                            ));
-                            ?>
-                        </div>
 
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('responsable_id', array(
@@ -115,7 +108,6 @@
                                 'label' => 'No. Hogares en la residencia',
                                 'class' => 'form-control',
                                 'style' => 'font-size: 12px;',
-                                'placeholder' => '',
                                 'options' => $numhogaresOptions
                             )); ?>
                             <p class="help-block"> Si todos comen de la misma olla se considera una sola familia/hogar
@@ -127,8 +119,10 @@
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -271,8 +265,10 @@
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -283,6 +279,7 @@
                             <?php
                             $externalRiskOptions = [
                                 '' => 'Elegir',
+                                'No se identifica' => 'No se identifica',
                                 'Malos olores' => 'Malos olores',
                                 'Iluminacion inadecuada' => 'Iluminación inadecuada',
                                 'Ventilación inadecuada' => 'Ventilación inadecuada',
@@ -292,7 +289,6 @@
                                 'Ruido' => 'Ruido',
                                 'Rellenos sanitarios, botaderos' => 'Rellenos sanitarios/botaderos',
                                 'Excesivo trafico' => 'Excesivo trafico',
-                                'No se identifica' => 'No se identifica',
                                 'SD' => 'Sin dato'
                             ];
                             echo $this->Form->input('riesgoexterno', [
@@ -368,7 +364,7 @@
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
-                            <p class="help-block"> Relacione el más importante
+                            <p class="help-block">Relacione el más importante
                             </p>
                         </div>
 
@@ -396,6 +392,7 @@
                             <?php
                             $accidentRiskOptions = [
                                 '' => 'Elegir',
+                                'Ninguno' => 'Ninguno',
                                 'Objetos cortantes ' => 'Objetos cortantes ',
                                 'Sustancias químicas_aseo a la vista' => 'Sustancias químicas_aseo a la vista',
                                 'Medicamentos a la vista' => 'Medicamentos a la vista',
@@ -403,7 +400,6 @@
                                 'Conexiones Electricas inadecuadas' => 'Conexiones Electricas inadecuadas',
                                 'Superficies resbaladizas' => 'Superficies resbaladizas',
                                 'Escaleras sin proteccion' => 'Escaleras sin protección',
-                                'Ninguno' => 'Ninguno',
                                 'SD' => 'Sin dato'
                             ];
                             echo $this->Form->input('riesgo', [
@@ -514,7 +510,8 @@
                                 '' => 'Elegir',
                                 'Inodoro conectado a alcantarillado' => 'Inodoro conectado a alcantarillado',
                                 'Campo abierto' => 'Campo abierto',
-                                'Basenilla, bolsas' => 'Basenilla, Bolsas'
+                                'Basenilla, bolsas' => 'Basenilla, Bolsas',
+
                             ];
                             echo $this->Form->input('diposicionexcretas', [
                                 'label' => 'Disposición de excretas en la vivienda',
@@ -531,7 +528,8 @@
                             $domesticWaterOptions = [
                                 '' => 'Elegir',
                                 'Conexión alcantarillado' => 'Conexión alcantarillado',
-                                'Campo Abierto ' => 'Campo Abierto'
+                                'Campo Abierto ' => 'Campo Abierto',
+
                             ];
                             echo $this->Form->input('aguaresiduales', [
                                 'label' => 'Aguas residuales domésticas',
@@ -610,155 +608,132 @@
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Mascotas o
                 animales de crianza en el hogar </h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="col-md-4">
-                <select id="status" name="status" required onChange="mostrar(this.value);" style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
+                <select id="status" name="status" required onChange="mostrar(this.value);"
+                    style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
                     <option value="no">NO</option>
                     <option value="si">SI</option>
 
                 </select>
             </div>
-            <div class="grow justify-content-center" style="margin-top: -10px; font-size: 12px;">
+            <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div id="si" class="panel panel-default form-group col-md-12" style="margin-left: 15px; display: none;">
 
-                    <div class="col-md-6">
-                        <?php
-                        $numMascotaOption = [
-                            'No aplica' => 'Elegir',
-                            '0' => '0',
-                            '1' => '1',
-                            '2' => '2',
-                            '3' => '3',
-                            '4' => '4',
-                            '5' => '5 y mas',
+                    <div class="form-group row">
 
-                        ];
-                        echo $this->Form->input('numeroGatos', [
-                            'label' => '¿Cuantos Gatos tiene?',
-                            'class' => 'form-control',
-                            'type' => 'select',
-                            'options' => $numMascotaOption,
-                            'style' => 'font-size: 12px',
-                        ]);
-                        ?>
-                    </div>
-                    <div class="col-md-6">
-                        <?php
-                        echo $this->Form->input('numeroPerros', [
-                            'label' => '¿Cuantos Perros tiene?',
-                            'class' => 'form-control',
-                            'type' => 'select',
-                            'options' => $numMascotaOption,
-                            'style' => 'font-size: 12px',
-                        ]);
-                        ?>
-                    </div>
-                    <div class="col-md-6">
-                        <?php
-                        $mascotaOption = [
-                            'No aplica' => 'Elegir',
-                            'No' => 'No',
-                            'Aves' => 'Aves',
-                            'Cerdos' => 'Cerdos',
-                            'Cuyes_conejos' => 'Cuyes/conejos',
-                            'Otro' => 'Otro'
-                        ];
-                        echo $this->Form->input('mascotas', [
-                            'label' => '¿Tienen animales de producción?',
-                            'class' => 'form-control',
-                            // 'type' => 'select',
-                            'options' => $mascotaOption,
-                            'style' => 'font-size: 12px',
-                        ]);
-                        ?>
-                    </div>
-                    <div class="col-md-6">
-                        <?php
-                        echo $this->Form->input('otramascota', [
-                            'label' => 'Agregue animales de producción si requiere',
-                            'class' => 'form-control',
-                            'type' => 'select',
-                            'options' => $mascotaOption,
-                            'style' => 'font-size: 12px',
-                        ]);
-                        ?>
-                    </div>
-                    <div class="col-md-6">
-                        <?php
-                        $cuidadoMascotaOptions = [
-                            'No aplica' => 'Elegir',
-                            'Si' => 'Si',
-                            'No' => 'No',
-                            'SD' => 'Sin dato'
-                        ];
-                        echo $this->Form->input('desparasitamascotas', [
-                            'label' => '¿Se desparasita a los animales domésticos?',
-                            'class' => 'form-control',
-                            'type' => 'select',
-                            'options' => $cuidadoMascotaOptions,
-                            'style' => 'font-size: 12px',
-                        ]);
-                        ?>
-                    </div>
-                    <div class="col-md-6">
-                        <?php
-                        echo $this->Form->input('vacunamascotas', [
-                            'label' => '¿Se ha vacunado a los animales domésticos en el ultimo año?',
-                            'class' => 'form-control',
-                            'type' => 'select',
-                            'options' =>  $cuidadoMascotaOptions,
-                            'style' => 'font-size: 12px',
-                        ]);
-                        ?>
-                    </div>
-                    <div class="col-md-6">
-                        <?php
-                        echo $this->Form->input('cuidadomascotas', [
-                            'label' => '¿Las excretas de los animales de compañía se recogen y disponen adecuadamente? ',
-                            'class' => 'form-control',
-                            'type' => 'select',
-                            'options' => $cuidadoMascotaOptions,
-                            'style' => 'font-size: 12px',
-                        ]);
-                        ?>
-                    </div>
+                        <div class="col-md-6">
+                            <?php
+                            $numMascotaOption = [
+                                'No aplica' => 'Elegir',
+                                '0' => '0',
+                                '1' => '1',
+                                '2' => '2',
+                                '3' => '3',
+                                '4' => '4',
+                                '5' => '5 y mas',
 
+                            ];
+                            echo $this->Form->input('numeroGatos', [
+                                'label' => '¿Cuantos Gatos tiene?',
+                                'class' => 'form-control',
+                                'type' => 'select',
+                                'options' => $numMascotaOption,
+                                'style' => 'font-size: 12px',
+                            ]);
+                            ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?php
+                            echo $this->Form->input('numeroPerros', [
+                                'label' => '¿Cuantos Perros tiene?',
+                                'class' => 'form-control',
+                                'type' => 'select',
+                                'options' => $numMascotaOption,
+                                'style' => 'font-size: 12px',
+                            ]);
+                            ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?php
+                            $cuidadoMascotaOptions = [
+                                'No aplica' => 'Elegir',
+                                'Si' => 'Si',
+                                'No' => 'No',
+                                'SD' => 'Sin dato'
+                            ];
+                            echo $this->Form->input('desparasitamascotas', [
+                                'label' => '¿Se desparasita a perros o gatos?',
+                                'class' => 'form-control',
+                                'type' => 'select',
+                                'options' => $cuidadoMascotaOptions,
+                                'style' => 'font-size: 12px',
+                            ]);
+                            ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?php
+                            echo $this->Form->input('vacunamascotas', [
+                                'label' => '¿Se ha vacunado a perros o gatos en el ultimo año?',
+                                'class' => 'form-control',
+                                'type' => 'select',
+                                'options' =>  $cuidadoMascotaOptions,
+                                'style' => 'font-size: 12px',
+                            ]);
+                            ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?php
+                            $mascotaOption = [
+                                'No aplica' => 'Elegir',
+                                'No' => 'No',
+                                'Aves' => 'Aves',
+                                'Cerdos' => 'Cerdos',
+                                'Cuyes_conejos' => 'Cuyes/conejos',
+                                'Otro' => 'Otro'
+                            ];
+                            echo $this->Form->input('mascotas', [
+                                'label' => '¿Tienen animales de producción?',
+                                'class' => 'form-control',
+                                'type' => 'select',
+                                'options' => $mascotaOption,
+                                'style' => 'font-size: 12px',
+                            ]);
+                            ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?php
+                            echo $this->Form->input('otramascota', [
+                                'label' => 'Agregue animales de producción si requiere',
+                                'class' => 'form-control',
+                                'type' => 'select',
+                                'options' => $mascotaOption,
+                                'style' => 'font-size: 12px',
+                            ]);
+                            ?>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <?php
+                            echo $this->Form->input('cuidadomascotas', [
+                                'label' => '¿Las excretas de los animales de compañía se recogen y disponen adecuadamente? ',
+                                'class' => 'form-control',
+                                'type' => 'select',
+                                'options' => $cuidadoMascotaOptions,
+                                'style' => 'font-size: 12px',
+                            ]);
+                            ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </fieldset>
         <?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
     </div>
 </div>
-
-
-
-
-
-
-<!--div class="actions col-md-2">
-	<h3>
-		<?php echo __('Actions', array('label' => 'No. Habitantes en la residencia', 'class' => 'form-control', 'type' => 'select', 'options' => $option, 'class' => 'form-control select-search')); ?>
-	</h3>
-	<ul>
-
-		<li>
-			<?php echo $this->Html->link(('List Sociambientals'), array('action' => 'index')); ?>
-		</li>
-		<li>
-			<?php echo $this->Html->link(('List Responsables'), array('controller' => 'responsables', 'action' => 'index')); ?>
-		</li>
-		<li>
-			<?php echo $this->Html->link(('New Responsable'), array('controller' => 'responsables', 'action' => 'add')); ?>
-		</li>
-		<li>
-			<?php echo $this->Html->link(('List Ubicaciones'), array('controller' => 'ubicaciones', 'action' => 'index')); ?>
-		</li>
-		<li>
-			<?php echo $this->Html->link(('New Ubicacion'), array('controller' => 'ubicaciones', 'action' => 'add')); ?>
-		</li>
-	</ul>
-</div-->
 
 
 <?php
@@ -772,50 +747,31 @@ $this->Html->script([
 ], ['block' => 'script']);
 ?>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.select-search').select2();
-        agregarOpcionSeleccion();
-    });
+$(document).ready(function() {
+    $('.select-search').select2();
+    agregarOpcionSeleccion();
+});
 
 
 
 
-    function agregarOpcionSeleccion() {
-        $("#ActaUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
-        $("#ActaProductoId").prepend("<option value='' selected='selected'>Seleccione</option>");
-        $("#ActaResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
+function agregarOpcionSeleccion() {
+    $("#SociambientalUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
+    $("#SociambientalResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
+}
+
+
+
+
+function mostrar(id) {
+    if (id == "si") {
+        $("#si").show();
+        $("#no").hide();
+
+    } else if (id == "no") {
+        $("#si").hide();
+        $("#no").show();
+
     }
-
-    function mostrarBarrio(id) {
-        if (id == "2")
-            $("#divActualizarBarrio").show();
-        else
-            $("#divActualizarBarrio").hide();
-    }
-
-    function validar() {
-        var todo_correcto = true;
-
-        if (document.getElementById('status').value == '') {
-            todo_correcto = false;
-        }
-
-        if (!todo_correcto) {
-            alert('Algunos campos no están correctos, vuelva a revisarlos');
-        }
-
-        return todo_correcto;
-    }
-
-    function mostrar(id) {
-        if (id == "si") {
-            $("#si").show();
-            $("#no").hide();
-
-        } else if (id == "no") {
-            $("#si").hide();
-            $("#no").show();
-
-        }
-    }
+}
 </script>

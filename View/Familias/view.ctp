@@ -183,7 +183,8 @@ $bd = 'fichafamiliar';
                                                 </li>
                                                 <li><a href="#profile-pills" data-toggle="tab">Infancia 6 a 11 años</a>
                                                 </li>
-                                                <li><a href="#messages-pills" data-toggle="tab">Adolecencia</a>
+                                                <li><a href="#messages-pills" data-toggle="tab">Adolescencia 12 a 17
+                                                        años</a>
                                                 </li>
                                                 <li><a href="#settings-pills" data-toggle="tab">Personas mayores de 18
                                                         años</a>

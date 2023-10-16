@@ -677,7 +677,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                         <div class="form-group col-md-6">
                             <?php
                             echo $this->Form->input('educacionuno', array(
-                                'label' => 'Educación',
+                                'label' => 'Refiera el tipo de Educación a desarrollar',
                                 'class' => 'form-control',
                                 'style' => 'font-size: 12px',
                                 'placeholder' => '',
