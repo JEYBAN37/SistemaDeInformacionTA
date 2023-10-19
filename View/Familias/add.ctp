@@ -9,13 +9,12 @@
         <fieldset>
 
             <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;  ">Modulo Familia - Hogar
+                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;  ">Módulo Familia - Hogar
                 </h1>
             </div>
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos del Encuestado</h2>
-            <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
-
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -52,7 +51,6 @@
                                 'placeholder' => '',
                                 'type' => 'select',
                                 'options' => $generoOption,
-
                                 'style' => 'font-size: 12px',
                             ]); ?>
                         </div>
@@ -105,7 +103,7 @@
             </div>
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Vivienda</h2>
-            <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -123,7 +121,14 @@
 
                         <div class="form-group col-md-6">
                             <?php
-                            $option = ['' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6'];
+                            $option = [
+                                '' => 'Elegir', '1' => '1',
+                                '2' => '2',
+                                '3' => '3',
+                                '4' => '4',
+                                '5' => '5',
+                                '6' => '6'
+                            ];
                             echo $this->Form->input('hogar', [
                                 'label' => 'Número de hogar encuestado en la vivienda',
                                 'class' => 'form-control',
@@ -162,8 +167,8 @@
                             $option = [
                                 '' => 'Elegir',
                                 'Propia pagando' => 'Propia pagando',
-                                'Propia paganda' => 'Propia paganda',
-                                'Anticres' => 'Anticres',
+                                'Propia pagada' => 'Propia pagada',
+                                'anticresis' => 'anticresis',
                                 'Arriendo' => 'Arriendo',
                                 'Subarriendo' => 'Subarriendo',
                                 'Prestada' => 'Prestada sin costo'
@@ -212,7 +217,6 @@
                                 'placeholder' => '',
                                 'type' => 'select',
                                 'options' => $option,
-
                                 'style' => 'font-size: 12px',
                             ]); ?>
                         </div>
@@ -224,7 +228,6 @@
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $option,
-
                                 'style' => 'font-size: 12px',
                             ]); ?>
                         </div>
@@ -248,7 +251,7 @@
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Composición
                 Familiar</h2>
-            <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -256,16 +259,29 @@
                     <div class="form-group row">
                         <div class="form-group col-md-6">
                             <?php
-                            $option = ['' => 'Elegir', 'Unipersonal' => 'Unipersonal', 'Nuclear' => 'Nuclear', 'Nuclear monoparental' => 'Nuclear monoparental', 'Nuclear unipersonal por adulto mayor' => 'Nuclear unipersonal por adulto mayor', 'Extensa' => 'Extensa', 'Mixta o ampliada' => 'Mixta o ampliada'];
+                            $option = [
+                                '' => 'Elegir',
+                                'Unipersonal' => 'Unipersonal',
+                                'Nuclear' => 'Nuclear',
+                                'Nuclear monoparental' => 'Nuclear monoparental',
+                                'Extensa' => 'Extensa', 'Mixta o ampliada' => 'Mixta o ampliada'
+                            ];
                             echo $this->Form->input('tipofamilia', [
                                 'label' => '¿Cómo está compuesta la familia?',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $option,
-
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
+
+                            <!-- Botón de ayuda -->
+
+                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Nuclear: constituida por los progenitores y los hijos. Nuclear monoparental: constituida por un solo progenitor y sus hijos. Unipersonal: no tiene núcleo familiar y sólo consta de una persona. Extensa: Compuesta por persona como Tios, Primos, abuelos. " style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+                                ?
+                            </button>
+
+
                         </div>
 
                         <div class="form-group col-md-6">
@@ -299,11 +315,12 @@
                             $optionEtnia = [
                                 '' => 'Elegir',
                                 'Indígena' => 'Indígena',
-                                'Afro' => 'Afro',
+                                'Afrocolombiano' => 'Afrocolombiano',
                                 'Víctima conflicto' => 'Víctima del conflicto',
                                 'Discapacidad' => 'Discapacidad',
                                 'Migrante irregular' => 'Migrante irregular',
                                 'Migrante regular' => 'Migrante regular',
+                                'Habitante de calle' => 'Habitante de calle',
                                 'Otro' => 'Otro',
                                 'No aplica' => 'No aplica',
                                 'Sin Dato' => 'Sin Dato'
@@ -352,11 +369,33 @@
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
+
+                            <button type="button" id="ayudaButton1" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Formación:
+                                            Inicio de una nueva unidad familiar y formación de la identidad de pareja.
+
+                                            Expansión:
+                                            Añadir miembros adicionales a la familia, generalmente hijos.
+
+                                            Consolidación:
+                                            Enfocarse en criar y educar a los hijos.
+
+                                            Apertura:
+
+                                            Los hijos crecen y comienzan a independizarse.
+                                            Nido vacío:
+
+                                            Los hijos abandonan el hogar familiar para vivir de forma independiente.
+
+                                            Disolución:
+                                            Separación o divorcio de la pareja.
+                                            " style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+                                ?
+                            </button>
                         </div>
 
                         <div class="form-group col-md-6">
                             <?php
-                            $option = ['' => 'Elegir', 'Si' => 'Si', 'No' => 'No'];
+                            $option = ['' => 'Elegir', 'Si' => 'Si', 'No' => 'No', 'SD' => 'No sabe', 'No sabe' => 'Sin Dato'];
                             echo $this->Form->input('lgtbi', [
                                 'label' => '¿En el hogar hay integrantes que pertenezcan a la comunidad LGBTI?',
                                 'class' => 'form-control',
@@ -374,7 +413,7 @@
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Riesgos de salud
             </h2>
-            <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -447,7 +486,7 @@
                             ];
 
                             echo $this->Form->input('estilodevidapredominante', [
-                                'label' => 'Estilos de Vida en el hogar',
+                                'label' => 'Identifique el Estilo de Vida predominante en el hogar',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $option,
@@ -455,18 +494,7 @@
                             ]);
                             ?>
                         </div>
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('antecedenteenfermedad2', [
-                                'label' => 'Agregue otro Estilos de Vida si se requiere',
-                                'class' => 'form-control',
-                                'type' => 'select',
-                                'options' => $option,
-                                'class' => 'form-control select-search',
-                                'style' => 'font-size: 12px',
-                            ]);
-                            ?>
-                        </div>
+
                         <div class="form-group col-md-6">
                             <?php
                             $optionTranmisibles = [
@@ -510,7 +538,7 @@
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Dinamica
                 Familiar</h2>
-            <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -530,7 +558,6 @@
                                 'Violencias de género' => 'Violencias de género',
                                 'Problemas o Transtornos mentales diangnosticados' => 'Problemas o Transtornos mentales diangnosticados',
                                 'Consumo de alcohol o psicoactivos' => 'Consumo de alcohol o psicoactivos',
-
                                 'SD' => 'Sin dato'
                             ];
 
@@ -604,7 +631,7 @@
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Apoyo Social
             </h2>
-            <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -619,13 +646,14 @@
                                 'Adulto mayor' => 'Bono - Adulto mayor',
                                 'Bien Nacer' => 'Bien nacer',
                                 'Familias en acción' => 'Familias en acción',
+                                'Banco de leche humana' => 'Banco de leche humana',
                                 'Otro' => 'Otro',
                                 'No refiere' => 'No refiere'
 
                             ];
 
                             echo $this->Form->input('programasocial', [
-                                'label' => '¿ Alguien de su hogar recibe algún subsidio o aporte de programas sociales?',
+                                'label' => '¿ Alguien de su hogar recibe algún subsidio o aporte de programas sociales o de salud?',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionProgramaSocial,
@@ -667,7 +695,7 @@
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Aseo e Higiene
             </h2>
-            <hr style="border: 1px solid black; margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -813,27 +841,10 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.select-search').select2();
-        agregarOpcionSeleccion();
+    $(function() {
+        $('#ayudaButton').popover();
     });
-
-
-    function agregarOpcionSeleccion() {
-
-        $("#PrimerainfanciaFamiliaId").prepend("<option value='' selected='selected'>Seleccione</option>");
-        $("#PrimerainfanciaPersonaId").prepend("<option value='' selected='selected'>Seleccione</option>");
-    }
-
-    function mostrar(id) {
-        if (id == "si") {
-            $("#si").show();
-            $("#no").hide();
-
-        } else if (id == "no") {
-            $("#si").hide();
-            $("#no").show();
-
-        }
-    }
+    $(function() {
+        $('#ayudaButton1').popover();
+    });
 </script>

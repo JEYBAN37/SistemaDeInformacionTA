@@ -140,7 +140,7 @@ class Juventudadulto extends AppModel
 				'message' => 'La edad debe ser un valor numérico',
 			),
 			'range' => array(
-				'rule' => array('range', 17.00, 101.00),
+				'rule' => array('range', 17.00, 120.00),
 				'message' => 'La edad debe estar entre 18 y mas años',
 			),
 		),
@@ -413,6 +413,16 @@ class Juventudadulto extends AppModel
 		),
 
 		'estudio' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+		'ocupacion' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',

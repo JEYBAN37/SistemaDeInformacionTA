@@ -87,7 +87,7 @@ class Familia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'correo' => array(
+		/*'correo' => array(
 			'email' => array(
 				'rule' => array('email', false),
 				'message' => 'diligencie correctamente ejemplo@correo.xxx',
@@ -99,7 +99,8 @@ class Familia extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		), 'celular' => array(
+		), */
+		'celular' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				'message' => 'Revisar campo',
@@ -154,7 +155,7 @@ class Familia extends AppModel
 			),
 		),
 
-		'otrocombustible' => array(
+		/*'otrocombustible' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Revisar campo',
@@ -163,7 +164,7 @@ class Familia extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'cursovidafamilia' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -174,7 +175,7 @@ class Familia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'lgtbi' => array(
+		/*'lgtbi' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Revisar campo',
@@ -183,7 +184,7 @@ class Familia extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'estilodevidapredominante' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -324,16 +325,7 @@ class Familia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'otroelementohigiene' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				'message' => 'Revisar campo',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+
 		'elementoshigiene' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),

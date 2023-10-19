@@ -10,7 +10,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 
             <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Juventud Adultos
+                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Módulo Juventud Adultos
                 </h1>
 
             </div>
@@ -62,7 +62,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'style' => 'font-size: 12px;',
 								'placeholder' => '',
 								'type' => 'select',
-								'options' => $TipoDeDocumentoOptions
+								'options' => $TipoDeDocumentoOptions,
+								//'empty' => true, // Establecer el campo como vacío
 							));
 							?>
                         </div>
@@ -112,10 +113,12 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                             <?php echo $this->Form->input('fechanac', [
 								'label' => 'Fecha de nacimiento:',
 								'type' => 'date',
-								'minYear' => date('Y') - 110,
+								'minYear' => date('Y') - 104,
 								'maxYear' => date('Y') - 18,
 								'style' => 'font-size: 16px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;',
 								'id' => 'fechanac', // Agrega este identificador al campo de fecha de nacimiento
+								'empty' => true, // Establecer el campo como vacío
+
 							]); ?>
                         </div>
 
@@ -274,20 +277,42 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							];
 							$optionDiscapacidad = array(
 								'' => 'Elegir',
-								'No presenta' => 'No presenta',
+								'No' => 'No presenta',
 								'Fisica' => 'Fisica',
-								'Cognitiva' => 'Cognitiva',
-								'Sensorial' => 'Sensorial'
+								'Auditiva' => 'Auditiva',
+								'Visual' => 'Visual',
+								'Sodoceguera' => 'Sodoceguera',
+								'Cognitiva o intelectual' => 'Cognitiva o intelectual',
+								'Metal' => 'Mental',
+
 							);
 							echo $this->Form->input('discapacidad', array(
 								'label' => '¿Presenta alguna de las siguientes discapacidades?',
 								'class' => 'form-control',
 								'placeholder' => '',
 								'type' => 'select',
+
 								'style' => 'font-size: 12px',
 								'options' => $optionDiscapacidad
 							));
 							?>
+
+                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle"
+                                data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad o funcionamiento físico.
+
+                                        Auditivas: Dificultades o limitaciones en la capacidad de escuchar o procesar el sonido.
+
+                                        Visuales: Limitaciones o dificultades en la visión.
+
+                                        Sordoceguera: Condición en la que una persona tiene tanto discapacidad auditiva como discapacidad visual.
+
+                                        Cognitivas o intelectuales: Limitaciones en el funcionamiento del cerebro que afectan el procesamiento, comprensión, aprendizaje y memoria de la información.
+
+                                        Mentales: Limitaciones en las habilidades cognitivas, emocionales y de comportamiento.
+                                        " style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+                                ?
+                            </button>
+
                         </div>
 
                         <div class="form-group col-md-6">
@@ -373,20 +398,38 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'options' => $optionCronica,
 								'style' => 'font-size: 12px',
 								'id' => 'condicioncronica',
+								'onChange' => 'cronica(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 
 							)); ?>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <p class="help-block">Selecione otra respuesta si requiere, de lo contrario elija la opción
-                                'No ' </p>
+                        <div id="Cronica" class="form-group col-md-6">
+
                             <?php
+							$optionCronica1 = array(
+								'No aplica ' => 'Elegir',
+								'No' => 'No aplica',
+								'Hipertension' => 'Hipertensión',
+								'Diabetes' => 'Diabetes',
+								'Hipertiroidismo' => 'Hipertiroidismo',
+								'Hiportiroidismo' => 'Hiportiroidismo',
+								'Dislipidemia' => 'colesterol, triglicéridos elevados',
+								'Neurologica' => 'Neurológica',
+								'Cardiovascular' => 'Cardiovascular',
+								'Respiratoria' => 'Respiratoria',
+								'Metabolica' => 'Metabólica',
+								'Endocrinologica' => 'Endocrinológica',
+								'Gastrointestinal' => 'Gastrointestinal',
+								'renal o de otro tipo' => 'renal o de otro tipo',
+								'No informa' => 'Desconoce la información',
+								'SD' => 'Sin dato',
+							);
 							echo $this->Form->input('condicioncronica1', array(
 								'label' => '¿Presenta alguna de las siguientes enfermedades crónicas?',
 								'class' => 'form-control',
 								'placeholder' => '',
 								'type' => 'select',
-								'options' => $optionCronica,
+								'options' => $optionCronica1,
 								'style' => 'font-size: 12px',
 								'id' => 'condicioncronica1',
 
@@ -426,7 +469,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'options' => $optionYesNo,
-								'placeholder' => ''
+								'placeholder' => '',
+								'id' => 'desparasitacion',
 							)); ?> </div>
 
                         <div class="form-group col-md-6">
@@ -483,14 +527,14 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
                     <div class="form-group row">
+
                         <div class="form-group col-md-6">
 
                             <?php
 							$optionVidaSexual = [
-								'' =>  'Elegir',
-								'No' => 'No inicio vida sexual',
-								'Consentido' => 'Si, Consentido',
-								'No Consentido' => 'Si, No consentido',
+								'No aplica ' =>  'Elegir',
+								'Si' => 'Si',
+								'No' => 'No',
 								'No informa' => 'No informa',
 								'SD' => 'Sin dato',
 
@@ -500,14 +544,21 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'options' => $optionVidaSexual,
-								'placeholder' => ''
+								'placeholder' => '',
+								'type' => 'select',
+								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+								'onChange' => 'iniciovidasexual(this.value); mujer(this.value);', // Combina ambas funciones en una sola función onchange
 							)); ?>
                         </div>
+
+
+                    </div>
+                    <div id="yess" class="form-group row">
 
                         <div class="form-group col-md-6">
                             <?php
 							$optionAnticonceptivos = [
-								'' =>  'Elegir',
+								'No aplica ' =>  'Elegir',
 								'No' => 'No',
 								'Sin pareja' => 'No tiene pareja en el momento',
 								'Si control' => 'Si, con supervisión',
@@ -530,11 +581,19 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         </div>
                         <div class="form-group col-md-6">
                             <?php
+							$optionits = [
+								'No aplica ' =>  'Elegir',
+								'No' => 'No',
+								'Si' => 'Si',
+								'No informa' => 'No informa',
+								'SD' => 'Sin dato',
+
+							];
 							echo $this->Form->input('infeccionestransmisionsexual', array(
 								'label' => '¿Le han diganosticado alguna Infección de transmición Sexual?',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
-								'options' => $optionYesNo,
+								'options' => $optionits,
 								'placeholder' => '',
 								'id' => 'infeccionestransmisionsexual'
 
@@ -542,280 +601,287 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         </div>
 
 
+
                     </div>
                 </div>
             </div>
 
 
-
-            <div id="si" class="grow justify-content-center" display="none" style="margin-top:20px">
-                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
-
-                    <h2 class="titulo-general-pwa-govco col-md-12  "
-                        style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Salud de la Mujer</h2>
-                    <hr
-                        style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
-
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
-                            <?php
-							$optionCitologia = [
-								'No aplica ' =>  'Elegir',
-								'No' => 'No',
-								'Citologia VPH' => 'Si, Citología VPH',
-								'Citologia convencional' => 'Si, Citología convencional',
-								'No informa' => 'No informa',
-								'No aplica' => 'No aplica',
-								'SD' => 'Sin dato',
+            <div id="yesss" class="form-group row">
 
 
-							];
-							echo $this->Form->input('tomacitologia', array(
-								'label' => '¿Se ha realizado el examen citología de acuedo a esquema?',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionCitologia,
-								'placeholder' => '',
-								'id' => 'tomacitologia'
-							)); ?>
-                            <p class="help-block"> Esquema: Citología convencional esquema 1-3-3 edad 25 a 29 años y
-                                Citología VPH
-                                1-5-5 edad de 30 a 65 años, Esquemas ante resultado negativo</p>
-                        </div>
-
-                        <div class="form-group col-md-6">
-
-                            <?php
-							$optionYesNo1 = [
-								'No aplica ' => 'Elegir',
-								'Si' => 'Si',
-								'No' => 'No',
-								'No informa' => 'No informa',
-								'No aplica' => 'No aplica',
-								'SD' => 'Sin dato',
-
-							];
-
-							echo $this->Form->input('mamografia', array(
-								'label' => 'Le han realizado Mamografía en 5 últimos años (Mujer de 50 y más años)',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionYesNo1,
-								'placeholder' => ''
-							)); ?>
-                        </div>
-
+                <div id="si" class="grow justify-content-center" display="none" style="margin-top:20px">
+                    <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
                         <h2 class="titulo-general-pwa-govco col-md-12  "
-                            style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Antecedentes
-                            ginecológicos/obsetétricos</h2>
+                            style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Salud de la Mujer</h2>
+                        <hr
+                            style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+
+                        <div class="form-group row">
+                            <div class="form-group col-md-6">
+                                <?php
+								$optionCitologia = [
+									'No aplica ' =>  'Elegir',
+									'No' => 'No',
+									'Citologia VPH' => 'Si, Citología VPH',
+									'Citologia convencional' => 'Si, Citología convencional',
+									'No informa' => 'No informa',
+									'No aplica' => 'No aplica',
+									'SD' => 'Sin dato',
 
 
-                        <div class="form-group col-md-6">
-                            <?php
+								];
+								echo $this->Form->input('tomacitologia', array(
+									'label' => '¿Se ha realizado el examen citología de acuedo a esquema?',
+									'class' => 'form-control',
+									'style' => 'font-size: 12px',
+									'type' => 'select',
+									'options' => $optionCitologia,
+									'placeholder' => '',
+									'id' => 'tomacitologia'
+								)); ?>
+                                <p class="help-block"> Esquema: Citología convencional esquema 1-3-3 edad 25 a 29 años y
+                                    Citología VPH
+                                    1-5-5 edad de 30 a 65 años, Esquemas ante resultado negativo</p>
+                            </div>
 
-							echo $this->Form->input('antecedenteginecologico', array(
-								'label' => '¿Le han realizado alguna cirugia ginecológica?',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionYesNo1,
-								'placeholder' => ''
-							)); ?>
-                            <p class="help-block"> Procedimientos en el sistema reproductivo, ovarios, útero, trompas de
-                                Falopio, cuello uterino </p>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
-							$optionGinecologico = [
-								'No aplica ' => 'Elegir',
-								'No' => 'No',
-								'No embarazos' => 'No ha tenido embarazos',
-								'Antecedente de abortos' => 'Antecedente de 2 o más abortos',
-								'Muerte perinatal' => 'Muerte perinatal',
-								'Bajo peso al nacer' => 'Recien nacido con Bajo peso al nacer',
-								'Prematurez' => 'Recien nacido Prematuro',
-								'Multiparidad' => 'Multiparidad (5 o más partos)',
-								'Edad Materna Avanzada' => 'Embarazo mujer mayor de 35 años',
-								'Preclampsia' => 'Antecendente de Preclampsia',
-								'Eclampsia' => 'Antecendente de eclampsia',
-								'No aplica' => 'No Aplica',
-								'SD' => 'Sin dato',
+                            <div class="form-group col-md-6">
 
-							];
-							echo $this->Form->input('antecedenteginecologico', array(
-								'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionGinecologico,
-								'placeholder' => ''
-							)); ?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <p class="help-block">Selecione otra respuesta si requiere, de lo contrario elija la opción
-                                'No ' </p>
-                            <?php
-							echo $this->Form->input('ancedenteginecologico1', array(
-								'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionGinecologico,
-								'placeholder' => ''
-							)); ?>
-                        </div>
+                                <?php
+								$optionYesNo1 = [
+									'No aplica ' => 'Elegir',
+									'Si' => 'Si',
+									'No' => 'No',
+									'No informa' => 'No informa',
+									'No aplica' => 'No aplica',
+									'SD' => 'Sin dato',
 
-                        <div class="form-group col-md-6">
-                            <?php
-							$gestanteOption = [
-								' ' => 'Elegir',
-								'No' => 'No',
-								'Si' => 'Si',
-							];
-							echo $this->Form->input('gestacion', [
-								'label' => '¿Mujer en embarazo?',
-								'class' => 'form-control',
-								'placeholder' => '',
-								'type' => 'select',
-								'options' => $gestanteOption,
-								'style' => 'font-size: 12px',
-								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
-								'onChange' => 'gestacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
-							]);
-							?>
-                            <p class="help-block"> Registre infomración de mujer en gestación o puerperio</p>
-                        </div>
+								];
+
+								echo $this->Form->input('mamografia', array(
+									'label' => 'Le han realizado Mamografía en 5 últimos años (Mujer de 50 y más años)',
+									'class' => 'form-control',
+									'style' => 'font-size: 12px',
+									'type' => 'select',
+									'options' => $optionYesNo1,
+									'placeholder' => ''
+								)); ?>
+                            </div>
 
 
-
-                    </div>
-
-                    <div id="yes" class="form-group row">
-                        <h2 class="titulo-general-pwa-govco col-md-12  "
-                            style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Gestación</h2>
-
-                        <div class="form-group col-md-6">
-                            <?php
-							$optionControlPrenatal = [
-								'No aplica ' =>  'Elegir',
-								'No inscrita' => 'No inscrita en control de embarazo',
-								'Asistente CPN' => 'Si, Control al dia',
-								'Inasistente CPN' => 'Si, inasistente a ultimo control',
-								'Puerperio' => 'En etapa de puerperio',
-								'No informa' => 'No sabe/No informa',
-								'SD' => 'Sin dato',
-							];
-							echo $this->Form->input('controlprenatal', array(
-								'label' => '¿Esta inscrita en control prenatal?',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionControlPrenatal,
-								'placeholder' => '',
-
-							)); ?>
-
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
-							$optionRiesgoEmbarazo = [
-								'No aplica ' =>  'Elegir',
-								'Bajo' => 'Bajo',
-								'Alto' => 'Alto',
-								'No informa' => 'No informa',
-								'SD' => 'Sin dato',
+                            <h2 class="titulo-general-pwa-govco col-md-12  "
+                                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Antecedentes
+                                ginecológicos/obsetétricos</h2>
 
 
-							];
-							echo $this->Form->input('riesgoembarazo', array(
-								'label' => '¿El riesgo del embarazo es?',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionRiesgoEmbarazo,
-								'placeholder' => '',
+                            <div class="form-group col-md-6">
+                                <?php
+
+								echo $this->Form->input('antecedenteginecologico', array(
+									'label' => '¿Le han realizado alguna cirugia ginecológica?',
+									'class' => 'form-control',
+									'style' => 'font-size: 12px',
+									'type' => 'select',
+									'options' => $optionYesNo1,
+									'placeholder' => ''
+								)); ?>
+                                <p class="help-block"> Procedimientos en el sistema reproductivo, ovarios, útero,
+                                    trompas de
+                                    Falopio, cuello uterino </p>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <?php
+								$optionGinecologico = [
+									'No aplica ' => 'Elegir',
+									'No' => 'No',
+									'No embarazos' => 'No ha tenido embarazos',
+									'Antecedente de abortos' => 'Antecedente de 2 o más abortos',
+									'Muerte perinatal' => 'Muerte perinatal',
+									'Bajo peso al nacer' => 'Recien nacido con Bajo peso al nacer',
+									'Prematurez' => 'Recien nacido Prematuro',
+									'Multiparidad' => 'Multiparidad (5 o más partos)',
+									'Edad Materna Avanzada' => 'Embarazo mujer mayor de 35 años',
+									'Preclampsia' => 'Antecendente de Preclampsia',
+									'Eclampsia' => 'Antecendente de eclampsia',
+									'No aplica' => 'No Aplica',
+									'SD' => 'Sin dato',
+
+								];
+								echo $this->Form->input('antecedenteginecologico', array(
+									'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
+									'class' => 'form-control',
+									'style' => 'font-size: 12px',
+									'type' => 'select',
+									'options' => $optionGinecologico,
+									'placeholder' => ''
+								)); ?>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <p class="help-block">Selecione otra respuesta si requiere, de lo contrario elija la
+                                    opción
+                                    'No ' </p>
+                                <?php
+								echo $this->Form->input('ancedenteginecologico1', array(
+									'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
+									'class' => 'form-control',
+									'style' => 'font-size: 12px',
+									'type' => 'select',
+									'options' => $optionGinecologico,
+									'placeholder' => ''
+								)); ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php
+								$gestanteOption = [
+									'No aplica ' => 'Elegir',
+									'No' => 'No',
+									'Si' => 'Si',
+								];
+								echo $this->Form->input('gestacion', [
+									'label' => '¿Mujer en embarazo?',
+									'class' => 'form-control',
+									'placeholder' => '',
+									'type' => 'select',
+									'options' => $gestanteOption,
+									'style' => 'font-size: 12px',
+
+									'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+									'onChange' => 'gestacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
+								]);
+								?>
+                                <p class="help-block"> Registre infomración de mujer en gestación o puerperio</p>
+                            </div>
 
 
-							)); ?>
-
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
-							$optionAlarmaEmbarazo = [
-								'No aplica ' =>  'Elegir',
-								'No' => 'No',
-								'Dolor de Cabeza' => 'Dolor de cabeza',
-								'Mareo_zumbido' => 'Mareo/zumbido en el oido',
-								'Dolor del vientre' => 'Dolor del vientre tipo contracción',
-								'Disminucion o ausencia de movimientos del bebe' => 'Disminución o ausencia de movimientos del bebé',
-								'Hinchazon de cara y extremidades' => 'Hinchazón de manos, cara, piernas y pies',
-								'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
-								'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
-								'Sangrado vaginal' => 'Sangrado vaginal',
-								'No informa' => 'No informa',
-								'SD' => 'Sin dato',
-
-
-							];
-							echo $this->Form->input('signoAlarma', array(
-								'label' => '¿En el momento presenta alguno de los siguientes signo o síntoma de alarma?',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionAlarmaEmbarazo,
-								'placeholder' => '',
-								'id' => 'riesgoembarazo'
-
-							)); ?>
 
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div id="yes" class="form-group row">
+                            <h2 class="titulo-general-pwa-govco col-md-12  "
+                                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Gestación</h2>
 
-                            <?php
-							$optionCursoVida = [
-								'No aplica ' => 'Elegir',
-								'Juventud' => 'Juventud',
-								'Adultez' => 'adultez',
-							];
+                            <div class="form-group col-md-6">
+                                <?php
+								$optionControlPrenatal = [
+									'No aplica ' =>  'Elegir',
+									'No inscrita' => 'No inscrita en control de embarazo',
+									'Asistente CPN' => 'Si, Control al dia',
+									'Inasistente CPN' => 'Si, inasistente a ultimo control',
+									'Puerperio' => 'En etapa de puerperio',
+									'No informa' => 'No sabe/No informa',
+									'SD' => 'Sin dato',
+								];
+								echo $this->Form->input('controlprenatal', array(
+									'label' => '¿Esta inscrita en control prenatal?',
+									'class' => 'form-control',
+									'style' => 'font-size: 12px',
+									'type' => 'select',
+									'options' => $optionControlPrenatal,
+									'placeholder' => '',
 
-							echo $this->Form->input('cursovida', array(
-								'label' => '¿El curso de vida de la gestante es?',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionCursoVida,
-								'placeholder' => ''
-							)); ?>
+								)); ?>
+
+                            </div>
+                            <div class="form-group col-md-6">
+                                <?php
+								$optionRiesgoEmbarazo = [
+									'No aplica ' =>  'Elegir',
+									'Bajo' => 'Bajo',
+									'Alto' => 'Alto',
+									'No informa' => 'No informa',
+									'SD' => 'Sin dato',
+
+
+								];
+								echo $this->Form->input('riesgoembarazo', array(
+									'label' => '¿El riesgo del embarazo es?',
+									'class' => 'form-control',
+									'style' => 'font-size: 12px',
+									'type' => 'select',
+									'options' => $optionRiesgoEmbarazo,
+									'placeholder' => '',
+
+
+								)); ?>
+
+                            </div>
+                            <div class="form-group col-md-6">
+                                <?php
+								$optionAlarmaEmbarazo = [
+									'No aplica ' =>  'Elegir',
+									'No' => 'No',
+									'Dolor de Cabeza' => 'Dolor de cabeza',
+									'Mareo_zumbido' => 'Mareo/zumbido en el oido',
+									'Dolor del vientre' => 'Dolor del vientre tipo contracción',
+									'Disminucion o ausencia de movimientos del bebe' => 'Disminución o ausencia de movimientos del bebé',
+									'Hinchazon de cara y extremidades' => 'Hinchazón de manos, cara, piernas y pies',
+									'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
+									'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
+									'Sangrado vaginal' => 'Sangrado vaginal',
+									'No informa' => 'No informa',
+									'SD' => 'Sin dato',
+
+
+								];
+								echo $this->Form->input('signoAlarma', array(
+									'label' => '¿En el momento presenta alguno de los siguientes signo o síntoma de alarma?',
+									'class' => 'form-control',
+									'style' => 'font-size: 12px',
+									'type' => 'select',
+									'options' => $optionAlarmaEmbarazo,
+									'placeholder' => '',
+									'id' => 'riesgoembarazo'
+
+								)); ?>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+
+                                <?php
+								$optionCursoVida = [
+									'No aplica ' => 'Elegir',
+									'Juventud' => 'Juventud',
+									'Adultez' => 'adultez',
+								];
+
+								echo $this->Form->input('cursovida', array(
+									'label' => '¿El curso de vida de la gestante es?',
+									'class' => 'form-control',
+									'style' => 'font-size: 12px',
+									'type' => 'select',
+									'options' => $optionCursoVida,
+									'placeholder' => ''
+								)); ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php
+								$optionAlternativa = [
+									'No aplica ' => 'Elegir',
+									'No refiere' => 'No refiere',
+									'Medicina indigena' => 'Medicina Tradicional/indigena',
+									'Homeopatía' => 'Homeopatía',
+									'Medicina tradicional china' => 'Medicina tradicional china',
+									'Acupuntura' => 'Acupuntura',
+									'Quiropraxia' => 'Quiropraxia',
+									'Otro' => 'Otro',
+									'SD' => 'Sin dato'
+								];
+								echo $this->Form->input('saludalternativa', [
+									'label' => '¿Hacen uso de otras opciones para el cuidado de su salud durante su embarazo?',
+									'class' => 'form-control',
+									'type' => 'select',
+									'options' => $optionAlternativa,
+									'style' => 'font-size: 12px',
+								]);
+								?>
+                            </div>
+
+
                         </div>
-
-                        <div class="form-group col-md-6">
-                            <?php
-							$optionAlternativa = [
-								'No aplica ' => 'Elegir',
-								'Medicina indigena' => 'Medicina Tradicional/indigena',
-								'Homeopatía' => 'Homeopatía',
-								'Medicina tradicional china' => 'Medicina tradicional china',
-								'Acupuntura' => 'Acupuntura',
-								'Quiropraxia' => 'Quiropraxia',
-								'Otro' => 'Otro',
-								'No refiere' => 'No refiere',
-								'SD' => 'Sin dato'
-							];
-							echo $this->Form->input('saludalternativa', [
-								'label' => '¿Hacen uso de otras opciones para el cuidado de su salud durante su embarazo?',
-								'class' => 'form-control',
-								'type' => 'select',
-								'options' => $optionAlternativa,
-								'style' => 'font-size: 12px',
-							]);
-							?>
-                        </div>
-
-
                     </div>
                 </div>
             </div>
@@ -833,8 +899,61 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
                         <div class="form-group col-md-6">
                             <?php
+							$optionEstudio = [
+								'' => 'Elegir',
+								'No' => 'No',
+								'Institucion educativa' => 'Institución educativa',
+								'Educacion por ciclos' => 'Educación por ciclos',
+								'Instituto tecnico' => 'Instituto técnico',
+								'No estudia' => 'No estudia',
+								'Centro Dia' => 'Centro Día',
+								'Centro Vida' => 'Centro Vida',
+								'SENA' => 'SENA',
+								'Universidad' => 'Universidad',
+								'No aplica' => 'No aplica',
+								'No informa' => 'No informa',
+								'SD' => 'Sin dato'
+							];
+
+							echo $this->Form->input('estudio', array(
+								'label' => '¿Asiste a una institución educativa o de cuidado?',
+								'class' => 'form-control',
+								'placeholder' => '',
+								'options' => $optionEstudio,
+								'type' => 'select',
+								'style' => 'font-size: 12px',
+
+							)); ?>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <?php
+							$optionOcupacion = [
+								'' => 'Elegir',
+								'Estudia' => 'Estudia',
+								'Oficios Hogar y cuidado' => 'Oficios del hogar y/o de cuidado',
+								'Trabajo formal' => 'Trabajo formal',
+								'Trabajo informal' => 'Trabajo informal',
+								'Independiente' => 'Independiente/microempresario',
+								'Sin ocupación' => 'Sin ocupación',
+								'No informa' => 'No informa',
+								'No aplica' => 'No aplica',
+								'SD' => 'Sin dato'
+							];
+							echo $this->Form->input('ocupacion', array(
+								'label' => '¿Cúal es la ocupación actual?',
+								'class' => 'form-control',
+								'placeholder' => '',
+								'type' => 'select',
+								'options' => $optionOcupacion,
+								'style' => 'font-size: 12px',
+								'class' => 'form-control select-search'
+							));
+							?></div>
+
+                        <div class="form-group col-md-6">
+                            <?php
 							$optionConsumospa = [
-								'' =>  'Elegir',
+								'No aplica ' =>  'Elegir',
 								'No' => 'No',
 								'Cigarrillo' => 'Cigarrillo',
 								'Licor' => 'Licor',
@@ -852,10 +971,11 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'style' => 'font-size: 12px',
 								'options' => $optionConsumospa,
 								'placeholder' => '',
-								'id' => 'consumospa'
+								'id' => 'consumospa',
+								'onChange' => 'spa(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 							)); ?>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div id="Consumospa" class="form-group col-md-6">
                             <?php
 							echo $this->Form->input('consumospa1', array(
 								'label' => 'Consumo de Alcohol/Cigarrillo, sustancias Psicoactivas, uso indebido de medicamentos ',
@@ -864,19 +984,21 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'options' => $optionConsumospa,
 								'placeholder' => '',
 								'id' => 'consumospa1'
+
 							)); ?>
                         </div>
                         <div class="form-group col-md-6">
                             <?php
 							$optionConflictos = [
-								'' => 'Elegir',
+								'No aplica ' => 'Elegir',
+								'No' => 'No refiere',
+								'Difucultades Economicas' => 'Dificultad economica para suplir necesidades basicas',
 								'Conflictos entre padres e hijos' => 'Conflictos entre padres e hijos',
 								'Conflictos entre hermanos' => 'Conflictos entre hermanos',
 								'Conflictos entre Familia' => 'Conflictos entre Familia',
 								'Violencias de género' => 'Violencias de género',
 								'Problemas o Transtornos mentales diangnosticados' => 'Problemas o Transtornos mentales diangnosticados',
 								'Consumo de alcohol o psicoactivos' => 'Consumo de alcohol o psicoactivos',
-								'No' => 'No refiere',
 								'SD' => 'Sin dato'
 							];
 
@@ -887,11 +1009,12 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'options' => $optionConflictos,
 
 								'style' => 'font-size: 12px',
-								'id' => 'riesgopsicosocial'
+								'id' => 'riesgopsicosocial',
+								'onChange' => 'psicosocial(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 							]);
 							?>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div id="Psicosocial" class="form-group col-md-6">
                             <p class="help-block">Selecione otra respuesta si requiere, de lo contrario elija la opción
                                 'No refiere' </p>
                             <?php
@@ -904,54 +1027,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'id' => 'riesgopsicosocial1'
 							)); ?>
                         </div>
-                        <div class="form-group col-md-6">
-                            <?php
-							$optionEstudio = [
-								'' => 'Elegir',
-								'Institucion educativa' => 'Institución educativa',
-								'Educacion por ciclos' => 'Educación por ciclos',
-								'Instituto tecnico' => 'Instituto técnico',
-								'Centro Dia' => 'Centro Día',
-								'Centro Vida' => 'Centro Vida',
-								'SENA' => 'SENA',
-								'Universidad' => 'Universidad',
-								'No' => 'No estudia',
-								'No aplica' => 'No aplica',
-								'No informa' => 'No informa',
-								'SD' => 'Sin dato'
-							];
 
-							echo $this->Form->input('estudio', array(
-								'label' => '¿Asiste a una institución educativa o de cuidado?',
-								'class' => 'form-control',
-								'placeholder' => '',
-								'options' => $optionEstudio,
-								'type' => 'select',
-								'style' => 'font-size: 12px',
-
-							)); ?>
-                        </div>
-                        <!--div class="form-group col-md-6">
-                                <?php
-								$optionRendimientoEstudio = [
-									'' => 'Elegir',
-									'Alto' => 'Aprende y es dedicado en sus tareas',
-									'Medio' => 'Se le dificulta comprender las tematicas ',
-									'Bajo' => 'Tiene bajas notas y no hace tareas',
-									'No informa' => 'No informa',
-									'No aplica' => 'No aplica',
-									'SD' => 'Sin dato'
-								];
-								echo $this->Form->input('rendimientoescolar', array(
-									'label' => '¿Como es el rendiminento escolar?',
-									'class' => 'form-control',
-									'placeholder' => '',
-									'type' => 'select',
-									'options' => $optionRendimientoEstudio,
-									'style' => 'font-size: 12px',
-									'class' => 'form-control select-search'
-								));
-								?></div-->
                         <div class="form-group col-md-6">
                             <?php
 							$optionTiposViolencia = [
@@ -987,7 +1063,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
             <hr
                 style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
-            <div class="grow justify-content-center" display="none" style="margin-top:20px">
+            <div class="grow justify-content-center" display="none" style="margin-top:20px; ">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
                     <div class="form-group row">
@@ -995,7 +1071,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         <div class="form-group col-md-6">
                             <?php
 							$optionCanlizacion = [
-								'' => 'Elegir',
+								'No aplica ' => 'Elegir',
+								'No' => 'No',
 								'Vacunacion ' => 'Vacunación ',
 								'Atencion de PyM Medico' => 'Atención en salud de promoción y mantenimiento por médico',
 								'Atencion medicina general' => ' Atención en salud por medicina general',
@@ -1029,8 +1106,14 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'options' => $optionCanlizacion,
 								'type' => 'select',
 								'style' => 'font-size: 12px',
+								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+								'onChange' => 'canalizacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 							)); ?>
                         </div>
+
+
+                    </div>
+                    <div id="Canalizacion" class="form-group row">
                         <div class="form-group col-md-6">
                             <?php
 							echo $this->Form->input('canalizaciondos', array(
@@ -1041,18 +1124,15 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'class' => 'form-control select-search',
 								'options' => $optionCanlizacion,
 								'type' => 'select',
-								'style' => 'font-size: 12px'
+								'style' => 'font-size: 12px',
+								
 							));
 							?>
                         </div>
 
                         <div class="form-group col-md-6">
                             <?php
-							$optionEducacion = [
-								'Educacion individual' => 'Educación para la salud individual',
-								'Educacion familiar' => 'Educación para la salud familiar',
-								'Educacion grupal' => 'Educación para la salud grupal',
-							];
+
 							echo $this->Form->input('canalizaciontres', array(
 								'label' => 'Canalización',
 								'class' => 'form-control',
@@ -1062,11 +1142,20 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'options' => $optionCanlizacion,
 								'type' => 'select',
 								'style' => 'font-size: 12px',
+								
 							)); ?>
                         </div>
 
                         <div class="form-group col-md-6">
                             <?php
+							$optionEducacion = [
+								'No aplica ' => 'Elegir',
+								'No aplica' => 'No aplica',
+								'Educacion individual' => 'Educación para la salud individual',
+								'Educacion familiar' => 'Educación para la salud familiar',
+								'Educacion grupal' => 'Educación para la salud grupal',
+
+							];
 							echo $this->Form->input('educacion', array(
 								'label' => 'Refiera el tipo de Educación a desarrollar',
 								'class' => 'form-control',
@@ -1075,6 +1164,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'options' => $optionEducacion,
 								'type' => 'select',
 								'style' => 'font-size: 12px',
+								
 							)); ?>
                         </div>
 
@@ -1088,6 +1178,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'placeholder' => '',
 								'type' => 'select',
 								'style' => 'font-size: 12px',
+								
 							)); ?>
                         </div>
 
@@ -1147,7 +1238,7 @@ function agregarOpcionSeleccion() {
     $("#JuventudadultoPersonaId").prepend(
         "<option value='' selected='selected'>Seleccione</option>");
     $("#JuventudadultoCanalizacionId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
+        "<option value='00' selected='selected'>Seleccione</option>");
 
 
 }
@@ -1166,15 +1257,7 @@ function agregarOpcionSeleccion() {
 
     }
 }*/
-function gestacion(id) {
-    if (id === "Si") {
-        $("#yes").show();
-        $("#not").hide();
-    } else if (id === "No") {
-        $("#yes").hide();
-        $("#noy").hide();
-    }
-}
+
 
 document.getElementById('calcularIMC').addEventListener('click', function() {
     var peso = parseFloat(document.getElementById('peso').value);
@@ -1210,5 +1293,8 @@ document.getElementById('calcularIMC').addEventListener('click', function() {
     } else {
         alert('Por favor, ingrese valores válidos para peso y talla.');
     }
+});
+$(function() {
+    $('#ayudaButton').popover();
 });
 </script>

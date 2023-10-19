@@ -1,13 +1,92 @@
+ // Establecer el campo de fecha de nacimiento como vacío
 
+
+function gestacion(id) {
+	if (id === "Si") {
+		$("#yes").show();
+		$("#not").hide();
+	} else if (id === "No") {
+		$("#yes").hide();
+		$("#not").hide();
+	}
+}
+
+function iniciovidasexual(id) {
+	if (id === "Si") {
+		$("#yess").show();
+		$("#nott").hide();
+	} else if (id === "No") {
+		$("#yess").hide();
+		$("#nott").hide();
+	} else if (id === "SD") {
+		$("#yess").hide();
+		$("#nott").hide();
+	} else if (id === "No informa") {
+		$("#yess").hide();
+		$("#nott").hide();
+	}
+}
+
+function mujer(id) {
+	if (id === "Si") {
+		$("#yesss").show();
+		$("#nottt").hide();
+	} else if (id === "No") {
+		$("#yesss").hide();
+		$("#nottt").hide();
+	} else if (id === "SD") {
+		$("#yesss").hide();
+		$("#nottt").hide();
+	} else if (id === "No informa") {
+		$("#yesss").hide();
+		$("#nottt").hide();
+	}
+}
+
+function canalizacion(id) {
+	if (id != "No") {
+		$("#Canalizacion").show();
+	} else {
+		$("#Canalizacion").hide();
+	}
+}
+
+function spa(id) {
+	if (id != "No") {
+		$("#Consumospa").show();
+	} else {
+		$("#Consumospa").hide();
+	}
+}
+
+function psicosocial(id) {
+	if (id != "No") {
+		$("#Psicosocial").show();
+	} else {
+		$("#Psicosocial").hide();
+	}
+}
+function cronica(id) {
+	if (id != "No" && selectedValue !== 'SD' && selectedValue !== 'No aplica') {
+		$("#Cronica").show();
+	} else {
+		$("#Cronica").hide();
+	}
+}
+
+
+
+	
 	document.addEventListener('DOMContentLoaded', function() {
         var condicioncronicaSelect = document.getElementById('condicioncronica');
         var condicioncronica1Select = document.getElementById('condicioncronica1');
+		
     
         // Función para aplicar la validación de color rojo
         function applyRedValidation(selectElement) {
             var selectedValue = selectElement.value;
     
-            if (selectedValue !== 'No' && selectedValue !== 'SD') {
+            if (selectedValue !== 'No' && selectedValue !== 'SD' && selectedValue !== '' && selectedValue !== 'No aplica ') {
                 selectElement.style.color = 'red';
             } else {
                 selectElement.style.color = '';
@@ -22,10 +101,14 @@
         condicioncronica1Select.addEventListener('change', function() {
             applyRedValidation(condicioncronica1Select);
         });
+		
+
+	
     
         // Aplica la validación cuando se carga la página
         applyRedValidation(condicioncronicaSelect);
         applyRedValidation(condicioncronica1Select);
+		
     });
 
 	document.addEventListener('DOMContentLoaded', function() {
@@ -33,6 +116,7 @@
         var metodopfSelect = document.getElementById('metodosanticonceptivos');		
 		var citologiaSelect = document.getElementById('tomacitologia');
 		var vacunacionSelect = document.getElementById('esquemavacunacion'); 
+		var desparasitacionSelect = document.getElementById('desparasitacion');
 		
 	
     
@@ -68,13 +152,18 @@
 
 		 vacunacionSelect.addEventListener('change',function(){
 			applyRedValidation(vacunacionSelect);
-		 });		
+		 });	
+		 
+		 desparasitacionSelect.addEventListener('change', function() {
+            applyRedValidation(desparasitacionSelect);
+        });
 
 		// Aplica la validación cuando se carga la página
         applyRedValidation(saludoralSelect);
 		applyRedValidation(metodopfSelect);		
 		applyRedValidation(citologiaSelect);
 		applyRedValidation(vacunacionSelect);	
+		applyRedValidation(desparasitacionSelect);
 		
 		
       
@@ -93,7 +182,7 @@
             var selectedValue = selectElement.value;
 			
     
-            if (selectedValue !== 'No' ) {
+            if (selectedValue !== 'No' && selectedValue !== 'SD' && selectedValue !== '' && selectedValue !== 'No aplica ') {
                 selectElement.style.color = 'red';
             } else {
                 selectElement.style.color = '';

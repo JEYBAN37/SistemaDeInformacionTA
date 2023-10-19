@@ -307,6 +307,23 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'options' => $optionDiscapacidad
                             ));
                             ?>
+
+                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle"
+                                data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad o funcionamiento físico.
+
+                                        Auditivas: Dificultades o limitaciones en la capacidad de escuchar o procesar el sonido.
+
+                                        Visuales: Limitaciones o dificultades en la visión.
+
+                                        Sordoceguera: Condición en la que una persona tiene tanto discapacidad auditiva como discapacidad visual.
+
+                                        Cognitivas o intelectuales: Limitaciones en el funcionamiento del cerebro que afectan el procesamiento, comprensión, aprendizaje y memoria de la información.
+
+                                        Mentales: Limitaciones en las habilidades cognitivas, emocionales y de comportamiento.
+                                        " style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+                                ?
+                            </button>
+
                         </div>
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('anomaliacongenita', array(
@@ -865,4 +882,8 @@ function agregarOpcionSeleccion() {
     $("#PrimerainfanciaCanalizacionId").prepend(
         "<option value='' selected='selected'>Seleccione</option>");
 }
+
+$(function() {
+    $('#ayudaButton').popover();
+});
 </script>

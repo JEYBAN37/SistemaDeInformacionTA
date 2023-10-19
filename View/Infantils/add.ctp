@@ -17,8 +17,10 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -247,9 +249,11 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 
 
 
-                <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+                <h2 class="titulo-general-pwa-govco col-md-12  "
+                    style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                     Valoración de Salud</h2>
-                <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+                <hr
+                    style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
                 <div class="grow justify-content-center" display="none" style="margin-top:20px">
                     <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
                         <div class="form-group row">
@@ -257,20 +261,42 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 <?php
                                 $optionDiscapacidad = array(
                                     '' => 'Elegir',
-                                    'No presenta' => 'No presenta',
+                                    'No' => 'No presenta',
                                     'Fisica' => 'Fisica',
-                                    'Cognitiva' => 'Cognitiva',
-                                    'Sensorial' => 'Sensorial'
+                                    'Auditiva' => 'Auditiva',
+                                    'Visual' => 'Visual',
+                                    'Sodoceguera' => 'Sodoceguera',
+                                    'Cognitiva o intelectual' => 'Cognitiva o intelectual',
+                                    'Metal' => 'Mental',
+
                                 );
                                 echo $this->Form->input('discapacidad', array(
                                     'label' => '¿Presenta alguna de las siguientes discapacidades?',
                                     'class' => 'form-control',
                                     'placeholder' => '',
                                     'type' => 'select',
+
                                     'style' => 'font-size: 12px',
                                     'options' => $optionDiscapacidad
                                 ));
                                 ?>
+
+                                <button type="button" id="ayudaButton" class="btn btn-success rounded-circle"
+                                    data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad o funcionamiento físico.
+
+                                        Auditivas: Dificultades o limitaciones en la capacidad de escuchar o procesar el sonido.
+
+                                        Visuales: Limitaciones o dificultades en la visión.
+
+                                        Sordoceguera: Condición en la que una persona tiene tanto discapacidad auditiva como discapacidad visual.
+
+                                        Cognitivas o intelectuales: Limitaciones en el funcionamiento del cerebro que afectan el procesamiento, comprensión, aprendizaje y memoria de la información.
+
+                                        Mentales: Limitaciones en las habilidades cognitivas, emocionales y de comportamiento.
+                                        " style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+                                    ?
+                                </button>
+
                             </div>
                             <div class="form-group col-md-6">
                                 <?php
@@ -350,9 +376,11 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Atención en Salud</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -483,9 +511,11 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Condiciones de vulnerabilidad</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -603,9 +633,11 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
                 Atención integral</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
                     <div class="form-group row">
@@ -745,56 +777,59 @@ $this->Html->script([
 
 
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.select-search').select2();
-        agregarOpcionSeleccion();
-    });
+$(document).ready(function() {
+    $('.select-search').select2();
+    agregarOpcionSeleccion();
+});
 
 
-    function agregarOpcionSeleccion() {
+function agregarOpcionSeleccion() {
 
-        $("#InfantilFamiliaId").prepend(
-            "<option value='' selected='selected'>Seleccione</option>");
+    $("#InfantilFamiliaId").prepend(
+        "<option value='' selected='selected'>Seleccione</option>");
 
-        $("#InfantilCanalizacionId").prepend(
-            "<option value='' selected='selected'>Seleccione</option>");
+    $("#InfantilCanalizacionId").prepend(
+        "<option value='' selected='selected'>Seleccione</option>");
 
 
-    }
+}
 
-    document.getElementById('calcularIMC').addEventListener('click', function() {
-        var peso = parseFloat(document.getElementById('peso').value);
-        var talla = parseFloat(document.getElementById('talla').value);
+document.getElementById('calcularIMC').addEventListener('click', function() {
+    var peso = parseFloat(document.getElementById('peso').value);
+    var talla = parseFloat(document.getElementById('talla').value);
 
-        if (!isNaN(peso) && !isNaN(talla) && talla > 0) {
-            var altura = talla / 100; // Convertir de cm a m
-            var imc = peso / (altura * altura);
+    if (!isNaN(peso) && !isNaN(talla) && talla > 0) {
+        var altura = talla / 100; // Convertir de cm a m
+        var imc = peso / (altura * altura);
 
-            // Mostrar el IMC calculado en el campo indicemasacorporal
-            var imcField = document.getElementById('indicemasacorporal');
-            imcField.value = imc.toFixed(2); // Redondear a 2 decimales
+        // Mostrar el IMC calculado en el campo indicemasacorporal
+        var imcField = document.getElementById('indicemasacorporal');
+        imcField.value = imc.toFixed(2); // Redondear a 2 decimales
 
-            // Determinar el mensaje y el color según el rango del IMC
-            var mensaje = '';
-            if (imc < 18.5) {
-                mensaje = 'Peso insuficiente';
-                imcField.style.color = 'red'; // Cambiar el color del texto a rojo
-            } else if (imc >= 18.5 && imc <= 24.9) {
-                mensaje = 'Peso normal o saludable';
-                imcField.style.color = 'green'; // Cambiar el color del texto a verde
-            } else if (imc >= 25.0 && imc <= 29.9) {
-                mensaje = 'Sobrepeso';
-                imcField.style.color = 'orange'; // Cambiar el color del texto a naranja
-            } else {
-                mensaje = 'Obesidad';
-                imcField.style.color = 'red'; // Cambiar el color del texto a rojo
-            }
-
-            // Mostrar el mensaje en el elemento mensajeIMC
-            var mensajeIMC = document.getElementById('mensajeIMC');
-            mensajeIMC.textContent = mensaje;
+        // Determinar el mensaje y el color según el rango del IMC
+        var mensaje = '';
+        if (imc < 18.5) {
+            mensaje = 'Peso insuficiente';
+            imcField.style.color = 'red'; // Cambiar el color del texto a rojo
+        } else if (imc >= 18.5 && imc <= 24.9) {
+            mensaje = 'Peso normal o saludable';
+            imcField.style.color = 'green'; // Cambiar el color del texto a verde
+        } else if (imc >= 25.0 && imc <= 29.9) {
+            mensaje = 'Sobrepeso';
+            imcField.style.color = 'orange'; // Cambiar el color del texto a naranja
         } else {
-            alert('Por favor, ingrese valores válidos para peso y talla.');
+            mensaje = 'Obesidad';
+            imcField.style.color = 'red'; // Cambiar el color del texto a rojo
         }
-    });
+
+        // Mostrar el mensaje en el elemento mensajeIMC
+        var mensajeIMC = document.getElementById('mensajeIMC');
+        mensajeIMC.textContent = mensaje;
+    } else {
+        alert('Por favor, ingrese valores válidos para peso y talla.');
+    }
+});
+$(function() {
+    $('#ayudaButton').popover();
+});
 </script>
