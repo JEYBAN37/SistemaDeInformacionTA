@@ -11,7 +11,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
         <fieldset>
 
             <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Infancia 6 a 11
+                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Módulo Infancia 6 a 11
                     años</h1>
 
             </div>
@@ -212,37 +212,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                             ]);  ?>
                         </div>
 
-                        <!--div class="form-group col-md-6">
-                            <?php echo $this->Form->input('barrio', [
-                                'label' => 'Barrio',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                            ]);  ?>
-                        </div-->
 
-                        <!--div class="form-group col-md-6">
-                            <?php echo $this->Form->input('direccion', [
-                                'label' => 'Direccion',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                            ]);  ?>
-                        </div-->
-
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('telefono', [
-                                'label' => 'Telefono',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                            ]);  ?>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('email', [
-                                'label' => 'Email',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                            ]);  ?>
-                        </div>
 
                     </div>
                 </div>
@@ -346,23 +316,24 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                             $optionCronica = array(
                                 '' => 'Elegir',
                                 'No' => 'No',
-                                'Hipertension' => 'Hipertensión',
-                                'Diabetes' => 'Diabetes',
-                                'Hipertiroidismo' => 'Hipertiroidismo',
-                                'Hiportiroidismo' => 'Hiportiroidismo',
-                                'Dislipidemia' => 'colesterol, triglicéridos elevados',
-                                'Neurologica' => 'Neurológica',
                                 'Cardiovascular' => 'Cardiovascular',
-                                'Respiratoria' => 'Respiratoria',
-                                'Metabolica' => 'Metabólica',
+                                'Dislipidemia' => 'Colesterol, triglicéridos elevados',
+                                'Diabetes' => 'Diabetes',
+                                'Enfermedad huérfana' => 'Enfermedad huérfana',
                                 'Endocrinologica' => 'Endocrinológica',
                                 'Gastrointestinal' => 'Gastrointestinal',
-                                'renal o de otro tipo' => 'renal o de otro tipo',
+                                'Hipertiroidismo' => 'Hipertiroidismo',
+                                'Hipertension' => 'Hipertensión',
+                                'Hiportiroidismo' => 'Hiportiroidismo',
+                                'Metabolica' => 'Metabólica',
+                                'Neurologica' => 'Neurológica',
+                                'Respiratoria' => 'Respiratoria',
+                                'Renal o de otro tipo' => 'renal o de otro tipo',
                                 'No informa' => 'Desconoce la información',
                                 'SD' => 'Sin dato',
                             );
                             echo $this->Form->input('condicioncronica', array(
-                                'label' => '¿Presenta alguna de las siguientes enfermedades crónicas?',
+                                'label' => '¿Presenta alguna de las siguientes enfermedades?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -405,6 +376,9 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 'id' => 'esquemavacunacion'
 
                             )); ?>
+
+                            <p class="help-block"> Indague en sobre las vacunas VPH, Toxoide Tetánico Diftérico, Covid
+                                19</p>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -460,12 +434,16 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                             <?php
                             $optionMalnutricion = array(
                                 '' => 'Elegir',
+                                'No informa' => 'Desconoce la información/no presenta carnet de CYD',
+                                'Peso adecuado para la talla' => ' Peso adecuado para la talla',
+                                'Talla adecuada para la edad' => ' Talla adecuada para la edad',
+                                'Desnutricion Aguda' => 'Bajo peso para la edad',
+                                'Desnutricion Cronica' => 'Baja talla para la edad',
                                 'Desnutricion Aguda' => 'Bajo peso para la edad',
                                 'Desnutricion Cronica' => 'Baja talla para la edad',
                                 'Sobrepeso' => 'Sobrepeso',
                                 'Obesidad' => 'Obesidad',
-                                'No informa' => 'Desconoce la información/no presenta carnet de CYD',
-                                'SD' => 'Sin dato',
+                                'SD' => 'Sin dato'
 
                             );
 
@@ -501,9 +479,12 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 'label' => 'Informa sobre alguna dificultad del desarrollo',
                                 'class' => 'form-control',
                                 'placeholder' => '',
-                                'style' => 'font-size: 12px',
+                                'style' => 'font-size: ,12px',
 
                             )); ?>
+
+                            <p class="help-block"> Reistre alguna dificultad de desarollo adicional, de lo contrario
+                                coloque NA</p>
                         </div>
 
 
@@ -604,7 +585,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                         <div class="form-group col-md-6">
                             <?php
                             $optionTiposViolencia = [
-                                '' => 'Eletgir',
+                                '' => 'Elegir',
                                 'No' => 'No se identifica',
                                 'Violencia Fisica' => 'Signos de maltrato físico(golpes, quemadura, heridas)',
                                 'Violencia Emocional' => 'Menor retarido, timido o agresivo',
@@ -616,7 +597,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 
 
                             echo $this->Form->input('sopechamaltrato', array(
-                                'label' => '¿Sospecha de algun tipo de vulneración o violencia?',
+                                'Indicios de menor víctima de vulneración o violencia',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'options' => $optionTiposViolencia,
@@ -644,7 +625,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                         <div class="form-group col-md-6">
                             <?php
                             $optionCanlizacion = [
-                                '' => 'Elegir',
+                                'No aplica ' => 'Elegir',
                                 'No' => 'No',
                                 'Vacunacion ' => 'Vacunación ',
                                 'Atencion de PyM Medico' => 'Atención en salud de PyM por médico',
@@ -662,80 +643,81 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 'class' => 'form-control',
                                 'style' => 'font-size: 12px',
                                 'placeholder' => '',
-
                                 'options' => $optionCanlizacion,
                                 'type' => 'select',
-
-
-
-                            )); ?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('canalizaciondos', array(
-                                'label' => 'Canalización',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => '',
-
-                                'options' => $optionCanlizacion,
-                                'type' => 'select',
-
-                            ));
-                            ?>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <?php
-                            $optionEducacion = [
-                                '' => 'Elegir',
-                                'No' => 'No',
-                                'Educacion individual' => 'Educación para la salud individual',
-                                'Educacion familiar' => 'Educación para la salud familiar',
-                                'Educacion grupal' => 'Educación para la salud grupal',
-                            ];
-                            echo $this->Form->input('canalizaciontres', array(
-                                'label' => 'Canalización',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => '',
-                                'options' => $optionCanlizacion,
-                                'type' => 'select',
-
-
+                                'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+                                'onChange' => 'canalizacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
                             )); ?>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('educacionuno', array(
-                                'label' => 'Refiera el tipo de Educación a desarrollar',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => '',
-                                'options' => $optionEducacion,
-                                'type' => 'select',
+                        <div id="Canalizacion" class="form-group row">
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('canalizaciondos', array(
+                                    'label' => 'Canalización',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'placeholder' => '',
 
+                                    'options' => $optionCanlizacion,
+                                    'type' => 'select',
+
+                                ));
+                                ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                $optionEducacion = [
+                                    'No aplica ' => 'Elegir',
+                                    'No' => 'No',
+                                    'Educacion individual' => 'Educación para la salud individual',
+                                    'Educacion familiar' => 'Educación para la salud familiar',
+                                    'Educacion grupal' => 'Educación para la salud grupal',
+                                ];
+                                echo $this->Form->input('canalizaciontres', array(
+                                    'label' => 'Canalización',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'placeholder' => '',
+                                    'options' => $optionCanlizacion,
+                                    'type' => 'select',
+
+
+                                )); ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('educacionuno', array(
+                                    'label' => 'Refiera el tipo de Educación a desarrollar',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'placeholder' => '',
+                                    'options' => $optionEducacion,
+                                    'type' => 'select',
+
+                                )); ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('canalizacion_id', array(
+                                    'label' => 'Enlace de canalizacion',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'class' => 'form-control select-search',
+                                    'placeholder' => '',
+                                    'type' => 'select',
+                                )); ?>
+                            </div>
+
+                            <?php
+                            echo $this->Form->input('fechaRegistro', array(
+
+                                'type' => 'hidden',
                             )); ?>
                         </div>
-
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('canalizacion_id', array(
-                                'label' => 'Enlace de canalizacion',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search',
-                                'placeholder' => '',
-                                'type' => 'select',
-                            )); ?>
-                        </div>
-
-                        <?php
-                        echo $this->Form->input('fechaRegistro', array(
-
-                            'type' => 'hiden',
-                        )); ?>
                     </div>
                 </div>
 
@@ -785,11 +767,10 @@ $(document).ready(function() {
 
 function agregarOpcionSeleccion() {
 
-    $("#InfantilFamiliaId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
+
 
     $("#InfantilCanalizacionId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
+        "<option value='00' selected='selected'>Seleccione</option>");
 
 
 }

@@ -181,7 +181,7 @@ class Primerainfancia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'peso' => array(
+		/*'peso' => array(
 			'decimal' => array(
 				'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
@@ -200,7 +200,7 @@ class Primerainfancia extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'bajopeso' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -211,56 +211,7 @@ class Primerainfancia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'perimetrocefalico' => array(
-			'decimal' => array(
-				'rule' => array('decimal'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'perimetrobraquial' => array(
-			'decimal' => array(
-				'rule' => array('decimal'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'perimetrocintura' => array(
-			'decimal' => array(
-				'rule' => array('decimal'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'perimetrocadera' => array(
-			'decimal' => array(
-				'rule' => array('decimal'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
-		'tensionarterial' => array(
-			'decimal' => array(
-				'rule' => array('decimal'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+
 		'lactanciamaterna' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -433,16 +384,7 @@ class Primerainfancia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'educacionuno' => array(
-			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+
 		'canalizaciontres' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),

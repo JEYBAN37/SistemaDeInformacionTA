@@ -1,6 +1,6 @@
 <?php
 // Enlaza el archivo JavaScript desde la carpeta webroot/js
-echo $this->Html->script('validation'); // 'validation' es el nombre del archivo sin la extensión .js
+echo $this->Html->script('validation2'); // 'validation' es el nombre del archivo sin la extensión .js
 ?>
 
 <div>
@@ -12,10 +12,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                     menor de 2 años
                 </h1>
             </div>
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -211,40 +209,6 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'options' => $estadoAfiliacionOption,
                             ]);  ?>
                         </div>
-
-                        <!--div class="form-group col-md-6">
-                            <?php echo $this->Form->input('barrio', [
-                                'label' => 'Barrio',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                            ]);  ?>
-                        </div-->
-
-                        <!--div class="form-group col-md-6">
-                            <?php echo $this->Form->input('direccion', [
-                                'label' => 'Direccion',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                            ]);  ?>
-                        </div-->
-
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('telefono', [
-                                'label' => 'Telefono',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                            ]);  ?>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('email', [
-                                'label' => 'Email',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                            ]);  ?>
-                        </div>
-
-
                     </div>
                 </div>
 
@@ -252,11 +216,9 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Valoración de Salud</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -308,8 +270,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                             ));
                             ?>
 
-                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle"
-                                data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad o funcionamiento físico.
+                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad o funcionamiento físico.
 
                                         Auditivas: Dificultades o limitaciones en la capacidad de escuchar o procesar el sonido.
 
@@ -336,29 +297,6 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
                             )); ?>
                         </div>
-
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('peso', array(
-                                'label' => 'Registre su Peso en Kg.',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => ''
-                            ));
-                            ?>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('talla', array(
-                                'label' => 'Registre su talla en cm',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => ''
-                            ));
-                            ?>
-                        </div>
-
                         <div class="form-group col-md-6">
                             <?php
 
@@ -374,50 +312,83 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                             ?>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('perimetrocefalico', array(
-                                'label' => 'Registre su perímetro cefálico (cm)',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => ''
-                            )); ?>
+                        <div class="col-md-4">
+                            <p class="help-block"> Encuestador: ¿Cuenta con elementos antropométricos para tomar datos
+                                de peso, talla? </p>
+                            <select id="status" name="status" required onChange="mostrar(this.value);" style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative">
+
+                                <option value="no">No cuenta</option>
+                                <option value="si">Si cuenta</option>
+
+
+                            </select>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('perimetrobraquial', array(
-                                'label' => 'Registre su perímetro braquial (cm)',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => ''
-                            )); ?>
+                        <div id="si" class="form-group row" style="display: none;">
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('peso', array(
+                                    'label' => 'Registre su Peso en Kg.',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'placeholder' => ''
+                                ));
+                                ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('talla', array(
+                                    'label' => 'Registre su talla en cm',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'placeholder' => ''
+                                ));
+                                ?>
+                            </div>
+
+
+
+                            <div class="form-group col-md-6">
+                                <?php echo $this->Form->input('perimetrocefalico', array(
+                                    'label' => 'Registre su perímetro cefálico (cm)',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'placeholder' => ''
+                                )); ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php echo $this->Form->input('perimetrobraquial', array(
+                                    'label' => 'Registre su perímetro braquial (cm)',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'placeholder' => ''
+                                )); ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php echo $this->Form->input('perimetrocintura', array(
+                                    'label' => 'Registre perímetro cintura (cm)',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'placeholder' => ''
+                                )); ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php echo $this->Form->input('perimetrocadera', array(
+                                    'label' => 'Registre perímetro cadera (cm)',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'placeholder' => ''
+                                )); ?>
+                            </div>
+
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('perimetrocintura', array(
-                                'label' => 'Registre perímetro cintura (cm)',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => ''
-                            )); ?>
-                        </div>
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('perimetrocadera', array(
-                                'label' => 'Registre perímetro cadera (cm)',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => ''
-                            )); ?>
-                        </div>
-
-                        <!--div class="form-group col-md-6">
-                            <?php echo $this->Form->input('tensionarterial', array(
-                                'label' => 'Registre Tensión arterial',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => ''
-                            )); ?>
-                            </div-->
 
                         <div class="form-group col-md-6">
                             <?php
@@ -457,10 +428,14 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'Cardiovascular' => 'Cardiovascular',
                                 'Respiratoria' => 'Respiratoria',
                                 'Metabolica' => 'Metabólica',
+                                'Enfermedad huérfana' => 'Enfermedad huérfana',
                                 'Endocrinologica' => 'Endocrinológica',
                                 'Gastrointestinal' => 'Gastrointestinal',
                                 'Endocrinologica' => 'Endocrinológica',
                                 'renal o de otro tipo' => 'renal o de otro tipo',
+                                'SD' => 'Sin dato',
+
+
                             );
 
                             echo $this->Form->input('condicioncronica', array(
@@ -470,6 +445,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'type' => 'select',
                                 'options' => $optionCronica,
                                 'style' => 'font-size: 12px',
+                                'id' => 'condicioncronica',
 
                             )); ?>
                         </div>
@@ -480,11 +456,9 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Atención en Salud</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -506,6 +480,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'type' => 'select',
                                 'options' => $optionVacuna,
                                 'style' => 'font-size: 12px',
+                                'id' => 'esquemavacunacion'
 
                             )); ?>
                         </div>
@@ -518,6 +493,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'type' => 'select',
                                 'options' => $optionYesNo,
                                 'style' => 'font-size: 12px',
+                                'id' => 'desparasitacion',
+
 
                             )); ?>
                         </div>
@@ -541,6 +518,9 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'type' => 'select',
                                 'options' => $optionCyD,
                                 'style' => 'font-size: 12px',
+                                'id' => 'crecimientoydesarrollo'
+
+
 
                             )); ?>
                         </div>
@@ -562,12 +542,13 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                             );
 
                             echo $this->Form->input('desnutricion', array(
-                                'label' => '¿Reconoce el diagnóstico de Nutricional del menor?',
+                                'label' => '¿Le han informado si el menor tiene un diagnóstico de Malnutrición?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
                                 'options' => $optionMalnutricion,
                                 'style' => 'font-size: 12px',
+                                'id' => 'desnutricion',
 
                             )); ?>
                         </div>
@@ -580,6 +561,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'type' => 'select',
                                 'options' => $optionYesNo,
                                 'style' => 'font-size: 12px',
+                                'id' => 'saludoral',
 
                             )); ?>
                         </div>
@@ -592,19 +574,17 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'style' => 'font-size: 12px',
 
                             )); ?>
-                            <p class="help-block"> NOTA:Registre alguna situación adicional que la persona refiera
-                            </p>
 
+                            <p class="help-block"> Reistre alguna dificultad de desarollo adicional, de lo contrario
+                                coloque NA</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Condiciones de vulnerabilidad</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -663,6 +643,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
                             )); ?>
                         </div>
+
                         <div class="form-group col-md-6">
                             <?php
                             $optionEstudio = [
@@ -700,13 +681,27 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         </div>
 
                         <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('sospechamaltrato', array(
+                            <?php
+                            $optionTiposViolencia = [
+                                '' => 'Elegir',
+                                'No' => 'No se identifica',
+                                'Violencia Fisica' => 'Signos de maltrato físico(golpes, quemadura, heridas)',
+                                'Violencia Emocional' => 'Menor retarido, timido o agresivo',
+                                'Violencia Sexual' => 'Tocamientos de personas adultas, relaciones sexuales ',
+                                'Abondono_Negligencia' => 'Falta de atencion a necesidades básicas(alimentación, salud, educación)',
+                                'No informa' => 'No informa',
+                                'SD' => 'Sin dato'
+                            ];
+
+                            echo $this->Form->input('sospechamaltrato', array(
                                 'label' => 'Indicios de menor víctima de vulneración o violencia',
                                 'class' => 'form-control',
                                 'placeholder' => '',
-                                'options' => $optionYesNo,
+                                'options' => $optionTiposViolencia,
                                 'type' => 'select',
                                 'style' => 'font-size: 12px',
+                                'id' => 'sopechamaltrato'
+
 
                             )); ?>
                         </div>
@@ -716,11 +711,9 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
                 Atención integral</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -729,9 +722,9 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         <div class="form-group col-md-6">
                             <?php
                             $optionCanlizacion = [
-                                '' => 'Elegir',
-                                'Vacunación ' => 'Vacunación',
+                                'No aplica ' => 'Elegir',
                                 'No' => 'No',
+                                'Vacunación ' => 'Vacunación',
                                 'Atención en salud del recién nacido ' => 'Atención en salud del recién nacido',
                                 'Atención en salud de promoción y mantenimiento por médico o enfermera ' => 'Atención en salud de promoción y mantenimiento por médico o enfermera',
                                 'Atención en salud bucal' => 'Atención en salud bucal',
@@ -752,67 +745,74 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                                 'class' => 'form-control select-search',
                                 'options' => $optionCanlizacion,
                                 'type' => 'select',
-
-                            )); ?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('canalizaciondos', array(
-                                'label' => 'Canalización',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => '',
-                                'class' => 'form-control select-search',
-                                'options' => $optionCanlizacion,
-                                'type' => 'select',
-
-                            ));
-                            ?>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <?php
-                            $optionEducacion = [
-                                'Educacion individual' => 'Educación para la salud individual',
-                                'Educacion familiar' => 'Educación para la salud familiar',
-                                'Educacion grupal' => 'Educación para la salud grupal',
-                            ];
-                            echo $this->Form->input('canalizaciontres', array(
-                                'label' => 'Canalización',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => '',
-                                'class' => 'form-control select-search',
-                                'options' => $optionCanlizacion,
-                                'type' => 'select',
-
+                                'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+                                'onChange' => 'canalizacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
                             )); ?>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('educacionuno', array(
-                                'label' => 'Refiera el tipo de Educación a desarrollar',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'placeholder' => '',
-                                'options' => $optionEducacion,
-                                'type' => 'select',
-                            )); ?>
+                        <div id="Canalizacion" class="form-group row">
+                            <div class=" form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('canalizaciondos', array(
+                                    'label' => 'Canalización',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'placeholder' => '',
+                                    'class' => 'form-control select-search',
+                                    'options' => $optionCanlizacion,
+                                    'type' => 'select',
 
-                        </div>
+                                ));
+                                ?>
+                            </div>
 
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('canalizacion_id', array(
-                                'label' => 'Enlace de canalizacion',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
-                                'class' => 'form-control select-search',
-                                'placeholder' => '',
-                                'type' => 'select',
+                            <div class="form-group col-md-6">
+                                <?php
+                                $optionEducacion = [
+                                    'No aplica ' => 'Elegir',
+                                    'No' => 'No',
+                                    'Educacion individual' => 'Educación para la salud individual',
+                                    'Educacion familiar' => 'Educación para la salud familiar',
+                                    'Educacion grupal' => 'Educación para la salud grupal',
+                                ];
+                                echo $this->Form->input('canalizaciontres', array(
+                                    'label' => 'Canalización',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'placeholder' => '',
+                                    'class' => 'form-control select-search',
+                                    'options' => $optionCanlizacion,
+                                    'type' => 'select',
 
-                            )); ?>
+                                )); ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('educacionuno', array(
+                                    'label' => 'Refiera el tipo de Educación a desarrollar',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'placeholder' => '',
+                                    'options' => $optionEducacion,
+                                    'type' => 'select',
+                                )); ?>
+
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('canalizacion_id', array(
+                                    'label' => 'Enlace de canalizacion',
+                                    'class' => 'form-control',
+                                    'style' => 'font-size: 12px',
+                                    'class' => 'form-control select-search',
+                                    'placeholder' => '',
+                                    'type' => 'select',
+
+                                )); ?>
+                            </div>
+
                         </div>
 
                     </div>
@@ -867,23 +867,32 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
-function agregarOpcionSeleccion() {
+    function agregarOpcionSeleccion() {
 
-    $("#PrimerainfanciaFamiliaId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
-    $("#PrimerainfanciaPersonaId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
-    $("#PrimerainfanciaCanalizacionId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
-}
 
-$(function() {
-    $('#ayudaButton').popover();
-});
+        $("#PrimerainfanciaCanalizacionId").prepend(
+            "<option value='00' selected='selected'>Seleccione</option>");
+    }
+
+    $(function() {
+        $('#ayudaButton').popover();
+    });
+
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
+
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
+
+        }
+    }
 </script>

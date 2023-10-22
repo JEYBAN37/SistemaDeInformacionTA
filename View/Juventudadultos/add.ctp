@@ -125,7 +125,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         <div class="form-group col-md-6">
                             <!-- Campo de edad calculada (se llenará automáticamente con JavaScript) -->
                             <?php echo $this->Form->input('edad', [
-								'label' => 'Edad en meses',
+								'label' => 'Edad',
 								'style' => 'font-size: 16px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;',
 								'id' => 'edad', // Agrega este identificador al campo de edad
 								'readonly' => true, // Hace que el campo de edad sea de solo lectura
@@ -347,7 +347,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         <div class="form-group col-md-6">
                             <?php
 							echo $this->Form->input('indicemasacorporal', array(
-								'label' => 'Indice de mas corporal',
+								'label' => 'Indice de masa corporal',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'placeholder' => '',
@@ -1124,8 +1124,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'class' => 'form-control select-search',
 								'options' => $optionCanlizacion,
 								'type' => 'select',
-								'style' => 'font-size: 12px',
-								
+
+
 							));
 							?>
                         </div>
@@ -1142,7 +1142,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'options' => $optionCanlizacion,
 								'type' => 'select',
 								'style' => 'font-size: 12px',
-								
+
 							)); ?>
                         </div>
 
@@ -1164,7 +1164,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'options' => $optionEducacion,
 								'type' => 'select',
 								'style' => 'font-size: 12px',
-								
+
 							)); ?>
                         </div>
 
@@ -1178,7 +1178,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'placeholder' => '',
 								'type' => 'select',
 								'style' => 'font-size: 12px',
-								
+
 							)); ?>
                         </div>
 
@@ -1235,8 +1235,7 @@ $(document).ready(function() {
 function agregarOpcionSeleccion() {
 
 
-    $("#JuventudadultoPersonaId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
+
     $("#JuventudadultoCanalizacionId").prepend(
         "<option value='00' selected='selected'>Seleccione</option>");
 

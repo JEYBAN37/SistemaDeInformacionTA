@@ -1,12 +1,18 @@
 
 
-
+function canalizacion(id) {
+	if (id != "No") {
+		$("#Canalizacion").show();
+	} else {
+		$("#Canalizacion").hide();
+	}
+}
 
 
 	
 	document.addEventListener('DOMContentLoaded', function() {
         var condicioncronicaSelect = document.getElementById('condicioncronica');
-        var desparasitacionSelect = document.getElementById('desparasitacion');
+       
     
         // Función para aplicar la validación de color rojo
         function applyRedValidation(selectElement) {
@@ -24,19 +30,18 @@
             applyRedValidation(condicioncronicaSelect);
         });
     
-		desparasitacionSelect.addEventListener('change', function() {
-            applyRedValidation(desparasitacionSelect);
-        });
+		
     
         // Aplica la validación cuando se carga la página
         applyRedValidation(condicioncronicaSelect);
-        applyRedValidation(	desparasitacionSelect);
+       
     });
 
 	document.addEventListener('DOMContentLoaded', function() {
 		var saludoralSelect = document.getElementById('saludoral');  
 		var vacunacionSelect = document.getElementById('esquemavacunacion'); 
 		var cydSelect = document.getElementById('crecimientoydesarrollo'); 
+		var desparasitacionSelect = document.getElementById('desparasitacion');
 	
 		// Función para aplicar la validación de color rojo
 		function applyRedValidation(selectElement) {
@@ -60,11 +65,16 @@
 		cydSelect.addEventListener('change', function() {
 			applyRedValidation(cydSelect);
 		});
+
+		desparasitacionSelect.addEventListener('change', function() {
+            applyRedValidation(desparasitacionSelect);
+        });
 	
 		// Aplica la validación cuando se carga la página
 		applyRedValidation(saludoralSelect);
 		applyRedValidation(vacunacionSelect);
 		applyRedValidation(cydSelect);
+		applyRedValidation(desparasitacionSelect);
 	});
 	document.addEventListener('DOMContentLoaded', function() {   
 			var maltratoSelect = document.getElementById('sopechamaltrato');
@@ -73,7 +83,7 @@
             var selectedValue = selectElement.value;
 			
     
-            if (selectedValue !== 'No' ) {
+            if (selectedValue !== 'No' && selectedValue !== '' && selectedValue !== 'No informa' && 'SD') {
                 selectElement.style.color = 'red';
             } else {
                 selectElement.style.color = '';
@@ -97,4 +107,42 @@
 		
       
     });
+
+	document.addEventListener('DOMContentLoaded', function() {   
+		var desnutricionSelect = document.getElementById('desnutricion');
+	// Función para aplicar la validación de color rojo
+	function applyRedValidation(selectElement) {
+		var selectedValue = selectElement.value;
+		
+
+		if (selectedValue !== 'No informa'  && selectedValue !== 'Talla adecuada para la edad' && selectedValue !== 'No informa'  
+		&& selectedValue !== 'SD' 
+		&& selectedValue !== 'Peso adecuado para la talla' 
+		&& selectedValue !== 'Talla adecuada para la edad'
+		&& selectedValue !== ''
+		) {
+
+			selectElement.style.color = 'red';
+		} else {
+			selectElement.style.color = '';
+		}
+	}
+
+	
+   
+	
+	desnutricionSelect.addEventListener('change',function(){
+		applyRedValidation(desnutricionSelect);
+	 });
+	
+
+	// Aplica la validación cuando se carga la página        
+	
+			
+	
+	applyRedValidation(desnutricionSelect);		
+	
+	
+  
+});
 
