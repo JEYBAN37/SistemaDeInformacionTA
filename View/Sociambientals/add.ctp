@@ -1,3 +1,8 @@
+<?php
+// Enlaza el archivo JavaScript desde la carpeta webroot/js
+echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nombre del archivo sin la extensión .js
+?>
+
 <div>
 
     <div class="form-group col-sm-12">
@@ -13,10 +18,8 @@
                 </h1>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Básicos</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Básicos</h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -97,7 +100,9 @@
                                                                 'class' => 'form-control',
                                                                 'style' => 'font-size: 12px;',
                                                                 'placeholder' => '',
-                                                                'options' => $numhabitantesOptions
+                                                                'options' => $numhabitantesOptions,
+
+
                                                             )); ?>
                         </div>
 
@@ -119,10 +124,8 @@
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -256,6 +259,7 @@
                                 'type' => 'select',
                                 'options' => $optionHacinamiento,
                                 'style' => 'font-size: 12px',
+                                'id' => 'hacinamiento'
                             ));
                             ?>
                         </div>
@@ -265,10 +269,8 @@
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -488,7 +490,7 @@
                             <?php
                             $tankCleaningOptions = [
                                 '' => 'Elegir',
-                                'No tiene tanque' => 'No tiene tanque',
+                                'Sin tanque' => 'No tiene tanque',
                                 'Mensual' => 'Mensual',
                                 'Semestral' => 'Semestral',
                                 'No realiza lavado' => 'No realiza lavado',
@@ -545,7 +547,7 @@
                             <?php
                             $garbageDisposalOptions = [
                                 '' => 'Elegir',
-                                'Recolección por Emas' => 'Recolección por Emas',
+                                'Recolección por Emas' => 'Recolección por Empresa de aseo',
                                 'Disposición a campo abierto' => 'Disposición a campo abierto'
                             ];
                             echo $this->Form->input('basura', [
@@ -608,12 +610,10 @@
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Mascotas o
                 animales de crianza en el hogar </h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="col-md-4">
-                <select id="status" name="status" required onChange="mostrar(this.value);"
-                    style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
+                <select id="status" name="status" required onChange="mostrar(this.value);" style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
                     <option value="no">NO</option>
                     <option value="si">SI</option>
 
@@ -670,6 +670,7 @@
                                 'type' => 'select',
                                 'options' => $cuidadoMascotaOptions,
                                 'style' => 'font-size: 12px',
+                                'id' => 'desparasitacion'
                             ]);
                             ?>
                         </div>
@@ -681,13 +682,14 @@
                                 'type' => 'select',
                                 'options' =>  $cuidadoMascotaOptions,
                                 'style' => 'font-size: 12px',
+                                'id' => 'vacunacion',
                             ]);
                             ?>
                         </div>
                         <div class="col-md-6">
                             <?php
                             $mascotaOption = [
-                                'No aplica' => 'Elegir',
+                                'No aplica ' => 'Elegir',
                                 'No' => 'No',
                                 'Aves' => 'Aves',
                                 'Cerdos' => 'Cerdos',
@@ -747,31 +749,31 @@ $this->Html->script([
 ], ['block' => 'script']);
 ?>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
 
 
-function agregarOpcionSeleccion() {
-    $("#SociambientalUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
-    $("#SociambientalResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
-}
-
-
-
-
-function mostrar(id) {
-    if (id == "si") {
-        $("#si").show();
-        $("#no").hide();
-
-    } else if (id == "no") {
-        $("#si").hide();
-        $("#no").show();
-
+    function agregarOpcionSeleccion() {
+        $("#SociambientalUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#SociambientalResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
     }
-}
+
+
+
+
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
+
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
+
+        }
+    }
 </script>

@@ -1,4 +1,5 @@
-<?php $this->layout = 'default_familia' ?>
+<?php $this->layout = 'default_familia';
+echo $this->Html->script('validationFamilia'); ?>
 <style>
 /* Estilos para la lista de píldoras */
 .nav-pills {
@@ -94,16 +95,35 @@ $bd = 'fichafamiliar';
                                         <?php
                                         echo ($familia['Sociambiental']['fecha']); ?></td>
 
-                                    <td>Familia:
-                                        <?php echo $this->Html->link($familia['Sociambiental']['apellidosfamilia'], array('controller' => 'sociambientals', 'action' => 'view', $familia['Sociambiental']['id'])); ?>
+
+
+                                    <td>Encuestador:
+                                        <?php
+                                        $link = mysqli_connect($serv, $userS, $passS, $bd);
+                                        $tildes = $link->query("SET NAMES 'utf8'"); // Para que se muestren las tildes correctamente
+                                        $result = mysqli_query($link, "SELECT nombres FROM Responsables WHERE id = " . $familia['Sociambiental']['responsable_id']);
+                                        if ($fila = mysqli_fetch_array($result)) {
+                                            echo $fila['nombres'];
+                                        }
+                                        mysqli_free_result($result);
+                                        mysqli_close($link);
+                                        ?>
                                     </td>
+
+
+
+
+
                                     <td>ID:
                                         <?php echo ($familia['Familia']['id']); ?></td>
                                     <!--td>N° Hogares:
                                         <?php echo ($familia['Sociambiental']['numerohogares']); ?></td-->
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Representante:
+                                    <td>Familia:
+                                        <?php echo $this->Html->link($familia['Sociambiental']['apellidosfamilia'], array('controller' => 'sociambientals', 'action' => 'view', $familia['Sociambiental']['id'])); ?>
+                                    </td>
+                                    <td>Representante:
 
                                         <?php echo '<strong>' . $familia['Familia']['nombres'] . '</strong> <strong>' . $familia['Familia']['apellidos'] . '</strong>'; ?>
                                     </td>
@@ -111,48 +131,292 @@ $bd = 'fichafamiliar';
                                         <?php echo ($familia['Familia']['cursovidafamilia']); ?></td>
                                 </tr>
 
+                                <tr>
+
+                                    <td>Ubicación:
+                                        <?php
+                                        $link = mysqli_connect($serv, $userS, $passS, $bd);
+                                        $tildes = $link->query("SET NAMES 'utf8'"); // Para que se muestren las tildes correctamente
+                                        $result = mysqli_query($link, "SELECT barrio FROM Ubicaciones WHERE id = " . $familia['Sociambiental']['ubicacion_id']);
+                                        if ($fila = mysqli_fetch_array($result)) {
+                                            echo $fila['barrio'];
+                                        }
+                                        mysqli_free_result($result);
+                                        mysqli_close($link);
+                                        ?>
+                                    </td>
+                                    <td>Dirección:
+                                        <?php echo ($familia['Sociambiental']['direccion']); ?></td>
+                                    <td>Num Hogares:
+                                        <?php echo ($familia['Sociambiental']['numerohogares']); ?>
+                                    </td>
 
                                 </tr>
+
+
+                                <tr>
+
+
+                                    <td>Num. celular:
+                                        <?php echo ($familia['Familia']['celular']); ?></td>
+                                    <td colspan="2">Email:
+                                        <?php echo ($familia['Familia']['correo']); ?></td>
+
+                                </tr>
+                                <tr>
+                                    <td>Num. integrantes:
+                                        <?php echo ($familia['Familia']['numeropersonas']); ?>
+                                    </td>
+
+                                    <td>Población vulnerable:
+                                        <?php echo ($familia['Familia']['poblacionvulnerable']); ?>
+                                    </td>
+                                    <td>Población vulnerable:
+                                        <?php echo ($familia['Familia']['poblacionvulnerable']); ?>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="6" style="text-align: center;">Vivenda
+
+                                    </td>
+
+
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>vivienda:
+                                        <?php echo ($familia['Familia']['vivienda']); ?></td>
+                                    <td>Tenencia:
+                                        <?php echo ($familia['Familia']['tenencia']); ?></td>
+                                    <td>Tiempo de residencia:
+                                        <?php echo '<span>' . $familia['Familia']['tiemporesidencia'] . '</span>'; ?>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>combustible:
+                                        <?php echo ($familia['Familia']['combustible']); ?></td>
+                                    <td>otrocombustible:
+                                        <?php echo ($familia['Familia']['otrocombustible']); ?></td>
+                                    <td>Actividad económica:
+                                        <?php echo '<span>' . $familia['Sociambiental']['actividad'] . '</span>'; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" style="text-align: center;">Caracteristicas de la famlia
+
+                                    </td>
+
+
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>Tipo familia:
+                                        <?php echo ($familia['Familia']['tipofamilia']); ?></td>
+                                    <td>Curso vida familia:
+                                        <?php echo ($familia['Familia']['cursovidafamilia']); ?></td>
+                                    <td>Personas LGTBIQ+:
+                                        <?php echo '<span>' . $familia['Familia']['lgtbi'] . '</span>'; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>Estilo de vida:
+                                        <?php echo ($familia['Familia']['estilodevidapredominante']); ?></td>
+                                    <td>Antecedente enfermedad:
+                                        <?php echo ($familia['Familia']['antecedenteenfermedad']); ?></td>
+                                    <td>Antecedente enfermedad:
+                                        <?php echo '<span>' . $familia['Familia']['antecedenteenfermedad1'] . '</span>'; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>Antecedente enfermedad:
+                                        <?php echo ($familia['Familia']['antecedenteenfermedad2']); ?></td>
+                                    <td>Enfermedad transmible:
+                                        <?php echo ($familia['Familia']['enfermedadtransmible']); ?></td>
+                                    <td>Enfermedad transmible:
+                                        <?php echo '<span>' . $familia['Familia']['enfermedadtransmible1'] . '</span>'; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>Lavado de manos:
+                                        <?php echo ($familia['Familia']['lavadomanos']); ?></td>
+                                    <td>Comparte elementos aseo personal:
+                                        <?php echo ($familia['Familia']['elementoshigiene']); ?></td>
+                                    <td>Cultura de cepillado de dientes:
+                                        <?php echo '<span>' . $familia['Familia']['cepilladodientes'] . '</span>'; ?>
+                                    </td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>Riesgo Psicosocial:
+                                        <?php echo ($familia['Familia']['riesgopsicosocial']); ?></td>
+                                    <td>Riesgo Psicosocial:
+                                        <?php echo ($familia['Familia']['riesgopsicosocial1']); ?></td>
+                                    <td>Riesgo Psicosocial:
+                                        <?php echo '<span>' . $familia['Familia']['riesgopsicosocial2'] . '</span>'; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td>Salud alternativa:
+                                        <?php echo ($familia['Familia']['saludalternativa']); ?></td>
+                                    <td>Cuidador permante:
+                                        <?php echo ($familia['Familia']['cuidadorpermante']); ?></td>
+                                    <td>Programa social:
+                                        <?php echo '<span>' . $familia['Familia']['programasocial'] . '</span>'; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+
+                                    <td colspan="1">Programa social:
+                                        <?php echo ($familia['Familia']['programasocial1']); ?></td>
+                                    <td colspan="1">Programa social:
+                                        <?php echo ($familia['Familia']['programasocial2']); ?></td>
+                                </tr>
+
+
+                                <tr>
+                                    <td colspan="6" style="text-align: center;">Habitabilidad
+
+                                    </td>
+
+
+
+                                </tr>
+
                                 <tr>
 
                                     <td>Paredes:
                                         <?php echo ($familia['Sociambiental']['estadoparedes']); ?></td>
                                     <td>Techo:
                                         <?php echo ($familia['Sociambiental']['estadotecho']); ?></td>
-                                    <td>Hacinamiento:
-                                        <?php echo ($familia['Sociambiental']['hacinamiento']); ?></td>
+                                    <td id="hacinamiento">Hacinamiento:
+                                        <?php echo '<span>' . $familia['Sociambiental']['hacinamiento'] . '</span>'; ?>
+                                    </td>
                                 </tr>
                                 <tr>
-
-                                    <td>Perros:
-                                        <?php echo ($familia['Sociambiental']['numeroPerros']); ?></td>
-                                    <td>Gatos:
-                                        <?php echo ($familia['Sociambiental']['numeroGatos']); ?></td>
-                                    <td>Vacunacion:
-                                        <?php echo ($familia['Sociambiental']['vacunamascotas']); ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Riesgo:
+                                    <td>Riesgo externo:
                                         <?php echo ($familia['Sociambiental']['riesgoexterno']); ?>
                                     </td>
-                                    <td>Riesgo:
+                                    <td>Riesgo externo:
                                         <?php echo ($familia['Sociambiental']['otroriesgo']); ?>
                                     </td>
-                                    <td>Riesgo:
+                                    <td>Riesgo hogar:
                                         <?php echo ($familia['Sociambiental']['riesgo']); ?>
                                     </td>
 
                                 </tr>
                                 <tr>
-
-                                    <td>Hacinamiento:
-                                        <?php echo ($familia['Sociambiental']['hacinamiento']); ?></td>
-                                    <td>No acceso:
-                                        <?php echo ($familia['Sociambiental']['acceso']); ?></td>
-                                    <td>No acceso:
+                                    <td>Riesgo hogar:
+                                        <?php echo ($familia['Sociambiental']['otroriesgohogar']); ?></td>
+                                    <td>Dificil acceso a:
+                                        <?php echo ($familia['Sociambiental']['acceso']); ?> -
                                         <?php echo ($familia['Sociambiental']['accesoDos']); ?></td>
+                                    <td>Servicio de agua:
+                                        <?php echo ($familia['Sociambiental']['aguaservicio']); ?></td>
+                                    </td>
                                 </tr>
+                                <tr>
+
+
+                                    <td>Higiene en el hogar:
+                                        <?php echo '<span>' . $familia['Familia']['higiene'] . '</span>'; ?>
+                                    </td>
+                                    <td> Aseo cocina:
+                                        <?php echo ($familia['Familia']['aseococina']); ?></td>
+                                    <td>Higiene alimentos:
+                                        <?php echo ($familia['Familia']['higienealimentos']); ?></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td>Tratamiento agua:
+                                        <?php echo ($familia['Sociambiental']['aguatratamiento']); ?></td>
+                                    <td> Limpieza Tanque se agua:
+                                        <?php echo ($familia['Sociambiental']['aguaalmacenamiento']); ?></td>
+
+                                    <td>Diposicion excretas:
+                                        <?php echo ($familia['Sociambiental']['diposicionexcretas']); ?></td>
+
+                                </tr>
+                                <tr>
+                                    <td>agua residual:
+                                        <?php echo ($familia['Sociambiental']['aguaresiduales']); ?></td>
+                                    <td> Limpieza Tanque se agua:
+                                        <?php echo ($familia['Sociambiental']['basura']); ?></td>
+
+                                    <td>Reciclaje:
+                                        <?php echo ($familia['Sociambiental']['reciclaje']); ?></td>
+
+                                </tr>
+
+                                <tr>
+                                    <td colspan="6" style="text-align: center;">Mascotas en el hogar
+
+                                    </td>
+
+
+
+                                </tr>
+                                <tr>
+
+                                    <td>Num. Perros:
+                                        <?php echo ($familia['Sociambiental']['numeroPerros']); ?></td>
+                                    <td>Num.Gatos:
+                                        <?php echo ($familia['Sociambiental']['numeroGatos']); ?></td>
+                                    <td>Num. otras mascotas:
+                                        <?php echo ($familia['Sociambiental']['otramascota']); ?></td>
+                                </tr>
+                                <tr>
+
+                                    <td>Perros:
+                                        <?php echo ($familia['Sociambiental']['numeroPerros']); ?></td>
+                                    <td id="desparasitacion">desparasitación:
+                                        <?php echo '<span>' . $familia['Sociambiental']['desparasitamascotas'] . '</span>'; ?>
+                                    </td>
+                                    <td id="vacunacion">Vacunacion:
+                                        <?php echo '<span>' . $familia['Sociambiental']['vacunamascotas'] . '</span>'; ?>
+                                    </td>
+
+                                </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             </table>
+
+                            <button>
+
+                                <?php echo $this->Html->link(
+                                    __('Editar información Familiar'),
+                                    array('action' => 'edit', $familia['Familia']['id']),
+                                    array(
+                                        'onclick' => "return confirm('¿Estás seguro de editar la información del hogar de " .  $familia['Familia']['nombres'] . ' ' . $familia['Familia']['apellidos'] . "?');",
+                                        'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                    )
+                                ); ?>
+
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -197,6 +461,9 @@ $bd = 'fichafamiliar';
 
                                     </div>
 
+
+
+
                                 </div>
                                 <!-- /.table-responsive -->
                             </div>
@@ -230,6 +497,9 @@ $bd = 'fichafamiliar';
                                                 )
                                             ); ?>
                                 </button>
+
+
+
 
                                 <button> <?php
                                             echo $this->Html->link(('Agregar menor entre 2 años a 5 años'),
@@ -301,15 +571,10 @@ $bd = 'fichafamiliar';
                                                                                                 'controller' => 'primerainfancias',
                                                                                                 'action' => 'delete', $primerainfancia['id']
                                                                                             ),
-                                                                                            array('style' => 'color: blue; font-size: 16px; font-weight: bold;'),
-                                                                                            __('Are you sure you want to delete # %s?', $primerainfancia['id'])
+                                                                                            array('style' => 'color: red; font-size: 16px; font-weight: bold;'),
+                                                                                            __('Esta seguro de eliminar el registro # %s?', $primerainfancia['id'] . ' ' . $primerainfancia['primernombre'] . ' ' . $primerainfancia['primerapellido'] . ' de la familia de con id # ' .  $primerainfancia['familia_id'])
                                                                                         ); ?>
                                                                             </li>
-
-
-
-
-
                                                                         </ul>
                                                                     </div>
 
@@ -331,31 +596,28 @@ $bd = 'fichafamiliar';
                                                                 </td>
                                                                 <td> <?php echo $primerainfancia['canalizaciontres']; ?>
                                                                 </td>
-
-                                                                <td><?php
-
-                                                                            $link = mysqli_connect($serv, $userS, $passS);
-                                                                            mysqli_select_db($link, $bd);
-                                                                            $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-                                                                            $result = mysqli_query($link, "SELECT nombre FROM Canalizaciones WHERE id = " . $primerainfancia['canalizacion_id']);
-                                                                            while ($fila = mysqli_fetch_array($result)) {
-                                                                                echo $fila['nombre'];
-
-                                                                                mysqli_close($link);
-                                                                            }
-                                                                            ?> </td>
                                                                 <td>
                                                                     <?php
-                                                                            //echo $adolescencia['responsable_id']; 
-                                                                            $link = mysqli_connect($serv, $userS, $passS);
-                                                                            mysqli_select_db($link, $bd);
-                                                                            $tildes = $link->query("SET NAMES 'utf8'"); //Para que se muestren las tildes correctamente
-                                                                            $result = mysqli_query($link, "SELECT enlaceuno FROM Canalizaciones WHERE id = " . $primerainfancia['canalizacion_id']);
-                                                                            while ($fila = mysqli_fetch_array($result)) {
-                                                                                echo $fila['enlaceuno'];
-
-                                                                                mysqli_close($link);
+                                                                            $link = mysqli_connect($serv, $userS, $passS, $bd);
+                                                                            $tildes = $link->query("SET NAMES 'utf8'"); // Para que se muestren las tildes correctamente
+                                                                            $result = mysqli_query($link, "SELECT nombre FROM Canalizaciones WHERE id = " . $primerainfancia['canalizacion_id']);
+                                                                            if ($fila = mysqli_fetch_array($result)) {
+                                                                                echo $fila['nombre'];
                                                                             }
+                                                                            mysqli_free_result($result);
+                                                                            mysqli_close($link);
+                                                                            ?>
+                                                                </td>
+                                                                <td>
+                                                                    <?php
+                                                                            $link = mysqli_connect($serv, $userS, $passS, $bd);
+                                                                            $tildes = $link->query("SET NAMES 'utf8'"); // Para que se muestren las tildes correctamente
+                                                                            $result = mysqli_query($link, "SELECT enlaceuno FROM Canalizaciones WHERE id = " . $primerainfancia['canalizacion_id']);
+                                                                            if ($fila = mysqli_fetch_array($result)) {
+                                                                                echo $fila['enlaceuno'];
+                                                                            }
+                                                                            mysqli_free_result($result);
+                                                                            mysqli_close($link);
                                                                             ?>
                                                                 </td>
                                                                 <td>
@@ -1130,5 +1392,32 @@ function fnExcelReport() {
         sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
 
     //return (sa);
+}
+
+var vacunacionSpan = document.querySelector('#vacunacion span');
+var vacunacionValue = "<?php echo $familia['Sociambiental']['vacunamascotas']; ?>";
+
+if (vacunacionValue === "No") {
+    vacunacionSpan.style.color = "red";
+} else if (vacunacionValue === "Si") {
+    vacunacionSpan.style.color = "green"; // Cambiar el color a azul para "Si"
+}
+
+var hacinamientoSpan = document.querySelector('#hacinamiento span');
+var hacinamientoValue = "<?php echo $familia['Sociambiental']['hacinamiento']; ?>";
+
+if (hacinamientoValue === "Si") {
+    hacinamientoSpan.style.color = "red";
+} else if (hacinamientoValue === "No") {
+    hacinamientoSpan.style.color = "green"; // Cambiar el color a azul para "Si"
+}
+
+var desparasitacionSpan = document.querySelector('#desparasitacion span');
+var desparasitacionValue = "<?php echo $familia['Sociambiental']['desparasitamascotas']; ?>";
+
+if (desparasitacionValue === "No") {
+    desparasitacionSpan.style.color = "red";
+} else if (desparasitacionValue === "Si") {
+    desparasitacionSpan.style.color = "green"; // Cambiar el color a azul para "Si"
 }
 </script>

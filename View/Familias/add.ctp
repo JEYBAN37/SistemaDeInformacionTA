@@ -1,3 +1,7 @@
+<?php
+// Enlaza el archivo JavaScript desde la carpeta webroot/js
+echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del archivo sin la extensión .js
+?>
 <div>
 
     <div class="form-group col-sm-12 ">
@@ -314,6 +318,7 @@
                             <?php
                             $optionEtnia = [
                                 '' => 'Elegir',
+                                'No' => 'No',
                                 'Indígena' => 'Indígena',
                                 'Afrocolombiano' => 'Afrocolombiano',
                                 'Víctima conflicto' => 'Víctima del conflicto',
@@ -322,7 +327,7 @@
                                 'Migrante regular' => 'Migrante regular',
                                 'Habitante de calle' => 'Habitante de calle',
                                 'Otro' => 'Otro',
-                                'No aplica' => 'No aplica',
+                                'No informa' => 'No informa',
                                 'Sin Dato' => 'Sin Dato'
                             ];
                             echo $this->Form->input('poblacionvulnerable', [
@@ -330,14 +335,15 @@
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionEtnia,
-
-                                'style' => 'font-size: 12px'
+                                'style' => 'font-size: 12px',
+                                'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+                                'onChange' => 'vulnerable(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 
                             ]);
                             ?>
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div id="yes" class="form-group col-md-6">
                             <?php
 
                             echo $this->Form->input('poblacionvulnerable1', [
@@ -427,13 +433,14 @@
                                 'Alteraciones mentales : Esquizofrenia, TAB, depresión.' => 'Alteraciones mentales : Esquizofrenia, TAB, depresión.',
                                 'Cánceres (Mama, cuello uterino, estómago, prostata, colon, recto, pulmonar, leucemia.' => 'Cánceres (Mama, cuello uterino, estómago, prostata, colon, recto, pulmonar, leucemia.',
                                 'Enfermedad cardio- cerebro- vascular: (hipertensión, infarto agudo al miocardio)' => 'Enfermedad cardio- cerebro- vascular: (hipertensión, infarto agudo al miocardio)',
-                                'Enfermedad renal ' => 'Enfermedad renal ',
+                                'Enfermedad renal ' => 'Enfermedad renal y/o cronica',
                                 'Enfermedad respiratoria: Asma/EPOC' => 'Enfermedad respiratoria: Asma/EPOC',
                                 'Diabetes' => 'Diabetes',
                                 'Obesidad' => 'Obesidad',
-                                'Enfermedad renal crónica' => 'Enfermedad renal crónica',
                                 'Enfermedades huérfanas' => 'Enfermedades huérfanas',
-                                'SD' => 'Sin dato'
+                                'SD' => 'Sin dato',
+
+
                             ];
 
                             echo $this->Form->input('antecedenteenfermedad', [
@@ -443,34 +450,39 @@
                                 'options' => $optionEnferemedadAntecedentes,
                                 'class' => 'form-control select-search',
                                 'style' => 'font-size: 12px',
+                                'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+                                'onChange' => 'cronica(this.value);', // Ag
                             ]);
                             ?>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('antecedenteenfermedad1', [
-                                'label' => 'Agregue otro Antecedente enfermedad si requiere',
-                                'class' => 'form-control',
-                                'type' => 'select',
-                                'options' => $optionEnferemedadAntecedentes,
-                                'class' => 'form-control select-search',
-                                'style' => 'font-size: 12px',
-                            ]);
-                            ?>
-                        </div>
+                        <div id="Cronica" class="form-group row">
 
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('antecedenteenfermedad2', [
-                                'label' => 'Agregue otro Antecedentes enfermedad si requiere',
-                                'class' => 'form-control',
-                                'type' => 'select',
-                                'options' => $optionEnferemedadAntecedentes,
-                                'class' => 'form-control select-search',
-                                'style' => 'font-size: 12px',
-                            ]);
-                            ?>
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('antecedenteenfermedad1', [
+                                    'label' => 'Agregue otro Antecedente enfermedad si requiere',
+                                    'class' => 'form-control',
+                                    'type' => 'select',
+                                    'options' => $optionEnferemedadAntecedentes,
+                                    'class' => 'form-control select-search',
+                                    'style' => 'font-size: 12px',
+                                ]);
+                                ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('antecedenteenfermedad2', [
+                                    'label' => 'Agregue otro Antecedentes enfermedad si requiere',
+                                    'class' => 'form-control',
+                                    'type' => 'select',
+                                    'options' => $optionEnferemedadAntecedentes,
+                                    'class' => 'form-control select-search',
+                                    'style' => 'font-size: 12px',
+                                ]);
+                                ?>
+                            </div>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -513,10 +525,14 @@
                                 'type' => 'select',
                                 'options' => $optionTranmisibles,
                                 'style' => 'font-size: 12px',
+                                'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+                                'onChange' => 'sintomatico(this.value);', // Ag
                             ]);
                             ?>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div id="Sintomatico" class="form-group col-md-6">
+                            <p class="help-block">Agregue otra situación si se requiere</p>
+
                             <?php
                             echo $this->Form->input('enfermedadtransmible1', [
                                 'label' => 'En los últimos 15 dias algún miembro del hogar a presentado',
@@ -526,7 +542,6 @@
                                 'style' => 'font-size: 12px',
                             ]);
                             ?>
-                            <p class="help-block">Agregue otra situación si se requiere</p>
 
                         </div>
 
@@ -568,37 +583,42 @@
                                 'options' => $optionConflictos,
 
                                 'style' => 'font-size: 12px',
+                                'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+                                'onChange' => 'psicosocial(this.value);', // Ag
                             ]);
                             ?>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('riesgopsicosocial1', [
-                                'label' => '¿En su hogar se ha presentado alguna de las siguientes situaciones en el ultimo mes?',
-                                'class' => 'form-control',
-                                'type' => 'select',
-                                'options' => $optionConflictos,
+                        <div id="Psicosocial" class="form-group row">
 
-                                'style' => 'font-size: 12px',
-                            ]);
-                            ?>
-                            <p class="help-block">Agregue otra situación si se requiere</p>
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('riesgopsicosocial1', [
+                                    'label' => '¿En su hogar se ha presentado alguna de las siguientes situaciones en el ultimo mes?',
+                                    'class' => 'form-control',
+                                    'type' => 'select',
+                                    'options' => $optionConflictos,
 
-                        </div>
+                                    'style' => 'font-size: 12px',
+                                ]);
+                                ?>
+                                <p class="help-block">Agregue otra situación si se requiere</p>
 
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('riesgopsicosocial2', [
-                                'label' => '¿En su hogar se ha presentado alguna de las siguientes situaciones en el ultimo mes?',
-                                'class' => 'form-control',
-                                'type' => 'select',
-                                'options' => $optionConflictos,
+                            </div>
 
-                                'style' => 'font-size: 12px',
-                            ]);
-                            ?>
-                            <p class="help-block">Agregue otra situación si se requiere</p>
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('riesgopsicosocial2', [
+                                    'label' => '¿En su hogar se ha presentado alguna de las siguientes situaciones en el ultimo mes?',
+                                    'class' => 'form-control',
+                                    'type' => 'select',
+                                    'options' => $optionConflictos,
+
+                                    'style' => 'font-size: 12px',
+                                ]);
+                                ?>
+                                <p class="help-block">Agregue otra situación si se requiere</p>
+                            </div>
                         </div>
                         <div class="form-group col-md-6">
                             <?php
@@ -648,7 +668,8 @@
                                 'Familias en acción' => 'Familias en acción',
                                 'Banco de leche humana' => 'Banco de leche humana',
                                 'Otro' => 'Otro',
-                                'No refiere' => 'No refiere'
+                                'No sabe' => 'No sabe',
+                                'SD' => 'Sin dato'
 
                             ];
 
@@ -659,33 +680,42 @@
                                 'options' => $optionProgramaSocial,
 
                                 'style' => 'font-size: 12px',
+                                'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+                                'onChange' => 'programaSocial(this.value);', // Ag
                             ]);
                             ?>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('programasocial1', [
-                                'label' => 'Agregue otro subsidio o aporte de programas sociales si requiere',
-                                'class' => 'form-control',
-                                'type' => 'select',
-                                'options' => $optionProgramaSocial,
-                                'style' => 'font-size: 12px',
-                            ]);
-                            ?>
+
+                        <div id="Social" class="form-group row">
+
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('programasocial1', [
+                                    'label' => 'Agregue otro subsidio o aporte de programas sociales si requiere',
+                                    'class' => 'form-control',
+                                    'type' => 'select',
+                                    'options' => $optionProgramaSocial,
+                                    'style' => 'font-size: 12px',
+                                ]);
+                                ?>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <?php
+                                echo $this->Form->input('programasocial2', [
+                                    'label' => 'Agregue otro subsidio o aporte de programas sociales si requiere',
+                                    'class' => 'form-control',
+                                    'type' => 'select',
+                                    'options' => $optionProgramaSocial,
+                                    'style' => 'font-size: 12px',
+                                ]);
+                                ?>
+                            </div>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <?php
-                            echo $this->Form->input('programasocial2', [
-                                'label' => 'Agregue otro subsidio o aporte de programas sociales si requiere',
-                                'class' => 'form-control',
-                                'type' => 'select',
-                                'options' => $optionProgramaSocial,
-                                'style' => 'font-size: 12px',
-                            ]);
-                            ?>
-                        </div>
+
                     </div>
 
 
@@ -821,7 +851,7 @@
                     </div>
         </fieldset>
 
-        <?php echo $this->Form->end(__('Guradar'), ['class' => 'btn btn-success']); ?>
+        <?php echo $this->Form->end(__('Guardar'), ['class' => 'btn btn-success']); ?>
     </div>
 
 </div>

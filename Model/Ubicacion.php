@@ -6,13 +6,19 @@ App::uses('AppModel', 'Model');
  * @property Sociambiental $Sociambiental
  * @property Sociambientalscompletum $Sociambientalscompletum
  */
-class Ubicacion extends AppModel {
+class Ubicacion extends AppModel
+{
 
-/**
- * Validation rules
- *
- * @var array
- */
+	public $virtualFields = array(
+		'barrio' => 'CONCAT(Ubicacion.comuna, " ", Ubicacion.barrio)'
+	);
+	public $displayField = 'barrio';
+
+	/**
+	 * Validation rules
+	 *
+	 * @var array
+	 */
 	public $validate = array(
 		'zona' => array(
 			'notEmpty' => array(
@@ -78,11 +84,11 @@ class Ubicacion extends AppModel {
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-/**
- * hasMany associations
- *
- * @var array
- */
+	/**
+	 * hasMany associations
+	 *
+	 * @var array
+	 */
 	public $hasMany = array(
 		'Sociambiental' => array(
 			'className' => 'Sociambiental',
@@ -111,5 +117,4 @@ class Ubicacion extends AppModel {
 			'counterQuery' => ''
 		)
 	);
-
 }
