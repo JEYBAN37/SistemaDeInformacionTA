@@ -754,8 +754,8 @@ $this->Html->script([
 
 
     function agregarOpcionSeleccion() {
-        $("#SociambientalUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
-        $("#SociambientalResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
+
+
     }
 
 
