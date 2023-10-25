@@ -116,9 +116,31 @@ class InfantilsController extends AppController
 			$this->request->data = $this->Infantil->find('first', $options);
 		}
 		$familias = $this->Infantil->Familia->find('list');
-		$canalizaciones = $this->Infantil->Canalizacion->find('list');
+		$canalizacions = $this->Infantil->Canalizacion->find('list');
 		$personas = $this->Infantil->Persona->find('list');
-		$this->set(compact('familias', 'personas', 'canalizaciones'));
+		$this->set(compact('familias', 'personas', 'canalizacions'));
+	}
+
+	public function canalizacion($id = null)
+	{
+		if (!$this->Infantil->exists($id)) {
+			throw new NotFoundException(__('Invalid infantil'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Infantil->save($this->request->data)) {
+				$this->Session->setFlash('Se ha guardado correctamente', 'default', array('class' => 'alert alert-success'));
+				return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Infantil"]["familia_id"]));
+			} else {
+				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
+			}
+		} else {
+			$options = array('conditions' => array('Infantil.' . $this->Infantil->primaryKey => $id));
+			$this->request->data = $this->Infantil->find('first', $options);
+		}
+		$familias = $this->Infantil->Familia->find('list');
+		$canalizacions = $this->Infantil->Canalizacion->find('list');
+		$personas = $this->Infantil->Persona->find('list');
+		$this->set(compact('familias', 'personas', 'canalizacions'));
 	}
 
 	/**

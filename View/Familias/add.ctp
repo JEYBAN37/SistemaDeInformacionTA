@@ -156,7 +156,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
                                 'No aplica' => 'No Aplica',
                             ];
                             echo $this->Form->input('vivienda', [
-                                'label' => '¿Su núcleo familiar dentro de la vivienda en?',
+                                'label' => '¿Su núcleo familiar dentro de la vivienda habita en: ?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',

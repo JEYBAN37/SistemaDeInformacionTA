@@ -13,7 +13,7 @@ class CanalizacionesControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.canalizacion'
+		'app.canalizacione'
 	);
 
 /**
