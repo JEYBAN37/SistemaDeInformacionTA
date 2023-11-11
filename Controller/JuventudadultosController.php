@@ -139,12 +139,15 @@ class JuventudadultosController extends AppController
 		if (!$this->Juventudadulto->exists()) {
 			throw new NotFoundException(__('Invalid juventudadulto'));
 		}
+		// Obtener el familia_id antes de eliminar
+		$familiaId = $this->Juventudadulto->field('familia_id');
 		$this->request->allowMethod('post', 'delete');
 		if ($this->Juventudadulto->delete()) {
 			$this->Session->setFlash('El registro se borro exitosamente', 'default', array('class' => 'alert alert-success'));
 		} else {
 			$this->Session->setFlash('El registro se borro exitosamente', 'default', array('class' => 'alert alert-danger'));
 		}
-		return $this->redirect(array('action' => 'index'));
+		// Redirigir al controller "familias" y a la acción "view" con el familia_id
+		return $this->redirect(array('controller' => 'familias', 'action' => 'view', $familiaId));
 	}
 }

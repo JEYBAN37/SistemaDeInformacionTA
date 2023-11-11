@@ -8,9 +8,9 @@ App::uses('AppModel', 'Model');
 class Responsable extends AppModel
 {
 	public $virtualFields = array(
-		'apellidosnombre' => 'CONCAT(responsable.nombres)'
+		'encuestador' => 'CONCAT(responsable.nombres)'
 	);
-	public $displayField = 'apellidosnombre';
+	public $displayField = 'encuestador';
 	/**
 	 * Validation rules
 	 *

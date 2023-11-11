@@ -740,3 +740,7 @@ pre {
 #url-rewriting-warning {
 	display:none;
 }
+
+.title {
+	font-weight: bold;
+  }

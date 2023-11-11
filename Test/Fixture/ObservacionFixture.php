@@ -6,13 +6,6 @@
 class ObservacionFixture extends CakeTestFixture {
 
 /**
- * Table name
- *
- * @var string
- */
-	public $table = 'observacions';
-
-/**
  * Fields
  *
  * @var array
@@ -51,7 +44,7 @@ class ObservacionFixture extends CakeTestFixture {
 			'riesgogestante' => 'Lorem ipsum dolor sit amet',
 			'riesgosicosocial' => 'Lorem ipsum dolor sit amet',
 			'riesgofamilia' => 'Lorem ipsum dolor sit amet',
-			'date' => '2023-09-02 19:45:41',
+			'date' => '2023-11-03 16:54:29',
 			'observacion' => 'Lorem ipsum dolor sit amet',
 			'dir' => 'Lorem ipsum dolor sit amet',
 			'anexo' => 'Lorem ipsum dolor sit amet'

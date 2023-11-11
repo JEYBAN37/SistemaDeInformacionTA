@@ -13,7 +13,19 @@ class ObservacionesControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.observacion'
+		'app.observacione',
+		'app.familia',
+		'app.sociambiental',
+		'app.responsable',
+		'app.ubicacion',
+		'app.sociambientalscompletum',
+		'app.adolescencia',
+		'app.persona',
+		'app.primerainfancia',
+		'app.canalizacion',
+		'app.infantil',
+		'app.juventudadulto',
+		'app.gestante'
 	);
 
 /**

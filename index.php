@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  *
@@ -8,3 +9,4 @@
  */
 
 require 'webroot' . DIRECTORY_SEPARATOR . 'index.php';
+require APP . 'Config' . DS . 'bootstrap.php';

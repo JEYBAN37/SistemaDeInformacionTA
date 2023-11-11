@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is loaded automatically by the app/webroot/index.php file after core.php
  *
@@ -61,6 +62,8 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 
+CakePlugin::load('AclExtras');
+
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter . By default CakePHP bundles two filters:
  *
@@ -82,6 +85,13 @@ Configure::write('Dispatcher.filters', array(
 	'CacheDispatcher'
 ));
 
+CakePlugin::load('Upload');
+Configure::write('Dispatcher.filters', array(
+	'AssetDispatcher',
+	'CacheDispatcher'
+));
+
+
 /**
  * Configures default file logging options
  */
@@ -96,3 +106,11 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+
+//CONFIGURACION DE INFLEXIONES: se realiza para que exista coherencia entre la base de datos y convenciones en español del php
+//reglas en español
+
+Inflector::rules('singular', array('rules' => array('/(.*)res$/i' => '\1r', '/(.*)nes$/i' => '\1n', '/(.*)des$/i' => '\1d', '/(.*)ses$/i' => '\1s'), 'irregular' => array(), 'uninflected' => array()));
+
+Inflector::rules('plural', array('rules' => array('/(.*)r$/i' => '\1res', '/(.*)n$/i' => '\1nes', '/(.*)d$/i' => '\1des', '/(.*)s$/i' => '\1ses'), 'irregular' => array(), 'uninflected' => array()));

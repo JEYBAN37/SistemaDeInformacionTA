@@ -19,6 +19,13 @@ class Ubicacion extends AppModel
 	 *
 	 * @var array
 	 */
+	/**
+	 * Use table
+	 *
+	 * @var mixed False or table name
+	 */
+	public $useTable = 'ubicaciones';
+
 	public $validate = array(
 		'zona' => array(
 			'notEmpty' => array(

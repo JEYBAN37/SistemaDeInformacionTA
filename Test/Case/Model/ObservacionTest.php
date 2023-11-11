@@ -13,7 +13,20 @@ class ObservacionTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.observacion'
+		'app.observacion',
+		'app.familia',
+		'app.sociambiental',
+		'app.responsable',
+		'app.ubicacion',
+		'app.sociambientalscompletum',
+		'app.adolescencia',
+		'app.persona',
+		'app.primerainfancia',
+		'app.canalizacion',
+		'app.infantil',
+		'app.juventudadulto',
+		'app.gestante',
+		'app.observacione'
 	);
 
 /**

@@ -14,13 +14,18 @@ class FamiliaTest extends CakeTestCase {
  */
 	public $fixtures = array(
 		'app.familia',
-		'app.socioambiental',
-		'app.antecedenteenfermedad',
-		'app.riesgopsicosocial',
-		'app.programasocial',
-		'app.discapacidad',
-		'app.victima',
-		'app.primerainfancia'
+		'app.sociambiental',
+		'app.responsable',
+		'app.ubicacion',
+		'app.sociambientalscompletum',
+		'app.adolescencia',
+		'app.persona',
+		'app.primerainfancia',
+		'app.canalizacion',
+		'app.infantil',
+		'app.juventudadulto',
+		'app.gestante',
+		'app.observacione'
 	);
 
 /**

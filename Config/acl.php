@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This is the PHP base ACL configuration file.
  *
@@ -122,3 +123,6 @@ $config['rules'] = array(
 	),
 	'deny' => array(),
 );
+
+AclComponent::allow('Aco', 'ArosAco');
+AclComponent::allow('Aro', 'ArosAco');

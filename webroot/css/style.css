@@ -24,3 +24,7 @@
   background-color: #0056b3; /* Cambia el color de fondo al pasar el ratón */
   border-color: #0056b3; /* Cambia el color del borde al pasar el ratón */
 }
+
+.title {
+  font-weight: bold;
+}

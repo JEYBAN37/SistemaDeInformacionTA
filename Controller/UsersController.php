@@ -10,28 +10,6 @@ class UsersController extends AppController
     var $paginate = array("order" => "username", "limit" => 5);
     var $nivs = array("A" => "Administrador", "U" => "Investigador", "D" => "Digitador");
 
-
-
-    /* function add($niv=null){
-        if(isset($this->data)&&!empty($this->data)){
-            $this->request->data["User"]["password"]=md5($this->request->data["User"]["password"]);
-            if($this->User->save($this->data)){
-                $this->Session->setFlash("Usuario registrado exitosamente");
-            } else {
-                $this->Session->setFlash("Problema en el registro");
-            }
-            if($niv != null){
-                $this->redirect("admin");
-            } else {
-                $this->redirect("admin");
-            }
-        } else {
-            //if($niv != null){
-                $this->set("nivs", $this->nivs);
-            //}
-        }
-    }*/
-
     public function home()
     {
         $this->User->recursive = 0;
@@ -114,10 +92,9 @@ class UsersController extends AppController
                     $this->Session->setFlash('Acceso exitoso, bienvenido', 'default', array('class' => 'alert alert-success'));
                     // return $this->redirect('controller' => 'orders', 'action' => 'thanks');
                     //$this->redirect("home");
-                   return $this->redirect(
-            array('controller' => 'verificaciones', 'action' => 'index'));
-        
-
+                    return $this->redirect(
+                        array('controller' => 'familias', 'action' => 'index')
+                    );
                 }
             } else {
                 $this->Session->setFlash('Por favor verifique sus credenciales', 'default', array('class' => 'alert alert-warning'));
@@ -177,7 +154,7 @@ class UsersController extends AppController
 
         // Allow admins to everything
         $group->id = 1;
-        //$this->Acl->allow($group, 'controllers');
+        $this->Acl->allow($group, 'controllers');
         //$this->Acl->allow($group, 'controllers/users/delete');
         // $this->Acl->allow($group, 'controllers/actas/delete');
         //$this->Acl->deny($group, 'controllers/Productos/smsedit');
@@ -185,8 +162,8 @@ class UsersController extends AppController
         // allow managers to posts and widgets
         $group->id = 2;
         //$this->Acl->deny($group, 'controllers');       
-      
-      /* $this->Acl->deny($group, 'controllers/Plsesiones/edit');
+
+        /* $this->Acl->deny($group, 'controllers/Plsesiones/edit');
        $this->Acl->deny($group, 'controllers/Plsesiones/editanexo');
        $this->Acl->deny($group, 'controllers/Plsesiones/add');
        $this->Acl->deny($group, 'controllers/infoeventos/add');  
@@ -211,7 +188,7 @@ class UsersController extends AppController
        $this->Acl->deny($group, 'controllers/Plsmomentos/edit');
        $this->Acl->deny($group, 'controllers/Plsmomentos/add');
        $this->Acl->deny($group, 'controllers/Plsmomentos/delete');*/
-       
+
 
 
 
@@ -226,7 +203,7 @@ class UsersController extends AppController
         // allow users to only add and edit on posts and widgets
         $group->id = 3;
         //$this->Acl->deny($group, 'controllers');
-      
+
 
 
 
