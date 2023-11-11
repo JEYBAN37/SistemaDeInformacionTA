@@ -10,14 +10,38 @@ $passS = '';
 $bd = 'fichafamiliar';
 ?>
 
+<style>
+.negrilla {
+    font-size: small;
+    font-weight: bold;
+}
 
+.my-button {
+    padding: 10px 20px;
+    background-color: #3366CC;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+
+
+}
+
+.my-button:hover {
+    background-color: #337CCF;
+}
+
+.my-button:active {
+    background-color: #337CCF;
+}
+</style>
 
 <div>
     <div class="form-group col-sm-12">
         <fieldset>
             <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;">Ficha Familiar
-                </h1>
+                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;">Ficha Familiar</h1>
             </div>
 
             <div class="panel-body">
@@ -28,13 +52,15 @@ $bd = 'fichafamiliar';
 
                             <table width="100%" class="table table-responsive table-striped table-bordered  ">
                                 <tr>
-                                    <td>Fecha Registro:
+                                    <td>
+                                        <strong>Fecha Registro:</strong>
                                         <?php
-                                        echo ($familia['Sociambiental']['fecha']); ?></td>
+                                        echo ($familia['Sociambiental']['fecha']); ?>
+                                    </td>
 
 
 
-                                    <td>Encuestador:
+                                    <td><strong>Encuestador:</strong>
                                         <?php
                                         $link = mysqli_connect($serv, $userS, $passS, $bd);
                                         $tildes = $link->query("SET NAMES 'utf8'"); // Para que se muestren las tildes correctamente
@@ -51,26 +77,28 @@ $bd = 'fichafamiliar';
 
 
 
-                                    <td>ID:
-                                        <?php echo ($familia['Familia']['id']); ?></td>
+                                    <td>
+                                        <strong>ID:</strong>
+                                        <?php echo ($familia['Familia']['id']); ?>
+                                    </td>
                                     <!--td>N° Hogares:
                                         <?php echo ($familia['Sociambiental']['numerohogares']); ?></td-->
                                 </tr>
                                 <tr>
-                                    <td>Familia:
+                                    <td><strong>Familia:</strong>
                                         <?php echo $this->Html->link($familia['Sociambiental']['apellidosfamilia'], array('controller' => 'sociambientals', 'action' => 'view', $familia['Sociambiental']['id'])); ?>
                                     </td>
-                                    <td>Representante:
+                                    <td> <strong> Representante:</strong>
 
                                         <?php echo '<strong>' . $familia['Familia']['nombres'] . '</strong> <strong>' . $familia['Familia']['apellidos'] . '</strong>'; ?>
                                     </td>
-                                    <td colspan="2">Curso de Vida:
+                                    <td colspan="2"> <strong>Curso de Vida:</strong>
                                         <?php echo ($familia['Familia']['cursovidafamilia']); ?></td>
                                 </tr>
 
                                 <tr>
 
-                                    <td>Ubicación:
+                                    <td><strong>Ubicación:</strong>
                                         <?php
                                         $link = mysqli_connect($serv, $userS, $passS, $bd);
                                         $tildes = $link->query("SET NAMES 'utf8'"); // Para que se muestren las tildes correctamente
@@ -82,9 +110,9 @@ $bd = 'fichafamiliar';
                                         mysqli_close($link);
                                         ?>
                                     </td>
-                                    <td>Dirección:
+                                    <td><strong>Dirección:</strong>
                                         <?php echo ($familia['Sociambiental']['direccion']); ?></td>
-                                    <td>Num Hogares:
+                                    <td><strong>Num Hogares:</strong>
                                         <?php echo ($familia['Sociambiental']['numerohogares']); ?>
                                     </td>
 
@@ -94,27 +122,23 @@ $bd = 'fichafamiliar';
                                 <tr>
 
 
-                                    <td>Num. celular:
+                                    <td><strong>Num. celular:</strong>
                                         <?php echo ($familia['Familia']['celular']); ?></td>
-                                    <td colspan="2">Email:
+                                    <td colspan="2"><strong>Email:</strong>
                                         <?php echo ($familia['Familia']['correo']); ?></td>
 
                                 </tr>
                                 <tr>
-                                    <td>Num. integrantes:
+                                    <td colspan=""><strong>Num. integrantes:</strong>
                                         <?php echo ($familia['Familia']['numeropersonas']); ?>
                                     </td>
 
-                                    <td>Población vulnerable:
+                                    <td colspan="2"><strong>Población vulnerable:</strong>
                                         <?php echo ($familia['Familia']['poblacionvulnerable']); ?>
                                     </td>
-                                    <td>Población vulnerable:
-                                        <?php echo ($familia['Familia']['poblacionvulnerable']); ?>
-                                    </td>
-
                                 </tr>
                                 <tr>
-                                    <td colspan="6" style="text-align: center;">Vivenda
+                                    <td colspan="6" style="text-align: center;"><strong>VIVIENDA</strong>
 
                                     </td>
 
@@ -124,28 +148,28 @@ $bd = 'fichafamiliar';
 
                                 <tr>
 
-                                    <td>vivienda:
+                                    <td><strong>vivienda:</strong>
                                         <?php echo ($familia['Familia']['vivienda']); ?></td>
-                                    <td>Tenencia:
+                                    <td><strong>Tenencia:</strong>
                                         <?php echo ($familia['Familia']['tenencia']); ?></td>
-                                    <td>Tiempo de residencia:
+                                    <td><strong>Tiempo de residencia:</strong>
                                         <?php echo '<span>' . $familia['Familia']['tiemporesidencia'] . '</span>'; ?>
                                     </td>
                                 </tr>
 
                                 <tr>
 
-                                    <td>combustible:
+                                    <td><strong>combustible:</strong>
                                         <?php echo ($familia['Familia']['combustible']); ?></td>
-                                    <td>otrocombustible:
+                                    <td><strong>otrocombustible:</strong>
                                         <?php echo ($familia['Familia']['otrocombustible']); ?></td>
-                                    <td>Actividad económica:
+                                    <td><strong>Actividad económica:</strong>
                                         <?php echo '<span>' . $familia['Sociambiental']['actividad'] . '</span>'; ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="6" style="text-align: center;">Caracteristicas de la famlia
-
+                                    <td colspan="6" style="text-align: center;">
+                                        <strong>CARACTERISTICAS DE LA FAMILIA</strong>
                                     </td>
 
 
@@ -154,76 +178,76 @@ $bd = 'fichafamiliar';
 
                                 <tr>
 
-                                    <td>Tipo familia:
+                                    <td><strong>Tipo familia:</strong>
                                         <?php echo ($familia['Familia']['tipofamilia']); ?></td>
-                                    <td>Curso vida familia:
+                                    <td><strong>Curso vida familia:</strong>
                                         <?php echo ($familia['Familia']['cursovidafamilia']); ?></td>
-                                    <td>Personas LGTBIQ+:
+                                    <td><strong>Personas LGTBIQ+:</strong>
                                         <?php echo '<span>' . $familia['Familia']['lgtbi'] . '</span>'; ?>
                                     </td>
                                 </tr>
                                 <tr>
 
-                                    <td>Estilo de vida:
+                                    <td><strong>Estilo de vida:</strong>
                                         <?php echo ($familia['Familia']['estilodevidapredominante']); ?></td>
-                                    <td>Antecedente enfermedad:
+                                    <td><strong>Antecedente enfermedad:</strong>
                                         <?php echo ($familia['Familia']['antecedenteenfermedad']); ?></td>
-                                    <td>Antecedente enfermedad:
+                                    <td><strong>Antecedente enfermedad:</strong>
                                         <?php echo '<span>' . $familia['Familia']['antecedenteenfermedad1'] . '</span>'; ?>
                                     </td>
                                 </tr>
                                 <tr>
 
-                                    <td>Antecedente enfermedad:
+                                    <td><strong>Antecedente enfermedad:</strong>
                                         <?php echo ($familia['Familia']['antecedenteenfermedad2']); ?></td>
-                                    <td>Enfermedad transmible:
+                                    <td><strong>Enfermedad transmible::</strong>
                                         <?php echo ($familia['Familia']['enfermedadtransmible']); ?></td>
-                                    <td>Enfermedad transmible:
+                                    <td><strong>Enfermedad transmible:</strong>
                                         <?php echo '<span>' . $familia['Familia']['enfermedadtransmible1'] . '</span>'; ?>
                                     </td>
                                 </tr>
                                 <tr>
 
-                                    <td>Lavado de manos:
+                                    <td><strong>Lavado de manos:</strong>
                                         <?php echo ($familia['Familia']['lavadomanos']); ?></td>
-                                    <td>Comparte elementos aseo personal:
+                                    <td><strong>Comparte elementos aseo personal:</strong>
                                         <?php echo ($familia['Familia']['elementoshigiene']); ?></td>
-                                    <td>Cultura de cepillado de dientes:
+                                    <td><strong>Cultura de cepillado de dientes:</strong>
                                         <?php echo '<span>' . $familia['Familia']['cepilladodientes'] . '</span>'; ?>
                                     </td>
                                 </tr>
 
                                 <tr>
 
-                                    <td>Riesgo Psicosocial:
+                                    <td><strong>Riesgo Psicosocial:</strong>
                                         <?php echo ($familia['Familia']['riesgopsicosocial']); ?></td>
-                                    <td>Riesgo Psicosocial:
+                                    <td><strong>Riesgo Psicosocial:</strong>
                                         <?php echo ($familia['Familia']['riesgopsicosocial1']); ?></td>
-                                    <td>Riesgo Psicosocial:
+                                    <td><strong>Riesgo Psicosocial:</strong>
                                         <?php echo '<span>' . $familia['Familia']['riesgopsicosocial2'] . '</span>'; ?>
                                     </td>
                                 </tr>
                                 <tr>
 
-                                    <td>Salud alternativa:
+                                    <td><strong>Salud alternativa:</strong>
                                         <?php echo ($familia['Familia']['saludalternativa']); ?></td>
-                                    <td>Cuidador permante:
+                                    <td><strong>Cuidador permante:</strong>
                                         <?php echo ($familia['Familia']['cuidadorpermante']); ?></td>
-                                    <td>Programa social:
+                                    <td><strong>Programa social:</strong>
                                         <?php echo '<span>' . $familia['Familia']['programasocial'] . '</span>'; ?>
                                     </td>
                                 </tr>
                                 <tr>
 
-                                    <td colspan="1">Programa social:
+                                    <td colspan="1"><strong>Programa social:</strong>
                                         <?php echo ($familia['Familia']['programasocial1']); ?></td>
-                                    <td colspan="1">Programa social:
+                                    <td colspan="1"><strong>Programa social:</strong>
                                         <?php echo ($familia['Familia']['programasocial2']); ?></td>
                                 </tr>
 
 
                                 <tr>
-                                    <td colspan="6" style="text-align: center;">Habitabilidad
+                                    <td colspan="6" style="text-align: center;"><strong>HABITABILIDAD</strong>
 
                                     </td>
 
@@ -233,72 +257,72 @@ $bd = 'fichafamiliar';
 
                                 <tr>
 
-                                    <td>Paredes:
+                                    <td><strong>Paredes:</strong>
                                         <?php echo ($familia['Sociambiental']['estadoparedes']); ?></td>
-                                    <td>Techo:
+                                    <td><strong>Techo:</strong>
                                         <?php echo ($familia['Sociambiental']['estadotecho']); ?></td>
-                                    <td id="hacinamiento">Hacinamiento:
+                                    <td id="hacinamiento"><strong>Hacinamiento:</strong>
                                         <?php echo '<span>' . $familia['Sociambiental']['hacinamiento'] . '</span>'; ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Riesgo externo:
+                                    <td><strong>Riesgo externo:</strong>
                                         <?php echo ($familia['Sociambiental']['riesgoexterno']); ?>
                                     </td>
-                                    <td>Riesgo externo:
+                                    <td><strong>Riesgo externo:</strong>
                                         <?php echo ($familia['Sociambiental']['otroriesgo']); ?>
                                     </td>
-                                    <td>Riesgo hogar:
+                                    <td><strong>Riesgo hogar:</strong>
                                         <?php echo ($familia['Sociambiental']['riesgo']); ?>
                                     </td>
 
                                 </tr>
                                 <tr>
-                                    <td>Riesgo hogar:
+                                    <td><strong>Riesgo hogar:</strong>
                                         <?php echo ($familia['Sociambiental']['otroriesgohogar']); ?></td>
-                                    <td>Dificil acceso a:
+                                    <td><strong>Dificil acceso a:</strong>
                                         <?php echo ($familia['Sociambiental']['acceso']); ?> -
                                         <?php echo ($familia['Sociambiental']['accesoDos']); ?></td>
-                                    <td>Servicio de agua:
+                                    <td><strong>Servicio de agua:</strong>
                                         <?php echo ($familia['Sociambiental']['aguaservicio']); ?></td>
                                     </td>
                                 </tr>
                                 <tr>
 
 
-                                    <td>Higiene en el hogar:
+                                    <td><strong>Higiene en el hogar:</strong>
                                         <?php echo '<span>' . $familia['Familia']['higiene'] . '</span>'; ?>
                                     </td>
-                                    <td> Aseo cocina:
+                                    <td><strong>Aseo cocina:</strong>
                                         <?php echo ($familia['Familia']['aseococina']); ?></td>
-                                    <td>Higiene alimentos:
+                                    <td><strong>Higiene alimentos:</strong>
                                         <?php echo ($familia['Familia']['higienealimentos']); ?></td>
 
                                 </tr>
 
                                 <tr>
-                                    <td>Tratamiento agua:
+                                    <td><strong>Tratamiento agua:</strong>
                                         <?php echo ($familia['Sociambiental']['aguatratamiento']); ?></td>
-                                    <td> Limpieza Tanque se agua:
+                                    <td><strong>Limpieza Tanque se agua:</strong>
                                         <?php echo ($familia['Sociambiental']['aguaalmacenamiento']); ?></td>
 
-                                    <td>Diposicion excretas:
+                                    <td><strong>Diposicion excretas:</strong>
                                         <?php echo ($familia['Sociambiental']['diposicionexcretas']); ?></td>
 
                                 </tr>
                                 <tr>
-                                    <td>agua residual:
+                                    <td><strong>agua residual:</strong>
                                         <?php echo ($familia['Sociambiental']['aguaresiduales']); ?></td>
-                                    <td> Limpieza Tanque se agua:
+                                    <td><strong>Limpieza Tanque se agua:</strong>
                                         <?php echo ($familia['Sociambiental']['basura']); ?></td>
 
-                                    <td>Reciclaje:
+                                    <td><strong>Reciclaje:</strong>
                                         <?php echo ($familia['Sociambiental']['reciclaje']); ?></td>
 
                                 </tr>
 
                                 <tr>
-                                    <td colspan="6" style="text-align: center;">Mascotas en el hogar
+                                    <td colspan="6" style="text-align: center;"><strong>MASCOTAS EN EL HOGAR</strong>
 
                                     </td>
 
@@ -307,21 +331,21 @@ $bd = 'fichafamiliar';
                                 </tr>
                                 <tr>
 
-                                    <td>Num. Perros:
+                                    <td><strong>Num. Perros:</strong>
                                         <?php echo ($familia['Sociambiental']['numeroPerros']); ?></td>
-                                    <td>Num.Gatos:
+                                    <td><strong>Num.Gatos:</strong>
                                         <?php echo ($familia['Sociambiental']['numeroGatos']); ?></td>
-                                    <td>Num. otras mascotas:
+                                    <td><strong>Num. otras mascotas:</strong>
                                         <?php echo ($familia['Sociambiental']['otramascota']); ?></td>
                                 </tr>
                                 <tr>
 
-                                    <td>Perros:
+                                    <td><strong>Perros:</strong>
                                         <?php echo ($familia['Sociambiental']['numeroPerros']); ?></td>
-                                    <td id="desparasitacion">desparasitación:
+                                    <td id="desparasitacion"><strong>desparasitación:</strong>
                                         <?php echo '<span>' . $familia['Sociambiental']['desparasitamascotas'] . '</span>'; ?>
                                     </td>
-                                    <td id="vacunacion">Vacunacion:
+                                    <td id="vacunacion"><strong>Vacunacion:</strong>
                                         <?php echo '<span>' . $familia['Sociambiental']['vacunamascotas'] . '</span>'; ?>
                                     </td>
 
@@ -329,7 +353,7 @@ $bd = 'fichafamiliar';
 
                             </table>
 
-                            <button>
+                            <button class="my-button">
                                 <?php
                                 echo $this->Html->link(
                                     'Editar inf.sociambiental',
@@ -340,19 +364,19 @@ $bd = 'fichafamiliar';
                                     ),
                                     array(
                                         'onclick' => "return confirm('¿Estás seguro de que deseas editar la información sociambiental de la familia " . $familia['Sociambiental']['apellidosfamilia'] . "?');",
-                                        'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                        'style' => 'color: white; font-size: 16px; font-weight: bold;'
                                     )
                                 );
                                 ?>
                             </button>
-                            <button>
+                            <button class="my-button">
 
                                 <?php echo $this->Html->link(
                                     __('Editar información Familiar'),
                                     array('action' => 'edit', $familia['Familia']['id']),
                                     array(
                                         'onclick' => "return confirm('¿Estás seguro de editar la información del hogar de " .  $familia['Familia']['nombres'] . ' ' . $familia['Familia']['apellidos'] . "?');",
-                                        'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                        'style' => 'color: white; font-size: 16px; font-weight: bold;'
                                     )
                                 ); ?>
 
@@ -363,7 +387,7 @@ $bd = 'fichafamiliar';
             </div>
 
             <h3 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: -5px; ">Personas en la Familia</h3>
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Personas en la Familia</h3>
             <hr
                 style=" background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 15px; margin-top: 1px;">
 
@@ -425,33 +449,33 @@ $bd = 'fichafamiliar';
                                     </h3>
                                 </div>
 
-                                <button> <?php
-                                            echo $this->Html->link(('Agregar menor de 2 años'),
-                                                array(
-                                                    'controller' => 'Primerainfancias',
-                                                    'action' => 'add?primerainfancia=' . $familia['Familia']['id']
-                                                ),
-                                                array(
-                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
-                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                )
-                                            ); ?>
+                                <button class="my-button"> <?php
+                                                            echo $this->Html->link(('Agregar menor de 2 años'),
+                                                                array(
+                                                                    'controller' => 'Primerainfancias',
+                                                                    'action' => 'add?primerainfancia=' . $familia['Familia']['id']
+                                                                ),
+                                                                array(
+                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
+                                                                    'style' => 'color: white; font-size: 16px; font-weight: bold;'
+                                                                )
+                                                            ); ?>
                                 </button>
 
 
 
 
-                                <button> <?php
-                                            echo $this->Html->link(('Agregar menor entre 2 años a 5 años'),
-                                                array(
-                                                    'controller' => 'Primerainfancias',
-                                                    'action' => 'add2_5?primerainfancia=' . $familia['Familia']['id']
-                                                ),
-                                                array(
-                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor entre 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
-                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-                                                )
-                                            ); ?>
+                                <button class="my-button"> <?php
+                                                            echo $this->Html->link(('Agregar menor entre 2 años a 5 años'),
+                                                                array(
+                                                                    'controller' => 'Primerainfancias',
+                                                                    'action' => 'add2_5?primerainfancia=' . $familia['Familia']['id']
+                                                                ),
+                                                                array(
+                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor entre 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
+                                                                    'style' => 'color: white; font-size: 16px; font-weight: bold;'
+                                                                )
+                                                            ); ?>
                                 </button>
 
 
@@ -1343,7 +1367,6 @@ $bd = 'fichafamiliar';
 
 
             </div>
-
         </fieldset>
     </div>
 </div>

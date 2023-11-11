@@ -46,8 +46,6 @@
 										<th>Rendimiento Escolar</th>
 										<th>Canalizacion N°1 </th>
 										<th>Canalizacion N°2 </th>
-										<th>Educacion N°1 </th>
-										<th>Educacion N°2 </th>
 										<th>Opciones</th>
 									</tr>
 								</thead>
