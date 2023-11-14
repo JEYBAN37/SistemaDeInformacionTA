@@ -209,14 +209,21 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 		<div class="container-menu">
 			<div class="cont-menu" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
 				<nav>
-					<a href="#">
-						<?php echo $this->Html->link(('Agregar Nuevo Registro'), array('controller' => 'Sociambientals', 'action' => 'add'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
+					<a>
+						<?php echo $this->Html->link(('Agregar Nueva vivienda'), array('controller' => 'Sociambientals', 'action' => 'add'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
 					</a>
-					<a href="#">Servicios</a>
-					<a href="#">Suscribirse</a>
-					<a href="#">Facebook</a>
-					<a href="#">Youtube</a>
-					<a href="#">Instagram</a>
+					<a>
+						<?php echo $this->Html->link(('Registros familias'), array('controller' => 'familias', 'action' => 'index'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
+					</a>
+
+					<a href="#">Registros primera infancia</a>
+					<a href="#">Registros infancia</a>
+					<a href="#">Registros adolescencia</a>
+					<a href="#">Registros mayores 18 años </a>
+					<a>Usuario: <?= $usr = $this->Session->read("usr");
+								echo $this->Html->link("Cerrar Sesión", "/users/salir", array());
+								?> </a>
+
 				</nav>
 				<label for="btn-menu" style="color: white;">x
 				</label>

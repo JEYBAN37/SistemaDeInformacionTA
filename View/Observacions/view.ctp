@@ -20,12 +20,10 @@
                                             <div class="row">
                                                 <div class="col-sm-11">
 
-                                                    <table width="100%"
-                                                        class="table table-striped table-bordered table-hover">
+                                                    <table width="100%" class="table table-striped table-bordered table-hover">
                                                         <tr>
                                                         <tr>
-                                                            <td rowspan="4"><img src="../../img/escudosms.png"
-                                                                    width="100" height="auto"></td>
+                                                            <td rowspan="4"><img src="../../img/escudosms.png" width="100" height="auto"></td>
                                                         </tr>
                                                         <tr>
                                                             <td colspan="6">Atencion Primaria En Salud</td>
@@ -53,23 +51,22 @@
                                             <div class="row" style="justify-content: center;">
                                                 <div class="col-sm-11">
 
-                                                    <table width="100%"
-                                                        class="table table-striped table-bordered table-hover">
+                                                    <table width="100%" class="table table-striped table-bordered table-hover">
                                                         <tr>
-                                                            <td colspan="6">Familia Asociada</td>
+                                                            <td colspan="6" class="title">Familia Asociada</td>
                                                             <td colspan="6">
                                                                 <?php echo ($observacion['Observacion']['familia_id']); ?>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="12">Riesgos</td>
+                                                            <td colspan="12" class="title">Riesgos</td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="3">Riesgo en Gestantes</td>
+                                                            <td colspan="3" class="title">Riesgo en Gestantes</td>
                                                             <td colspan="3">
                                                                 <?php echo ($observacion['Observacion']['riesgogestante']); ?>
                                                             </td>
-                                                            <td colspan="3">Riesgo Primera Infancia</td>
+                                                            <td colspan="3" class="title">Riesgo Primera Infancia</td>
                                                             <td colspan="3">
                                                                 <?php echo ($observacion['Observacion']['riesgoprimerainfancia']); ?>
                                                             </td>
@@ -77,11 +74,11 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="3">Riesgo De Enfermedades Cronicas</td>
+                                                            <td colspan="3" class="title">Riesgo De Enfermedades Cronicas</td>
                                                             <td colspan="3">
                                                                 <?php echo ($observacion['Observacion']['riesgoenfermedadcronica']); ?>
                                                             </td>
-                                                            <td colspan="3">Riesgo Enfermedades Cronicas</td>
+                                                            <td colspan="3" class="title">Riesgo Enfermedades Cronicas</td>
                                                             <td colspan="3">
                                                                 <?php echo ($observacion['Observacion']['riesgosicosocial']); ?>
                                                             </td>
@@ -89,18 +86,18 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="3">Riesgo en la Familia</td>
+                                                            <td colspan="3" class="title">Riesgo en la Familia</td>
                                                             <td colspan="3">
                                                                 <?php echo ($observacion['Observacion']['riesgofamilia']); ?>
                                                             </td>
-                                                            <td colspan="3">Riesgo en la Vivienda</td>
+                                                            <td colspan="3" class="title">Riesgo en la Vivienda</td>
                                                             <td colspan="3">
                                                                 <?php echo ($observacion['Observacion']['riesgovivienda']); ?>
                                                             </td>
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="2">Observacion</td>
+                                                            <td colspan="2" class="title">Observacion</td>
                                                             <td colspan="12">
                                                                 <?php echo ($observacion['Observacion']['observacion']); ?>
                                                             </td>
@@ -109,17 +106,17 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="3">Direccion</td>
+                                                            <td colspan="3" class="title">Direccion</td>
                                                             <td colspan="3">
                                                                 <?php echo ($observacion['Observacion']['dir']); ?></td>
-                                                            <td colspan="3">Anexo</td>
+                                                            <td colspan="3" class="title">Anexo</td>
                                                             <td colspan="3">
                                                                 <?php echo ($observacion['Observacion']['anexo']); ?>
                                                             </td>
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="2">Fecha de Registro</td>
+                                                            <td colspan="2" class="title">Fecha de Registro</td>
                                                             <td colspan="10">
                                                                 <?php echo ($observacion['Observacion']['observacion']); ?>
                                                             </td>
@@ -138,11 +135,9 @@
                                             <div class="row" style="justify-content: center;">
                                                 <div class="col-sm-11">
 
-                                                    <table width="100%"
-                                                        class="table table-striped table-bordered table-hover">
+                                                    <table width="100%" class="table table-striped table-bordered table-hover">
                                                         <tr>
-                                                            <td style="text-align: center;"><a
-                                                                    href=" javascript:window.print();">
+                                                            <td style="text-align: center;"><a href=" javascript:window.print();">
                                                                     Imprimir
                                                                 </a></td>
                                                         </tr>
@@ -179,15 +174,15 @@ $this->Html->script([
 );*/
 ?>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('textarea').eac(function() {
-        this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-    }).on('input', function() {
-        this.style.height = 'auto';
-        this.style.height = (this.scrollHeight) + 'px';
-    });
+    $(document).ready(function() {
+        $('textarea').eac(function() {
+            this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+        }).on('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
 
-});
+    });
 </script>
 
 
