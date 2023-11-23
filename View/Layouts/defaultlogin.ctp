@@ -1,25 +1,4 @@
-<?php
-
-/**
- *
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       http://www.opensource.org/licenses/mit-license.php MIT License
- */
-// $cakeDescription = __d('cake_dev', 'Ciudad Bienestar: Sistema de Información');
-// $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
-$cakeDescription = 'Ciudad Bienestar: Sistema de Información';
-?>
+<?php $cakeDescription = 'Ciudad Bienestar: Sistema de Información'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -56,7 +35,6 @@ $cakeDescription = 'Ciudad Bienestar: Sistema de Información';
     <?php
     echo $this->Form->create("User");
     ?>
-
     <style>
         :root {
             --blue: #007bff;
@@ -12056,9 +12034,9 @@ $cakeDescription = 'Ciudad Bienestar: Sistema de Información';
             color: #fff;
         }
     </style>
+</head>
 
-
-    <!--body class="bs-docs-home"-->
+<!--body class="bs-docs-home"-->
 
 <body style=" background-color: #3366CC;">
 
@@ -12095,7 +12073,7 @@ $cakeDescription = 'Ciudad Bienestar: Sistema de Información';
                                     <input name="data[User][password]" id="UserPassword" type="password" id="UserUsername" name="UserUsername" class="form-control" placeholder="Contraseña" required>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+                                    <button onfocus="verCod()" value="Entrar" type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
                                 </div>
                                 <div class="form-group d-md-flex">
                                     <div class="w-50 text-left">
@@ -12112,21 +12090,37 @@ $cakeDescription = 'Ciudad Bienestar: Sistema de Información';
                 </div>
             </div>
     </section>
-</body>
 
 
-<footer class="footer">
-    <div class="container">
+    <div id="wrapper">
 
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <br>
-                <div style="color: #e9ecef">&copy; Gestión de la Salud Publica. Versión 1.0 - 2023 <a href="https://www.saludpasto.gov.co/" style="color: #e9ecef">Secretaria Municipal de Salud</a>.</div>
+
+        <!-- Navigation -->
+
+
+        <!-- /.navbar-header -->
+
+
+        <!-- /.navbar-top-links -->
+
+        <div>
+            <div class="container">
+                <div class="row">
+
+                    <ul class="nav" id="side-menu">
+
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <img src="../img/grancapital.png" alt="Imagen de marcador genérico" width="199px" height="auto">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="input-group custom-search-form ">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div><!-- end container -->
-</footer><!-- end footer -->
-
-<script type="text/javascript">
-    captcha();
-</script>
+        <!-- /.sidebar-collapse -->
+    </div>

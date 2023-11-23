@@ -27,7 +27,7 @@ App::uses('SimplePasswordHasher', 'Controller/Component/Auth');
  */
 class AppController extends Controller
 {
-    public $components = array(
+    /*public $components = array(
         'RequestHandler', 'Session', 'Paginator',
         'Acl',
         'Auth' => array(
@@ -107,5 +107,5 @@ class AppController extends Controller
             return $search;
         }
         return null;
-    }
+    }*/
 }
