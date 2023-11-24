@@ -13,9 +13,6 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
         <?php echo $this->Form->create(); ?>
         <div class="form-group col-sm-12 center">
 
-
-
-
             <fieldset>
 
                 <div class="col-12 text-center">
@@ -23,7 +20,7 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                     </h1>
                 </div>
 
-                <h2 style="color: #3366CC;  font-size:30px ; margin-top: 25px; ">Datos Básicos</h2>
+                <h2 class="subtitle-general-form">Datos Básicos</h2>
                 <hr style=" border:0.1px solid rgba(0,0,0,.125);">
 
                 <div class="grow justify-content-center" display="none" style="margin-top:20px; ">
@@ -133,7 +130,7 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                 </div>
 
 
-                <h2 style="color: #3366CC; font-size:30px ; margin-top: 20px; ">Habitabilidad</h2>
+                <h2 class="subtitle-general-forms">Habitabilidad</h2>
                 <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125);">
 
                 <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -278,7 +275,7 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                 </div>
 
 
-                <h2 style="color: #3366CC; font-size:30px; margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
+                <h2 class="subtitle-general-forms">Servicios y Riesgos de la vivienda </h2>
                 <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125);">
 
                 <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -617,7 +614,7 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
 
 
 
-                <h2 style="color: #3366CC; font-size:30px; margin-top: 20px; ">Mascotas o
+                <h2 class="subtitle-general-forms">Mascotas o
                     animales de crianza en el hogar </h2>
 
 

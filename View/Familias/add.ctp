@@ -1,93 +1,24 @@
+<?php $this->layout = 'default_familia' ?>
 <?php
-// Enlaza el archivo JavaScript desde la carpeta webroot/js
 echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del archivo sin la extensión .js
 ?>
 <style>
-    :root {
-        --color-green: #00a878;
-        --color-red: #3366CC;
-        --color-button: #fdffff;
-        --color-black: #000;
-    }
-
-    .switch-button {
-        display: inline-block;
-    }
-
-    .switch-button .switch-button__checkbox {
-        display: none;
-    }
-
-    .switch-button .switch-button__label {
-        background-color: var(--color-red);
-        width: 5rem;
-        height: 3rem;
-        border-radius: 3rem;
-        display: inline-block;
-        position: relative;
-    }
-
-    .switch-button .switch-button__label:before {
-        transition: .2s;
-        display: block;
-        position: absolute;
-        width: 3rem;
-        height: 3rem;
-        background-color: var(--color-button);
-        content: '';
-        border-radius: 50%;
-        box-shadow: inset 0px 0px 0px 1px var(--color-black);
-    }
-
-    .switch-button .switch-button__checkbox:checked+.switch-button__label {
-        background-color: var(--color-green);
-    }
-
-    .switch-button .switch-button__checkbox:checked+.switch-button__label:before {
-        transform: translateX(2rem);
-    }
-
     .negrilla {
         font-size: small;
         font-weight: bold;
     }
-
-    .my-button {
-        padding: 10px 20px;
-        background-color: #3366CC;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 20px;
-
-
-    }
-
-    .my-button:hover {
-        background-color: #337CCF;
-    }
-
-    .my-button:active {
-        background-color: #337CCF;
-    }
 </style>
 <div>
-
+    <?php echo $this->Form->create('Familia'); ?>
     <div class="form-group col-sm-12 ">
-
-
-        <?php echo $this->Form->create('Familia'); ?>
-
-
         <fieldset>
 
             <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC; font-size:50px; ">Módulo Familia Hogar
+                <h1 class="title-general-forms ">Módulo Familia Hogar
                 </h1>
             </div>
 
-            <h2 class=" titulo-general-pwa-govco col-md-12 " style="color: #3366CC;  font-size:30px ; margin-top: 25px; ">Datos del Encuestado</h2>
+            <h2 class="subtitle-general-forms">Datos del Encuestado</h2>
             <hr style=" border:0.1px solid rgba(0,0,0,.125);">
 
 
@@ -325,7 +256,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; font-size:30px; margin-top: 20px; ">Composición
+            <h2 class="subtitle-general-forms">Composición
                 Familiar</h2>
             <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125);">
 
@@ -353,7 +284,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
                             <!-- Botón de ayuda -->
 
-                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Nuclear: constituida por los progenitores y los hijos. Nuclear monoparental: constituida por un solo progenitor y sus hijos. Unipersonal: no tiene núcleo familiar y sólo consta de una persona. Extensa: Compuesta por persona como Tios, Primos, abuelos. " style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 10px;" margin-top: 10px;">
+                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Nuclear: constituida por los progenitores y los hijos. Nuclear monoparental: constituida por un solo progenitor y sus hijos. Unipersonal: no tiene núcleo familiar y sólo consta de una persona. Extensa: Compuesta por persona como Tios, Primos, abuelos. " style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 2px; margin-left: 10px;">
                                 ?
                             </button>
 
@@ -466,7 +397,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
                                             Disolución:
                                             Separación o divorcio de la pareja.
-                                            " style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 10px;">
+                                            " style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 10px;">
                                 ?
                             </button>
                         </div>
@@ -489,7 +420,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; font-size:30px; margin-top: 20px; ">Riesgos de salud
+            <h2 class="subtitle-general-forms">Riesgos de salud
             </h2>
             <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125);">
 
@@ -622,7 +553,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; font-size:30px; margin-top: 20px; ">Dinamica
+            <h2 class="subtitle-general-forms">Dinamica
                 Familiar</h2>
             <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125);">
 
@@ -720,7 +651,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
                     </div>
                 </div>
 
-                <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; font-size:30px; margin-top: 20px; ">Apoyo Social
+                <h2 class="subtitle-general-forms">Apoyo Social
                 </h2>
                 <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125);">
 
@@ -793,7 +724,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
                     </div>
                 </div>
 
-                <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; font-size:30px; margin-top: 20px; ">Aseo e Higiene
+                <h2 class="subtitle-general-forms">Aseo e Higiene
                 </h2>
                 <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125);">
 
@@ -921,9 +852,10 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
                         </div>
         </fieldset>
 
-        <button class="my-button">
-            <h1 style='color: white; font-size: 16px; font-weight: bold;'>Guardar</h1> <?php echo $this->Form->end(); ?>
+        <button class="my-button" style="">
+            Guardar<?php echo $this->Form->end(); ?>
         </button>
+
     </div>
 
 </div>

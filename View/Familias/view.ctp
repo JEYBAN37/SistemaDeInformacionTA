@@ -15,36 +15,16 @@ $bd = 'fichafamiliar';
         font-size: small;
         font-weight: bold;
     }
-
-    .my-button {
-        padding: 10px 20px;
-        background-color: #3366CC;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 20px;
-
-
-    }
-
-    .my-button:hover {
-        background-color: #337CCF;
-    }
-
-    .my-button:active {
-        background-color: #337CCF;
-    }
 </style>
 
 <div>
     <div class="form-group col-sm-12">
         <fieldset>
             <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;">Ficha Familiar</h1>
+                <h1 class="title-general-forms">Ficha Familiar</h1>
             </div>
 
-            <div class="panel-body">
+            <div>
                 <div class="dataTable_wrapper">
 
                     <div class="row">
@@ -386,8 +366,8 @@ $bd = 'fichafamiliar';
                 </div>
             </div>
 
-            <h3 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Personas en la Familia</h3>
-            <hr style=" background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 15px; margin-top: 1px;">
+            <h2 class="subtitle-general-forms">Personas en la Familia</h2>
+            <hr style=" background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-top: 1px;">
 
 
             <div class="row" style="margin: 5px;">
