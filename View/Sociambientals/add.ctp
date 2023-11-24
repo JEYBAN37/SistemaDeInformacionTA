@@ -20,7 +20,7 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                     </h1>
                 </div>
 
-                <h2 class="subtitle-general-form">Datos Básicos</h2>
+                <h2 class="subtitle-general-forms">Datos Básicos</h2>
                 <hr style=" border:0.1px solid rgba(0,0,0,.125);">
 
                 <div class="grow justify-content-center" display="none" style="margin-top:20px; ">
@@ -743,7 +743,7 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
             </fieldset>
 
 
-            <button class="my-button" style="">
+            <button class="my-button">
                 Guardar<?php echo $this->Form->end(); ?>
             </button>
 

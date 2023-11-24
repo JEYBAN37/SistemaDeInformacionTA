@@ -397,7 +397,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
                                             Disolución:
                                             Separación o divorcio de la pareja.
-                                            " style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 10px;">
+                                            " style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 15px;">
 								?
 							</button>
 						</div>
