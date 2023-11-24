@@ -1,3 +1,5 @@
+<?php $this->layout = 'default_familia';
+?>
 <div class="row" style="justify-content: center;">
 	<div class="col-lg-10">
 		<div class="panel panel-default">
