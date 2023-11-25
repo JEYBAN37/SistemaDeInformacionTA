@@ -1,5 +1,4 @@
 <?php $this->layout = 'default_familia' ?>
-
 <div class="row" style="margin:1px;">
     <div class="dataTable_wrapper">
         <div class="row" style="justify-content: center;">
