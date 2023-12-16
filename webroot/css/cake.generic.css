@@ -257,12 +257,12 @@ dd {
 }
 
 /** Forms **/
-form {
+/*form {
 	clear: both;
 	margin-right: 20px;
 	padding: 0;
 	width: 95%;
-}
+}*/
 fieldset {
 	border: none;
 	margin-bottom: 1em;
@@ -356,7 +356,7 @@ input[type=submit] {
 	font-size: 110%;
 	width: auto;
 }
-form .submit input[type=submit] {
+/*form .submit input[type=submit] {
 	background:#62af56;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#76BF6B), to(#3B8230));
 	background-image: -webkit-linear-gradient(top, #76BF6B, #3B8230);
@@ -368,7 +368,7 @@ form .submit input[type=submit] {
 }
 form .submit input[type=submit]:hover {
 	background: #5BA150;
-}
+}*/
 /* Form errors */
 form .error {
 	background: #FFDACC;
@@ -507,7 +507,7 @@ p.error em {
 }
 
 /* Buttons and button links */
-input[type=submit],
+
 .actions ul li a,
 .actions a {
 	font-weight:normal;
@@ -744,3 +744,82 @@ pre {
 .title {
 	font-weight: bold;
   }
+
+
+  :root {
+	--color-green: #00a878;
+	--color-red: #3366CC;
+	--color-button: #fdffff;
+	--color-black: #000;
+}
+
+.switch-button {
+	display: inline-block;
+}
+
+.switch-button .switch-button__checkbox {
+	display: none;
+}
+
+.switch-button .switch-button__label {
+	background-color: var(--color-red);
+	width: 5rem;
+	height: 3rem;
+	border-radius: 3rem;
+	display: inline-block;
+	position: relative;
+}
+
+.switch-button .switch-button__label:before {
+	transition: .2s;
+	display: block;
+	position: absolute;
+	width: 3rem;
+	height: 3rem;
+	background-color: var(--color-button);
+	content: '';
+	border-radius: 50%;
+	box-shadow: inset 0px 0px 0px 1px var(--color-black);
+}
+
+.switch-button .switch-button__checkbox:checked+.switch-button__label {
+	background-color: var(--color-green);
+}
+
+.switch-button .switch-button__checkbox:checked+.switch-button__label:before {
+	transform: translateX(2rem);
+}
+
+.negrilla {
+	font-size: small;
+	font-weight: bold;
+}
+
+.my-button {
+	padding: 10px 20px;
+	background-color: #3366CC;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 10px;
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+
+}
+
+.my-button:hover {
+	background-color: #337CCF;
+}
+
+.my-button:active {
+	background-color: #337CCF;
+}
+
+.title-general-forms{
+	color: #3366CC; font-size:45px; 
+}
+.subtitle-general-forms{
+	color: #3366CC;  font-size:30px ; margin-top: 25px;
+}

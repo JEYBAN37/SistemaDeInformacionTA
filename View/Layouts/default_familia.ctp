@@ -21,7 +21,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
     echo $this->Html->meta('icon');
 
-    echo $this->Html->css(array('bootstrap.min.css'));
+
+
+    echo $this->Html->css(array('cake.generic.css', 'bootstrap.min.css'));
     echo $this->Html->script(array('jquery.min',  'bootstrap.min', 'jquery.dataTables.min'));
     echo $this->fetch('css');
     echo $this->fetch('script');
@@ -62,8 +64,10 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     <div class="contanier">
         <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
             <?php echo $this->element('nav'); ?>
-            <?php echo $this->Session->flash(); ?>
             <?php echo $this->fetch('content'); ?>
+            <?php echo $this->Session->flash(); ?>
+
+
         </div>
 
         <input type="checkbox" id="btn-menu">
@@ -105,7 +109,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 </body>
 
 
-<footer class="footer">
+<footer class="form-group col-sm-12">
 
 
     <div class="row">
@@ -115,6 +119,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         </div>
     </div>
 
-</footer><!-- end footer -->
+</footer>
 
 </html>

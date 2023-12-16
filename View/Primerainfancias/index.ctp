@@ -1,7 +1,7 @@
 <?php $this->layout = 'default_familia' ?>
 <!--h3><a><img src="../../img/ciudad.png" width="40" height="auto"></a> Atención Primaria en Salud </h3-->
 <div class="col-12 text-center " style="margin: 20px; margin-top: 40px;">
-    <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;font-size: 3.5rem ;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <h1 class="title-general-forms">
         Listado de Primeras Infancias
     </h1>
 </div>
@@ -51,7 +51,7 @@
                                         <th>Canalizacion N°1</th>
                                         <th>Canalizacion N°2</th>
                                         <th>Educacion N°1</th>
-                                        <th>Educacion N°2</th>
+                                        <th>Opciones</th>
 
                                     </tr>
                                 </thead>

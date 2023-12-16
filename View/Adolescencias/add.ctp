@@ -1,31 +1,29 @@
+<?php $this->layout = 'default_familia' ?>
 <?php
 // Enlaza el archivo JavaScript desde la carpeta webroot/js
 echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre del archivo sin la extensión .js
 ?>
 
-<div>
+<body style="font-size: 14px;">
+	<div class="form-group col-sm-12">
+		<?php echo $this->Form->create('Adolescencia'); ?>
+		<fieldset>
 
-    <div class="form-group col-sm-12">
-        <?php echo $this->Form->create('Adolescencia'); ?>
-        <fieldset>
+			<div class="col-12 text-center">
+				<h1 class="title-general-forms">Modulo Adolescencia</h1>
+			</div>
 
-            <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo Adolescencia</h1>
-            </div>
+			<h2 class="subtitle-general-forms">Datos Personales</h2>
+			<hr style=" border:0.1px solid rgba(0,0,0,.125);">
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
-
-            <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
-                    <div class="form-group row">
-                        <?php
+			<div class="grow justify-content-center" display="none" style="margin-top:20px">
+				<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
+					<div class="form-group row">
+						<?php
 						$idAux = $_GET['adolescencias'];
 						echo $this->Form->input('familia_id', array('value' => '' . $idAux, 'type' => 'hidden'));
 						?>
-                        <!--div class="form-group col-md-6">
+						<!--div class="form-group col-md-6">
 							<?php
 							echo $this->Form->input('familia_id', [
 								'label' => 'ID_Familia/N° Hogar/Nombres',
@@ -33,13 +31,13 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'placeholder' => '',
 								'type' => 'select',
 								'class' => 'form-control select-search',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							]);
 							?>
 							</div-->
 
-                        <div class="form-group col-md-6">
-                            <?php
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$TipoDeDocumentoOptions = array(
 								'' => 'Elegir',
 								'RC' => 'Registro Civil',
@@ -50,71 +48,71 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('tipodocumento', array(
 								'label' => 'Tipo de Documento:',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px;',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'placeholder' => '',
 								'type' => 'select',
 								'options' => $TipoDeDocumentoOptions
 							));
 							?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('numerodoc', [
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php echo $this->Form->input('numerodoc', [
 								'label' => 'N° de documento',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							]);  ?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('primerapellido', [
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php echo $this->Form->input('primerapellido', [
 								'label' => 'Primer Apellido',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							]);  ?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('segundoapellido', [
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php echo $this->Form->input('segundoapellido', [
 								'label' => 'Segundo Apellido',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							]);  ?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('primernombre', [
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php echo $this->Form->input('primernombre', [
 								'label' => 'Primer Nombre',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							]);  ?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('segundonombre', [
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php echo $this->Form->input('segundonombre', [
 								'label' => 'Segundo Nombre',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							]);  ?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <!-- Campo de fecha de nacimiento -->
-                            <?php echo $this->Form->input('fechanac', [
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<!-- Campo de fecha de nacimiento -->
+							<?php echo $this->Form->input('fechanac', [
 								'label' => 'Fecha de nacimiento:',
 								'type' => 'date',
 								'minYear' => date('Y') - 17,
 								'maxYear' => date('Y') - 12,
-								'style' => 'font-size: 16px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'id' => 'fechanac', // Agrega este identificador al campo de fecha de nacimiento
 								'empty' => true, // Establecer el campo como vacío
 
 							]); ?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <!-- Campo de edad calculada (se llenará automáticamente con JavaScript) -->
-                            <?php echo $this->Form->input('edad', [
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<!-- Campo de edad calculada (se llenará automáticamente con JavaScript) -->
+							<?php echo $this->Form->input('edad', [
 								'label' => 'Edad',
 								'style' => 'font-size: 16px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;',
 								'id' => 'edad', // Agrega este identificador al campo de edad
@@ -124,9 +122,9 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'step' => '0.01'
 
 							]); ?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
                             <?php
 							$sexoOption = [
 								' ' => 'Elegir',
@@ -139,14 +137,25 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'placeholder' => '',
 								'type' => 'select',
 								'options' => $sexoOption,
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
 								'onChange' => 'mostrar(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 							]);
 							?>
+
+                            <button type="button" id="ayudaButton3" class="btn btn-success rounded-circle"
+                                data-toggle="popover" data-placement="top" data-content="Reconocer que las mujeres, 
+								los hombres y las personas de los sectores sociales LGBTI,
+								reaccionan de distinta forma a los servicios de salud,
+								 debido a sus diferentes experiencias a lo largo de la vida,
+								 que afecta su salud, la incidencia o prevalencia de enfermedades y su tratamiento. 
+								 (Ajustado de módulo conocimientos, OPS 2020).
+                                        " style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+                                ?
+                            </button>
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
                             <?php
 							$generoOption = [
 								' ' => 'Elegir',
@@ -161,8 +170,8 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'class' => 'form-control',
 								'placeholder' => '',
 								'type' => 'select',
-								'options' => $generoOption,
-								'style' => 'font-size: 12px',
+								'options' => $sexoOption,
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
 								'onChange' => 'mostrar(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 							]);
@@ -182,6 +191,29 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 
                         <div class="form-group col-md-6">
                             <?php
+							$generoOption = [
+								' ' => 'Elegir',
+								'Masculino' => 'Masculino',
+								'Femenino' => 'Femenino',
+								'No binanrio' => 'No binario',
+								'Prefiere no informar' => 'Prefiere no informar',
+
+							];
+							echo $this->Form->input('genero', [
+								'label' => '¿Cúal es su género?',
+								'class' => 'form-control',
+								'placeholder' => '',
+								'type' => 'select',
+								'options' => $generoOption,
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+								'onChange' => 'mostrar(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
+							]);
+							?>
+                        </div>
+
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$aseguradoraOption = [
 								' ' => 'Elegir',
 								'Sanitas' => 'Sanitas',
@@ -201,13 +233,13 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('aseguradora', [
 								'label' => 'Aseguradora',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $aseguradoraOption,
 							]);  ?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <?php
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$regimenOption = [
 								' ' => 'Elegir',
 								'Subsidiado' => 'Subsidiado',
@@ -221,13 +253,13 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('regimen', [
 								'label' => 'Regimen',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $regimenOption,
 							]);  ?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <?php $estadoAfiliacionOption = [
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php $estadoAfiliacionOption = [
 								' ' => 'Elegir',
 								'Activo' => 'Activo',
 								'Inactivo' => 'Inactivo',
@@ -238,63 +270,61 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('estadoafiliacion', [
 								'label' => 'Estado de Afiliación',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $estadoAfiliacionOption,
 							]);  ?>
-                        </div>
+						</div>
 
-                        <!--div class="form-group col-md-6">
+						<!--div class="form-group col-md-6">
                             <?php echo $this->Form->input('barrio', [
 								'label' => 'Barrio',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							]);  ?>
                         </div-->
 
-                        <!--div class="form-group col-md-6">
+						<!--div class="form-group col-md-6">
                             <?php echo $this->Form->input('direccion', [
 								'label' => 'Direccion',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							]);  ?>
                         </div-->
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('telefono', [
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php echo $this->Form->input('telefono', [
 								'label' => 'Telefono',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							]);  ?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <?php echo $this->Form->input('email', [
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php echo $this->Form->input('email', [
 								'label' => 'Email',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							]);  ?>
-                        </div>
+						</div>
 
 
 
-                    </div>
-                </div>
-            </div>
+					</div>
+				</div>
+			</div>
 
-            <h2 class="titulo-general-pwa-govco col-md-6  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
-                Valoración de Salud</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+			<h2 class="subtitle-general-forms ">
+				Valoración de Salud</h2>
+			<hr style=" border:0.1px solid rgba(0,0,0,.125);">
+			<div class="grow justify-content-center" display="none" style="margin-top:20px">
+				<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
 
-            <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
-
-                    <div class="form-group row">
+					<div class="form-group row">
 
 
 
-                        <div class="form-group col-md-6">
-                            <?php
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionYesNo = [
 								'' => 'Elegir',
 								'Si' => 'Si',
@@ -320,14 +350,12 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'class' => 'form-control',
 								'placeholder' => '',
 								'type' => 'select',
-
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionDiscapacidad
 							));
 							?>
 
-                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle"
-                                data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad o funcionamiento físico.
+							<button type="button" id="ayudaButton" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad o funcionamiento físico.
 
                                         Auditivas: Dificultades o limitaciones en la capacidad de escuchar o procesar el sonido.
 
@@ -338,63 +366,63 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
                                         Cognitivas o intelectuales: Limitaciones en el funcionamiento del cerebro que afectan el procesamiento, comprensión, aprendizaje y memoria de la información.
 
                                         Mentales: Limitaciones en las habilidades cognitivas, emocionales y de comportamiento.
-                                        " style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
-                                ?
-                            </button>
+                                        " style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 15px;">
+								?
+							</button>
 
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							echo $this->Form->input('peso', array(
 								'label' => 'Registre Peso en Kg.',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'placeholder' => '',
 								'id' => 'peso',
 							));
 							?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <?php
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							echo $this->Form->input('talla', array(
 								'label' => 'Registre talla en cm',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'placeholder' => '',
 								'id' => 'talla',
 							));
 							?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <button class="btn btn-primary" id="calcularIMC">Calcular IMC</button>
-                        </div>
+						</div>
+						<div class="form-group col-md-6">
+							<button class="my-button" style="margin-left: 5px;" id="calcularIMC">Calcular IMC</button>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <?php
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							echo $this->Form->input('indicemasacorporal', array(
 								'label' => 'Indice de masa corporal',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'placeholder' => '',
 								'readonly' => 'readonly',
 								'id' => 'indicemasacorporal',
 							)); ?>
 
-                            <p id="mensajeIMC"></p>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
+							<p id="mensajeIMC"></p>
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							echo $this->Form->input('tensionarterial', array(
 								'label' => 'Registre Tensión arterial 0/0',
 								'class' => 'form-control tension-arterial-input',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'placeholder' => ''
 							)); ?>
-                            <p id="mensaje-tension-arterial"></p>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
+							<p id="mensaje-tension-arterial"></p>
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionVacuna = array(
 								'' => 'Elegir',
 								'Incompleto' => 'Esquema incompleto a su edad',
@@ -410,14 +438,14 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'placeholder' => '',
 								'type' => 'select',
 								'options' => $optionVacuna,
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'id' => 'esquemavacunacion',
 
 							)); ?>
 
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionCronica = array(
 								'No aplica ' => 'Elegir',
 								'No' => 'No',
@@ -438,27 +466,27 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'placeholder' => '',
 								'type' => 'select',
 								'options' => $optionCronica,
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'id' => 'condicioncronica',
 								'onChange' => 'cronica(this.value);',
 
 
 							)); ?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							echo $this->Form->input('desparasitacion', array(
 								'label' => '¿Se ha desparasitado en los últimos seis meses?',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionYesNo,
 								'placeholder' => '',
 								'id' => 'desparasitacion',
 
 							)); ?> </div>
 
-                        <div class="form-group col-md-6">
-                            <?php
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionValoracionMedica = array(
 								'' => 'Elegir',
 								'Consulta Morbilidad' => 'Consulta de Morbilidad',
@@ -471,37 +499,36 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('valoracionmedica', array(
 								'label' => '¿Ha asistido a Valoración Médica en el último año?',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'placeholder' => '',
 								'options' => $optionValoracionMedica,
 							)); ?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							echo $this->Form->input('saludoral', array(
 								'label' => '¿Asistió a consulta de odontología en los últimos seis meses?',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionYesNo,
 								'placeholder' => '',
 								'id' => 'saludoral',
 							)); ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Salud Sexual y Reproductiva</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+			<h2 class="subtitle-general-forms ">Salud Sexual y Reproductiva</h2>
+			<hr style=" border:0.1px solid rgba(0,0,0,.125);">
 
-                    <div class="form-group row">
-                        <div class="form-group col-md-6">
+			<div class="grow justify-content-center" display="none" style="margin-top:20px">
+				<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
 
-                            <?php
+					<div class="form-group row">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
+							<?php
 							$optionVidaSexual = [
 								'' =>  'Elegir',
 								'No' => 'No',
@@ -514,7 +541,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('iniciovidasexual', array(
 								'label' => '¿Usted ha iniciado su vida sexual?',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionVidaSexual,
 								'placeholder' => '',
 								'type' => 'select',
@@ -524,20 +551,17 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 
 
 
-                            <button type="button" id="ayudaButton1" class="btn btn-danger rounded-circle"
-                                data-toggle="popover" data-placement="top"
-                                data-content="Alerta: Riesgo en menor de 14 años con inicio de relaciones sexuales"
-                                style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
-                                X
-                            </button>
-                        </div>
+							<button type="button" id="ayudaButton1" class="btn btn-danger rounded-circle" data-toggle="popover" data-placement="top" data-content="Alerta: Riesgo en menor de 14 años con inicio de relaciones sexuales" style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-left: 5px;">
+								X
+							</button>
+						</div>
 
 
-                    </div>
-                    <div id="yess" class="form-group row">
+					</div>
+					<div id="yess" class="form-group row">
 
-                        <div class="form-group col-md-6">
-                            <?php
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionAnticonceptivos = [
 								'No aplica ' =>  'Elegir',
 								'No' => 'No',
@@ -555,15 +579,15 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('metodosanticonceptivos', array(
 								'label' => '¿Utiliza algún método de planificación familiar?',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionAnticonceptivos,
 								'placeholder' => '',
 								'id' => 'metodosanticonceptivos'
 
 							)); ?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionits = [
 								'No aplica ' =>  'Elegir',
 								'No' => 'No',
@@ -575,13 +599,13 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('infeccionestransmisionsexual', array(
 								'label' => '¿Le han diagnosticado alguna Infección de transmisión Sexual?',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionits,
 								'placeholder' => '',
 								'id' => 'infeccionestransmisionsexual'
 
 							)); ?>
-                        </div>
+						</div>
 
 
                     </div>
@@ -593,255 +617,250 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 
 
             <div id="si" id="yesss" class="card col-sm-12" style="margin-left: 15px;font-size: 12px;" display="none">
+				<div id="si" id="yesss" class="grow justify-content-center" display="none" style="margin-top:20px">
+					<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
 
-                <h2 class="titulo-general-pwa-govco col-md-12  "
-                    style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Salud de la Mujer</h2>
-                <hr
-                    style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+			<h2 class="subtitle-general-forms ">Salud de la Mujer</h2>
+			<hr style=" border:0.1px solid rgba(0,0,0,.125);">
 
-                <h2 class="titulo-general-pwa-govco col-md-12  "
-                    style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Antecedentes
-                    ginecológicos/obstétricos</h2>
-                <div class="form-group row">
-
-                    <div class="form-group col-md-6">
-                        <?php $optionYesNo1 = [
-							'No aplica ' => 'Elegir',
-							'Si' => 'Si',
-							'No' => 'No',
-							'No informa' => 'No informa',
-							'No aplica' => 'No aplica',
-							'SD' => 'Sin dato',
-
-						];
-
-						echo $this->Form->input('antecedenteginecologico', array(
-							'label' => '¿Le han realizado alguna cirugia ginecológica?',
-							'class' => 'form-control',
-							'style' => 'font-size: 12px',
-							'type' => 'select',
-							'options' => $optionYesNo1,
-							'placeholder' => ''
-						)); ?>
-                        <p class="help-block"> Procedimientos en el sistema reproductivo, ovarios,
-                            útero, trompas de
-                            Falopio, cuello uterino </p>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <?php
-						$optionGinecologico = [
-							'No aplica ' => 'Elegir',
-							'No' => 'No',
-							'No embarazos' => 'No ha tenido embarazos',
-							'Antecedente de abortos' => 'Antecedente de 2 o más abortos',
-							'Muerte perinatal' => 'Muerte perinatal',
-							'Bajo peso al nacer' => 'Recien nacido con Bajo peso al nacer',
-							'Prematurez' => 'Recien nacido Prematuro',
-							'Multiparidad' => 'Multiparidad (5 o más partos)',
-							'Edad Materna Avanzada' => 'Embarazo mujer mayor de 35 años',
-							'Preclampsia' => 'Antecendente de Preclampsia',
-							'Eclampsia' => 'Antecendente de eclampsia',
-							'No aplica' => 'No Aplica',
-							'SD' => 'Sin dato',
-
-						];
-						echo $this->Form->input('antecedenteginecologico', array(
-							'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
-							'class' => 'form-control',
-							'style' => 'font-size: 12px',
-							'type' => 'select',
-							'options' => $optionGinecologico,
-							'placeholder' => ''
-						)); ?>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <p class="help-block">Selecione otra respuesta si requiere, de lo contrario
-                            elija la
-                            opción
-                            'No ' </p>
-                        <?php
-						echo $this->Form->input('ancedenteginecologico1', array(
-							'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
-							'class' => 'form-control',
-							'style' => 'font-size: 12px',
-							'type' => 'select',
-							'options' => $optionGinecologico,
-							'placeholder' => ''
-						)); ?>
-                    </div>
-
-                    <div class="form-group col-md-6">
-                        <?php
-						$gestanteOption = [
-							'No aplica ' => 'Elegir',
-							'No' => 'No',
-							'Si' => 'Si',
-						];
-						echo $this->Form->input('gestacion', [
-							'label' => '¿Mujer en embarazo?',
-							'class' => 'form-control',
-							'placeholder' => '',
-							'type' => 'select',
-							'options' => $gestanteOption,
-							'style' => 'font-size: 12px',
-							'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
-							'onChange' => 'gestacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
-						]);
-						?>
-                        <p class="help-block"> Registre informción de mujer en gestación o puerperio
-                        </p>
-
-                    </div>
+						<h2 class="subtitle-general-forms ">Antecedentes
+							ginecológicos/obsetétricos</h2>
 
 
-
-                    <div id="yes" class="form-group row">
-                        <h2 class="titulo-general-pwa-govco col-md-12  "
-                            style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Gestación <button type="button"
-                                id="ayudaButton2" class="btn btn-danger rounded-circle" data-toggle="popover"
-                                data-placement="top" data-content="Alerta: Riesgo alto gestantes menores de 18 años."
-                                style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
-                                X
-                            </button></h2>
-
-                        <div class="form-group col-md-6">
-                            <?php
-							$optionControlPrenatal = [
-								'No aplica ' =>  'Elegir',
-								'No inscrita' => 'No inscrita en control de embarazo',
-								'Asistente CPN' => 'Si, Control al día',
-								'Inasistente CPN' => 'Si, inasistente a último control',
-								'Puerperio' => 'En etapa de puerperio',
-								'No informa' => 'No sabe/No informa',
-								'SD' => 'Sin dato',
-							];
-							echo $this->Form->input('controlprenatal', array(
-								'label' => '¿Esta inscrita en control prenatal?',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionControlPrenatal,
-								'placeholder' => '',
-
-							)); ?>
-
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
-							$optionRiesgoEmbarazo = [
-								'No aplica ' =>  'Elegir',
-								'Bajo' => 'Bajo',
-								'Alto' => 'Alto',
-								'No informa' => 'No informa',
-								'SD' => 'Sin dato',
-							];
-							echo $this->Form->input('riesgoembarazo', array(
-								'label' => '¿El riesgo del embarazo es?',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionRiesgoEmbarazo,
-								'placeholder' => '',
-
-
-							)); ?>
-
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
-							$optionAlarmaEmbarazo = [
-								'No aplica ' =>  'Elegir',
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php $optionYesNo1 = [
+								'No aplica ' => 'Elegir',
+								'Si' => 'Si',
 								'No' => 'No',
-								'Dolor de Cabeza' => 'Dolor de cabeza',
-								'Mareo_zumbido' => 'Mareo/zumbido en el oido',
-								'Dolor del vientre' => 'Dolor del vientre tipo contracción',
-								'Disminucion o ausencia de movimientos del bebe' => 'Disminución o ausencia de movimientos del bebé',
-								'Hinchazon de cara y extremidades' => 'Hinchazón de manos, cara, piernas y pies',
-								'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
-								'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
-								'Sangrado vaginal' => 'Sangrado vaginal',
 								'No informa' => 'No informa',
+								'No aplica' => 'No aplica',
 								'SD' => 'Sin dato',
 
+						];
+
+							echo $this->Form->input('antecedenteginecologico', array(
+								'label' => '¿Le han realizado alguna cirugia ginecológica?',
+								'class' => 'form-control',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'type' => 'select',
+								'options' => $optionYesNo1,
+								'placeholder' => ''
+							)); ?>
+							<p class="help-block"> Procedimientos en el sistema reproductivo, ovarios,
+								útero, trompas de
+								Falopio, cuello uterino </p>
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
+							$optionGinecologico = [
+								'No aplica ' => 'Elegir',
+								'No' => 'No',
+								'No embarazos' => 'No ha tenido embarazos',
+								'Antecedente de abortos' => 'Antecedente de 2 o más abortos',
+								'Muerte perinatal' => 'Muerte perinatal',
+								'Bajo peso al nacer' => 'Recien nacido con Bajo peso al nacer',
+								'Prematurez' => 'Recien nacido Prematuro',
+								'Multiparidad' => 'Multiparidad (5 o más partos)',
+								'Edad Materna Avanzada' => 'Embarazo mujer mayor de 35 años',
+								'Preclampsia' => 'Antecendente de Preclampsia',
+								'Eclampsia' => 'Antecendente de eclampsia',
+								'No aplica' => 'No Aplica',
+								'SD' => 'Sin dato',
 
 							];
-							echo $this->Form->input('signoAlarma', array(
-								'label' => '¿En el momento presenta alguno de los siguientes signos o síntomas de alarma?',
+							echo $this->Form->input('antecedenteginecologico', array(
+								'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'type' => 'select',
-								'options' => $optionAlarmaEmbarazo,
+								'options' => $optionGinecologico,
+								'placeholder' => ''
+							)); ?>
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<p class="help-block">Selecione otra respuesta si requiere, de lo contrario
+								elija la
+								opción
+								'No ' </p>
+							<?php
+							echo $this->Form->input('ancedenteginecologico1', array(
+								'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
+								'class' => 'form-control',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'type' => 'select',
+								'options' => $optionGinecologico,
+								'placeholder' => ''
+							)); ?>
+						</div>
+
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
+							$gestanteOption = [
+								'No aplica ' => 'Elegir',
+								'No' => 'No',
+								'Si' => 'Si',
+							];
+							echo $this->Form->input('gestacion', [
+								'label' => '¿Mujer en embarazo?',
+								'class' => 'form-control',
 								'placeholder' => '',
-								'id' => 'riesgoembarazo'
+								'type' => 'select',
+								'options' => $gestanteOption,
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+								'onChange' => 'gestacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
+							]);
+							?>
+							<p class="help-block"> Registre infomración de mujer en gestación o puerperio
+							</p>
+
+                    </div>
+
+
+
+						<div id="yes" class="form-group row">
+							<h2 class="subtitle-general-forms ">Gestación
+								<button type="button" id="ayudaButton2" class="btn btn-danger rounded-circle" data-toggle="popover" data-placement="top" data-content="Alerta: Riesgo alto gestantes menores de 18 años." style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+									X
+								</button>
+							</h2>
+
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php
+								$optionControlPrenatal = [
+									'No aplica ' =>  'Elegir',
+									'No inscrita' => 'No inscrita en control de embarazo',
+									'Asistente CPN' => 'Si, Control al dia',
+									'Inasistente CPN' => 'Si, inasistente a ultimo control',
+									'Puerperio' => 'En etapa de puerperio',
+									'No informa' => 'No sabe/No informa',
+									'SD' => 'Sin dato',
+								];
+								echo $this->Form->input('controlprenatal', array(
+									'label' => '¿Esta inscrita en control prenatal?',
+									'class' => 'form-control',
+									'style' => 'height:30px;  font-size: 15px ; width:100%',
+									'type' => 'select',
+									'options' => $optionControlPrenatal,
+									'placeholder' => '',
+
+							)); ?>
+
+							</div>
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php
+								$optionRiesgoEmbarazo = [
+									'No aplica ' =>  'Elegir',
+									'Bajo' => 'Bajo',
+									'Alto' => 'Alto',
+									'No informa' => 'No informa',
+									'SD' => 'Sin dato',
+								];
+								echo $this->Form->input('riesgoembarazo', array(
+									'label' => '¿El riesgo del embarazo es?',
+									'class' => 'form-control',
+									'style' => 'height:30px;  font-size: 15px ; width:100%',
+									'type' => 'select',
+									'options' => $optionRiesgoEmbarazo,
+									'placeholder' => '',
+
+
+							)); ?>
+
+							</div>
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php
+								$optionAlarmaEmbarazo = [
+									'No aplica ' =>  'Elegir',
+									'No' => 'No',
+									'Dolor de Cabeza' => 'Dolor de cabeza',
+									'Mareo_zumbido' => 'Mareo/zumbido en el oido',
+									'Dolor del vientre' => 'Dolor del vientre tipo contracción',
+									'Disminucion o ausencia de movimientos del bebe' => 'Disminución o ausencia de movimientos del bebé',
+									'Hinchazon de cara y extremidades' => 'Hinchazón de manos, cara, piernas y pies',
+									'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
+									'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
+									'Sangrado vaginal' => 'Sangrado vaginal',
+									'No informa' => 'No informa',
+									'SD' => 'Sin dato',
+
+
+								];
+								echo $this->Form->input('signoAlarma', array(
+									'label' => '¿En el momento presenta alguno de los siguientes signo o síntoma de alarma?',
+									'class' => 'form-control',
+									'style' => 'height:30px;  font-size: 15px ; width:100%',
+									'type' => 'select',
+									'options' => $optionAlarmaEmbarazo,
+									'placeholder' => '',
+									'id' => 'riesgoembarazo'
 
 							)); ?>
 
                         </div>
 
-                        <div class="form-group col-md-6">
+							<div class="form-group col-md-6" style="margin-top: 20px;">
 
-                            <?php
-							$optionCursoVida = [
+								<?php
+								$optionCursoVida = [
 
 								'Adolescencia' => 'Adolescencia',
 
 							];
 
-							echo $this->Form->input('cursovida', array(
-								'label' => '¿El curso de vida de la gestante es?',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionCursoVida,
-								'placeholder' => '',
+								echo $this->Form->input('cursovida', array(
+									'label' => '¿El curso de vida de la gestante es?',
+									'class' => 'form-control',
+									'style' => 'height:30px;  font-size: 15px ; width:100%',
+									'type' => 'select',
+									'options' => $optionCursoVida,
+									'placeholder' => '',
 
 
-							)); ?>
-                        </div>
+								)); ?>
+							</div>
 
-                        <div class="form-group col-md-6">
-                            <?php
-							$optionAlternativa = [
-								'No aplica ' => 'Elegir',
-								'No refiere' => 'No refiere',
-								'Medicina indigena' => 'Medicina Tradicional/indigena',
-								'Homeopatía' => 'Homeopatía',
-								'Medicina tradicional china' => 'Medicina tradicional china',
-								'Acupuntura' => 'Acupuntura',
-								'Quiropraxia' => 'Quiropraxia',
-								'Otro' => 'Otro',
-								'SD' => 'Sin dato'
-							];
-							echo $this->Form->input('saludalternativa', [
-								'label' => '¿Hacen uso de otras opciones para el cuidado de su salud durante su embarazo?',
-								'class' => 'form-control',
-								'type' => 'select',
-								'options' => $optionAlternativa,
-								'style' => 'font-size: 12px',
-							]);
-							?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php
+								$optionAlternativa = [
+									'No aplica ' => 'Elegir',
+									'No refiere' => 'No refiere',
+									'Medicina indigena' => 'Medicina Tradicional/indigena',
+									'Homeopatía' => 'Homeopatía',
+									'Medicina tradicional china' => 'Medicina tradicional china',
+									'Acupuntura' => 'Acupuntura',
+									'Quiropraxia' => 'Quiropraxia',
+									'Otro' => 'Otro',
+									'SD' => 'Sin dato'
+								];
+								echo $this->Form->input('saludalternativa', [
+									'label' => '¿Hacen uso de otras opciones para el cuidado de su salud durante su embarazo?',
+									'class' => 'form-control',
+									'type' => 'select',
+									'options' => $optionAlternativa,
+									'style' => 'height:30px;  font-size: 15px ; width:100%',
+								]);
+								?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Riesgo
-                Psicosocial</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
-            <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
-                    <div class="form-group row">
 
-                        <div class="form-group col-md-6">
-                            <?php
+			<h2 class="subtitle-general-forms ">Riesgo
+				Psicosocial</h2>
+			<hr style=" border:0.1px solid rgba(0,0,0,.125);">
+			<div class="grow justify-content-center" display="none" style="margin-top:20px">
+				<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
+
+					<div class="form-group row">
+
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionConsumospa = [
 								'No aplica ' =>  'Elegir',
 								'No' => 'No',
@@ -858,28 +877,28 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('consumospa', array(
 								'label' => 'Consumo de Alcohol/Cigarrillo, sustancias Psicoactivas, uso indebido de medicamentos ',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionConsumospa,
 								'placeholder' => '',
 								'id' => 'consumospa',
 								'onChange' => 'spa(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 							)); ?>
-                        </div>
-                        <div id="Consumospa" class="form-group col-md-6">
-                            <p class="help-block">Selecione otra respuesta si requiere, de lo contrario elija la opción
-                                'No'' </p>
-                            <?php
+						</div>
+						<div id="Consumospa" class="form-group col-md-6">
+							<p class="help-block">Selecione otra respuesta si requiere, de lo contrario elija la opción
+								'No'' </p>
+							<?php
 							echo $this->Form->input('consumospa1', array(
 								'label' => 'Consumo de Alcohol/Cigarrillo, sustancias Psicoactivas, uso indebido de medicamentos ',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionConsumospa,
 								'placeholder' => '',
 								'id' => 'consumospa1'
 							)); ?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionConflictos = [
 								'No aplica ' => 'Elegir',
 								'No' => 'No refiere',
@@ -898,27 +917,28 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'class' => 'form-control',
 								'type' => 'select',
 								'options' => $optionConflictos,
-								'style' => 'font-size: 12px',
+
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'id' => 'riesgopsicosocial',
 								'onChange' => 'psicosocial(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 							]);
 							?>
-                        </div>
-                        <div id="Psicosocial" class="form-group col-md-6">
-                            <p class="help-block">Selecione otra respuesta si requiere, de lo contrario elija la opción
-                                'No refiere' </p>
-                            <?php
+						</div>
+						<div id="Psicosocial" class="form-group col-md-6">
+							<p class="help-block">Selecione otra respuesta si requiere, de lo contrario elija la opción
+								'No refiere' </p>
+							<?php
 							echo $this->Form->input('riesgopsicosocial1', array(
 								'label' => '¿Ha presentado alguna de las siguientes situaciones en el último mes?',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionConflictos,
 								'placeholder' => '',
 								'id' => 'riesgopsicosocial1'
 							)); ?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionEstudio = [
 								'' => 'Elegir',
 								'Institucion educativa' => 'Institución educativa',
@@ -941,12 +961,12 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'placeholder' => '',
 								'options' => $optionEstudio,
 								'type' => 'select',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 
 							)); ?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionRendimientoEstudio = [
 								'' => 'Elegir',
 								'Alto' => 'Aprende y es dedicado en sus tareas',
@@ -962,12 +982,12 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'placeholder' => '',
 								'type' => 'select',
 								'options' => $optionRendimientoEstudio,
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 
 							));
 							?></div>
-                        <div class="form-group col-md-6">
-                            <?php
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionTiposViolencia = [
 								'' => 'Elegir',
 								'No' => 'No se identifica',
@@ -985,30 +1005,27 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'placeholder' => '',
 								'options' => $optionTiposViolencia,
 								'type' => 'select',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'id' => 'sopechamaltrato'
 
 
 							)); ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: e#3366CC; margin-left: 5px;margin-top: 20px; ">Plan
-                de Atención integral</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+			<h2 class="subtitle-general-forms ">Plan
+				de Atención integral</h2>
+			<hr style=" border:0.1px solid rgba(0,0,0,.125);">
+			<div class="grow justify-content-center" display="none" style="margin-top:20px">
+				<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
 
-            <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
-
-                    <div class="form-group row">
+					<div class="form-group row">
 
 
-                        <div class="form-group col-md-6">
-                            <?php
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionCanlizacion = [
 								'No aplica ' => 'Elegir',
 								'No' => 'No',
@@ -1033,26 +1050,26 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('canalizacionuno', array(
 								'label' => 'Canalización',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'placeholder' => '',
 								'class' => 'form-control select-search',
 								'options' => $optionCanlizacion,
 								'type' => 'select',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
 								'onChange' => 'canalizacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 							)); ?>
-                        </div>
+						</div>
 
 
-                    </div>
-                    <div id="Canalizacion" class="form-group row">
-                        <div class="form-group col-md-6">
-                            <?php
+					</div>
+					<div id="Canalizacion" class="form-group row">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							echo $this->Form->input('canalizaciondos', array(
 								'label' => 'Canalización',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'placeholder' => '',
 								'class' => 'form-control select-search',
 								'options' => $optionCanlizacion,
@@ -1060,24 +1077,24 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 
 							));
 							?>
-                        </div>
+						</div>
 
-                        <div class="form-group col-md-6">
-                            <?php
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 
 							echo $this->Form->input('canalizaciontres', array(
 								'label' => 'Canalización',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'placeholder' => '',
 								'class' => 'form-control select-search',
 								'options' => $optionCanlizacion,
 								'type' => 'select',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							)); ?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							$optionEducacion = [
 								'No aplica ' => 'Elegir',
 								'No aplica' => 'No aplica',
@@ -1089,23 +1106,23 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('educacion', array(
 								'label' => 'Refiera el tipo de Educación a desarrollar',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'placeholder' => '',
 								'options' => $optionEducacion,
 								'type' => 'select',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							)); ?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
 							echo $this->Form->input('canalizacion_id', array(
 								'label' => 'Enlace de canalización',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'class' => 'form-control select-search',
 								'placeholder' => '',
 								'type' => 'select',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							)); ?>
                         </div>
                         <?php
@@ -1119,10 +1136,19 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
         </fieldset>
         <?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
     </div>
-
-
-</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</fieldset>
+		<button class="my-button">
+			Guardar<?php echo $this->Form->end(); ?>
+		</button>
+	</div>
+</body>
 <!--div>
+
+
 
 <?php echo $this->Html->link(('List Adolescencias'), array('action' => 'index')); ?>
 <?php echo $this->Html->link(('List Familias'), array('controller' => 'familias', 'action' => 'index')); ?>
@@ -1143,63 +1169,63 @@ $this->Html->script([
 ], ['block' => 'script']);
 ?>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+	$(document).ready(function() {
+		$('.select-search').select2();
+		agregarOpcionSeleccion();
+	});
 
 
-function agregarOpcionSeleccion() {
+	function agregarOpcionSeleccion() {
 
-    $("#AdolescenciaCanalizacionId").prepend(
-        "<option value='00' selected='selected'>Seleccione</option>");
-
-
-}
+		$("#AdolescenciaCanalizacionId").prepend(
+			"<option value='00' selected='selected'>Seleccione</option>");
 
 
-
-/*function gestacion(id) {
-    if (id === "Si") {
-        $("#yes").show();
-        $("#not").hide();
+	}
 
 
-    } else if (id === "No") {
-        $("#yes").hide();
-        $("#not").show();
+
+	/*function gestacion(id) {
+	    if (id === "Si") {
+	        $("#yes").show();
+	        $("#not").hide();
 
 
-    }
-}*/
+	    } else if (id === "No") {
+	        $("#yes").hide();
+	        $("#not").show();
 
-document.getElementById('calcularIMC').addEventListener('click', function() {
-    var peso = parseFloat(document.getElementById('peso').value);
-    var talla = parseFloat(document.getElementById('talla').value);
 
-    if (!isNaN(peso) && !isNaN(talla) && talla > 0) {
-        var altura = talla / 100; // Convertir de cm a m
-        var imc = peso / (altura * altura);
+	    }
+	}*/
 
-        // Mostrar el IMC calculado en el campo indicemasacorporal
-        var imcField = document.getElementById('indicemasacorporal');
-        imcField.value = imc.toFixed(2); // Redondear a 2 decimales
+	document.getElementById('calcularIMC').addEventListener('click', function() {
+		var peso = parseFloat(document.getElementById('peso').value);
+		var talla = parseFloat(document.getElementById('talla').value);
 
-        // Determinar el mensaje y el color según el rango del IMC
-        var mensaje = '';
-        if (imc < 18.5) {
-            mensaje = 'Peso insuficiente';
-            imcField.style.color = 'red'; // Cambiar el color del texto a rojo
-        } else if (imc >= 18.5 && imc <= 24.9) {
-            mensaje = 'Peso normal o saludable';
-            imcField.style.color = 'green'; // Cambiar el color del texto a verde
-        } else if (imc >= 25.0 && imc <= 29.9) {
-            mensaje = 'Sobrepeso';
-            imcField.style.color = 'orange'; // Cambiar el color del texto a naranja
-        } else {
-            mensaje = 'Obesidad';
-            imcField.style.color = 'red'; // Cambiar el color del texto a rojo
-        }
+		if (!isNaN(peso) && !isNaN(talla) && talla > 0) {
+			var altura = talla / 100; // Convertir de cm a m
+			var imc = peso / (altura * altura);
+
+			// Mostrar el IMC calculado en el campo indicemasacorporal
+			var imcField = document.getElementById('indicemasacorporal');
+			imcField.value = imc.toFixed(2); // Redondear a 2 decimales
+
+			// Determinar el mensaje y el color según el rango del IMC
+			var mensaje = '';
+			if (imc < 18.5) {
+				mensaje = 'Peso insuficiente';
+				imcField.style.color = 'red'; // Cambiar el color del texto a rojo
+			} else if (imc >= 18.5 && imc <= 24.9) {
+				mensaje = 'Peso normal o saludable';
+				imcField.style.color = 'green'; // Cambiar el color del texto a verde
+			} else if (imc >= 25.0 && imc <= 29.9) {
+				mensaje = 'Sobrepeso';
+				imcField.style.color = 'orange'; // Cambiar el color del texto a naranja
+			} else {
+				mensaje = 'Obesidad';
+				imcField.style.color = 'red'; // Cambiar el color del texto a rojo
+			}
 
         // Mostrar el mensaje en el elemento mensajeIMC
         var mensajeIMC = document.getElementById('mensajeIMC');
