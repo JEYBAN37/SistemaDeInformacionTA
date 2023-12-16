@@ -20,16 +20,12 @@
                                             <div class="row">
                                                 <div class="col-sm-11">
 
-                                                    <table width="100%"
-                                                        class="table table-striped table-bordered table-hover">
+                                                    <table width="100%" class="table table-striped table-bordered table-hover">
                                                         <tr>
                                                         <tr>
-                                                            <td rowspan="4"
-                                                                style="text-align: center; vertical-align: middle;">
+                                                            <td rowspan="4" style="text-align: center; vertical-align: middle;">
 
-                                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWooVnP-ggyJ3x_xZOgBlBAHas5_sVFyR16boEFOv24Q&s"
-                                                                    style="display: block; margin: 0 auto;"
-                                                                    width="100px" height="auto">
+                                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWooVnP-ggyJ3x_xZOgBlBAHas5_sVFyR16boEFOv24Q&s" style="display: block; margin: 0 auto;" width="100px" height="auto">
 
                                                             </td>
                                                         </tr>
@@ -60,9 +56,8 @@
                                             <div class="row" style="justify-content: center;">
                                                 <div class="col-sm-11">
 
-                                                    <table width="100%"
-                                                        class="table table-striped table-bordered table-hover">
-                                                        <tr>
+                                                    <table width="100%" class="table table-striped table-bordered table-hover">
+                                                        <tr class="title">
                                                             <td colspan="3">Nombre del Menor </td>
                                                             <td colspan="3">Documento </td>
                                                             <td colspan="3">Aseguradora </td>
@@ -85,21 +80,21 @@
 
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="12" style="text-align: center;">Valoración En
+                                                            <td colspan="12" style="text-align: center;" class="title">Valoración En
                                                                 Salud</td>
 
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="2"> Talla</td>
+                                                            <td colspan="2" class="title"> Talla</td>
                                                             <td colspan="2">
                                                                 <?php echo ($adolescencia['Adolescencia']['talla']); ?>
                                                             </td>
-                                                            <td colspan="2">Peso</td>
+                                                            <td colspan="2" class="title">Peso</td>
                                                             <td colspan="2">
                                                                 <?php echo ($adolescencia['Adolescencia']['peso']); ?>
                                                             </td>
-                                                            <td colspan="2">Indice de Masa Corporal</td>
+                                                            <td colspan="2" class="title">Indice de Masa Corporal</td>
                                                             <td colspan="2">
                                                                 <?php echo ($adolescencia['Adolescencia']['indicemasacorporal']); ?>
                                                             </td>
@@ -107,11 +102,11 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="2">Tensión Arterial</td>
+                                                            <td colspan="2" class="title">Tensión Arterial</td>
                                                             <td colspan="4">
                                                                 <?php echo ($adolescencia['Adolescencia']['tensionarterial']); ?>
                                                             </td>
-                                                            <td colspan="2">Discapacidad</td>
+                                                            <td colspan="2" class="title">Discapacidad</td>
                                                             <td colspan="4">
                                                                 <?php echo ($adolescencia['Adolescencia']['discapacidad']); ?>
                                                             </td>
@@ -121,27 +116,27 @@
 
 
                                                         <tr>
-                                                            <td colspan="2">Enfermedad Crónica</td>
+                                                            <td colspan="2" class="title">Enfermedad Crónica</td>
                                                             <td colspan="4">
                                                                 <?php echo ($adolescencia['Adolescencia']['condicioncronica']); ?>
                                                             </td>
-                                                            <td colspan="2">Valoración Medica</td>
+                                                            <td colspan="2" class="title">Valoración Medica</td>
                                                             <td colspan="4">
                                                                 <?php echo ($adolescencia['Adolescencia']['valoracionmedica']); ?>
                                                             </td>
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="12" style="text-align: center;">Atención En
+                                                            <td colspan="12" style="text-align: center;" class="title">Atención En
                                                                 Salud</td>
 
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="4" style="text-align: center;">Esquema de
+                                                            <td colspan="4" style="text-align: center;" class="title">Esquema de
                                                                 Vacunación</td>
-                                                            <td colspan="4" style="text-align: center;">Desparasitación
+                                                            <td colspan="4" style="text-align: center;" class="title">Desparasitación
                                                             </td>
-                                                            <td colspan="4" style="text-align: center;">Salud oral
+                                                            <td colspan="4" style="text-align: center;" class="title">Salud oral
                                                             </td>
 
                                                         </tr>
@@ -158,21 +153,21 @@
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="12" style="text-align: center;">Salud Sexual y
+                                                            <td colspan="12" style="text-align: center;" class="title">Salud Sexual y
                                                                 Reproductiva</td>
 
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="2">Inicio vida Sexual</td>
+                                                            <td colspan="2" class="title">Inicio vida Sexual</td>
                                                             <td colspan="2">
                                                                 <?php echo ($adolescencia['Adolescencia']['iniciovidasexual']); ?>
                                                             </td>
-                                                            <td colspan="2">Metodos Anticonceptivos</td>
+                                                            <td colspan="2" class="title">Metodos Anticonceptivos</td>
                                                             <td colspan="2">
                                                                 <?php echo ($adolescencia['Adolescencia']['metodosanticonceptivos']); ?>
                                                             </td>
-                                                            <td colspan="2">Infecciones de trasmisión Sexual</td>
+                                                            <td colspan="2" class="title">Infecciones de trasmisión Sexual</td>
                                                             <td colspan="2">
                                                                 <?php echo ($adolescencia['Adolescencia']['infeccionestransmisionsexual']); ?>
                                                             </td>
@@ -180,12 +175,12 @@
 
 
                                                         <tr>
-                                                            <td colspan="12" style="text-align: center;">Condiciones de
+                                                            <td colspan="12" style="text-align: center;" class="title">Condiciones de
                                                                 Vulnerabilidad</td>
 
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="4">Riesgo de Maltrato</td>
+                                                            <td colspan="4" class="title">Riesgo de Maltrato</td>
                                                             <td colspan="8">
                                                                 <?php echo ($adolescencia['Adolescencia']['sopechamaltrato']); ?>
                                                             </td>
@@ -193,60 +188,60 @@
 
 
                                                         <tr>
-                                                            <td colspan="3">Riesgo Psicosocial</td>
+                                                            <td colspan="3" class="title">Riesgo Psicosocial</td>
                                                             <td colspan="3">
                                                                 <?php echo ($adolescencia['Adolescencia']['riesgopsicosocial']); ?>
                                                             </td>
-                                                            <td colspan="3">otro..</td>
+                                                            <td colspan="3" class="title">otro..</td>
                                                             <td colspan="3">
                                                                 <?php echo ($adolescencia['Adolescencia']['riesgopsicosocial1']); ?>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="3">Consumo sustancias Psicoactivas</td>
+                                                            <td colspan="3" class="title">Consumo sustancias Psicoactivas</td>
                                                             <td colspan="3">
                                                                 <?php echo ($adolescencia['Adolescencia']['consumospa']); ?>
                                                             </td>
-                                                            <td colspan="3">Consumo sustancias Psicoactivas</td>
+                                                            <td colspan="3" class="title">Consumo sustancias Psicoactivas</td>
                                                             <td colspan="3">
                                                                 <?php echo ($adolescencia['Adolescencia']['consumospa1']); ?>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="3">Estudio</td>
+                                                            <td colspan="3" class="title">Estudio</td>
                                                             <td colspan="3">
                                                                 <?php echo ($adolescencia['Adolescencia']['estudio']); ?>
                                                             </td>
-                                                            <td colspan="3">Rendimineto Escolar</td>
+                                                            <td colspan="3" class="title">Rendimineto Escolar</td>
                                                             <td colspan="3">
                                                                 <?php echo ($adolescencia['Adolescencia']['rendimientoescolar']); ?>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="12" style="text-align: center;">Plan de
+                                                            <td colspan="12" style="text-align: center;" class="title">Plan de
                                                                 Atención Integral</td>
 
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="3">Canalización uno</td>
+                                                            <td colspan="3" class="title">Canalización uno</td>
                                                             <td colspan="3">
                                                                 <?php echo ($adolescencia['Adolescencia']['canalizacionuno']); ?>
                                                             </td>
-                                                            <td colspan="3">Canalización dos</td>
+                                                            <td colspan="3" class="title">Canalización dos</td>
                                                             <td colspan="3">
                                                                 <?php echo ($adolescencia['Adolescencia']['canalizaciondos']); ?>
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td colspan="2">Canalización tres</td>
+                                                            <td colspan="2" class="title">Canalización tres</td>
                                                             <td colspan="10">
                                                                 <?php echo ($adolescencia['Adolescencia']['canalizaciontres']); ?>
                                                             </td>
                                                         </tr>
 
                                                         <tr>
-                                                            <td colspan="2">Educación</td>
+                                                            <td colspan="2" class="title">Educación</td>
                                                             <td colspan="10">
                                                                 <?php echo ($adolescencia['Adolescencia']['educacionuno']); ?>
                                                             </td>
@@ -266,11 +261,9 @@
                                             <div class="row" style="justify-content: center;">
                                                 <div class="col-sm-11">
 
-                                                    <table width="100%"
-                                                        class="table table-striped table-bordered table-hover">
+                                                    <table width="100%" class="table table-striped table-bordered table-hover">
                                                         <tr>
-                                                            <td style="text-align: center;"><a
-                                                                    href=" javascript:window.print();">
+                                                            <td style="text-align: center;"><a href=" javascript:window.print();">
                                                                     Imprimir
                                                                 </a></td>
                                                         </tr>
@@ -307,13 +300,13 @@ $this->Html->script([
 );*/
 ?>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('textarea').eac(function() {
-        this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-    }).on('input', function() {
-        this.style.height = 'auto';
-        this.style.height = (this.scrollHeight) + 'px';
-    });
+    $(document).ready(function() {
+        $('textarea').eac(function() {
+            this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+        }).on('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
 
-});
+    });
 </script>

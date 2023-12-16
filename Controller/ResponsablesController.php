@@ -6,33 +6,36 @@ App::uses('AppController', 'Controller');
  * @property Responsable $Responsable
  * @property PaginatorComponent $Paginator
  */
-class ResponsablesController extends AppController {
+class ResponsablesController extends AppController
+{
 
-/**
- * Components
- *
- * @var array
- */
+	/**
+	 * Components
+	 *
+	 * @var array
+	 */
 	public $components = array('Paginator');
 
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
+	/**
+	 * index method
+	 *
+	 * @return void
+	 */
+	public function index()
+	{
 		$this->Responsable->recursive = 0;
 		$this->set('responsables', $this->Paginator->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
+	/**
+	 * view method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function view($id = null)
+	{
 		if (!$this->Responsable->exists($id)) {
 			throw new NotFoundException(__('Invalid responsable'));
 		}
@@ -40,12 +43,13 @@ class ResponsablesController extends AppController {
 		$this->set('responsable', $this->Responsable->find('first', $options));
 	}
 
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
+	/**
+	 * add method
+	 *
+	 * @return void
+	 */
+	public function add()
+	{
 		if ($this->request->is('post')) {
 			$this->Responsable->create();
 			if ($this->Responsable->save($this->request->data)) {
@@ -59,14 +63,15 @@ class ResponsablesController extends AppController {
 		//$this->set(compact('dimensiones'));
 	}
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
+	/**
+	 * edit method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function edit($id = null)
+	{
 		if (!$this->Responsable->exists($id)) {
 			throw new NotFoundException(__('Invalid responsable'));
 		}
@@ -81,18 +86,19 @@ class ResponsablesController extends AppController {
 			$options = array('conditions' => array('Responsable.' . $this->Responsable->primaryKey => $id));
 			$this->request->data = $this->Responsable->find('first', $options);
 		}
-		$dimensiones = $this->Responsable->Dimension->find('list');
-		$this->set(compact('dimensiones'));
+		//$dimensiones = $this->Responsable->Dimension->find('list');
+		//	$this->set(compact('dimensiones'));
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
+	/**
+	 * delete method
+	 *
+	 * @throws NotFoundException
+	 * @param string $id
+	 * @return void
+	 */
+	public function delete($id = null)
+	{
 		$this->Responsable->id = $id;
 		if (!$this->Responsable->exists()) {
 			throw new NotFoundException(__('Invalid responsable'));
