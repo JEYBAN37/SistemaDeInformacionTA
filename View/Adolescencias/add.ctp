@@ -128,7 +128,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 
                         <div class="form-group col-md-6">
                             <?php
-							$generoOption = [
+							$sexoOption = [
 								' ' => 'Elegir',
 								'Hombre' => 'Hombre',
 								'Mujer' => 'Mujer',
@@ -138,12 +138,46 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'class' => 'form-control',
 								'placeholder' => '',
 								'type' => 'select',
+								'options' => $sexoOption,
+								'style' => 'font-size: 12px',
+								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+								'onChange' => 'mostrar(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
+							]);
+							?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php
+							$generoOption = [
+								' ' => 'Elegir',
+								'Masculino' => 'Masculino',
+								'Femenino' => 'Femenino',
+								'No binanrio' => 'No binario',
+								'Prefiere no informar' => 'Prefiere no informar',
+
+							];
+							echo $this->Form->input('genero', [
+								'label' => '¿Cúal es su género?',
+								'class' => 'form-control',
+								'placeholder' => '',
+								'type' => 'select',
 								'options' => $generoOption,
 								'style' => 'font-size: 12px',
 								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
 								'onChange' => 'mostrar(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 							]);
 							?>
+
+                            <button type="button" id="ayudaButton3" class="btn btn-success rounded-circle"
+                                data-toggle="popover" data-placement="top" data-content="Reconocer que las mujeres, 
+								los hombres y las personas de los sectores sociales LGBTI,
+								reaccionan de distinta forma a los servicios de salud,
+								 debido a sus diferentes experiencias a lo largo de la vida,
+								 que afecta su salud, la incidencia o prevalencia de enfermedades y su tratamiento. 
+								 (Ajustado de módulo conocimientos, OPS 2020).
+                                        " style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+                                ?
+                            </button>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -157,7 +191,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'Famisanar' => 'Famisanar',
 								'Asmet Salud' => 'Asmet Salud',
 								'Sanidad PONAL' => 'Sanidad PONAL',
-								'PROINSALUD' => 'PRONISALUD',
+								'PROINSALUD' => 'PROINSALUD',
 								'Fondo UNDENAR' => 'Fondo UDENAR',
 								'Medicina Prepagada' => 'Medicina Prepagada',
 								'Sin afiliacion' => 'Sin afiliación',
@@ -179,7 +213,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'Subsidiado' => 'Subsidiado',
 								'Contributivo' => 'Contributivo',
 								'Regimen especial' => 'Regimen especial',
-								'Regimen exepcion' => 'Regimen exepción',
+								'Regimen excepción' => 'Regimen excepción',
 								'Particular' => 'Particular',
 								'SD' => 'Sin dato',
 
@@ -276,7 +310,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'Fisica' => 'Fisica',
 								'Auditiva' => 'Auditiva',
 								'Visual' => 'Visual',
-								'Sodoceguera' => 'Sodoceguera',
+								'Sordoceguera' => 'Sordoceguera',
 								'Cognitiva o intelectual' => 'Cognitiva o intelectual',
 								'Metal' => 'Mental',
 
@@ -429,13 +463,13 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'' => 'Elegir',
 								'Consulta Morbilidad' => 'Consulta de Morbilidad',
 								'Consulta PYP' => 'Consulta Promoción y prevención',
-								'No asistido' => 'No asisitido',
+								'No asistido' => 'No ha asistido',
 								'No informa' => 'No informa',
 								'SD' => 'Sin Dato',
 
 							);
 							echo $this->Form->input('valoracionmedica', array(
-								'label' => '¿Ha asistido a Valoración Médica en el ultimo año?',
+								'label' => '¿Ha asistido a Valoración Médica en el último año?',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'placeholder' => '',
@@ -511,6 +545,8 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'Si control' => 'Si, con supervisión',
 								'Si No control' => 'Si, sin supervisión',
 								'Responsabilidad Pareja' => 'Deja la responsabilidad a la pareja',
+								'Vasectomía' => 'Vasectomía',
+								'Pomeroy' => 'Pomeroy',
 								'No informa' => 'No informa',
 								'No aplica' => 'No aplica',
 								'SD' => 'Sin dato',
@@ -537,7 +573,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 
 							];
 							echo $this->Form->input('infeccionestransmisionsexual', array(
-								'label' => '¿Le han diganosticado alguna Infección de transmición Sexual?',
+								'label' => '¿Le han diagnosticado alguna Infección de transmisión Sexual?',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'options' => $optionits,
@@ -553,243 +589,243 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
             </div>
 
 
-            <div id="yesss" class="grow justify-content-center" display="none" style="margin-top:20px">
 
-                <div id="si" id="yesss" class="grow justify-content-center" display="none" style="margin-top:20px">
-                    <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
+
+            <div id="si" id="yesss" class="card col-sm-12" style="margin-left: 15px;font-size: 12px;" display="none">
+
+                <h2 class="titulo-general-pwa-govco col-md-12  "
+                    style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Salud de la Mujer</h2>
+                <hr
+                    style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+
+                <h2 class="titulo-general-pwa-govco col-md-12  "
+                    style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Antecedentes
+                    ginecológicos/obstétricos</h2>
+                <div class="form-group row">
+
+                    <div class="form-group col-md-6">
+                        <?php $optionYesNo1 = [
+							'No aplica ' => 'Elegir',
+							'Si' => 'Si',
+							'No' => 'No',
+							'No informa' => 'No informa',
+							'No aplica' => 'No aplica',
+							'SD' => 'Sin dato',
+
+						];
+
+						echo $this->Form->input('antecedenteginecologico', array(
+							'label' => '¿Le han realizado alguna cirugia ginecológica?',
+							'class' => 'form-control',
+							'style' => 'font-size: 12px',
+							'type' => 'select',
+							'options' => $optionYesNo1,
+							'placeholder' => ''
+						)); ?>
+                        <p class="help-block"> Procedimientos en el sistema reproductivo, ovarios,
+                            útero, trompas de
+                            Falopio, cuello uterino </p>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <?php
+						$optionGinecologico = [
+							'No aplica ' => 'Elegir',
+							'No' => 'No',
+							'No embarazos' => 'No ha tenido embarazos',
+							'Antecedente de abortos' => 'Antecedente de 2 o más abortos',
+							'Muerte perinatal' => 'Muerte perinatal',
+							'Bajo peso al nacer' => 'Recien nacido con Bajo peso al nacer',
+							'Prematurez' => 'Recien nacido Prematuro',
+							'Multiparidad' => 'Multiparidad (5 o más partos)',
+							'Edad Materna Avanzada' => 'Embarazo mujer mayor de 35 años',
+							'Preclampsia' => 'Antecendente de Preclampsia',
+							'Eclampsia' => 'Antecendente de eclampsia',
+							'No aplica' => 'No Aplica',
+							'SD' => 'Sin dato',
+
+						];
+						echo $this->Form->input('antecedenteginecologico', array(
+							'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
+							'class' => 'form-control',
+							'style' => 'font-size: 12px',
+							'type' => 'select',
+							'options' => $optionGinecologico,
+							'placeholder' => ''
+						)); ?>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <p class="help-block">Selecione otra respuesta si requiere, de lo contrario
+                            elija la
+                            opción
+                            'No ' </p>
+                        <?php
+						echo $this->Form->input('ancedenteginecologico1', array(
+							'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
+							'class' => 'form-control',
+							'style' => 'font-size: 12px',
+							'type' => 'select',
+							'options' => $optionGinecologico,
+							'placeholder' => ''
+						)); ?>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <?php
+						$gestanteOption = [
+							'No aplica ' => 'Elegir',
+							'No' => 'No',
+							'Si' => 'Si',
+						];
+						echo $this->Form->input('gestacion', [
+							'label' => '¿Mujer en embarazo?',
+							'class' => 'form-control',
+							'placeholder' => '',
+							'type' => 'select',
+							'options' => $gestanteOption,
+							'style' => 'font-size: 12px',
+							'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+							'onChange' => 'gestacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
+						]);
+						?>
+                        <p class="help-block"> Registre informción de mujer en gestación o puerperio
+                        </p>
+
+                    </div>
+
+
+
+                    <div id="yes" class="form-group row">
                         <h2 class="titulo-general-pwa-govco col-md-12  "
-                            style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Salud de la Mujer</h2>
-                        <hr
-                            style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
-
-                        <h2 class="titulo-general-pwa-govco col-md-12  "
-                            style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Antecedentes
-                            ginecológicos/obsetétricos</h2>
-
+                            style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Gestación <button type="button"
+                                id="ayudaButton2" class="btn btn-danger rounded-circle" data-toggle="popover"
+                                data-placement="top" data-content="Alerta: Riesgo alto gestantes menores de 18 años."
+                                style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+                                X
+                            </button></h2>
 
                         <div class="form-group col-md-6">
-                            <?php $optionYesNo1 = [
-								'No aplica ' => 'Elegir',
-								'Si' => 'Si',
-								'No' => 'No',
-								'No informa' => 'No informa',
-								'No aplica' => 'No aplica',
+                            <?php
+							$optionControlPrenatal = [
+								'No aplica ' =>  'Elegir',
+								'No inscrita' => 'No inscrita en control de embarazo',
+								'Asistente CPN' => 'Si, Control al día',
+								'Inasistente CPN' => 'Si, inasistente a último control',
+								'Puerperio' => 'En etapa de puerperio',
+								'No informa' => 'No sabe/No informa',
 								'SD' => 'Sin dato',
-
 							];
-
-							echo $this->Form->input('antecedenteginecologico', array(
-								'label' => '¿Le han realizado alguna cirugia ginecológica?',
+							echo $this->Form->input('controlprenatal', array(
+								'label' => '¿Esta inscrita en control prenatal?',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'type' => 'select',
-								'options' => $optionYesNo1,
-								'placeholder' => ''
-							)); ?>
-                            <p class="help-block"> Procedimientos en el sistema reproductivo, ovarios,
-                                útero, trompas de
-                                Falopio, cuello uterino </p>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <?php
-							$optionGinecologico = [
-								'No aplica ' => 'Elegir',
-								'No' => 'No',
-								'No embarazos' => 'No ha tenido embarazos',
-								'Antecedente de abortos' => 'Antecedente de 2 o más abortos',
-								'Muerte perinatal' => 'Muerte perinatal',
-								'Bajo peso al nacer' => 'Recien nacido con Bajo peso al nacer',
-								'Prematurez' => 'Recien nacido Prematuro',
-								'Multiparidad' => 'Multiparidad (5 o más partos)',
-								'Edad Materna Avanzada' => 'Embarazo mujer mayor de 35 años',
-								'Preclampsia' => 'Antecendente de Preclampsia',
-								'Eclampsia' => 'Antecendente de eclampsia',
-								'No aplica' => 'No Aplica',
-								'SD' => 'Sin dato',
-
-							];
-							echo $this->Form->input('antecedenteginecologico', array(
-								'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionGinecologico,
-								'placeholder' => ''
-							)); ?>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <p class="help-block">Selecione otra respuesta si requiere, de lo contrario
-                                elija la
-                                opción
-                                'No ' </p>
-                            <?php
-							echo $this->Form->input('ancedenteginecologico1', array(
-								'label' => '¿Ha presentado alguna de las siguientes situaciones en el embarazo? ',
-								'class' => 'form-control',
-								'style' => 'font-size: 12px',
-								'type' => 'select',
-								'options' => $optionGinecologico,
-								'placeholder' => ''
-							)); ?>
-                        </div>
-
-                        <div class="form-group col-md-6">
-                            <?php
-							$gestanteOption = [
-								'No aplica ' => 'Elegir',
-								'No' => 'No',
-								'Si' => 'Si',
-							];
-							echo $this->Form->input('gestacion', [
-								'label' => '¿Mujer en embarazo?',
-								'class' => 'form-control',
+								'options' => $optionControlPrenatal,
 								'placeholder' => '',
-								'type' => 'select',
-								'options' => $gestanteOption,
+
+							)); ?>
+
+                        </div>
+                        <div class="form-group col-md-6">
+                            <?php
+							$optionRiesgoEmbarazo = [
+								'No aplica ' =>  'Elegir',
+								'Bajo' => 'Bajo',
+								'Alto' => 'Alto',
+								'No informa' => 'No informa',
+								'SD' => 'Sin dato',
+							];
+							echo $this->Form->input('riesgoembarazo', array(
+								'label' => '¿El riesgo del embarazo es?',
+								'class' => 'form-control',
 								'style' => 'font-size: 12px',
-								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
-								'onChange' => 'gestacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
+								'type' => 'select',
+								'options' => $optionRiesgoEmbarazo,
+								'placeholder' => '',
+
+
+							)); ?>
+
+                        </div>
+                        <div class="form-group col-md-6">
+                            <?php
+							$optionAlarmaEmbarazo = [
+								'No aplica ' =>  'Elegir',
+								'No' => 'No',
+								'Dolor de Cabeza' => 'Dolor de cabeza',
+								'Mareo_zumbido' => 'Mareo/zumbido en el oido',
+								'Dolor del vientre' => 'Dolor del vientre tipo contracción',
+								'Disminucion o ausencia de movimientos del bebe' => 'Disminución o ausencia de movimientos del bebé',
+								'Hinchazon de cara y extremidades' => 'Hinchazón de manos, cara, piernas y pies',
+								'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
+								'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
+								'Sangrado vaginal' => 'Sangrado vaginal',
+								'No informa' => 'No informa',
+								'SD' => 'Sin dato',
+
+
+							];
+							echo $this->Form->input('signoAlarma', array(
+								'label' => '¿En el momento presenta alguno de los siguientes signos o síntomas de alarma?',
+								'class' => 'form-control',
+								'style' => 'font-size: 12px',
+								'type' => 'select',
+								'options' => $optionAlarmaEmbarazo,
+								'placeholder' => '',
+								'id' => 'riesgoembarazo'
+
+							)); ?>
+
+                        </div>
+
+                        <div class="form-group col-md-6">
+
+                            <?php
+							$optionCursoVida = [
+
+								'Adolescencia' => 'Adolescencia',
+
+							];
+
+							echo $this->Form->input('cursovida', array(
+								'label' => '¿El curso de vida de la gestante es?',
+								'class' => 'form-control',
+								'style' => 'font-size: 12px',
+								'type' => 'select',
+								'options' => $optionCursoVida,
+								'placeholder' => '',
+
+
+							)); ?>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <?php
+							$optionAlternativa = [
+								'No aplica ' => 'Elegir',
+								'No refiere' => 'No refiere',
+								'Medicina indigena' => 'Medicina Tradicional/indigena',
+								'Homeopatía' => 'Homeopatía',
+								'Medicina tradicional china' => 'Medicina tradicional china',
+								'Acupuntura' => 'Acupuntura',
+								'Quiropraxia' => 'Quiropraxia',
+								'Otro' => 'Otro',
+								'SD' => 'Sin dato'
+							];
+							echo $this->Form->input('saludalternativa', [
+								'label' => '¿Hacen uso de otras opciones para el cuidado de su salud durante su embarazo?',
+								'class' => 'form-control',
+								'type' => 'select',
+								'options' => $optionAlternativa,
+								'style' => 'font-size: 12px',
 							]);
 							?>
-                            <p class="help-block"> Registre infomración de mujer en gestación o puerperio
-                            </p>
-
-                        </div>
-
-
-
-                        <div id="yes" class="form-group row">
-                            <h2 class="titulo-general-pwa-govco col-md-12  "
-                                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Gestación <button
-                                    type="button" id="ayudaButton2" class="btn btn-danger rounded-circle"
-                                    data-toggle="popover" data-placement="top"
-                                    data-content="Alerta: Riesgo alto gestantes menores de 18 años."
-                                    style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
-                                    X
-                                </button></h2>
-
-                            <div class="form-group col-md-6">
-                                <?php
-								$optionControlPrenatal = [
-									'No aplica ' =>  'Elegir',
-									'No inscrita' => 'No inscrita en control de embarazo',
-									'Asistente CPN' => 'Si, Control al dia',
-									'Inasistente CPN' => 'Si, inasistente a ultimo control',
-									'Puerperio' => 'En etapa de puerperio',
-									'No informa' => 'No sabe/No informa',
-									'SD' => 'Sin dato',
-								];
-								echo $this->Form->input('controlprenatal', array(
-									'label' => '¿Esta inscrita en control prenatal?',
-									'class' => 'form-control',
-									'style' => 'font-size: 12px',
-									'type' => 'select',
-									'options' => $optionControlPrenatal,
-									'placeholder' => '',
-
-								)); ?>
-
-                            </div>
-                            <div class="form-group col-md-6">
-                                <?php
-								$optionRiesgoEmbarazo = [
-									'No aplica ' =>  'Elegir',
-									'Bajo' => 'Bajo',
-									'Alto' => 'Alto',
-									'No informa' => 'No informa',
-									'SD' => 'Sin dato',
-								];
-								echo $this->Form->input('riesgoembarazo', array(
-									'label' => '¿El riesgo del embarazo es?',
-									'class' => 'form-control',
-									'style' => 'font-size: 12px',
-									'type' => 'select',
-									'options' => $optionRiesgoEmbarazo,
-									'placeholder' => '',
-
-
-								)); ?>
-
-                            </div>
-                            <div class="form-group col-md-6">
-                                <?php
-								$optionAlarmaEmbarazo = [
-									'No aplica ' =>  'Elegir',
-									'No' => 'No',
-									'Dolor de Cabeza' => 'Dolor de cabeza',
-									'Mareo_zumbido' => 'Mareo/zumbido en el oido',
-									'Dolor del vientre' => 'Dolor del vientre tipo contracción',
-									'Disminucion o ausencia de movimientos del bebe' => 'Disminución o ausencia de movimientos del bebé',
-									'Hinchazon de cara y extremidades' => 'Hinchazón de manos, cara, piernas y pies',
-									'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
-									'Visión borrosa o luces parpadeantes' => 'Visión borrosa o luces parpadeantes',
-									'Sangrado vaginal' => 'Sangrado vaginal',
-									'No informa' => 'No informa',
-									'SD' => 'Sin dato',
-
-
-								];
-								echo $this->Form->input('signoAlarma', array(
-									'label' => '¿En el momento presenta alguno de los siguientes signo o síntoma de alarma?',
-									'class' => 'form-control',
-									'style' => 'font-size: 12px',
-									'type' => 'select',
-									'options' => $optionAlarmaEmbarazo,
-									'placeholder' => '',
-									'id' => 'riesgoembarazo'
-
-								)); ?>
-
-                            </div>
-
-                            <div class="form-group col-md-6">
-
-                                <?php
-								$optionCursoVida = [
-
-									'Adolescencia' => 'Adolescencia',
-
-								];
-
-								echo $this->Form->input('cursovida', array(
-									'label' => '¿El curso de vida de la gestante es?',
-									'class' => 'form-control',
-									'style' => 'font-size: 12px',
-									'type' => 'select',
-									'options' => $optionCursoVida,
-									'placeholder' => '',
-
-
-								)); ?>
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <?php
-								$optionAlternativa = [
-									'No aplica ' => 'Elegir',
-									'No refiere' => 'No refiere',
-									'Medicina indigena' => 'Medicina Tradicional/indigena',
-									'Homeopatía' => 'Homeopatía',
-									'Medicina tradicional china' => 'Medicina tradicional china',
-									'Acupuntura' => 'Acupuntura',
-									'Quiropraxia' => 'Quiropraxia',
-									'Otro' => 'Otro',
-									'SD' => 'Sin dato'
-								];
-								echo $this->Form->input('saludalternativa', [
-									'label' => '¿Hacen uso de otras opciones para el cuidado de su salud durante su embarazo?',
-									'class' => 'form-control',
-									'type' => 'select',
-									'options' => $optionAlternativa,
-									'style' => 'font-size: 12px',
-								]);
-								?>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
 
 
 
@@ -813,7 +849,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'Licor' => 'Licor',
 								'Licor_cigarrillo' => 'Licor/Cigarrillo',
 								'Sustancias Psicoactivas' => 'Marihuana, basuco, otras',
-								'Uso indebido de Medicamentos' => 'Medicamentos sin presciprción medica(Opiodes,Depresores,Estimulantes)',
+								'Uso indebido de Medicamentos' => 'Medicamentos sin prescripción médica(Opioides,Depresores,Estimulantes)',
 								'SD' => 'Sin dato',
 								'No aplica' => 'No aplica',
 
@@ -847,22 +883,21 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							$optionConflictos = [
 								'No aplica ' => 'Elegir',
 								'No' => 'No refiere',
-								'Difucultades Economicas' => 'Dificultad economica para suplir necesidades basicas',
+								'Difucultades Economicas' => 'Dificultad económica para suplir necesidades básicas',
 								'Conflictos entre padres e hijos' => 'Conflictos entre padres e hijos',
 								'Conflictos entre hermanos' => 'Conflictos entre hermanos',
 								'Conflictos entre Familia' => 'Conflictos entre Familia',
 								'Violencias de género' => 'Violencias de género',
-								'Problemas o Transtornos mentales diangnosticados' => 'Problemas o Transtornos mentales diangnosticados',
+								'Problemas o Transtornos mentales diagnosticados' => 'Problemas o Transtornos mentales diagnosticados',
 								'Consumo de alcohol o psicoactivos' => 'Consumo de alcohol o psicoactivos',
 								'SD' => 'Sin dato'
 							];
 
 							echo $this->Form->input('riesgopsicosocial', [
-								'label' => '¿Ha presentado alguna de las siguientes situaciones en el ultimo mes?',
+								'label' => '¿Ha presentado alguna de las siguientes situaciones en el último mes?',
 								'class' => 'form-control',
 								'type' => 'select',
 								'options' => $optionConflictos,
-
 								'style' => 'font-size: 12px',
 								'id' => 'riesgopsicosocial',
 								'onChange' => 'psicosocial(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
@@ -874,7 +909,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
                                 'No refiere' </p>
                             <?php
 							echo $this->Form->input('riesgopsicosocial1', array(
-								'label' => '¿Ha presentado alguna de las siguientes situaciones en el ultimo mes?',
+								'label' => '¿Ha presentado alguna de las siguientes situaciones en el último mes?',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'options' => $optionConflictos,
@@ -934,18 +969,18 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
                         <div class="form-group col-md-6">
                             <?php
 							$optionTiposViolencia = [
-								'' => 'Eletgir',
+								'' => 'Elegir',
 								'No' => 'No se identifica',
 								'Violencia Fisica' => 'Signos de maltrato físico(golpes, quemadura, heridas)',
-								'Violencia Emocional' => 'Menor retarido, timido o agresivo',
+								'Violencia Emocional' => 'Menor retraido, timido o agresivo',
 								'Violencia Sexual' => 'Tocamientos de personas adultas, relaciones sexuales ',
-								'Abondono_Negligencia' => 'Falta de atencion a necesidades básicas(alimentación, salud, educación)',
+								'Abondono_Negligencia' => 'Falta de atención a necesidades básicas(alimentación, salud, educación)',
 								'No informa' => 'No informa',
 								'SD' => 'Sin dato'
 							];
 
 							echo $this->Form->input('sopechamaltrato', array(
-								'label' => '¿Sospecha de algun tipo de vulneración o violencia?',
+								'label' => '¿Sospecha de algún tipo de vulneración o violencia?',
 								'class' => 'form-control',
 								'placeholder' => '',
 								'options' => $optionTiposViolencia,
@@ -1064,7 +1099,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
                         <div class="form-group col-md-6">
                             <?php
 							echo $this->Form->input('canalizacion_id', array(
-								'label' => 'Enlace de canalizacion',
+								'label' => 'Enlace de canalización',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'class' => 'form-control select-search',
@@ -1073,6 +1108,11 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'style' => 'font-size: 12px',
 							)); ?>
                         </div>
+                        <?php
+						echo $this->Form->input('fechaRegistro', array(
+
+							'type' => 'hidden',
+						)); ?>
                     </div>
                 </div>
             </div>
@@ -1176,5 +1216,8 @@ $(function() {
 });
 $(function() {
     $('#ayudaButton2').popover();
+});
+$(function() {
+    $('#ayudaButton3').popover();
 });
 </script>

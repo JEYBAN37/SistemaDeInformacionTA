@@ -17,10 +17,8 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -113,6 +111,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 'maxYear' => date('Y') - 6,
                                 'style' => 'font-size: 16px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;',
                                 'id' => 'fechanac', // Agrega este identificador al campo de fecha de nacimiento
+                                'empty' => true, // Establecer el campo como vacío
                             ]); ?>
                         </div>
 
@@ -160,7 +159,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 'Famisanar' => 'Famisanar',
                                 'Asmet Salud' => 'Asmet Salud',
                                 'Sanidad PONAL' => 'Sanidad PONAL',
-                                'PROINSALUD' => 'PRONISALUD',
+                                'PROINSALUD' => 'PROINSALUD',
                                 'Fondo UNDENAR' => 'Fondo UDENAR',
                                 'Medicina Prepagada' => 'Medicina Prepagada',
                                 'Sin afiliacion' => 'Sin afiliación',
@@ -182,7 +181,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 'Subsidiado' => 'Subsidiado',
                                 'Contributivo' => 'Contributivo',
                                 'Regimen especial' => 'Regimen especial',
-                                'Regimen exepcion' => 'Regimen exepción',
+                                'Regimen excepcion' => 'Regimen excepción',
                                 'Particular' => 'Particular',
                                 'SD' => 'Sin dato',
 
@@ -219,11 +218,9 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 
 
 
-                <h2 class="titulo-general-pwa-govco col-md-12  "
-                    style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+                <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                     Valoración de Salud</h2>
-                <hr
-                    style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+                <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
                 <div class="grow justify-content-center" display="none" style="margin-top:20px">
                     <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
                         <div class="form-group row">
@@ -235,7 +232,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                     'Fisica' => 'Fisica',
                                     'Auditiva' => 'Auditiva',
                                     'Visual' => 'Visual',
-                                    'Sodoceguera' => 'Sodoceguera',
+                                    'Sordoceguera' => 'Sordoceguera',
                                     'Cognitiva o intelectual' => 'Cognitiva o intelectual',
                                     'Metal' => 'Mental',
 
@@ -251,8 +248,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 ));
                                 ?>
 
-                                <button type="button" id="ayudaButton" class="btn btn-success rounded-circle"
-                                    data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad o funcionamiento físico.
+                                <button type="button" id="ayudaButton" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad o funcionamiento físico.
 
                                         Auditivas: Dificultades o limitaciones en la capacidad de escuchar o procesar el sonido.
 
@@ -347,11 +343,9 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Atención en Salud</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -448,7 +442,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                             );
 
                             echo $this->Form->input('desnutricion', array(
-                                'label' => '¿Le han informado si el menor tiene un diagnóstico de Malnutrición?',
+                                'label' => '¿Le han informado sobre el estado de nutrición del menor?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -492,11 +486,9 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Condiciones de vulnerabilidad</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -614,11 +606,9 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
                 Atención integral</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
                     <div class="form-group row">
@@ -759,58 +749,58 @@ $this->Html->script([
 
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
-function agregarOpcionSeleccion() {
+    function agregarOpcionSeleccion() {
 
 
 
-    $("#InfantilCanalizacionId").prepend(
-        "<option value='00' selected='selected'>Seleccione</option>");
+        $("#InfantilCanalizacionId").prepend(
+            "<option value='00' selected='selected'>Seleccione</option>");
 
 
-}
-
-document.getElementById('calcularIMC').addEventListener('click', function() {
-    var peso = parseFloat(document.getElementById('peso').value);
-    var talla = parseFloat(document.getElementById('talla').value);
-
-    if (!isNaN(peso) && !isNaN(talla) && talla > 0) {
-        var altura = talla / 100; // Convertir de cm a m
-        var imc = peso / (altura * altura);
-
-        // Mostrar el IMC calculado en el campo indicemasacorporal
-        var imcField = document.getElementById('indicemasacorporal');
-        imcField.value = imc.toFixed(2); // Redondear a 2 decimales
-
-        // Determinar el mensaje y el color según el rango del IMC
-        var mensaje = '';
-        if (imc < 18.5) {
-            mensaje = 'Peso insuficiente';
-            imcField.style.color = 'red'; // Cambiar el color del texto a rojo
-        } else if (imc >= 18.5 && imc <= 24.9) {
-            mensaje = 'Peso normal o saludable';
-            imcField.style.color = 'green'; // Cambiar el color del texto a verde
-        } else if (imc >= 25.0 && imc <= 29.9) {
-            mensaje = 'Sobrepeso';
-            imcField.style.color = 'orange'; // Cambiar el color del texto a naranja
-        } else {
-            mensaje = 'Obesidad';
-            imcField.style.color = 'red'; // Cambiar el color del texto a rojo
-        }
-
-        // Mostrar el mensaje en el elemento mensajeIMC
-        var mensajeIMC = document.getElementById('mensajeIMC');
-        mensajeIMC.textContent = mensaje;
-    } else {
-        alert('Por favor, ingrese valores válidos para peso y talla.');
     }
-});
-$(function() {
-    $('#ayudaButton').popover();
-});
+
+    document.getElementById('calcularIMC').addEventListener('click', function() {
+        var peso = parseFloat(document.getElementById('peso').value);
+        var talla = parseFloat(document.getElementById('talla').value);
+
+        if (!isNaN(peso) && !isNaN(talla) && talla > 0) {
+            var altura = talla / 100; // Convertir de cm a m
+            var imc = peso / (altura * altura);
+
+            // Mostrar el IMC calculado en el campo indicemasacorporal
+            var imcField = document.getElementById('indicemasacorporal');
+            imcField.value = imc.toFixed(2); // Redondear a 2 decimales
+
+            // Determinar el mensaje y el color según el rango del IMC
+            var mensaje = '';
+            if (imc < 18.5) {
+                mensaje = 'Peso insuficiente';
+                imcField.style.color = 'red'; // Cambiar el color del texto a rojo
+            } else if (imc >= 18.5 && imc <= 24.9) {
+                mensaje = 'Peso normal o saludable';
+                imcField.style.color = 'green'; // Cambiar el color del texto a verde
+            } else if (imc >= 25.0 && imc <= 29.9) {
+                mensaje = 'Sobrepeso';
+                imcField.style.color = 'orange'; // Cambiar el color del texto a naranja
+            } else {
+                mensaje = 'Obesidad';
+                imcField.style.color = 'red'; // Cambiar el color del texto a rojo
+            }
+
+            // Mostrar el mensaje en el elemento mensajeIMC
+            var mensajeIMC = document.getElementById('mensajeIMC');
+            mensajeIMC.textContent = mensaje;
+        } else {
+            alert('Por favor, ingrese valores válidos para peso y talla.');
+        }
+    });
+    $(function() {
+        $('#ayudaButton').popover();
+    });
 </script>

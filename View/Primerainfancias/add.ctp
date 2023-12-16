@@ -12,10 +12,8 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                     menor de 2 años
                 </h1>
             </div>
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Personales</h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -113,6 +111,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 'maxYear' => date('Y'),
                                 'style' => 'font-size: 16px; padding: 5px; border: 1px solid #ccc; border-radius: 5px;',
                                 'id' => 'fechanac', // Agrega este identificador al campo de fecha de nacimiento
+                                'empty' => true, // Establecer el campo como vacío
                             ]); ?>
                         </div>
 
@@ -160,7 +159,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 'Famisanar' => 'Famisanar',
                                 'Asmet Salud' => 'Asmet Salud',
                                 'Sanidad PONAL' => 'Sanidad PONAL',
-                                'PROINSALUD' => 'PRONISALUD',
+                                'PROINSALUD' => 'PROINSALUD',
                                 'Fondo UNDENAR' => 'Fondo UDENAR',
                                 'Medicina Prepagada' => 'Medicina Prepagada',
                                 'Sin afiliacion' => 'Sin afiliación',
@@ -182,7 +181,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 'Subsidiado' => 'Subsidiado',
                                 'Contributivo' => 'Contributivo',
                                 'Regimen especial' => 'Regimen especial',
-                                'Regimen exepcion' => 'Regimen exepción',
+                                'Regimen excepción' => 'Regimen excepción',
                                 'Particular' => 'Particular',
                                 'SD' => 'Sin dato',
 
@@ -218,11 +217,9 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Valoración de Salud</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -258,7 +255,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 'Fisica' => 'Fisica',
                                 'Auditiva' => 'Auditiva',
                                 'Visual' => 'Visual',
-                                'Sodoceguera' => 'Sodoceguera',
+                                'Sordoceguera' => 'Sordoceguera',
                                 'Cognitiva o intelectual' => 'Cognitiva o intelectual',
                                 'Metal' => 'Mental',
 
@@ -274,8 +271,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                             ));
                             ?>
 
-                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle"
-                                data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad
+                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad
                                 o funcionamiento físico.
 
                                 Auditivas: Dificultades o limitaciones en la capacidad de escuchar o procesar el sonido.
@@ -323,8 +319,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                         <div class="col-md-4">
                             <p class="help-block"> Encuestador: ¿Cuenta con elementos antropométricos para tomar datos
                                 de peso, talla? </p>
-                            <select id="status" name="status" required onChange="mostrar(this.value);"
-                                style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative">
+                            <select id="status" name="status" required onChange="mostrar(this.value);" style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative">
 
                                 <option value="no">No cuenta</option>
                                 <option value="si">Si cuenta</option>
@@ -465,11 +460,9 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Atención en Salud</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -553,7 +546,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                             );
 
                             echo $this->Form->input('desnutricion', array(
-                                'label' => '¿Le han informado si el menor tiene un diagnóstico de Malnutrición?',
+                                'label' => '¿Le han informado el estado de nutirción del menor?',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -593,11 +586,9 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                 </div>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">
                 Condiciones de vulnerabilidad</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -608,7 +599,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('era', array(
-                                'label' => 'En momento presenta algún signo de Enfermedad respiratoria Aguda',
+                                'label' => 'En el momento presenta algún signo de Enfermedad respiratoria Aguda',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -621,7 +612,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                         </div>
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('eda', array(
-                                'label' => 'En momento presenta algún signo de Enferemedad diarreica Aguda',
+                                'label' => 'En el momento presenta algún signo de Enferemedad diarreica Aguda',
                                 'class' => 'form-control',
                                 'placeholder' => '',
                                 'type' => 'select',
@@ -724,11 +715,9 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  "
-                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
+            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan de
                 Atención integral</h2>
-            <hr
-                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -828,6 +817,12 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
                                 )); ?>
                             </div>
 
+                            <?php
+                            echo $this->Form->input('fechaRegistro', array(
+
+                                'type' => 'hidden',
+                            )); ?>
+
                         </div>
 
                     </div>
@@ -882,32 +877,32 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
-function agregarOpcionSeleccion() {
+    function agregarOpcionSeleccion() {
 
 
-    $("#PrimerainfanciaCanalizacionId").prepend(
-        "<option value='00' selected='selected'>Seleccione</option>");
-}
-
-$(function() {
-    $('#ayudaButton').popover();
-});
-
-function mostrar(id) {
-    if (id == "si") {
-        $("#si").show();
-        $("#no").hide();
-
-    } else if (id == "no") {
-        $("#si").hide();
-        $("#no").show();
-
+        $("#PrimerainfanciaCanalizacionId").prepend(
+            "<option value='00' selected='selected'>Seleccione</option>");
     }
-}
+
+    $(function() {
+        $('#ayudaButton').popover();
+    });
+
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
+
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
+
+        }
+    }
 </script>

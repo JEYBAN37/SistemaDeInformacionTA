@@ -1,3 +1,5 @@
+<?php $this->layout = 'default_familia' ?>
+
 <?php
 // Enlaza el archivo JavaScript desde la carpeta webroot/js
 echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nombre del archivo sin la extensión .js
@@ -14,125 +16,134 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
         <fieldset>
 
             <div class="col-12 text-center">
-                <h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Módulo Socioambiental
+                <h1 class="title-general-forms">Módulo Socioambiental
                 </h1>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos Básicos</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="col-md-12  " style="color: #3366CC;  font-size:30px ; margin-top: 25px; ">Datos Básicos</h2>
+            <hr style=" border:0.1px solid rgba(0,0,0,.125);">
 
-            <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+            <div class="grow justify-content-center" display="none" style="margin-top:20px; ">
+                <div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
                     <div class="form-group row">
 
-                        <div class="form-group col-md-6">
+                        <?php echo $this->Form->input('fecha', array(
+                            'type' => 'hidden',
+                        )); ?>
+
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
                             <?php echo $this->Form->input('responsable_id', array(
                                 'label' => 'Responsable diligenciamiento Encuesta',
-                                'class' => 'form-control',
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                                 'type' => 'select',
-                                'class' => 'form-control select-search'
+                                'class' => 'select-search'
                             )); ?>
                         </div>
 
-                        <div class="form-group col-md-6"> <?php echo $this->Form->input('ubicacion_id', array(
-                                                                'label' => 'Territorio',
-                                                                'class' => 'form-control',
-                                                                'style' => 'font-size: 12px',
-                                                                'type' => 'select',
-                                                                'class' => 'form-control select-search'
-                                                            )); ?>
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
+                            <?php echo $this->Form->input('ubicacion_id', array(
+                                'label' => 'Territorio',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
+                                'type' => 'select',
+                                'class' => 'select-search col-md-12'
+                            )); ?>
                         </div>
 
-                        <div class="form-group col-md-6"> <?php echo $this->Form->input('direccion', array(
-                                                                'label' => 'Dirección',
-                                                                'class' => 'form-control',
-                                                                'style' => 'font-size: 12px',
-                                                            )); ?>
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
+                            <?php echo $this->Form->input('direccion', array(
+                                'label' => 'Dirección',
+                                'class' => 'form-control',
+                                'style' => 'height:30px;  font-size: 15px',
+                            )); ?>
                         </div>
 
-                        <div class="form-group col-md-6"> <?php echo $this->Form->input('apellidosfamilia', array(
-                                                                'label' => 'Apellidos de la familia',
-                                                                'class' => 'form-control',
-                                                                'style' => 'font-size: 12px',
-                                                            )); ?>
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
+                            <?php echo $this->Form->input('apellidosfamilia', array(
+                                'label' => 'Apellidos de la familia',
+                                'class' => 'form-control',
+                                'style' => 'height:30px;  font-size: 15px',
+                            )); ?>
                         </div>
 
-                        <div class="form-group col-md-6"> <?php
-                                                            $viviendaOptions = array(
-                                                                '' => 'Elegir',
-                                                                'Casa' => 'Casa',
-                                                                'Apartamento' => 'Apartamento',
-                                                                'Pieza' => 'Pieza',
-                                                                'Cuarto improvisado' => 'Cuarto improvisado',
-                                                                'Cuarto en inquilinato' => 'Cuarto en inquilinato',
-                                                                'Cuevas' => 'Cuevas',
-                                                                'En calle' => 'En calle',
-                                                            );
-                                                            echo $this->Form->input('vivienda', array(
-                                                                'label' => 'Tipo de vivienda:',
-                                                                'class' => 'form-control',
-                                                                'style' => 'font-size: 12px;',
-                                                                'placeholder' => '',
-                                                                'type' => 'select',
-                                                                'options' => $viviendaOptions
-                                                            ));
-                                                            ?>
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
+                            <?php
+                            $viviendaOptions = array(
+                                '' => 'Elegir',
+                                'Casa' => 'Casa',
+                                'Apartamento' => 'Apartamento',
+                                'Pieza' => 'Pieza',
+                                'Cuarto improvisado' => 'Cuarto improvisado',
+                                'Cuarto en inquilinato' => 'Cuarto en inquilinato',
+                                'Cuevas' => 'Cuevas',
+                                'En calle' => 'En calle',
+                            );
+                            echo $this->Form->input('vivienda', array(
+                                'label' => 'Tipo de vivienda:',
+                                'class' => 'form-control',
+                                'style' => 'height:30px;  font-size: 15px',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'options' => $viviendaOptions
+                            ));
+                            ?>
                         </div>
 
-                        <div class="form-group col-md-6"> <?php
-                                                            $estratoOptions = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4');
-                                                            echo $this->Form->input('estrato', array(
-                                                                'class' => 'form-control',
-                                                                'style' => 'font-size: 12px;',
-                                                                'placeholder' => '',
-                                                                'type' => 'select',
-                                                                'options' => $estratoOptions
-                                                            ));
-                                                            ?>
-                            <p class="help-block"> Se sugiere revisar recibo de agua o luz de la residencia</p>
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
+                            <?php
+                            $estratoOptions = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4');
+                            echo $this->Form->input('estrato', array(
+                                'label' => 'Estrato:',
+                                'class' => 'form-control',
+                                'style' => 'height:30px;  font-size: 15px',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'options' => $estratoOptions
+                            ));
+                            ?>
+                            <p class="help-block">Se sugiere revisar recibo de agua o luz de la residencia</p>
                         </div>
 
-                        <div class="form-group col-md-6"> <?php
-                                                            $numhabitantesOptions = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => 'Mas de 7');
-                                                            echo $this->Form->input('numerohabitantes', array(
-                                                                'label' => '¿Cuantas personas habitan en la vivienda',
-                                                                'class' => 'form-control',
-                                                                'style' => 'font-size: 12px;',
-                                                                'placeholder' => '',
-                                                                'options' => $numhabitantesOptions,
-
-
-                                                            )); ?>
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
+                            <?php
+                            $numhabitantesOptions = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6', '7' => 'Mas de 7');
+                            echo $this->Form->input('numerohabitantes', array(
+                                'label' => '¿Cuántas personas habitan en la vivienda?',
+                                'class' => 'form-control',
+                                'style' => 'height:30px;  font-size: 15px',
+                                'placeholder' => '',
+                                'options' => $numhabitantesOptions,
+                            ));
+                            ?>
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
                             <?php
                             $numhogaresOptions = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', '5' => '5', '6' => '6');
                             echo $this->Form->input('numerohogares', array(
                                 'label' => 'No. Hogares en la residencia',
                                 'class' => 'form-control',
-                                'style' => 'font-size: 12px;',
+                                'style' => 'height:30px;  font-size: 15px',
                                 'options' => $numhogaresOptions
-                            )); ?>
-                            <p class="help-block"> Si todos comen de la misma olla se considera una sola familia/hogar
+                            ));
+                            ?>
+                            <p class="help-block">Si todos comen de la misma olla se considera una sola familia/hogar
                             </p>
-
                         </div>
+
                     </div>
                 </div>
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Habitabilidad</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 style="color: #3366CC; font-size:30px ; margin-top: 20px; ">Habitabilidad</h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125);">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+                <div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
 
                     <div class="form-group row">
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
                             <?php
                             $optionMaterialPared = array(
                                 '' => 'Elegir',
@@ -148,13 +159,13 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'label' => '¿Cuál es el material predominante de las paredes?',
                                 'options' => $optionMaterialPared,
                                 'class' => 'form-control',
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                                 'placeholder' => ""
                             ));
                             ?>
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
 
                             <?php $optionParedes = array(
                                 '' => 'Elegir',
@@ -166,14 +177,14 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                             echo $this->Form->input('estadoparedes', array(
                                 'label' => '¿El estado de las paredes es?',
                                 'class' => 'form-control',
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                                 'type' => 'select',
                                 'options' => $optionParedes,
 
                             ));
                             ?>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
                             <?php
                             $optionPiso = array(
                                 '' => 'Elegir',
@@ -190,14 +201,14 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                             echo $this->Form->input('piso', array(
                                 'label' => '¿Cuál es el material predominante del piso de la vivienda?',
                                 'class' => 'form-control',
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                                 'type' => 'select',
                                 'options' => $optionPiso,
 
                             ));
                             ?>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
                             <?php
                             $optionTecho = array(
                                 '' => 'Elegir',
@@ -214,14 +225,14 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                             echo $this->Form->input('techo', array(
                                 'label' => '¿Cuál es el material predominante del techo?',
                                 'class' => 'form-control',
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                                 'type' => 'select',
                                 'options' => $optionTecho,
 
                             ));
                             ?>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
                             <?php
                             $optionEstadoTecho = array(
                                 '' => 'Elegir',
@@ -232,14 +243,14 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                             echo $this->Form->input('estadotecho', array(
                                 'label' => '¿Cuál es el estado en general del techo?',
                                 'class' => 'form-control',
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                                 'type' => 'select',
                                 'options' => $optionEstadoTecho,
 
                             ));
                             ?>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" style="margin-top: 20px;">
                             <?php
                             $optionDormitorio = array('' => 'Elegir', '1' => '1', '2' => '2', '3' => '3', '4' => '4', 'SD' => 'Sin dato');
                             echo $this->Form->input('dormitorios', array(
@@ -247,18 +258,18 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionDormitorio,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ));
                             ?>
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6" style="margin-top: 20px; margin-bottom: 30px;">
                             <?php $optionHacinamiento = array('' => 'Elegir', 'Si' => 'Si', 'No' => 'No', 'SD' => 'Sin dato');
                             echo $this->Form->input('hacinamiento', array(
                                 'label' => '¿En algunos de los dormitorios de la vivienda duermen tres o mas personas?',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $optionHacinamiento,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                                 'id' => 'hacinamiento'
                             ));
                             ?>
@@ -269,15 +280,15 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
             </div>
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 style="color: #3366CC; font-size:30px; margin-top: 20px; ">Servicios y Riesgos de la vivienda </h2>
+            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125);">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+                <div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
 
                     <div class="form-group row">
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $externalRiskOptions = [
                                 '' => 'Elegir',
@@ -298,23 +309,23 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $externalRiskOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                             <p class="help-block">Refiera el riesgo más evidente</p>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             echo $this->Form->input('otroriesgo', [
                                 'label' => 'Registre otro riesgo interno o externo si considera',
                                 'class' => 'form-control',
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $yesNoOptions = [
                                 '' => 'Elegir',
@@ -327,12 +338,12 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $yesNoOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $accessOptions = [
                                 '' => 'Elegir',
@@ -348,14 +359,14 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $accessOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                             <p class="help-block"> Relacione el más importante
                             </p>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
 
                             echo $this->Form->input('accesoDos', [
@@ -363,14 +374,14 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $accessOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                             <p class="help-block">Relacione el más importante
                             </p>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $transportOptions = [
                                 '' => 'Elegir',
@@ -385,12 +396,12 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $transportOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $accidentRiskOptions = [
                                 '' => 'Elegir',
@@ -409,12 +420,12 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $accidentRiskOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             echo $this->Form->input('otroriesgohogar', [
                                 'label' => 'Registre otro riesgo interno o externo si considera',
@@ -424,7 +435,7 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                             ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $waterSupplyOptions = [
                                 '' => 'Elegir',
@@ -441,12 +452,12 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $waterSupplyOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $waterTreatmentOptions = [
                                 '' => 'Elegir',
@@ -462,12 +473,12 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $waterTreatmentOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $waterSupplyStatusOptions = [
                                 '' => 'Elegir',
@@ -481,12 +492,12 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $waterSupplyStatusOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $tankCleaningOptions = [
                                 '' => 'Elegir',
@@ -501,12 +512,12 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $tankCleaningOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $excretaDisposalOptions = [
                                 '' => 'Elegir',
@@ -520,12 +531,12 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $excretaDisposalOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $domesticWaterOptions = [
                                 '' => 'Elegir',
@@ -538,12 +549,12 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $domesticWaterOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $garbageDisposalOptions = [
                                 '' => 'Elegir',
@@ -555,12 +566,12 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $garbageDisposalOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $recyclingOptions = [
                                 '' => 'Elegir',
@@ -574,11 +585,11 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $recyclingOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px; margin-bottom: 30px;">
                             <?php
                             $vectoresOption = [
                                 '' => 'Elegir',
@@ -596,7 +607,7 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $vectoresOption,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
@@ -608,23 +619,25 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
 
 
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;">Mascotas o
+            <h2 style="color: #3366CC; font-size:30px; margin-top: 20px; ">Mascotas o
                 animales de crianza en el hogar </h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
-            <div class="col-md-4">
-                <select id="status" name="status" required onChange="mostrar(this.value);" style="margin-left:20px ;font-size:12px;margin-top:auto;border:1px solid #e9ecef; height:30px;width: 200px;overflow: hidden;position:relative;">
-                    <option value="no">NO</option>
-                    <option value="si">SI</option>
 
-                </select>
+
+            <div class="col-sm-12" style="margin-top: 20px; ">
+                <div id="status" class="switch-button">
+                    <input type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox">
+                    <label for="switch-label" class="switch-button__label"></label>
+                </div>
+
+
             </div>
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                <div id="si" class="panel panel-default form-group col-md-12" style="margin-left: 15px; display: none;">
+                <div id="si" class="panel panel-default form-group col-md-12" style="font-size:15px; display: none;">
 
                     <div class="form-group row">
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $numMascotaOption = [
                                 'No aplica' => 'Elegir',
@@ -641,22 +654,22 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $numMascotaOption,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             echo $this->Form->input('numeroPerros', [
                                 'label' => '¿Cuantos Perros tiene?',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $numMascotaOption,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $cuidadoMascotaOptions = [
                                 'No aplica' => 'Elegir',
@@ -669,24 +682,24 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $cuidadoMascotaOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                                 'id' => 'desparasitacion'
                             ]);
                             ?>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             echo $this->Form->input('vacunamascotas', [
                                 'label' => '¿Se ha vacunado a perros o gatos en el ultimo año?',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' =>  $cuidadoMascotaOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                                 'id' => 'vacunacion',
                             ]);
                             ?>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             $mascotaOption = [
                                 'No aplica ' => 'Elegir',
@@ -701,31 +714,31 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $mascotaOption,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             echo $this->Form->input('otramascota', [
                                 'label' => 'Agregue animales de producción si requiere',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $mascotaOption,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100%',
                             ]);
                             ?>
                         </div>
 
 
-                        <div class="col-md-6">
+                        <div class="col-md-6" style="margin-top: 30px;">
                             <?php
                             echo $this->Form->input('cuidadomascotas', [
                                 'label' => '¿Las excretas de los animales de compañía se recogen y disponen adecuadamente? ',
                                 'class' => 'form-control',
                                 'type' => 'select',
                                 'options' => $cuidadoMascotaOptions,
-                                'style' => 'font-size: 12px',
+                                'style' => 'height:30px;  font-size: 15px ; width:100% ;margin-bottom: 30px;',
                             ]);
                             ?>
                         </div>
@@ -733,7 +746,15 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                 </div>
             </div>
         </fieldset>
-        <?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
+
+
+        <button class="my-button">
+            Guardar<?php echo $this->Form->end(); ?>
+        </button>
+
+
+
+
     </div>
 </div>
 
@@ -762,7 +783,10 @@ $this->Html->script([
         $("#SociambientalResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
     }
 
-
+    $("#switch-label").change(function() {
+        var switchValue = this.checked ? "si" : "no";
+        mostrar(switchValue);
+    });
 
 
     function mostrar(id) {

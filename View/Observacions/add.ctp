@@ -78,9 +78,9 @@
                             <?php
 							$estado = [
 								'' => 'Elegir',
-								'En tramite' => 'En tramite',
-								'Efectiva' => 'Efectiva',
-								'No efectiva' => 'No efectiva',
+								'Se brinda orientación' => 'Se birnda orientación correpondiente',
+								'Se consultará información' => 'Se consultará Infomación',
+								'No aplica' => 'No aplica',
 							];
 							echo $this->Form->input('estado', array(
 								'label' => 'Estado de canalizaciones',
@@ -121,14 +121,14 @@
 							));
 							?>
                         </div>
-                        <div class="form-group col-md-6">
-                            <!-- Coloca el campo en una mitad de la pantalla en dispositivos medianos y grandes -->
-                            <?php echo $this->Form->input('date', array(
-								'label' => 'Fecha de visita : ',
-								'style' => 'font-size: 12px'
-							));
-							?>
-                        </div>
+
+                        <?php echo $this->Form->input('date', array(
+							'label' => 'Fecha de visita : ',
+							'style' => 'font-size: 12px',
+							'type' => 'hidden',
+						));
+						?>
+
 
                         <div class="form-group col-md-6">
                             <p class="help-block">Adjuntar anexo ' NOTA: Cargar un archivo tipo imagen o en pdf

@@ -129,6 +129,16 @@ class Adolescencia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'genero' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 		'aseguradora' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
@@ -414,6 +424,16 @@ class Adolescencia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+		'rendimientoescolar' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
 
 		'sopechamaltrato' => array(
 			'notEmpty' => array(
@@ -447,7 +467,7 @@ class Adolescencia extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'educacionuno' => array(
+		'educacion' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',

@@ -155,6 +155,39 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							]);
 							?>
                         </div>
+                        <div class="form-group col-md-6">
+                            <?php
+							$generoOption = [
+								' ' => 'Elegir',
+								'Masculino' => 'Masculino',
+								'Femenino' => 'Femenino',
+								'No binanrio' => 'No binario',
+								'Prefiere no informar' => 'Prefiere no informar',
+
+							];
+							echo $this->Form->input('genero', [
+								'label' => '¿Cúal es su género?',
+								'class' => 'form-control',
+								'placeholder' => '',
+								'type' => 'select',
+								'options' => $generoOption,
+								'style' => 'font-size: 12px',
+								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+								'onChange' => 'mostrar(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
+							]);
+							?>
+
+                            <button type="button" id="ayudaButton3" class="btn btn-success rounded-circle"
+                                data-toggle="popover" data-placement="top" data-content="Reconocer que las mujeres, 
+								los hombres y las personas de los sectores sociales LGBTI,
+								reaccionan de distinta forma a los servicios de salud,
+								 debido a sus diferentes experiencias a lo largo de la vida,
+								 que afecta su salud, la incidencia o prevalencia de enfermedades y su tratamiento. 
+								 (Ajustado de módulo conocimientos, OPS 2020).
+                                        " style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+                                ?
+                            </button>
+                        </div>
 
                         <div class="form-group col-md-6">
                             <?php
@@ -167,7 +200,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'Famisanar' => 'Famisanar',
 								'Asmet Salud' => 'Asmet Salud',
 								'Sanidad PONAL' => 'Sanidad PONAL',
-								'PROINSALUD' => 'PRONISALUD',
+								'PROINSALUD' => 'PROINSALUD',
 								'Fondo UNDENAR' => 'Fondo UDENAR',
 								'Medicina Prepagada' => 'Medicina Prepagada',
 								'Sin afiliacion' => 'Sin afiliación',
@@ -188,8 +221,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								' ' => 'Elegir',
 								'Subsidiado' => 'Subsidiado',
 								'Contributivo' => 'Contributivo',
-								'Regimen especial' => 'Regimen especial',
-								'Regimen exepcion' => 'Regimen exepción',
+								'Regimen especial' => 'Régimen especial',
+								'Regimen excepción' => 'Régimen excepción',
 								'Particular' => 'Particular',
 								'SD' => 'Sin dato',
 
@@ -237,7 +270,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
                         <div class="form-group col-md-6">
                             <?php echo $this->Form->input('telefono', [
-								'label' => 'Telefono',
+								'label' => 'Teléfono',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 							]);  ?>
@@ -278,10 +311,10 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							$optionDiscapacidad = array(
 								'' => 'Elegir',
 								'No' => 'No presenta',
-								'Fisica' => 'Fisica',
+								'Física' => 'Física',
 								'Auditiva' => 'Auditiva',
 								'Visual' => 'Visual',
-								'Sodoceguera' => 'Sodoceguera',
+								'Sordoceguera' => 'Sordoceguera',
 								'Cognitiva o intelectual' => 'Cognitiva o intelectual',
 								'Metal' => 'Mental',
 
@@ -291,7 +324,6 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'class' => 'form-control',
 								'placeholder' => '',
 								'type' => 'select',
-
 								'style' => 'font-size: 12px',
 								'options' => $optionDiscapacidad
 							));
@@ -375,16 +407,16 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							$optionCronica = array(
 								'' => 'Elegir',
 								'No' => 'No',
-								'Hipertension' => 'Hipertensión',
+								'Hipertensión' => 'Hipertensión',
 								'Diabetes' => 'Diabetes',
 								'Hipertiroidismo' => 'Hipertiroidismo',
-								'Hiportiroidismo' => 'Hiportiroidismo',
+								'Hipotiroidismo' => 'Hipotiroidismo',
 								'Dislipidemia' => 'colesterol, triglicéridos elevados',
 								'Neurologica' => 'Neurológica',
 								'Cardiovascular' => 'Cardiovascular',
 								'Respiratoria' => 'Respiratoria',
-								'Metabolica' => 'Metabólica',
-								'Endocrinologica' => 'Endocrinológica',
+								'Metabólica' => 'Metabólica',
+								'Endocrinológica' => 'Endocrinológica',
 								'Gastrointestinal' => 'Gastrointestinal',
 								'renal o de otro tipo' => 'renal o de otro tipo',
 								'No informa' => 'Desconoce la información',
@@ -409,7 +441,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							$optionCronica1 = array(
 								'No aplica ' => 'Elegir',
 								'No' => 'No aplica',
-								'Hipertension' => 'Hipertensión',
+								'Hipertensión' => 'Hipertensión',
 								'Diabetes' => 'Diabetes',
 								'Hipertiroidismo' => 'Hipertiroidismo',
 								'Hiportiroidismo' => 'Hiportiroidismo',
@@ -418,7 +450,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'Cardiovascular' => 'Cardiovascular',
 								'Respiratoria' => 'Respiratoria',
 								'Metabolica' => 'Metabólica',
-								'Endocrinologica' => 'Endocrinológica',
+								'Endocrinológica' => 'Endocrinológica',
 								'Gastrointestinal' => 'Gastrointestinal',
 								'renal o de otro tipo' => 'renal o de otro tipo',
 								'No informa' => 'Desconoce la información',
@@ -442,7 +474,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							$optionVacuna = array(
 								'' => 'Elegir',
 								'No' => 'No',
-								'Toxoide tetanico' => 'Toxoide tétanico',
+								'Toxoide tétanico' => 'Toxoide tétanico',
 								'Covid' => 'Vacuna Covid-19',
 								'Influenza' => 'Influenza Estacional',
 								'Fiebre Amarilla' => 'Fiebre Amarilla',
@@ -462,8 +494,11 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							)); ?>
                         </div>
 
+
                         <div class="form-group col-md-6">
+
                             <?php
+
 							echo $this->Form->input('desparasitacion', array(
 								'label' => '¿Se ha desparasitado en los últimos seis meses?',
 								'class' => 'form-control',
@@ -481,7 +516,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'Consulta Cronicos' => 'Consulta de Crónicos',
 								'Consulta PYP' => 'Consulta Promoción y prevención',
 								'Consulta Urgencias' => 'Consulta Urgencias',
-								'No asistido' => 'No asisitido',
+								'No asistido' => 'No ha asistido',
 								'No informa' => 'No informa',
 								'SD' => 'Sin Dato',
 
@@ -558,12 +593,14 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         <div class="form-group col-md-6">
                             <?php
 							$optionAnticonceptivos = [
-								'No aplica ' =>  'Elegir',
+								'No aplica ' => 'Elegir',
 								'No' => 'No',
 								'Sin pareja' => 'No tiene pareja en el momento',
 								'Si control' => 'Si, con supervisión',
 								'Si No control' => 'Si, sin supervisión',
 								'Responsabilidad Pareja' => 'Deja la responsabilidad a la pareja',
+								'Vasectomía' => 'Vasectomía',
+								'Pomeroy' => 'Pomeroy',
 								'No informa' => 'No informa',
 								'No aplica' => 'No aplica',
 								'SD' => 'Sin dato',
@@ -590,7 +627,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 							];
 							echo $this->Form->input('infeccionestransmisionsexual', array(
-								'label' => '¿Le han diganosticado alguna Infección de transmición Sexual?',
+								'label' => '¿Le han diagnosticado alguna Infección de transmisión Sexual?',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'options' => $optionits,
@@ -633,7 +670,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 								];
 								echo $this->Form->input('tomacitologia', array(
-									'label' => '¿Se ha realizado el examen citología de acuedo a esquema?',
+									'label' => '¿Se ha realizado el exámen de citología de acuerdo a esquema?',
 									'class' => 'form-control',
 									'style' => 'font-size: 12px',
 									'type' => 'select',
@@ -660,7 +697,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								];
 
 								echo $this->Form->input('mamografia', array(
-									'label' => 'Le han realizado Mamografía en 5 últimos años (Mujer de 50 y más años)',
+									'label' => 'Le han realizado Mamografía en los 5 últimos años (Mujer de 50 y más años)',
 									'class' => 'form-control',
 									'style' => 'font-size: 12px',
 									'type' => 'select',
@@ -672,7 +709,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
                             <h2 class="titulo-general-pwa-govco col-md-12  "
                                 style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Antecedentes
-                                ginecológicos/obsetétricos</h2>
+                                ginecológicos/obstétricos</h2>
 
 
                             <div class="form-group col-md-6">
@@ -751,7 +788,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 									'onChange' => 'gestacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 								]);
 								?>
-                                <p class="help-block"> Registre infomración de mujer en gestación o puerperio</p>
+                                <p class="help-block"> Registre información de mujer en gestación o puerperio</p>
                             </div>
 
 
@@ -767,8 +804,8 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								$optionControlPrenatal = [
 									'No aplica ' =>  'Elegir',
 									'No inscrita' => 'No inscrita en control de embarazo',
-									'Asistente CPN' => 'Si, Control al dia',
-									'Inasistente CPN' => 'Si, inasistente a ultimo control',
+									'Asistente CPN' => 'Si, Control al día',
+									'Inasistente CPN' => 'Si, inasistente a último control',
 									'Puerperio' => 'En etapa de puerperio',
 									'No informa' => 'No sabe/No informa',
 									'SD' => 'Sin dato',
@@ -826,7 +863,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 								];
 								echo $this->Form->input('signoAlarma', array(
-									'label' => '¿En el momento presenta alguno de los siguientes signo o síntoma de alarma?',
+									'label' => '¿En el momento presenta alguno de los siguientes signos o síntomas de alarma?',
 									'class' => 'form-control',
 									'style' => 'font-size: 12px',
 									'type' => 'select',
@@ -946,7 +983,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'type' => 'select',
 								'options' => $optionOcupacion,
 								'style' => 'font-size: 12px',
-								'class' => 'form-control select-search'
+
 							));
 							?></div>
 
@@ -959,7 +996,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'Licor' => 'Licor',
 								'Licor_cigarrillo' => 'Licor/Cigarrillo',
 								'Sustancias Psicoactivas' => 'Marihuana, basuco, otras',
-								'Uso indebido de Medicamentos' => 'Medicamentos sin presciprción medica(Opiodes,Depresores,Estimulantes)',
+								'Uso indebido de Medicamentos' => 'Medicamentos sin prescripción médica(Opioides,Depresores,Estimulantes)',
 								'SD' => 'Sin dato',
 								'No aplica' => 'No aplica',
 
@@ -992,18 +1029,18 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							$optionConflictos = [
 								'No aplica ' => 'Elegir',
 								'No' => 'No refiere',
-								'Difucultades Economicas' => 'Dificultad economica para suplir necesidades basicas',
+								'Difucultades Economicas' => 'Dificultad económica para suplir necesidades básicas',
 								'Conflictos entre padres e hijos' => 'Conflictos entre padres e hijos',
 								'Conflictos entre hermanos' => 'Conflictos entre hermanos',
 								'Conflictos entre Familia' => 'Conflictos entre Familia',
 								'Violencias de género' => 'Violencias de género',
-								'Problemas o Transtornos mentales diangnosticados' => 'Problemas o Transtornos mentales diangnosticados',
+								'Problemas o Transtornos mentales diagnosticados' => 'Problemas o Transtornos mentales diagnosticados',
 								'Consumo de alcohol o psicoactivos' => 'Consumo de alcohol o psicoactivos',
 								'SD' => 'Sin dato'
 							];
 
 							echo $this->Form->input('riesgopsicosocial', [
-								'label' => '¿Ha presentado alguna de las siguientes situaciones en el ultimo mes?',
+								'label' => '¿Ha presentado alguna de las siguientes situaciones en el último mes?',
 								'class' => 'form-control',
 								'type' => 'select',
 								'options' => $optionConflictos,
@@ -1034,15 +1071,15 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'' => 'Elegir',
 								'No' => 'No se identifica',
 								'Sospecha Violencia Fisica' => 'Signos de maltrato físico(golpes, quemadura, heridas)',
-								'Sospecha Violencia Emocional' => 'Persona retarida, timida o agresiva',
+								'Sospecha Violencia Emocional' => 'Persona retraida, timida o agresiva',
 								'sospecha Violencia Sexual' => 'Tocamientos de personas, relaciones sexuales sin consentimiento ',
-								'Sospecha Abondono_Negligencia' => 'Falta de atencion a necesidades básicas(alimentación, salud, educación)',
+								'Sospecha Abondono_Negligencia' => 'Falta de atención a necesidades básicas(alimentación, salud, educación)',
 								'No informa' => 'No informa',
 								'SD' => 'Sin dato'
 							];
 
 							echo $this->Form->input('sopechamaltrato', array(
-								'label' => '¿Sospecha de algun tipo de vulneración o violencia?',
+								'label' => '¿Sospecha de algún tipo de vulneración o violencia?',
 								'class' => 'form-control',
 								'placeholder' => '',
 
@@ -1171,7 +1208,7 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                         <div class="form-group col-md-6">
                             <?php
 							echo $this->Form->input('canalizacion_id', array(
-								'label' => 'Enlace de canalizacion',
+								'label' => 'Enlace de canalización',
 								'class' => 'form-control',
 								'style' => 'font-size: 12px',
 								'class' => 'form-control select-search',
@@ -1181,6 +1218,12 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 							)); ?>
                         </div>
+
+                        <?php
+						echo $this->Form->input('fechaRegistro', array(
+
+							'type' => 'hidden',
+						)); ?>
 
                     </div>
 

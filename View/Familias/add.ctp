@@ -17,8 +17,10 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
                 </h1>
             </div>
 
-            <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos del Encuestado</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <h2 class="titulo-general-pwa-govco col-md-12  "
+                style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Datos del Encuestado</h2>
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
@@ -41,22 +43,28 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
                             ]); ?>
                         </div>
 
+
                         <div class="form-group col-md-6">
                             <?php
-                            $generoOption = [
-                                ' ' => 'Elegir',
-                                'Hombre' => 'Hombre',
-                                'Mujer' => 'Mujer',
-                                'Otro' => 'Otro'
-                            ];
-                            echo $this->Form->input('genero', [
-                                'label' => 'Sexo',
-                                'class' => 'form-control',
-                                'placeholder' => '',
-                                'type' => 'select',
-                                'options' => $generoOption,
-                                'style' => 'font-size: 12px',
-                            ]); ?>
+							$generoOption = [
+								' ' => 'Elegir',
+								'Masculino' => 'Masculino',
+								'Femenino' => 'Femenino',
+								'No binanrio' => 'No binario',
+								'Prefiere no informar' => 'Prefiere no informar',						
+
+							];
+							echo $this->Form->input('genero', [
+								'label' => '¿Cúal es tu género?',
+								'class' => 'form-control',
+								'placeholder' => '',
+								'type' => 'select',
+								'options' => $generoOption,
+								'style' => 'font-size: 12px',
+								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+								'onChange' => 'mostrar(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
+							]);
+                            ?>
                         </div>
 
 
@@ -107,7 +115,8 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
             </div>
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Vivienda</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -255,7 +264,8 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Composición
                 Familiar</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -281,7 +291,10 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
                             <!-- Botón de ayuda -->
 
-                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Nuclear: constituida por los progenitores y los hijos. Nuclear monoparental: constituida por un solo progenitor y sus hijos. Unipersonal: no tiene núcleo familiar y sólo consta de una persona. Extensa: Compuesta por persona como Tios, Primos, abuelos. " style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle"
+                                data-toggle="popover" data-placement="top"
+                                data-content="Nuclear: constituida por los progenitores y los hijos. Nuclear monoparental: constituida por un solo progenitor y sus hijos. Unipersonal: no tiene núcleo familiar y sólo consta de una persona. Extensa: Compuesta por persona como Tios, Primos, abuelos. "
+                                style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
                                 ?
                             </button>
 
@@ -376,7 +389,8 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
                             ]);
                             ?>
 
-                            <button type="button" id="ayudaButton1" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Formación:
+                            <button type="button" id="ayudaButton1" class="btn btn-success rounded-circle"
+                                data-toggle="popover" data-placement="top" data-content="Formación:
                                             Inicio de una nueva unidad familiar y formación de la identidad de pareja.
 
                                             Expansión:
@@ -419,7 +433,8 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Riesgos de salud
             </h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -553,7 +568,8 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Dinamica
                 Familiar</h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -651,7 +667,8 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Apoyo Social
             </h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -725,7 +742,8 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
             <h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px; ">Aseo e Higiene
             </h2>
-            <hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+            <hr
+                style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
 
             <div class="grow justify-content-center" display="none" style="margin-top:20px">
                 <div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
@@ -871,10 +889,10 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-    $(function() {
-        $('#ayudaButton').popover();
-    });
-    $(function() {
-        $('#ayudaButton1').popover();
-    });
+$(function() {
+    $('#ayudaButton').popover();
+});
+$(function() {
+    $('#ayudaButton1').popover();
+});
 </script>
