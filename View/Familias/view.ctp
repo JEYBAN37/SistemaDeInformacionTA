@@ -61,7 +61,7 @@ $bd = 'fichafamiliar';
                                 </tr>
                                 <tr>
                                     <td><strong>Familia:</strong>
-                                        <?php echo $this->Html->link($familia['Sociambiental']['apellidosfamilia'], array('controller' => 'sociambientals', 'action' => 'view', $familia['Sociambiental']['id'])); ?>
+                                        <?php echo ($familia['Sociambiental']['apellidosfamilia']); ?>
                                     </td>
                                     <td> <strong> Representante:</strong>
 
@@ -77,9 +77,9 @@ $bd = 'fichafamiliar';
                                         <?php
                                         $link = mysqli_connect($serv, $userS, $passS, $bd);
                                         $tildes = $link->query("SET NAMES 'utf8'"); // Para que se muestren las tildes correctamente
-                                        $result = mysqli_query($link, "SELECT barrio FROM Ubicaciones WHERE id = " . $familia['Sociambiental']['ubicacion_id']);
+                                        $result = mysqli_query($link, "SELECT microterritorio FROM Ubicaciones WHERE id = " . $familia['Sociambiental']['ubicacion_id']);
                                         if ($fila = mysqli_fetch_array($result)) {
-                                            echo $fila['barrio'];
+                                            echo $fila['microterritorio'];
                                         }
                                         mysqli_free_result($result);
                                         mysqli_close($link);
@@ -214,9 +214,9 @@ $bd = 'fichafamiliar';
                                 </tr>
                                 <tr>
 
-                                    <td colspan="1"><strong>Programa social:</strong>
+                                    <td colspan="2"><strong>Programa social:</strong>
                                         <?php echo ($familia['Familia']['programasocial1']); ?></td>
-                                    <td colspan="1"><strong>Programa social:</strong>
+                                    <td colspan=""><strong>Programa social:</strong>
                                         <?php echo ($familia['Familia']['programasocial2']); ?></td>
                                 </tr>
 

@@ -95,7 +95,8 @@
 								'label' => 'Fecha de seguimiento de canalizaciones',
 								'class' => 'form-control',
 								'style' => 'height:30px;  font-size: 15px ; width:100%',
-								'placeholder' => ''
+								'placeholder' => '',
+								'type' => 'hidden',
 							));
 							?>
 						</div>
@@ -122,34 +123,11 @@
 						</div>
 						<div class="form-group col-md-6" style="margin-top: 20px;">
 							<!-- Coloca el campo en una mitad de la pantalla en dispositivos medianos y grandes -->
-							<?php echo $this->Form->input('date', array(
+							<?php echo $this->Form->input('fechados', array(
 								'label' => 'Fecha de visita : ',
 								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'type' => 'hidden',
 							));
-							?>
-						</div>
-
-						<div class="form-group col-md-6" style="margin-top: 20px;">
-							<p class="help-block">Adjuntar anexo ' NOTA: Cargar un archivo tipo imagen o en pdf
-								extensión ".jpg, png" o
-								".pdf" Nomenclatura de archivo: IdHogar_Apellidofamilia'</p>
-							<?php
-							echo $this->Form->input('ecomapa', array(
-								'label' => 'Ecomapa',
-								'type' => 'file',
-								'onchange' => 'validarTaanioSoporte()',
-								'class' => 'form-control',
-								'style' => 'height:40px;  font-size: 15px ; width:100%',
-							));
-							echo $this->Form->input(
-								'direcomapa',
-								array(
-									'type' => 'hidden',
-									'class' => 'form-control',
-									'style' => 'height:40px;  font-size: 15px ; width:100%',
-								)
-							);
 							?>
 						</div>
 						<div class="form-group col-md-6" style="margin-top: 20px;">

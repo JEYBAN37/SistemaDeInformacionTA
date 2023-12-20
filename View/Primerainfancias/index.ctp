@@ -1,4 +1,12 @@
 <?php $this->layout = 'default_familia' ?>
+<?php
+// IMPORTANTE: Cambiar la informacion de datos de conexion
+$serv = 'localhost';
+$port = '3306';
+$userS = 'root';
+$passS = '';
+$bd = 'fichafamiliar';
+?>
 <!--h3><a><img src="../../img/ciudad.png" width="40" height="auto"></a> Atención Primaria en Salud </h3-->
 <div class="col-12 text-center " style="margin: 20px; margin-top: 40px;">
     <h1 class="title-general-forms">

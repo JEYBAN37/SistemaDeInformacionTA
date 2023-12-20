@@ -339,6 +339,17 @@ function cronica(id) {
 			}
 		});
 
+		document.getElementById('calcularApgar').addEventListener('click', function() {
+			var one = parseFloat(document.getElementById('opcion1').value);
+			var two = parseFloat(document.getElementById('opcion2').value);
+			var three = parseFloat(document.getElementById('opcion3').value);
+			var four = parseFloat(document.getElementById('opcion4').value);
+			var five = parseFloat(document.getElementById('opcion5').value);
+			var six = parseFloat(document.getElementById('opcion6').value);
+
+			var calculate = one + two + three + four
+		});
+
 
 		
 

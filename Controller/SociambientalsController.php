@@ -53,11 +53,20 @@ class SociambientalsController extends AppController
 		if ($this->request->is('post')) {
 			$this->Sociambiental->create();
 			if ($this->Sociambiental->save($this->request->data)) {
-				$this->Session->setFlash('Registro se guradado con exito, continuar con informacion de la familia / hogar', 'default', array('class' => 'alert alert-success'));
-				//return $this->redirect(array('action' => 'index'));
-				return $this->redirect(array('controller' => 'Familias', 'action' => 'add?hogar=' . $this->Sociambiental->id));
+
+				if ($this->request->data['btn'] == 'Guardar y continuar') {
+					//$session->setFlash("registro guardado");
+					$this->Session->setFlash('Registro se guradado con exito, continuar con informacion de la familia / hogar', 'default', array('class' => 'alert alert-success'));
+					//return $this->redirect(array('action' => 'index'));
+					return $this->redirect(array('controller' => 'Familias', 'action' => 'add?hogar=' . $this->Sociambiental->id));
+				} else {
+					$this->Session->setFlash('Registro se guradado con exito, continuar con informacion de la familia / hogar', 'default', array('class' => 'alert alert-success'));
+
+					//return $this->redirect(array('controller' => 'plsesiones', 'action' => 'nuebus'));                
+					return $this->redirect(array('controller' => 'Sociambientals', 'action' => 'index'));
+				}
 			} else {
-				$this->Session->setFlash('Registro no se guradado, por favor revisar la información', 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('The plsmomento could not be saved. Please, try again.'));
 			}
 		}
 		$responsables = $this->Sociambiental->Responsable->find('list');
@@ -80,7 +89,7 @@ class SociambientalsController extends AppController
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Sociambiental->save($this->request->data)) {
 				$this->Session->setFlash('Registro se guradado con exito', 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
+				return $this->redirect(array('controller' => 'Sociambientals', 'action' => 'index'));
 			} else {
 				$this->Session->setFlash('Registro no se guradado, por favor revisar la información', 'default', array('class' => 'alert alert-danger'));
 			}
