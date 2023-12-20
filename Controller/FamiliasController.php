@@ -62,7 +62,7 @@ class FamiliasController extends AppController
 		if ($this->request->is('post')) {
 			$this->Familia->create();
 			if ($this->Familia->save($this->request->data)) {
-				$this->Session->setFlash('Registro de hogar guradado', 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash('Registro de hogar guardado', 'default', array('class' => 'alert alert-success'));
 				//return $this->redirect(array('action' => 'index'));
 
 				$id = $this->Familia->id;

@@ -48,6 +48,7 @@ $bd = 'fichafamiliar';
                             <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
+                                        <th>...</th>
                                         <th>id</th>
                                         <th>Encuestador</th>
                                         <th>Familia</th>
@@ -59,8 +60,9 @@ $bd = 'fichafamiliar';
                                         <th>Ubicacion</th>
                                         <th>Direccion</th>
                                         <th>N° de hogar</th>
-                                        <th>Opciones</th>
                                         <th>fecha</th>
+                                        <th>Opciones</th>
+                                
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,6 +70,7 @@ $bd = 'fichafamiliar';
                                     <?php foreach ($familias as $familia) : ?>
 
                                         <tr class="gradeA odd">
+                                            <td></td>
 
                                             <td class="sorting_1"><?php echo ($familia['Familia']['id']); ?>
                                             </td>
@@ -107,18 +110,19 @@ $bd = 'fichafamiliar';
                                             </td>
                                             <td><?php echo ($familia['Sociambiental']['direccion']); ?></td>
                                             <td><?php echo ($familia['Familia']['hogar']); ?></td>
-
+                                            <td><?php echo $this->Time->format('d-m-Y h:i A', ($familia['Sociambiental']['fecha'])); ?>
+                                            </td>
 
                                             <td class="actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                    <button type="button" class="my-button" data-toggle="dropdown">
                                                         <?php echo ('Acciones'); ?> <span class="caret"></span>
                                                     </button>
                                                     <ul class="dropdown-menu" role="menu">
                                                         <li><?php echo $this->Html->link(('Ver famlia'),
                                                                 array('action' => 'view', $familia['Familia']['id']),
                                                                 array(
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                                    'style' => 'font-size: 14px;'
                                                                 )
                                                             ); ?>
                                                         </li>
@@ -126,7 +130,7 @@ $bd = 'fichafamiliar';
                                                                 array('action' => 'edit',  $familia['Familia']['id']),
                                                                 array(
                                                                     'onclick' => "return confirm('¿Estás seguro que deseas editar la información del hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                                    'style' => 'font-size: 14px;'
                                                                 )
                                                             ); ?>
                                                         </li>
@@ -134,7 +138,7 @@ $bd = 'fichafamiliar';
                                                                 array('controller' => 'familias', 'action' => 'add?hogar=' . $familia['Sociambiental']['id']),
                                                                 array(
                                                                     'onclick' => "return confirm('¿Estás seguro de agregar un nuevo hogar en la familia " . $familia['Sociambiental']['apellidosfamilia'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                                    'style' => 'font-size: 14px;'
                                                                 )
                                                             ); ?>
                                                         </li>
@@ -147,7 +151,7 @@ $bd = 'fichafamiliar';
                                                                 ),
                                                                 array(
                                                                     'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                                    'style' => 'font-size: 14px;'
                                                                 )
                                                             ); ?>
                                                         </li>
@@ -161,7 +165,7 @@ $bd = 'fichafamiliar';
                                                                 ),
                                                                 array(
                                                                     'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                                    'style' => 'font-size: 14px;'
                                                                 )
 
                                                             ); ?>
@@ -173,7 +177,7 @@ $bd = 'fichafamiliar';
                                                                 ),
                                                                 array(
                                                                     'onclick' => "return confirm('¿Estás seguro de agregar un menor de 6 a 11 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                                    'style' => 'font-size: 14px;'
                                                                 )
                                                             ); ?>
                                                         </li>
@@ -185,7 +189,7 @@ $bd = 'fichafamiliar';
                                                                 ),
                                                                 array(
                                                                     'onclick' => "return confirm('¿Estás seguro de agregar un menor de 12 a 17 años en el hogar de " .  $familia['Familia']['nombres'] . " " .   $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                                    'style' => 'font-size: 14px;'
                                                                 )
                                                             ); ?>
 
@@ -196,7 +200,7 @@ $bd = 'fichafamiliar';
                                                                 ),
                                                                 array(
                                                                     'onclick' => "return confirm('¿Estás seguro de agregar un adulto mayor de 18 en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                                    'style' => 'font-size: 14px;'
                                                                 )
                                                             ); ?>
                                                         </li>
@@ -211,7 +215,7 @@ $bd = 'fichafamiliar';
                                                                 ),
                                                                 array(
                                                                     'onclick' => "return confirm('¿Estás seguro de que deseas editar la información sociambiental de la familia " . $familia['Sociambiental']['apellidosfamilia'] . "?');",
-                                                                    'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+                                                                    'style' => 'font-size: 14px;'
                                                                 )
                                                             );
                                                             ?>
@@ -221,8 +225,7 @@ $bd = 'fichafamiliar';
                                                     </ul>
                                                 </div>
                                             </td>
-                                            <td><?php echo $this->Time->format('d-m-Y h:i A', ($familia['Sociambiental']['fecha'])); ?>
-                                            </td>
+                                            
 
                                         </tr>
 
@@ -246,57 +249,69 @@ $bd = 'fichafamiliar';
     <!-- /.col-lg-12 -->
 </div>
 <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            "pagingType": "simple",
-            responsive: true,
-            dom: 'Bfrtip',
-            language: {
-                searchBuilder: {
-                    button: 'Filter',
-                }
-            },
-            buttons: [
-                'pageLength',
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'colvis',
-                'searchBuilder'
-            ]
-        });
+		$(document).ready(function() {
+			$('#dataTables-example').DataTable({
+				"pagingType": "simple",
+				"pageLength": 10,
+				responsive: true,
+				dom: 'Bfrtip',
+				language: {
+					searchBuilder: {
+						button: 'Filter',
+					}
+				},
+				buttons: [
+					'pageLength',
+					'copyHtml5',
+					'excelHtml5',
+					'csvHtml5',
+					'colvis',
+					'searchBuilder'
+				]
+				
+			});
 
-    });
+		});
 
-    function fnExcelReport() {
-        var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
-        var textRange;
-        var j = 0;
-        tab = document.getElementById('dataTables-example'); // id of table
+		function fnExcelReport() {
+			var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
+			var textRange;
+			var j = 0;
+			tab = document.getElementById('dataTables-example'); // id of table
 
-        for (j = 0; j < tab.rows.length; j++) {
-            tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
-        }
+			for (j = 0; j < tab.rows.length; j++) {
+				tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+			}
 
-        tab_text = tab_text + "</table>";
+			tab_text = tab_text + "</table>";
 
-        tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
-        tab_text = tab_text.replace(/<img[^>]*>/gi, ""); // remove if u want images in your table
-        tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+			tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
+			tab_text = tab_text.replace(/<img[^>]*>/gi, ""); // remove if u want images in your table
+			tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
 
-        var ua = window.navigator.userAgent;
-        var msie = ua.indexOf("MSIE ");
+			var ua = window.navigator.userAgent;
+			var msie = ua.indexOf("MSIE ");
 
-        if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) // If Internet Explorer
-        {
-            txtArea1.document.open("txt/html", "replace");
-            txtArea1.document.write(tab_text);
-            txtArea1.document.close();
-            txtArea1.focus();
-            sa = txtArea1.document.execCommand("SaveAs", true, "Say Thanks to Sumit.xls");
-        } else
-            sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
+			if (msie > 0 || !!navigator.userAgent.matc(/Trident.*rv\:11\./)) // If Internet Explorer
+			{
+				txtArea1.document.open("txt/html", "replace");
+				txtArea1.document.write(tab_text);
+				txtArea1.document.close();
+				txtArea1.focus();
+				sa = txtArea1.document.execCommand("SaveAs", true, "Say Thanks to Sumit.xls");
+			} else
+				sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
 
-        //return (sa);
-    }
-</script>
+			//return (sa);
+		}
+	</script>
+
+	<style>
+		/* Personaliza el botón desplegable en DataTables Responsive */
+		table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
+		table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th.dtr-control:before {
+			
+			left: 15px;
+		}
+
+	</style>
