@@ -3,10 +3,10 @@
 echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del archivo sin la extensión .js
 ?>
 <style>
-.negrilla {
-    font-size: small;
-    font-weight: bold;
-}
+    .negrilla {
+        font-size: small;
+        font-weight: bold;
+    }
 </style>
 <div>
     <?php echo $this->Form->create('Familia'); ?>
@@ -47,24 +47,24 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
                         <div class="form-group col-md-6" style="margin-top: 20px;">
                             <?php
-							$generoOption = [
-								' ' => 'Elegir',
-								'Masculino' => 'Masculino',
-								'Femenino' => 'Femenino',
-								'No binanrio' => 'No binario',
-								'Prefiere no informar' => 'Prefiere no informar',						
+                            $generoOption = [
+                                ' ' => 'Elegir',
+                                'Masculino' => 'Masculino',
+                                'Femenino' => 'Femenino',
+                                'No binanrio' => 'No binario',
+                                'Prefiere no informar' => 'Prefiere no informar',
 
-							];
-							echo $this->Form->input('genero', [
-								'label' => '¿Cúal es tu género?',
-								'class' => 'form-control',
-								'placeholder' => '',
-								'type' => 'select',
-								'options' => $generoOption,
+                            ];
+                            echo $this->Form->input('genero', [
+                                'label' => '¿Cúal es tu género?',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'options' => $generoOption,
                                 'style' => 'height:30px;  font-size: 15px ; width:100%',
-								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
-								'onChange' => 'mostrar(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
-							]);
+                                'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+                                'onChange' => 'mostrar(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
+                            ]);
                             ?>
                         </div>
 
@@ -291,10 +291,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
                             <!-- Botón de ayuda -->
 
-                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle"
-                                data-toggle="popover" data-placement="top"
-                                data-content="Nuclear: constituida por los progenitores y los hijos. Nuclear monoparental: constituida por un solo progenitor y sus hijos. Unipersonal: no tiene núcleo familiar y sólo consta de una persona. Extensa: Compuesta por persona como Tios, Primos, abuelos. "
-                                style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 2px; margin-left: 10px;">
+                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Nuclear: constituida por los progenitores y los hijos. Nuclear monoparental: constituida por un solo progenitor y sus hijos. Unipersonal: no tiene núcleo familiar y sólo consta de una persona. Extensa: Compuesta por persona como Tios, Primos, abuelos. " style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 2px; margin-left: 10px;">
                                 ?
                             </button>
 
@@ -389,8 +386,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
                             ]);
                             ?>
 
-                            <button type="button" id="ayudaButton1" class="btn btn-success rounded-circle"
-                                data-toggle="popover" data-placement="top" data-content="Formación:
+                            <button type="button" id="ayudaButton1" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Formación:
                                             Inicio de una nueva unidad familiar y formación de la identidad de pareja.
 
                                             Expansión:
@@ -408,8 +404,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
                                             Disolución:
                                             Separación o divorcio de la pareja.
-                                            "
-                                style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 15px;">
+                                            " style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 15px;">
                                 ?
                             </button>
                         </div>
@@ -864,7 +859,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
                         </div>
         </fieldset>
 
-        <button class="my-button" style="">
+        <button class="my-button">
             Guardar<?php echo $this->Form->end(); ?>
         </button>
 
@@ -887,10 +882,10 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-$(function() {
-    $('#ayudaButton').popover();
-});
-$(function() {
-    $('#ayudaButton1').popover();
-});
+    $(function() {
+        $('#ayudaButton').popover();
+    });
+    $(function() {
+        $('#ayudaButton1').popover();
+    });
 </script>
