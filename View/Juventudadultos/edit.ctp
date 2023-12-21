@@ -158,21 +158,35 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 								'Famisanar' => 'Famisanar',
 								'Asmet Salud' => 'Asmet Salud',
 								'Sanidad PONAL' => 'Sanidad PONAL',
-								'PROINSALUD' => 'PRONISALUD',
+								'PROINSALUD' => 'PROINSALUD',
 								'Fondo UNDENAR' => 'Fondo UDENAR',
 								'Medicina Prepagada' => 'Medicina Prepagada',
+								'otra' => 'Otra',
 								'Sin afiliacion' => 'Sin afiliación',
 								'SD' => 'Sin dato',
-
 							];
 							echo $this->Form->input('aseguradora', [
 								'label' => 'Aseguradora',
 								'class' => 'form-control',
-								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'style' => 'height:30px; font-size: 15px; width:100%',
 								'options' => $aseguradoraOption,
-							]);  ?>
+								'id' => 'aseguradora', // Añade un ID único
+							]);
+							?>
 						</div>
 
+						<!-- Segundo campo de selección -->
+						<div class="form-group col-md-6" style="margin-top: 20px; display: none;" id="otraAseguradoraDiv">
+							<?php
+							echo $this->Form->input('aseguradora', [
+								'label' => 'Otra Aseguradora',
+								'class' => 'form-control',
+								'style' => 'height:30px; font-size: 15px; width:100%',
+								'disabled' => 'disabled', // Inicialmente deshabilitado
+								'id' => 'otraAseguradora', // Añade un ID único
+							]);
+							?>
+						</div>
 						<div class="form-group col-md-6" style="margin-top: 20px;">
 							<?php
 							$regimenOption = [
@@ -1207,6 +1221,35 @@ $this->Html->script([
 		$('.select-search').select2();
 		agregarOpcionSeleccion();
 	});
+
+	
+
+document.addEventListener('DOMContentLoaded', function () {
+        var aseguradoraSelect = document.getElementById('aseguradora');
+        var otraAseguradoraDiv = document.getElementById('otraAseguradoraDiv');
+
+        aseguradoraSelect.addEventListener('change', function () {
+            var selectedOption = aseguradoraSelect.value;
+
+            if (selectedOption === 'otra') {
+                otraAseguradoraDiv.style.display = 'block';
+                document.getElementById('otraAseguradora').removeAttribute('disabled');
+            } else {
+                otraAseguradoraDiv.style.display = 'none';
+                document.getElementById('otraAseguradora').setAttribute('disabled', 'disabled');
+            }
+        });
+
+        // Verifica el estado inicial
+        if (aseguradoraSelect.value === 'otra') {
+            otraAseguradoraDiv.style.display = 'block';
+            document.getElementById('otraAseguradora').removeAttribute('disabled');
+        } else {
+            otraAseguradoraDiv.style.display = 'none';
+            document.getElementById('otraAseguradora').setAttribute('disabled', 'disabled');
+        }
+
+    });
 
 
 	function agregarOpcionSeleccion() {

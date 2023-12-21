@@ -123,7 +123,7 @@ class PrimerainfanciasController extends AppController
 
 
 			// Calcular la edad
-			$edad = $this->calcularEdad5($fechaNacimiento);
+			$edad = $this->calcularEdad($fechaNacimiento);
 			// Verificar si la edad es igual a 1 y realizar la división
 
 
