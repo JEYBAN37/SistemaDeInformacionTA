@@ -2,31 +2,31 @@
 
 
 <body style="font-size: 14px;">
-    <div>
-        <?php echo $this->Form->create('Primerainfancia'); ?>
-        <div class="form-group col-sm-12">
+	<div>
+		<?php echo $this->Form->create('Primerainfancia'); ?>
+		<div class="form-group col-sm-12">
 
-            <fieldset>
-                <div class="col-12 text-center">
-                    <h1 class="title-general-forms">Reporte Canalización menor de cinco años
-                    </h1>
-                </div>
-                <h2 class="subtitle-general-forms ">Datos Personales</h2>
-                <hr style=" border:0.1px solid rgba(0,0,0,.125);">
+			<fieldset>
+				<div class="col-12 text-center">
+					<h1 class="title-general-forms">Reporte Canalización menor de cinco años
+					</h1>
+				</div>
+				<h2 class="subtitle-general-forms ">Datos Personales</h2>
+				<hr style=" border:0.1px solid rgba(0,0,0,.125);">
 
-                <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                    <div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
-
-
-                        <div class="form-group row">
+				<div class="grow justify-content-center" display="none" style="margin-top:20px">
+					<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
 
 
-                            <?php echo $this->Form->input('id'); ?>
+						<div class="form-group row">
+
+
+							<?php echo $this->Form->input('id'); ?>
 
 
 
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <?php
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php
 
 								echo $this->Form->input('tipodocumento', array(
 									'label' => 'Tipo de Documento:',
@@ -37,59 +37,59 @@
 
 								));
 								?>
-                            </div>
+							</div>
 
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <?php echo $this->Form->input('numerodoc', [
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php echo $this->Form->input('numerodoc', [
 									'label' => 'N° de documento',
 									'class' => 'form-control',
 									'style' => 'height:30px;  font-size: 15px ; width:100%',
 									'readOnly',
 								]);  ?>
-                            </div>
+							</div>
 
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <?php echo $this->Form->input('primerapellido', [
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php echo $this->Form->input('primerapellido', [
 									'label' => 'Primer Apellido',
 									'class' => 'form-control',
 									'style' => 'height:30px;  font-size: 15px ; width:100%',
 									'readOnly',
 								]);  ?>
-                            </div>
+							</div>
 
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <?php echo $this->Form->input('segundoapellido', [
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php echo $this->Form->input('segundoapellido', [
 									'label' => 'Segundo Apellido',
 									'class' => 'form-control',
 									'style' => 'height:30px;  font-size: 15px ; width:100%',
 									'readOnly',
 								]);  ?>
-                            </div>
+							</div>
 
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <?php echo $this->Form->input('primernombre', [
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php echo $this->Form->input('primernombre', [
 									'label' => 'Primer Nombre',
 									'class' => 'form-control',
 									'style' => 'height:30px;  font-size: 15px ; width:100%',
 									'readOnly',
 
 								]);  ?>
-                            </div>
+							</div>
 
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <?php echo $this->Form->input('segundonombre', [
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php echo $this->Form->input('segundonombre', [
 									'label' => 'Segundo Nombre',
 									'class' => 'form-control',
 									'style' => 'height:30px;  font-size: 15px ; width:100%',
 									'readOnly',
 								]);  ?>
-                            </div>
+							</div>
 
 
 
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <!-- Campo de edad calculada (se llenará automáticamente con JavaScript) -->
-                                <?php echo $this->Form->input('edad', [
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<!-- Campo de edad calculada (se llenará automáticamente con JavaScript) -->
+								<?php echo $this->Form->input('edad', [
 									'label' => 'Edad en meses',
 									'style' => 'height:30px;  font-size: 15px ; width:100%',
 									'id' => 'edad', // Agrega este identificador al campo de edad
@@ -99,10 +99,10 @@
 
 
 								]); ?>
-                            </div>
+							</div>
 
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <?php
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php
 
 								echo $this->Form->input('sexo', [
 									'label' => 'Sexo',
@@ -113,10 +113,10 @@
 
 									'style' => 'height:30px;  font-size: 15px ; width:100%',
 								]); ?>
-                            </div>
+							</div>
 
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <?php
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php
 								$aseguradoraOption = [
 									' ' => 'Elegir',
 									'Sanitas' => 'Sanitas',
@@ -139,10 +139,10 @@
 									'style' => 'height:30px;  font-size: 15px ; width:100%',
 									'options' => $aseguradoraOption,
 								]);  ?>
-                            </div>
+							</div>
 
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <?php
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php
 								$regimenOption = [
 									' ' => 'Elegir',
 									'Subsidiado' => 'Subsidiado',
@@ -159,10 +159,10 @@
 									'style' => 'height:30px;  font-size: 15px ; width:100%',
 									'options' => $regimenOption,
 								]);  ?>
-                            </div>
+							</div>
 
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <?php $estadoAfiliacionOption = [
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php $estadoAfiliacionOption = [
 									' ' => 'Elegir',
 									'Activo' => 'Activo',
 									'Inactivo' => 'Inactivo',
@@ -176,26 +176,26 @@
 									'style' => 'height:30px;  font-size: 15px ; width:100%',
 									'options' => $estadoAfiliacionOption,
 								]);  ?>
-                            </div>
-                        </div>
-                    </div>
+							</div>
+						</div>
+					</div>
 
-                </div>
-
-
-
-                <h2 class="subtitle-general-forms">
-                    Reporte</h2>
-                <hr style=" border:0.1px solid rgba(0,0,0,.125);">
-
-                <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                    <div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
+				</div>
 
 
-                        <div class="form-group row">
 
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <?php
+				<h2 class="subtitle-general-forms">
+					Reporte</h2>
+				<hr style=" border:0.1px solid rgba(0,0,0,.125);">
+
+				<div class="grow justify-content-center" display="none" style="margin-top:20px">
+					<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
+
+
+						<div class="form-group row">
+
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php
 								$optionEstado = [
 									'' => 'Elegir',
 									'Canalización Efectiva' => 'Canalización Efectiva',
@@ -214,9 +214,9 @@
 
 								));
 								?>
-                            </div>
-                            <div class="form-group col-md-6" style="margin-top: 20px;">
-                                <?php
+							</div>
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<?php
 								echo $this->Form->input('observacioncanalizacion', array(
 									'label' => 'Observación Canalización',
 									'style' => 'height:30px;  font-size: 15px ; width:100%',
@@ -225,32 +225,32 @@
 
 
 								)); ?>
-                            </div>
+							</div>
 
-                            <?php
+							<?php
 							echo $this->Form->input('registroCanalizacion', array(
 
 								'readOnly',
 							)); ?>
 
-                        </div>
+						</div>
 
 
 
 
-                    </div>
+					</div>
 
-                </div>
-        </div>
+				</div>
+		</div>
 
 
-        </fieldset>
-        <button class="my-button">
-            Guardar<?php echo $this->Form->end(); ?>
-        </button>
-    </div>
+		</fieldset>
+		<button class="my-button">
+			Guardar<?php echo $this->Form->end(); ?>
+		</button>
+	</div>
 
-    </div>
+	</div>
 </body>
 
 <!--div class="actions">
@@ -293,38 +293,38 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+	$(document).ready(function() {
+		$('.select-search').select2();
+		agregarOpcionSeleccion();
+	});
 
 
-function agregarOpcionSeleccion() {
+	function agregarOpcionSeleccion() {
 
 
-    $("#PrimerainfanciaCanalizacionId").prepend(
-        "<option value='' selected='selected'>Seleccione</option>");
-}
+		$("#PrimerainfanciaCanalizacionId").prepend(
+			"<option value='' selected='selected'>Seleccione</option>");
+	}
 
-$(function() {
-    $('#ayudaButton').popover();
-});
+	$(function() {
+		$('#ayudaButton').popover();
+	});
 
-$("#switch-label").change(function() {
-    var switchValue = this.checked ? "si" : "no";
-    mostrar(switchValue);
-});
+	$("#switch-label").change(function() {
+		var switchValue = this.checked ? "si" : "no";
+		mostrar(switchValue);
+	});
 
 
-function mostrar(id) {
-    if (id == "si") {
-        $("#si").show();
-        $("#no").hide();
+	function mostrar(id) {
+		if (id == "si") {
+			$("#si").show();
+			$("#no").hide();
 
-    } else if (id == "no") {
-        $("#si").hide();
-        $("#no").show();
+		} else if (id == "no") {
+			$("#si").hide();
+			$("#no").show();
 
-    }
-}
+		}
+	}
 </script>
