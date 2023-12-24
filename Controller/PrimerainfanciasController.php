@@ -178,6 +178,39 @@ class PrimerainfanciasController extends AppController
 	 */
 
 
+	public function editCanalizacion($id = null)
+	{
+		if (!$this->Primerainfancia->exists($id)) {
+			throw new NotFoundException(__('Invalid Primerainfancia'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+
+
+			if ($this->Primerainfancia->save($this->request->data)) {
+				$this->Session->setFlash('Registro de Primerainfancia actualizado', 'default', array('class' => 'alert alert-success'));
+				//return $this->redirect(array('action' => 'index'));
+				//return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
+
+				return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Primerainfancia"]["familia_id"]));
+
+				//return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["familia"]["id"]));
+			} else {
+				$this->Session->setFlash(__('The Primerainfancia could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Primerainfancia.' . $this->Primerainfancia->primaryKey => $id));
+			$this->request->data = $this->Primerainfancia->find('first', $options);
+		}
+		$familias = $this->Primerainfancia->Familia->find('list', array(
+			'order' => array('Familia.id' => 'desc'),
+
+		));
+
+		$canalizaciones = $this->Primerainfancia->Canalizacion->find('list');
+		$this->set(compact('familias', 'canalizaciones'));
+	}
+
+
 	public function edit($id = null)
 	{
 		if (!$this->Primerainfancia->exists($id)) {
@@ -220,6 +253,12 @@ class PrimerainfanciasController extends AppController
 		$canalizaciones = $this->Primerainfancia->Canalizacion->find('list');
 		$this->set(compact('familias', 'canalizaciones'));
 	}
+
+
+
+
+
+
 	private function calcularEdadTodos5($fechaNacimiento)
 	{
 		$fechaActual = new DateTime();

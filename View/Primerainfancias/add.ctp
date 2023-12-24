@@ -323,7 +323,8 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 
 
                             <div class="col-sm-12" style="margin-top: 20px; ">
-                                <p class="help-block"> Encuestador: ¿Cuenta con elementos antropométricos para tomar datos </p>
+                                <p class="help-block"> Encuestador: ¿Cuenta con elementos antropométricos para tomar
+                                    datos </p>
                                 <div id="status" class="switch-button">
                                     <input type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox">
                                     <label for="switch-label" class="switch-button__label"></label>

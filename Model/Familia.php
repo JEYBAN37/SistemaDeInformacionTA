@@ -22,10 +22,10 @@ class Familia extends AppModel
 	 */
 
 	public $virtualFields = array(
-		'nombresFamilia' => 'CONCAT(Familia.nombres, " ", Familia.apellidos)'
+		'apellidosfamilia' => 'CONCAT(Familia.nombres, " ", Familia.apellidos)'
 	);
 
-	public $displayField = 'hogar';
+	public $displayField = 'apellidosfamilia';
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
