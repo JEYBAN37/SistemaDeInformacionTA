@@ -1157,16 +1157,18 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 
 
 
-			<h2 class="subtitle-general-forms ">Plan
+
+			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan
 				de Atención integral</h2>
-			<hr style=" border:0.1px solid rgba(0,0,0,.125);">
+			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
-				<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
+				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
 
 					<div class="form-group row">
 
 
-						<div class="form-group col-md-6" style="margin-top: 20px;">
+						<div class="form-group col-md-6">
 							<?php
 							$optionCanlizacion = [
 								'No aplica ' => 'Elegir',
@@ -1192,12 +1194,12 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('canalizacionuno', array(
 								'label' => 'Canalización',
 								'class' => 'form-control',
-								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'style' => 'font-size: 12px',
 								'placeholder' => '',
 								'class' => 'form-control select-search',
 								'options' => $optionCanlizacion,
 								'type' => 'select',
-								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'style' => 'font-size: 12px',
 								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
 								'onChange' => 'canalizacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 							)); ?>
@@ -1206,12 +1208,12 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 
 					</div>
 					<div id="Canalizacion" class="form-group row">
-						<div class="form-group col-md-6" style="margin-top: 20px;">
+						<div class="form-group col-md-6">
 							<?php
 							echo $this->Form->input('canalizaciondos', array(
 								'label' => 'Canalización',
 								'class' => 'form-control',
-								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'style' => 'font-size: 12px',
 								'placeholder' => '',
 								'class' => 'form-control select-search',
 								'options' => $optionCanlizacion,
@@ -1221,21 +1223,21 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							?>
 						</div>
 
-						<div class="form-group col-md-6" style="margin-top: 20px;">
+						<div class="form-group col-md-6">
 							<?php
 
 							echo $this->Form->input('canalizaciontres', array(
 								'label' => 'Canalización',
 								'class' => 'form-control',
-								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'style' => 'font-size: 12px',
 								'placeholder' => '',
 								'class' => 'form-control select-search',
 								'options' => $optionCanlizacion,
 								'type' => 'select',
-								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'style' => 'font-size: 12px',
 							)); ?>
 						</div>
-						<div class="form-group col-md-6" style="margin-top: 20px;">
+						<div class="form-group col-md-6">
 							<?php
 							$optionEducacion = [
 								'No aplica ' => 'Elegir',
@@ -1248,38 +1250,41 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							echo $this->Form->input('educacion', array(
 								'label' => 'Refiera el tipo de Educación a desarrollar',
 								'class' => 'form-control',
-								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'style' => 'font-size: 12px',
 								'placeholder' => '',
 								'options' => $optionEducacion,
 								'type' => 'select',
-								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'style' => 'font-size: 12px',
 							)); ?>
 						</div>
-						<div class="form-group col-md-6" style="margin-top: 20px;">
-							<?php
-							echo $this->Form->input('canalizacion_id', array(
-								'label' => 'Enlace de canalización',
-								'class' => 'form-control',
-								'style' => 'height:30px;  font-size: 15px ; width:100%',
-								'class' => 'form-control select-search',
-								'placeholder' => '',
-								'type' => 'select',
-								'style' => 'height:30px;  font-size: 15px ; width:100%',
-							)); ?>
-						</div>
+
 						<?php
 						echo $this->Form->input('fechaRegistro', array(
 
 							'type' => 'hidden',
 						)); ?>
 					</div>
+					<div class="form-group col-md-6">
+						<?php
+						echo $this->Form->input('canalizacion_id', array(
+							'label' => 'Enlace de canalización',
+							'class' => 'form-control',
+							'style' => 'font-size: 12px',
+							'class' => 'form-control select-search',
+							'placeholder' => '',
+							'type' => 'select',
+							'style' => 'font-size: 12px',
+						)); ?>
+					</div>
 				</div>
 			</div>
 		</fieldset>
-		<button class="my-button">
-			Guardar<?php echo $this->Form->end(); ?>
-		</button>
+		<?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
 	</div>
+
+
+
+
 
 
 
@@ -1314,40 +1319,40 @@ $this->Html->script([
 	});
 
 
-	document.addEventListener('DOMContentLoaded', function () {
-        var aseguradoraSelect = document.getElementById('aseguradora');
-        var otraAseguradoraDiv = document.getElementById('otraAseguradoraDiv');
+	document.addEventListener('DOMContentLoaded', function() {
+		var aseguradoraSelect = document.getElementById('aseguradora');
+		var otraAseguradoraDiv = document.getElementById('otraAseguradoraDiv');
 
-        aseguradoraSelect.addEventListener('change', function () {
-            var selectedOption = aseguradoraSelect.value;
+		aseguradoraSelect.addEventListener('change', function() {
+			var selectedOption = aseguradoraSelect.value;
 
-            if (selectedOption === 'otra') {
-                otraAseguradoraDiv.style.display = 'block';
-                document.getElementById('otraAseguradora').removeAttribute('disabled');
-            } else {
-                otraAseguradoraDiv.style.display = 'none';
-                document.getElementById('otraAseguradora').setAttribute('disabled', 'disabled');
-            }
-        });
+			if (selectedOption === 'otra') {
+				otraAseguradoraDiv.style.display = 'block';
+				document.getElementById('otraAseguradora').removeAttribute('disabled');
+			} else {
+				otraAseguradoraDiv.style.display = 'none';
+				document.getElementById('otraAseguradora').setAttribute('disabled', 'disabled');
+			}
+		});
 
-        // Verifica el estado inicial
-        if (aseguradoraSelect.value === 'otra') {
-            otraAseguradoraDiv.style.display = 'block';
-            document.getElementById('otraAseguradora').removeAttribute('disabled');
-        } else {
-            otraAseguradoraDiv.style.display = 'none';
-            document.getElementById('otraAseguradora').setAttribute('disabled', 'disabled');
-        }
+		// Verifica el estado inicial
+		if (aseguradoraSelect.value === 'otra') {
+			otraAseguradoraDiv.style.display = 'block';
+			document.getElementById('otraAseguradora').removeAttribute('disabled');
+		} else {
+			otraAseguradoraDiv.style.display = 'none';
+			document.getElementById('otraAseguradora').setAttribute('disabled', 'disabled');
+		}
 
-    });
+	});
 
-	
+
 
 
 	function agregarOpcionSeleccion() {
 
 		$("#AdolescenciaCanalizacionId").prepend(
-			"<option value='00' selected='selected'>Seleccione</option>");
+			"<option value='' selected='selected'>Seleccione</option>");
 
 
 	}

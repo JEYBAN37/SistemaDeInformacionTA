@@ -27,6 +27,28 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                     <div class="card " style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
                         <div class="form-group row">
 
+
+                            <p class="help-block">La presente .............
+                            </p>
+                            <div class="form-group col-md-6" style="margin-top: 20px;">
+                                <?php
+                                $aceptacion = array(
+                                    '' => 'Elegir',
+                                    'Si Acepta' => 'Si Acepta',
+                                );
+                                echo $this->Form->input('aceptaformulario', array(
+                                    'label' => 'Aceptación de diligenciamiento de ficha famliar ',
+                                    'style' => 'height:30px;  font-size: 15px ; width:100%',
+                                    'type' => 'select',
+                                    'class' => 'select-search col-md-12',
+                                    'options' => $aceptacion,
+                                )); ?>
+
+
+                            </div>
+
+
+
                             <?php echo $this->Form->input('fecha', array(
                                 'type' => 'hidden',
                             )); ?>
@@ -667,8 +689,7 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
 
                 </div>
                 <div class="grow justify-content-center" display="none" style="margin-top:20px">
-                    <div id="si" class="panel panel-default form-group col-md-12"
-                        style="font-size:15px; display: none;">
+                    <div id="si" class="panel panel-default form-group col-md-12" style="font-size:15px; display: none;">
 
                         <div class="form-group row">
 
@@ -817,34 +838,34 @@ $this->Html->script([
 ], ['block' => 'script']);
 ?>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
 
 
-function agregarOpcionSeleccion() {
-    $("#SociambientalUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
-    $("#SociambientalResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
-}
-
-$("#switch-label").change(function() {
-    var switchValue = this.checked ? "si" : "no";
-    mostrar(switchValue);
-});
-
-
-function mostrar(id) {
-    if (id == "si") {
-        $("#si").show();
-        $("#no").hide();
-
-    } else if (id == "no") {
-        $("#si").hide();
-        $("#no").show();
-
+    function agregarOpcionSeleccion() {
+        $("#SociambientalUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#SociambientalResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
     }
-}
+
+    $("#switch-label").change(function() {
+        var switchValue = this.checked ? "si" : "no";
+        mostrar(switchValue);
+    });
+
+
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
+
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
+
+        }
+    }
 </script>
