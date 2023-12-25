@@ -5,7 +5,17 @@
         justify-content: center;
         padding: 10px;
         background-color: #3366CC;
+        z-index: 1000; /* Ajusta este valor según sea necesario */
+
     }
+
+    .navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
 
     .navbar-brand img {
         width: 120%;
@@ -30,6 +40,8 @@
             align-items: flex-start;
             display: flex;
             padding: 10px;
+            z-index: 1000; /* Ajusta este valor según sea necesario */
+
         }
 
         .navbar-collapse.active {

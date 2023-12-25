@@ -21,9 +21,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
     echo $this->Html->meta('icon');
 
-
-
-    echo $this->Html->css(array('cake.generic.css', 'bootstrap.min.css'));
+    echo $this->Html->css(array('cake.generic.css','bootstrap.min.css'));
     echo $this->Html->script(array('jquery.min',  'bootstrap.min', 'jquery.dataTables.min'));
     echo $this->fetch('css');
     echo $this->fetch('script');
@@ -66,24 +64,19 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             <?php echo $this->element('nav'); ?>
             <?php echo $this->Session->flash(); ?>
             <?php echo $this->fetch('content'); ?>
-
-
-
         </div>
 
         <input type="checkbox" id="btn-menu">
-        <div class="container-menu" style="  z-index: 1000;">
+        <div class="container-menu">
             <div class="cont-menu" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                <nav >
+                <nav>
 
-
-                    <?php echo $this->Html->link(('Agregar Nueva vivienda'), array('controller' => 'Sociambientals', 'action' => 'add'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
-                    <?php echo $this->Html->link(('Listado de No Encuestadas '), array('controller' => 'visitasnegadas', 'action' => 'index'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
+                <?php echo $this->Html->link(('Agregar Nueva vivienda'), array('controller' => 'Sociambientals', 'action' => 'add'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
                     <?php echo $this->Html->link(('Registros familias'), array('controller' => 'familias', 'action' => 'index'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
                     <?php echo $this->Html->link(('Canalizaciones'), array('controller' => 'canalizacions', 'action' => 'index'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
                     <?php echo $this->Html->link(('Registros Socioambiental'), array('controller' => 'sociambientals', 'action' => 'index'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
-                    <a style = "color: white;">Usuario: <?= $usr = $this->Session->read("usr");
-                                echo $this->Html->link("Cerrar Sesión", "/users/salir", array('style' => 'color: white;' ));
+                    <a>Usuario: <?= $usr = $this->Session->read("usr");
+                                echo $this->Html->link("Cerrar Sesión", "/users/salir", array());
                                 ?> </a>
 
                 </nav>
@@ -102,19 +95,23 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
     </div>
 
+   
+
 </body>
 
+<footer class="form-group col-sm-12"> 
 
-<footer class="form-group col-sm-12">
 
-
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <br>
-            <div class="copyright">&copy; Gestión de la Salud Publica. Versión 1.0 - 2023 <a href="https://www.saludpasto.gov.co/">Secretaria Municipal de Salud</a>.</div>
-        </div>
+<div class="row">
+    <div class="col-md-12 text-center">
+        <br>
+        <div class="copyright">&copy; Gestión de la Salud Publica. Versión 1.0 - 2023 <a href="https://www.saludpasto.gov.co/">Secretaria Municipal de Salud</a>.</div>
     </div>
+</div>
 
 </footer>
+
+
+<!-- end footer -->
 
 </html>
