@@ -13,7 +13,19 @@ class CanalizacionTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.canalizacion'
+		'app.canalizacion',
+		'app.adolescencia',
+		'app.familia',
+		'app.sociambiental',
+		'app.responsable',
+		'app.ubicacion',
+		'app.sociambientalscompletum',
+		'app.gestante',
+		'app.persona',
+		'app.primerainfancia',
+		'app.infantil',
+		'app.juventudadulto',
+		'app.observacion'
 	);
 
 /**

@@ -28,7 +28,10 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
 					<div class="form-group row">
 						<div class="form-group col-md-6" style="margin-top: 20px;">
-							<?php echo $this->Form->input('nombres', [
+
+							<?php
+							echo $this->Form->input('id');
+							echo $this->Form->input('nombres', [
 								'label' => 'Nombres',
 								'class' => 'form-control',
 								'style' => 'height:30px;  font-size: 15px ; width:100%',
@@ -109,7 +112,8 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 				</div>
 			</div>
 
-			<h2 class="titulo-general-pwa-govco col-md-12" style="color: #3366CC;  font-size:30px ; margin-top: 25px; ">Vivienda</h2>
+			<h2 class="titulo-general-pwa-govco col-md-12" style="color: #3366CC;  font-size:30px ; margin-top: 25px; ">
+				Vivienda</h2>
 			<hr style=" border:0.1px solid rgba(0,0,0,.125);">
 
 
@@ -120,8 +124,8 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
 						<?php
 
-						$idAux = $_GET['hogar'];
-						echo $this->Form->input('sociambiental_id', array('value' => '' . $idAux, 'type' => 'hidden'));
+						/*$idAux = $_GET['hogar'];
+						echo $this->Form->input('sociambiental_id', array('value' => '' . $idAux, 'type' => 'hidden'));*/
 
 						?>
 

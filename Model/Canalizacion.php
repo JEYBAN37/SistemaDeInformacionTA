@@ -8,28 +8,16 @@ App::uses('AppModel', 'Model');
  * @property Juventudadulto $Juventudadulto
  * @property Primerainfancia $Primerainfancia
  */
-class Canalizacion extends AppModel
-{
-
-	public $virtualFields = array(
-		'enlace' => 'CONCAT(Canalizacion.tipo," ",Canalizacion.nombre, " ", Canalizacion.enlaceuno)'
-	);
-	public $displayField = 'enlace';
-	/**
-	 * Use table
-	 *
-	 * @var mixed False or table name
-	 */
-	public $useTable = 'canalizaciones';
+class Canalizacion extends AppModel {
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
-	/**
-	 * hasMany associations
-	 *
-	 * @var array
-	 */
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
 	public $hasMany = array(
 		'Adolescencia' => array(
 			'className' => 'Adolescencia',
@@ -84,4 +72,5 @@ class Canalizacion extends AppModel
 			'counterQuery' => ''
 		)
 	);
+
 }

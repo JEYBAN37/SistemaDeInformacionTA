@@ -52,11 +52,6 @@ $bd = 'fichafamiliar';
                                         mysqli_close($link);
                                         ?>
                                     </td>
-
-
-
-
-
                                     <td>
                                         <strong>ID:</strong>
                                         <?php echo ($familia['Familia']['id']); ?>
@@ -66,7 +61,7 @@ $bd = 'fichafamiliar';
                                 </tr>
                                 <tr>
                                     <td><strong>Familia:</strong>
-                                        <?php echo $this->Html->link($familia['Sociambiental']['apellidosfamilia'], array('controller' => 'sociambientals', 'action' => 'view', $familia['Sociambiental']['id'])); ?>
+                                        <?php echo ($familia['Sociambiental']['apellidosfamilia']); ?>
                                     </td>
                                     <td> <strong> Representante:</strong>
 
@@ -82,9 +77,9 @@ $bd = 'fichafamiliar';
                                         <?php
                                         $link = mysqli_connect($serv, $userS, $passS, $bd);
                                         $tildes = $link->query("SET NAMES 'utf8'"); // Para que se muestren las tildes correctamente
-                                        $result = mysqli_query($link, "SELECT barrio FROM Ubicaciones WHERE id = " . $familia['Sociambiental']['ubicacion_id']);
+                                        $result = mysqli_query($link, "SELECT microterritorio FROM Ubicaciones WHERE id = " . $familia['Sociambiental']['ubicacion_id']);
                                         if ($fila = mysqli_fetch_array($result)) {
-                                            echo $fila['barrio'];
+                                            echo $fila['microterritorio'];
                                         }
                                         mysqli_free_result($result);
                                         mysqli_close($link);
@@ -219,9 +214,9 @@ $bd = 'fichafamiliar';
                                 </tr>
                                 <tr>
 
-                                    <td colspan="1"><strong>Programa social:</strong>
+                                    <td colspan="2"><strong>Programa social:</strong>
                                         <?php echo ($familia['Familia']['programasocial1']); ?></td>
-                                    <td colspan="1"><strong>Programa social:</strong>
+                                    <td colspan=""><strong>Programa social:</strong>
                                         <?php echo ($familia['Familia']['programasocial2']); ?></td>
                                 </tr>
 
@@ -333,7 +328,7 @@ $bd = 'fichafamiliar';
 
                             </table>
 
-                            <button class="my-button">
+                            <button class="my-button" style="width: 244px;">
                                 <?php
                                 echo $this->Html->link(
                                     'Editar inf.sociambiental',
@@ -468,6 +463,7 @@ $bd = 'fichafamiliar';
                                                             <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
                                                             <thead>
                                                                 <tr>
+                                                                    <th>...</th>
                                                                     <th>Id</th>
                                                                     <th>Acciones</th>
                                                                     <th>Nombres</th>
@@ -514,18 +510,37 @@ $bd = 'fichafamiliar';
                                                                 ?>
                                                                         <tr class="gradeA odd">
 
+                                                                            <td></td>
                                                                             <td class="sorting_1">
                                                                                 <?php echo $primerainfancia['id']; ?></td>
+
                                                                             <td class="actions">
 
                                                                                 <div class="btn-group">
-                                                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                                                    <button type="button" class="my-button" style="margin-top: -2px;" data-toggle="dropdown">
                                                                                         Opciones
                                                                                     </button>
                                                                                     <ul class="dropdown-menu" role="menu">
-                                                                                        <li><?php echo $this->Html->link("Ver", "../primerainfancias/view/" . $primerainfancia['id'], array('target' => '_blank')); ?>
+                                                                                        <li>
+                                                                                            <?php echo $this->Html->link(
+                                                                                                "Ver",
+                                                                                                "../primerainfancias/view/" . $primerainfancia['id'],
+                                                                                                array(
+                                                                                                    'style' => 'font-size: 14px;'
+                                                                                                )
+                                                                                            ); ?>
                                                                                         </li>
-                                                                                        <li><?php echo $this->Html->link("Editar ", "../primerainfancias/edit/" . $primerainfancia['id'], array('target' => '_blank')); ?>
+                                                                                        <li>
+
+                                                                                            <?php echo $this->Html->link(('Editar'),
+                                                                                                "../primerainfancias/edit/" . $primerainfancia['id'],
+                                                                                                array('action' => 'edit', $primerainfancia['id']),
+                                                                                                array(
+                                                                                                    'style' => 'font-size: 14px;'
+                                                                                                )
+                                                                                            ); ?>
+
+
                                                                                         </li>
                                                                                         <li><?php echo $this->Form->postLink(
                                                                                                 __('Borrar'),
@@ -533,7 +548,7 @@ $bd = 'fichafamiliar';
                                                                                                     'controller' => 'primerainfancias',
                                                                                                     'action' => 'delete', $primerainfancia['id']
                                                                                                 ),
-                                                                                                array('style' => 'color: red; font-size: 16px; font-weight: bold;'),
+                                                                                                array('style' => 'color: red; font-size: 14px; '),
                                                                                                 __('Esta seguro de eliminar el registro # %s?', $primerainfancia['id'] . ' ' . $primerainfancia['primernombre'] . ' ' . $primerainfancia['primerapellido'] . ' de la familia de con id # ' .  $primerainfancia['familia_id'])
                                                                                             ); ?>
                                                                                         </li>
@@ -542,9 +557,11 @@ $bd = 'fichafamiliar';
 
                                                                             </td>
 
+
                                                                             <td><?php echo $primerainfancia['primernombre'] ?>
                                                                                 <?php echo $primerainfancia['primerapellido'] ?>
                                                                             </td>
+
                                                                             <td>
                                                                                 <?php echo $primerainfancia['edad']; ?>
                                                                             </td>
@@ -688,6 +705,7 @@ $bd = 'fichafamiliar';
                                                             <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
                                                             <thead>
                                                                 <tr>
+                                                                    <th>...</th>
                                                                     <th>Id</th>
                                                                     <th>Acciones</th>
                                                                     <th>Nombres</th>
@@ -711,12 +729,14 @@ $bd = 'fichafamiliar';
                                                                 ?>
                                                                         <tr class="gradeA odd">
 
+
+                                                                            <td></td>
                                                                             <td class="sorting_1">
                                                                                 <?php echo $infantil['id']; ?></td>
                                                                             <td class="actions">
 
                                                                                 <div class="btn-group">
-                                                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                                                    <button type="button" class="my-button" style="margin-top: -2px;" data-toggle="dropdown">
                                                                                         Opciones
                                                                                     </button>
                                                                                     <ul class="dropdown-menu" role="menu">
@@ -738,7 +758,6 @@ $bd = 'fichafamiliar';
                                                                                 </div>
 
                                                                             </td>
-
                                                                             <td><?php echo $infantil['primernombre'] ?>
                                                                                 <?php echo $infantil['primerapellido'] ?>
                                                                             </td>
@@ -857,6 +876,7 @@ $bd = 'fichafamiliar';
                                                             <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
                                                             <thead>
                                                                 <tr>
+                                                                    <th>...</th>
                                                                     <th>Id</th>
                                                                     <th>Acciones</th>
                                                                     <th>Nombres</th>
@@ -879,13 +899,13 @@ $bd = 'fichafamiliar';
                                                                     if (!empty($adolescencia['id'])) {
                                                                 ?>
                                                                         <tr class="gradeA odd">
-
+                                                                            <td></td>
                                                                             <td class="sorting_1">
                                                                                 <?php echo $adolescencia['id']; ?></td>
                                                                             <td class="actions">
 
                                                                                 <div class="btn-group">
-                                                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                                                    <button type="button" class="my-button" style="margin-top: -2px;" data-toggle="dropdown">
                                                                                         Opciones
                                                                                     </button>
                                                                                     <ul class="dropdown-menu" role="menu">
@@ -1023,6 +1043,7 @@ $bd = 'fichafamiliar';
                                                             <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
                                                             <thead>
                                                                 <tr>
+                                                                    <th>...</th>
                                                                     <th>Id</th>
                                                                     <th>Acciones</th>
                                                                     <th>Nombres</th>
@@ -1046,12 +1067,13 @@ $bd = 'fichafamiliar';
                                                                 ?>
                                                                         <tr class="gradeA odd">
 
+                                                                            <td></td>
                                                                             <td class="sorting_1">
                                                                                 <?php echo $juventudadulto['id']; ?></td>
                                                                             <td class="actions">
 
                                                                                 <div class="btn-group">
-                                                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                                                    <button type="button" class="my-button" style="margin-top: -2px;" data-toggle="dropdown">
                                                                                         Opciones
                                                                                     </button>
                                                                                     <ul class="dropdown-menu" role="menu">
@@ -1190,9 +1212,9 @@ $bd = 'fichafamiliar';
                                                             <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
                                                             <thead>
                                                                 <tr>
+                                                                    <th>...</th>
                                                                     <th>id</th>
                                                                     <th>Acciones</th>
-
                                                                     <th>Canalización Social</th>
                                                                     <th>Canalización Social</th>
                                                                     <th>Canalización Social</th>
@@ -1214,13 +1236,13 @@ $bd = 'fichafamiliar';
                                                                     if (!empty($observacion['id'])) {
                                                                 ?>
                                                                         <tr class="gradeA odd">
-
+                                                                            <td></td>
                                                                             <td class="sorting_1">
                                                                                 <?php echo $observacion['id']; ?></td>
                                                                             <td class="actions">
 
                                                                                 <div class="btn-group">
-                                                                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                                                                    <button type="button" class="my-button" style="margin-top: -2px;" data-toggle="dropdown">
                                                                                         Opciones
                                                                                     </button>
                                                                                     <ul class="dropdown-menu" role="menu">
@@ -1332,8 +1354,10 @@ $bd = 'fichafamiliar';
 
 <script>
     $(document).ready(function() {
+        // Inicialización de la primera tabla
         $('#dataTables-example').DataTable({
             "pagingType": "simple",
+            "pageLength": 5,
             responsive: true,
             dom: 'Bfrtip',
             language: {
@@ -1351,10 +1375,10 @@ $bd = 'fichafamiliar';
             ]
         });
 
-    });
-    $(document).ready(function() {
+        // Inicialización de la segunda tabla
         $('#dataTables-infantil').DataTable({
             "pagingType": "simple",
+            "pageLength": 5,
             responsive: true,
             dom: 'Bfrtip',
             language: {
@@ -1372,11 +1396,9 @@ $bd = 'fichafamiliar';
             ]
         });
 
-    });
-
-    $(document).ready(function() {
         $('#dataTables-juventudAdulto').DataTable({
             "pagingType": "simple",
+            "pageLength": 5,
             responsive: true,
             dom: 'Bfrtip',
             language: {
@@ -1394,10 +1416,9 @@ $bd = 'fichafamiliar';
             ]
         });
 
-    });
-    $(document).ready(function() {
         $('#dataTables-Adolescencia').DataTable({
             "pagingType": "simple",
+            "pageLength": 5,
             responsive: true,
             dom: 'Bfrtip',
             language: {
@@ -1415,10 +1436,9 @@ $bd = 'fichafamiliar';
             ]
         });
 
-    });
-    $(document).ready(function() {
         $('#dataTables-Observacion').DataTable({
             "pagingType": "simple",
+            "pageLength": 5,
             responsive: true,
             dom: 'Bfrtip',
             language: {
@@ -1436,7 +1456,10 @@ $bd = 'fichafamiliar';
             ]
         });
 
+        // Agrega más inicializaciones para otras tablas según sea necesario
     });
+
+
 
     function fnExcelReport() {
         var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
@@ -1469,6 +1492,8 @@ $bd = 'fichafamiliar';
 
         //return (sa);
     }
+
+
 
     var vacunacionSpan = document.querySelector('#vacunacion span');
     var vacunacionValue = "<?php echo $familia['Sociambiental']['vacunamascotas']; ?>";
@@ -1542,5 +1567,12 @@ $bd = 'fichafamiliar';
             margin: 10px 0;
             justify-content: center;
         }
+    }
+
+    /* Personaliza el botón desplegable en DataTables Responsive */
+    table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
+    table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th.dtr-control:before {
+
+        left: 20px;
     }
 </style>

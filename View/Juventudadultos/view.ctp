@@ -139,25 +139,17 @@
 											</td>
 										</tr>
 										<tr>
-											<td colspan="2" class="title">Salud Oral</td>
-											<td colspan="4">
-												<?php echo ($juventudadulto['Juventudadulto']['higieneoral']); ?>
-											</td>
-											<td colspan="2" class="title">Higiene Oral</td>
-											<td colspan="4">
+											
+											<td colspan="6" class="title">Salud Oral</td>
+											<td colspan="6">
 												<?php echo ($juventudadulto['Juventudadulto']['saludoral']); ?>
 											</td>
 
 										</tr>
 										<tr>
-											<td colspan="2" class="title">Valoración RIAS</td>
+											<td colspan="2" class="title">Valoración Medica</td>
 											<td colspan="2">
-												<?php echo ($juventudadulto['Juventudadulto']['valoracionrias']); ?>
-											</td>
-
-											<td colspan="2" class="title">Valoración RIAS</td>
-											<td colspan="2">
-												<?php echo ($juventudadulto['Juventudadulto']['valoracionrias1']); ?>
+												<?php echo ($juventudadulto['Juventudadulto']['valoracionmedica']); ?>
 											</td>
 											<td colspan="2" class="title">Toma citología</td>
 											<td colspan="2">
@@ -224,9 +216,9 @@
 											<td colspan="3">
 												<?php echo ($juventudadulto['Juventudadulto']['estudio']); ?>
 											</td>
-											<td colspan="3" class="title">Rendimineto Escolar</td>
+											<td colspan="3" class="title">Educación</td>
 											<td colspan="3">
-												<?php echo ($juventudadulto['Juventudadulto']['rendimientoescolar']); ?>
+												<?php echo ($juventudadulto['Juventudadulto']['educacion']); ?>
 											</td>
 										</tr>
 										<tr>
@@ -252,12 +244,7 @@
 											</td>
 										</tr>
 
-										<tr>
-											<td colspan="2" class="title">Educación</td>
-											<td colspan="10">
-												<?php echo ($juventudadulto['Juventudadulto']['educacion']); ?>
-											</td>
-										</tr>
+									
 									</table>
 								</div>
 							</div>

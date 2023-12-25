@@ -91,13 +91,13 @@
 																)
 															); ?>
 														</li>
-														<li><?php echo $this->Html->link(('Editar hogar'),
-																array('action' => 'edit',  $familia['Familia']['id']),
-																array(
-																	'onclick' => "return confirm('¿Estás seguro que deseas editar la información del hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
-																	'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-																)
-															); ?>
+														<!--<li><?php echo $this->Html->link(('Editar hogar'),
+																	array('action' => 'edit',  $familia['Familia']['id']),
+																	array(
+																		'onclick' => "return confirm('¿Estás seguro que deseas editar la información del hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
+																		'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+																	)
+																); ?>
 														</li>
 														<li><?php echo $this->Html->link(('Agregar hogar'),
 																array('controller' => 'familias', 'action' => 'add?hogar=' . $familia['Sociambiental']['id']),
@@ -107,18 +107,18 @@
 																)
 															); ?>
 														</li>
-														<li>
-															<?php
-															echo $this->Html->link(('Agregar menor de 2 años'),
-																array(
-																	'controller' => 'Primerainfancias',
-																	'action' => 'add?primerainfancia=' . $familia['Familia']['id']
-																),
-																array(
-																	'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
-																	'style' => 'color: blue; font-size: 16px; font-weight: bold;'
-																)
-															); ?>
+														<li>-->
+														<?php
+														echo $this->Html->link(('Agregar menor de 2 años'),
+															array(
+																'controller' => 'Primerainfancias',
+																'action' => 'add?primerainfancia=' . $familia['Familia']['id']
+															),
+															array(
+																'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
+																'style' => 'color: blue; font-size: 16px; font-weight: bold;'
+															)
+														); ?>
 														</li>
 
 

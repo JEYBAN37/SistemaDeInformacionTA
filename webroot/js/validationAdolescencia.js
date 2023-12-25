@@ -340,6 +340,7 @@ function cronica(id) {
 		});
 
 
+	
 		
 
 	}

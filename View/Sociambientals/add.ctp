@@ -27,9 +27,31 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                     <div class="card " style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
                         <div class="form-group row">
 
+
+                            <p class="help-block">La presente .............
+                            </p>
+                            <div class="form-group col-md-6" style="margin-top: 20px;">
+                                <?php
+                                $aceptacion = array(
+                                    '' => 'Elegir',
+                                    'Si Acepta' => 'Si Acepta',
+                                );
+                                echo $this->Form->input('aceptaformulario', array(
+                                    'label' => 'Aceptación de diligenciamiento de ficha famliar ',
+                                    'style' => 'height:30px;  font-size: 15px ; width:100%',
+                                    'type' => 'select',
+                                    'class' => 'select-search col-md-12',
+                                    'options' => $aceptacion,
+                                )); ?>
+
+
+                            </div>
+
+
+
                             <?php echo $this->Form->input('fecha', array(
-                            'type' => 'hidden',
-                        )); ?>
+                                'type' => 'hidden',
+                            )); ?>
                             <div class="form-group col-md-6" style="margin-top: 20px;">
                                 <?php echo $this->Form->input('responsable_id', array(
                                     'label' => 'Responsable diligenciamiento Encuesta',
@@ -45,6 +67,42 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                     'style' => 'height:30px;  font-size: 15px ; width:100%',
                                     'type' => 'select',
                                     'class' => 'select-search col-md-12'
+                                )); ?>
+
+                                <p class="help-block">Los dos últimos codigos del hacen referencia al numero de la torre
+                                </p>
+                            </div>
+
+                            <div class="form-group col-md-6" style="margin-top: 20px;">
+                                <?php
+                                $numapartamento = array(
+                                    '' => 'Elegir',
+                                    '1' => '1',
+                                    '2' => '2',
+                                    '3' => '3',
+                                    '4' => '4',
+                                    '5' => '5',
+                                    '6' => '6',
+                                    '7' => '7',
+                                    '8' => '8',
+                                    '9' => '9',
+                                    '10' => '10',
+                                    '11' => '11',
+                                    '12' => '12',
+                                    '13' => '14',
+                                    '15' => '15',
+                                    '16' => '16',
+                                    '17' => '17',
+                                    '18' => '18',
+                                    '19' => '19',
+                                    '20' => '20',
+                                );
+
+                                echo $this->Form->input('apartamento', array(
+                                    'label' => 'Num. Apartamento',
+                                    'class' => 'form-control',
+                                    'style' => 'height:30px;  font-size: 15px',
+                                    'options' => $numapartamento,
                                 )); ?>
                             </div>
 
@@ -125,7 +183,8 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                     'options' => $numhogaresOptions
                                 ));
                                 ?>
-                                <p class="help-block">Si todos comen de la misma olla se considera una sola familia/hogar</p>
+                                <p class="help-block">Si todos comen de la misma olla se considera una sola
+                                    familia/hogar</p>
                             </div>
                         </div>
                     </div>
@@ -745,9 +804,21 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
             </fieldset>
 
 
-            <button class="my-button">
-                Guardar<?php echo $this->Form->end(); ?>
-            </button>
+
+
+
+            <?php //echo $this->Form->end(__('Guardar y Listar')); 
+            ?>
+            <?php echo $this->Form->submit('Guardar y continuar', [
+                'name' => 'btn',
+                'class' => 'my-button',
+            ]); ?>
+            <?php echo $this->Form->submit('Guardar y finalizar', [
+                'name' => 'btn',
+                'class' => 'my-button',
+            ]); ?>
+
+
 
 
 
@@ -767,34 +838,34 @@ $this->Html->script([
 ], ['block' => 'script']);
 ?>
 <script type="text/javascript">
-$(document).ready(function() {
-    $('.select-search').select2();
-    agregarOpcionSeleccion();
-});
+    $(document).ready(function() {
+        $('.select-search').select2();
+        agregarOpcionSeleccion();
+    });
 
 
 
 
-function agregarOpcionSeleccion() {
-    $("#SociambientalUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
-    $("#SociambientalResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
-}
-
-$("#switch-label").change(function() {
-    var switchValue = this.checked ? "si" : "no";
-    mostrar(switchValue);
-});
-
-
-function mostrar(id) {
-    if (id == "si") {
-        $("#si").show();
-        $("#no").hide();
-
-    } else if (id == "no") {
-        $("#si").hide();
-        $("#no").show();
-
+    function agregarOpcionSeleccion() {
+        $("#SociambientalUbicacionId").prepend("<option value='' selected='selected'>Seleccione</option>");
+        $("#SociambientalResponsableId").prepend("<option value='' selected='selected'>Seleccione</option>");
     }
-}
+
+    $("#switch-label").change(function() {
+        var switchValue = this.checked ? "si" : "no";
+        mostrar(switchValue);
+    });
+
+
+    function mostrar(id) {
+        if (id == "si") {
+            $("#si").show();
+            $("#no").hide();
+
+        } else if (id == "no") {
+            $("#si").hide();
+            $("#no").show();
+
+        }
+    }
 </script>

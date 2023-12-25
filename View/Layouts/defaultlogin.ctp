@@ -11840,7 +11840,7 @@
         .login-wrap {
             position: relative;
             background: #fff h3;
-            background-font-weight: 300;
+       
         }
 
         .form-group {
@@ -12038,21 +12038,20 @@
 
 <!--body class="bs-docs-home"-->
 
-<body style=" background-color: #3366CC;">
+<body  style="background-image: url('../img/page.jpeg');" >
 
 
     <section style=" margin-top: 50px;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 text-center mb-5">
-                    <h1 style="color: white; font-size: 50px;">Ficha Familiar</h1>
+                    <h1 style="color: white; font-size: 50px;">Atencíon Primaria en Salud</h1>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-10">
                     <div class="wrap d-md-flex">
-                        <div class="img" style="background-image: url(https://ieu.unal.edu.co/images/03_20_2023_Nota_Ana_maria.jpg);">
-                        </div>
+                        
                         <div class="login-wrap p-4 p-md-5">
                             <div class="d-flex">
 
@@ -12103,24 +12102,6 @@
 
         <!-- /.navbar-top-links -->
 
-        <div>
-            <div class="container">
-                <div class="row">
-
-                    <ul class="nav" id="side-menu">
-
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <img src="../img/grancapital.png" alt="Imagen de marcador genérico" width="199px" height="auto">
-                            </div>
-                        </li>
-                        <li>
-                            <div class="input-group custom-search-form ">
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+     
         <!-- /.sidebar-collapse -->
     </div>

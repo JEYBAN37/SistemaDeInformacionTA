@@ -33,36 +33,6 @@ class Observacion extends AppModel
 		),
 
 
-		'ecomapa' => array(
-			'uploadError' => array(
-				'rule' => 'uploadError',
-				'message' => 'Por favor verifique campo, intente nuevamente',
-				'on' => 'create'
-			),
-			'isUnderPhpSizeLimit' => array(
-				'rule' => 'isUnderPhpSizeLimit',
-				'message' => 'Archivo excede el límite de tamaño de archivo de subida'
-			),
-			'isValidMimeType' => array(
-
-				'rule' => array('isValidExtension', array('pdf', 'jpg', 'png')),
-				'message' => 'El archivo debe ser de tipo pdf'
-			),
-			'isBelowMaxSize' => array(
-				'rule' => array('isBelowMaxSize', 3000000),
-				'message' => 'El tamaño delarchivo es demasiado grande. Maximo 5mb'
-			),
-			/*'isValidExtension' => array(
-				'rule' => array('isValidExtension', array('jpg', 'png'), false),
-				'message' => 'La imagen no tiene la extension jpg o png'
-			),*/
-			'checkUniqueName' => array(
-				'rule' => array('checkUniqueName'),
-				'message' => 'Ya existe un archivo con el mismo nombre',
-				'on' => 'update'
-			),
-		),
-
 		'familiograma' => array(
 			'uploadError' => array(
 				'rule' => 'uploadError',
@@ -75,11 +45,11 @@ class Observacion extends AppModel
 			),
 			'isValidMimeType' => array(
 
-				'rule' => array('isValidExtension', array('pdf', 'jpg', 'png')),
+				'rule' => array('isValidExtension', array('pdf', 'jpg', 'png', 'jpeg')),
 				'message' => 'El archivo debe ser de tipo pdf'
 			),
 			'isBelowMaxSize' => array(
-				'rule' => array('isBelowMaxSize', 3000000),
+				'rule' => array('isBelowMaxSize', 8000000),
 				'message' => 'El tamaño delarchivo es demasiado grande. Maximo 5mb'
 			),
 			/*'isValidExtension' => array(
@@ -96,15 +66,6 @@ class Observacion extends AppModel
 	);
 	public $actsAs = array(
 		'Upload.Upload' => array(
-			'ecomapa' => array(
-				'fields' => array(
-					'dir' => 'direcomapa'
-				),
-				'thumbnailMethod' => 'php',
-
-				'deleteOnUpdate' => true,
-				'deleteFolderOndelete' => true
-			),
 			'familiograma' => array(
 				'fields' => array(
 					'dir' => 'dirfamiliograma'

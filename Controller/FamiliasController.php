@@ -62,9 +62,8 @@ class FamiliasController extends AppController
 		if ($this->request->is('post')) {
 			$this->Familia->create();
 			if ($this->Familia->save($this->request->data)) {
-				$this->Session->setFlash('Registro de hogar guradado', 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash('Registro de hogar guardado', 'default', array('class' => 'alert alert-success'));
 				//return $this->redirect(array('action' => 'index'));
-
 				$id = $this->Familia->id;
 				$aux = "view/$id";
 				return $this->redirect(
@@ -77,7 +76,6 @@ class FamiliasController extends AppController
 			}
 		}
 		$sociambientals = $this->Familia->Sociambiental->find('list', array('order' => array('sociambiental.id' => 'desc')));
-
 		$this->set(compact('sociambientals'));
 	}
 
@@ -114,9 +112,15 @@ class FamiliasController extends AppController
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Familia->save($this->request->data)) {
 				$this->Session->setFlash('Registro de hogar se actualizo correctamente', 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index'));
+				$id = $this->Familia->id;
+				$aux = "view/$id";
+				return $this->redirect(
+					array(
+						'action' => $aux, '?' => array('view' => 'familias'), '#' => 'top'
+					)
+				);
 			} else {
-				$this->Session->setFlash(__('The familia could not be saved. Please, try again.'));
+				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Familia.' . $this->Familia->primaryKey => $id));

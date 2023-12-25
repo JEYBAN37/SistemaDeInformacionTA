@@ -41,40 +41,50 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td colspan="12" class="title">Riesgos</td>
+                                            <td colspan="12" style="text-align: center;" class="title">Canalizaciones</td>
+
                                         </tr>
                                         <tr>
-                                            <td colspan="3" class="title">Riesgo en Gestantes</td>
-                                            <td colspan="3">
-                                                <?php echo ($observacion['Observacion']['riesgogestante']); ?>
+                                            <td colspan="2" class="title">Primera</td>
+                                            <td colspan="10">
+                                                <?php echo ($observacion['Observacion']['canalizacionuno']); ?>
                                             </td>
-                                            <td colspan="3" class="title">Riesgo Primera Infancia</td>
-                                            <td colspan="3">
-                                                <?php echo ($observacion['Observacion']['riesgoprimerainfancia']); ?>
-                                            </td>
-
                                         </tr>
 
                                         <tr>
-                                            <td colspan="3" class="title">Riesgo De Enfermedades Cronicas</td>
-                                            <td colspan="3">
-                                                <?php echo ($observacion['Observacion']['riesgoenfermedadcronica']); ?>
-                                            </td>
-                                            <td colspan="3" class="title">Riesgo Enfermedades Cronicas</td>
-                                            <td colspan="3">
-                                                <?php echo ($observacion['Observacion']['riesgosicosocial']); ?>
+                                            <td colspan="2" class="title">Segunda</td>
+                                            <td colspan="10"> <?php echo ($observacion['Observacion']['canalizaciondos']); ?>
                                             </td>
 
                                         </tr>
 
                                         <tr>
-                                            <td colspan="3" class="title">Riesgo en la Familia</td>
-                                            <td colspan="3">
-                                                <?php echo ($observacion['Observacion']['riesgofamilia']); ?>
+                                            <td colspan="2" class="title">Tercera</td>
+                                            <td colspan="10">
+                                                <?php echo ($observacion['Observacion']['canalizaciontres']); ?>
                                             </td>
-                                            <td colspan="3" class="title">Riesgo en la Vivienda</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="3" class="title">Estado</td>
                                             <td colspan="3">
-                                                <?php echo ($observacion['Observacion']['riesgovivienda']); ?>
+                                                <?php echo ($observacion['Observacion']['estado']); ?>
+                                            </td>
+                                            <td colspan="3" class="title">Fecha de Seguimiento</td>
+                                            <td colspan="3">
+                                                <?php echo ($observacion['Observacion']['fechaseguimiento']); ?>
+                                            </td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td colspan="3" class="title">Responsable</td>
+                                            <td colspan="3">
+                                                <?php echo ($observacion['Observacion']['responsable_id']); ?>
+                                            </td>
+                                            <td colspan="3" class="title">date</td>
+                                            <td colspan="3">
+                                                <?php echo ($observacion['Observacion']['date']); ?>
                                             </td>
                                         </tr>
 
@@ -90,17 +100,21 @@
                                         <tr>
                                             <td colspan="3" class="title">Direccion</td>
                                             <td colspan="3">
-                                                <?php echo ($observacion['Observacion']['dir']); ?></td>
-                                            <td colspan="3" class="title">Anexo</td>
+                                                <?php echo ($observacion['Observacion']['direcomapa']); ?></td>
+                                            <td colspan="3" class="title">Ecomapa</td>
                                             <td colspan="3">
-                                                <?php echo ($observacion['Observacion']['anexo']); ?>
+                                                <?php echo ($observacion['Observacion']['ecomapa']); ?>
                                             </td>
                                         </tr>
 
                                         <tr>
-                                            <td colspan="2" class="title">Fecha de Registro</td>
-                                            <td colspan="10">
-                                                <?php echo ($observacion['Observacion']['observacion']); ?>
+                                            <td colspan="2" class="title">Familiograma</td>
+                                            <td colspan="4">
+                                                <?php echo ($observacion['Observacion']['familiograma']); ?>
+                                            </td>
+                                            <td colspan="2" class="title">link</td>
+                                            <td colspan="4">
+                                                <?php echo ($observacion['Observacion']['dirfamiliograma']); ?>
                                             </td>
                                         </tr>
                                     </table>
@@ -152,16 +166,3 @@ $this->Html->script([
     });
 </script>
 
-
-
-<div class="actions">
-    <h3><?php echo __('Actions'); ?></h3>
-    <ul>
-        <li><?php echo $this->Html->link(__('Edit Observacion'), array('action' => 'edit', $observacion['Observacion']['id'])); ?>
-        </li>
-        <li><?php echo $this->Form->postLink(__('Delete Observacion'), array('action' => 'delete', $observacion['Observacion']['id']), array(), __('Are you sure you want to delete # %s?', $observacion['Observacion']['id'])); ?>
-        </li>
-        <li><?php echo $this->Html->link(__('List Observaciones'), array('action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Observacion'), array('action' => 'add')); ?> </li>
-    </ul>
-</div>

@@ -64,8 +64,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     <div class="contanier">
         <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
             <?php echo $this->element('nav'); ?>
-            <?php echo $this->fetch('content'); ?>
             <?php echo $this->Session->flash(); ?>
+            <?php echo $this->fetch('content'); ?>
+
 
 
         </div>
@@ -75,17 +76,12 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             <div class="cont-menu" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
                 <nav>
 
-                    <a>
-                        <?php echo $this->Html->link(('Agregar Nueva vivienda'), array('controller' => 'Sociambientals', 'action' => 'add'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
-                    </a>
-                    <a>
-                        <?php echo $this->Html->link(('Registros familias'), array('controller' => 'familias', 'action' => 'index'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
-                    </a>
 
-                    <a href="#">Registros primera infancia</a>
-                    <a href="#">Registros infancia</a>
-                    <a href="#">Registros adolescencia</a>
-                    <a href="#">Registros mayores 18 años </a>
+                    <?php echo $this->Html->link(('Agregar Nueva vivienda'), array('controller' => 'Sociambientals', 'action' => 'add'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
+                    <?php echo $this->Html->link(('Agregar Novedad'), array('controller' => 'visitasnegadas', 'action' => 'add'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
+                    <?php echo $this->Html->link(('Registros familias'), array('controller' => 'familias', 'action' => 'index'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
+                    <?php echo $this->Html->link(('Canalizaciones'), array('controller' => 'canalizacions', 'action' => 'index'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
+                    <?php echo $this->Html->link(('Registros Socioambiental'), array('controller' => 'sociambientals', 'action' => 'index'), array('class' => 'nav-link', 'style' => 'color: white;')); ?>
                     <a>Usuario: <?= $usr = $this->Session->read("usr");
                                 echo $this->Html->link("Cerrar Sesión", "/users/salir", array());
                                 ?> </a>
