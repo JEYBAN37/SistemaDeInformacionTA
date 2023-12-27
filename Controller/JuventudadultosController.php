@@ -97,6 +97,39 @@ class JuventudadultosController extends AppController
 	}
 
 
+	public function editCanalizacion($id = null)
+	{
+		if (!$this->Juventudadulto->exists($id)) {
+			throw new NotFoundException(__('Invalid Juventudadulto'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			$canalizacionId = $this->request->data['Juventudadulto']['canalizacion_id'];
+
+
+			if ($this->Juventudadulto->save($this->request->data)) {
+				$this->Session->setFlash('Registro de Juventudadulto actualizado', 'default', array('class' => 'alert alert-success'));
+				//return $this->redirect(array('action' => 'index'));
+				//return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
+				return $this->redirect(array(
+					'controller' => 'canalizacions',
+					'action' => 'view',
+					$canalizacionId
+				));	} else {
+				$this->Session->setFlash(__('The Juventudadulto could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Juventudadulto.' . $this->Juventudadulto->primaryKey => $id));
+			$this->request->data = $this->Juventudadulto->find('first', $options);
+		}
+		$familias = $this->Juventudadulto->Familia->find('list', array(
+			'order' => array('Familia.id' => 'desc'),
+
+		));
+
+		$canalizaciones = $this->Juventudadulto->Canalizacion->find('list');
+		$this->set(compact('familias', 'canalizaciones'));
+	}
+
 	/**
 	 * edit method
 	 *

@@ -8,6 +8,52 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
 
 <body style="font-size: 14px;">
 
+<div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Consentimiento informado</h4>
+
+
+
+                </div>
+                <div class="modal-body">
+                    <!--div>
+                        <img src="../img/logoescudopasto.jpg" alt="Imagen de marcador genérico" width="199px" height="auto">
+                    </div-->
+                    <h4>Cordial saludo.</h4>
+
+                    <p> Con el diligenciamiento del presente formulario <strong>autorizo libre y expresamente</strong> a
+                        la Secretaría de
+                        Salud de Pasto para que realice el tratamiento de los datos personales registrados y
+                        recolectados, de igual manera manifiesto que <strong>he sido informado</strong> sobre la
+                        finalidad de la
+                        recolección de la misma, con el propósito de implementar el modelo predictivo,
+                        preventivo y
+                        resolutivo basado en <strong>Atención Primaria en Salud</strong>, dando cumplimiento a la
+                        <strong>privacidad y
+                            protección
+                            de datos</strong> dispuesto en la Ley 1581 de 2012, el Decreto 1377 de 2013 y la circular
+                        externa
+                        008 de
+                        2020 de la Super intendencia de registro y comercio.
+                    </p>
+
+                    <!--p><?php echo $this->Html->link(('Si acepto'),  array('controller' => 'sociambientals', 'action' => 'add')); ?>
+                    </p-->
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#" data-dismiss="modal" class="btn btn-success">Si acepto</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div>
         <?php echo $this->Form->create(); ?>
@@ -20,42 +66,15 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                     </h1>
                 </div>
 
-
-                <div class="grow justify-content-center" display="none" style="margin-top:20px; ">
-                    <div class="card " style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
-                        <div class="form-group  text-center">
-
-                            <h2 class="text-center">¡Importante!</h2>
-
-
-                            <p class="help-block">Como persona encuestada usted da autorizacion del ingreso y registro de sus datos para la mejor calidad en la atencion ciudadana?</p>
-
-                            <div class="col-sm-12" style="margin-top: 20px; ">
-                                <div id="status" class="switch-button col-md-12  justify-content-center">
-                                    <input type="checkbox" name="switch-button" id="switch-label-initial" class="switch-button__checkbox">
-                                    <label for="switch-label-initial" class="switch-button__label"></label>
-                                    <?php
-                                    echo $this->Form->hidden('aceptaformulario', array(
-                                        'id' => 'validacion'
-                                    ));
-                                    ?>
-                                </div>
-                                <?php echo $this->Html->link('Agregar Novedad', array('controller' => 'visitasnegadas', 'action' => 'add'), array('class' => 'my-button', 'style' => 'margin-left: 5px;', 'id' => 'nope')); ?>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-                    <span id="yes" style="display: none;">
-
-                        <h2 class="subtitle-general-forms">Datos Básicos</h2>
-                        <hr style=" border:0.1px solid rgba(0,0,0,.125);">
-
+                        
                         <div class="grow justify-content-center" display="none" style="margin-top:20px; ">
                             <div class="card " style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
                                 <div class="form-group row">
+                                <?php
+                                    echo $this->Form->hidden('aceptaformulario', array(
+                                        'value' => 'Si acepta'
+                                    ));
+                                    ?>
 
                                     <?php echo $this->Form->input('fecha', array(
                                         'type' => 'hidden',
@@ -97,13 +116,45 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                                             '10' => '10',
                                             '11' => '11',
                                             '12' => '12',
-                                            '13' => '14',
+                                            '13' => '13',
+                                            '14' => '14',
                                             '15' => '15',
                                             '16' => '16',
                                             '17' => '17',
                                             '18' => '18',
                                             '19' => '19',
                                             '20' => '20',
+                                            '21' => '21',
+                                            '22' => '22',
+                                            '23' => '23',
+                                            '24' => '24',
+                                            '25' => '25',
+                                            '26' => '26',
+                                            '27' => '27',
+                                            '28' => '28',
+                                            '29' => '29',
+                                            '30' => '30',
+                                            '31' => '31',
+                                            '32' => '32',
+                                            '33' => '33',
+                                            '34' => '34',
+                                            '35' => '35',
+                                            '36' => '36',
+                                            '37' => '37',
+                                            '38' => '38',
+                                            '39' => '39',
+                                            '40' => '40',
+                                            '41' => '41',
+                                            '42' => '42',
+                                            '43' => '43',
+                                            '44' => '44',
+                                            '45' => '45',
+                                            '46' => '46',
+                                            '47' => '47',
+                                            '48' => '48',
+                                            '49' => '49',
+                                            '50' => '50',
+
                                         );
 
                                         echo $this->Form->input('apartamento', array(
@@ -810,22 +861,22 @@ echo $this->Html->script('validationSocioAmbiental'); // 'validation' es el nomb
                             </div>
 
                             <?php //echo $this->Form->end(__('Guardar y Listar')); 
-                        ?>
-                        <?php echo $this->Form->submit('Guardar y continuar', [
-                            'name' => 'btn',
-                            'class' => 'my-button',
-                        ]); ?>
-                        <?php echo $this->Form->submit('Guardar y finalizar', [
-                            'name' => 'btn',
-                            'class' => 'my-button',
-                            'style' => 'width:185px'
-                        ]); ?>
+                            ?>
+                            <?php echo $this->Form->submit('Guardar y continuar', [
+                                'name' => 'btn',
+                                'class' => 'my-button',
+                            ]); ?>
+                            <?php echo $this->Form->submit('Guardar y finalizar', [
+                                'name' => 'btn',
+                                'class' => 'my-button',
+                                'style' => 'width:185px'
+                            ]); ?>
                         </div>
 
-                    
 
 
-                    </span>
+
+                   
 
             </fieldset>
         </div>
@@ -889,4 +940,11 @@ $this->Html->script([
 
         }
     }
+
+        
+    $(document).ready(function() {
+    $("#mostrarmodal").modal("show");
+});
+
+    
 </script>

@@ -98,6 +98,50 @@ class AdolescenciasController extends AppController
 	}
 
 
+	public function editCanalizacion($id = null)
+	{
+		if (!$this->Adolescencia->exists($id)) {
+			throw new NotFoundException(__('Invalid Adolescencia'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+
+			$canalizacionId = $this->request->data['Adolescencia']['canalizacion_id'];
+
+			if ($this->Adolescencia->save($this->request->data)) {
+				$this->Session->setFlash('Registro de Adolescencia actualizado', 'default', array('class' => 'alert alert-success'));
+				//return $this->redirect(array('action' => 'index'));
+				//return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
+
+				//return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
+				return $this->redirect(array(
+					'controller' => 'canalizacions',
+					'action' => 'view',
+					$canalizacionId
+				));
+				//return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["familia"]["id"]));
+			} else {
+				$this->Session->setFlash(__('The Adolescencia could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Adolescencia.' . $this->Adolescencia->primaryKey => $id));
+			$this->request->data = $this->Adolescencia->find('first', $options);
+		}
+		$familias = $this->Adolescencia->Familia->find('list', array(
+			'order' => array('Familia.id' => 'desc'),
+
+		));
+
+		$canalizaciones = $this->Adolescencia->Canalizacion->find('list');
+		$this->set(compact('familias', 'canalizaciones'));
+	}
+
+
+
+
+
+
+
+
 	/**
 	 * edit method
 	 *

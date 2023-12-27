@@ -20,7 +20,9 @@
 
 						<div class="form-group row">
 
-
+						<?php
+                                echo $this->Form->input('canalizacion_id',
+								 array('type' => 'hidden'));?>
 							<?php echo $this->Form->input('id'); ?>
 
 

@@ -55,8 +55,6 @@ class InfantilsController extends AppController
 			$fechaNacimiento = $this->request->data['Infantil']['fechanac'];
 			$edad = $this->calcularEdad($fechaNacimiento);
 			$this->request->data['Infantil']['edad'] = $edad;
-
-
 			if ($this->Infantil->save($this->request->data)) {
 				$this->Session->setFlash('Se ha guardado correctamente, por favor actulizar datos personales', 'default', array('class' => 'alert alert-success'));
 				$familiaId = isset($this->data["Infantil"]["familia_id"]) ? $this->data["Infantil"]["familia_id"] : null;
@@ -91,6 +89,40 @@ class InfantilsController extends AppController
 
 		return number_format($anosTotales, 1);
 	}
+
+
+	public function editCanalizacion($id = null)
+	{
+		if (!$this->Infantil->exists($id)) {
+			throw new NotFoundException(__('Invalid Infantil'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+
+			$canalizacionId = $this->request->data['Infantil']['canalizacion_id'];
+			
+			if ($this->Infantil->save($this->request->data)) {
+				$this->Session->setFlash('Registro de Primerainfancia actualizado', 'default', array('class' => 'alert alert-success'));
+				return $this->redirect(array(
+					'controller' => 'canalizacions',
+					'action' => 'view',
+					$canalizacionId
+				));
+			} else {
+				$this->Session->setFlash(__('The Infantil could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Infantil.' . $this->Infantil->primaryKey => $id));
+			$this->request->data = $this->Infantil->find('first', $options);
+		}
+		$familias = $this->Infantil->Familia->find('list', array(
+			'order' => array('Familia.id' => 'desc'),
+
+		));
+
+		$canalizaciones = $this->Infantil->Canalizacion->find('list');
+		$this->set(compact('familias', 'canalizaciones'));
+	}
+
 
 	/**
 	 * edit method

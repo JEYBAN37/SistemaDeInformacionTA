@@ -24,7 +24,14 @@ class SociambientalsController extends AppController
 	public function index()
 	{
 		$this->Sociambiental->recursive = 0;
-		$this->set('sociambientals', $this->Paginator->paginate());
+
+			$count = $this->Sociambiental->find('count');
+			$this->Paginator->settings['limit'] = $count;
+	
+			$this->set(
+				"sociambientals",
+				$this->paginate()
+			);
 	}
 
 	/**

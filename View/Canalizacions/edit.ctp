@@ -1,136 +1,151 @@
-<div>
+<?php $this->layout = 'default_familia';
+?>
+
+<body style="font-size: 14px;">
 
 	<div class="form-group col-sm-12">
 		<?php echo $this->Form->create('Canalizacion', array('type' => 'file', 'novalidate' => 'novalidate')); ?>
 		<fieldset>
 			<div class="col-12 text-center">
-				<h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px; ">Modulo de Canalizaciones
+				<h1 class="title-general-forms">Modulo de Canalizaciones
 				</h1>
 			</div>
 
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Detalles</h2>
-			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+			<h2 class="subtitle-general-forms">Detalles</h2>
+			<hr style=" border:0.1px solid rgba(0,0,0,.125);">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
-				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+				<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
 					<div class="form-group row">
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('tipo', array(
 								'label' => 'Tipo de Canalizacion',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 
 							));
 							?>
 						</div>
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('nombre', array(
 								'label' => 'Nombre de la Canalizacion',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 
 							));
 							?>
 						</div>
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('sede', array(
 								'label' => 'Sede de la Canalizacion',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 
 							));
 							?>
 						</div>
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('telefonoInstitucional', array(
 								'label' => 'Telefono Institucional',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							));
 							?>
 						</div>
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('enlaceuno', array(
 								'label' => 'Enlace',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'placeholder' => ''
 							));
 							?>
 						</div>
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('cargouno', array(
 								'label' => 'Cargo',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							));
 							?>
 						</div>
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('telefono1', array(
 								'label' => 'Telefono',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							));
 							?>
 						</div>
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('correo1', array(
 								'label' => 'Correo',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							));
 							?>
 						</div>
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('enlacedos', array(
 								'label' => 'Enlace Dos',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							));
 							?>
 						</div>
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('cargodos', array(
 								'label' => 'Cargo Dos',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							));
 							?>
 						</div>
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('telefono2', array(
 								'label' => 'Telefono',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							));
 							?>
 						</div>
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('correo2', array(
 								'label' => 'Correo',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							));
 							?>
 						</div>
@@ -139,9 +154,11 @@
 			</div>
 
 		</fieldset>
-		<?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
+		<button class="my-button">
+			Guardar<?php echo $this->Form->end(); ?>
+		</button>
 	</div>
-</div>
+</body>
 
 <?php
 $this->Html->css([

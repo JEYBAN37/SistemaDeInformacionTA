@@ -185,16 +185,17 @@ class PrimerainfanciasController extends AppController
 		}
 		if ($this->request->is(array('post', 'put'))) {
 
-
+			$canalizacionId = $this->request->data['Primerainfancia']['canalizacion_id'];
 			if ($this->Primerainfancia->save($this->request->data)) {
 				$this->Session->setFlash('Registro de Primerainfancia actualizado', 'default', array('class' => 'alert alert-success'));
 				//return $this->redirect(array('action' => 'index'));
 				//return $this->redirect(array('controller' => 'Familias', 'action' => 'index'));
-
-				return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["Primerainfancia"]["familia_id"]));
-
-				//return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["familia"]["id"]));
-			} else {
+				return $this->redirect(array(
+					'controller' => 'canalizacions',
+					'action' => 'view',
+					$canalizacionId
+				));	}
+			 else {
 				$this->Session->setFlash(__('The Primerainfancia could not be saved. Please, try again.'));
 			}
 		} else {

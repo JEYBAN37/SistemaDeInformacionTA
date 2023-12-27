@@ -37,16 +37,16 @@ class Visitasnegada extends AppModel {
 
 		
 
-		'tipodocumento' => array(
+		/*'tipodocumento' => array(
 			'notEmpty' => array(
-				'rule' => array('notEmpty'),
+				//'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 
 		'estadocasa' => array(
 			'notEmpty' => array(
@@ -58,7 +58,7 @@ class Visitasnegada extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'numerodocumento' => array(
+		/*'numerodocumento' => array(
 			'numeric' => array(
 				'rule' => array('numeric'),
 				'message' => 'Solo valor numerico',
@@ -68,9 +68,9 @@ class Visitasnegada extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 
-		'fecha' => array(
+		/*'fecha' => array(
 			'date' => array(
 				'rule' => array('date'),
 				//'message' => 'Your custom message here',
@@ -79,7 +79,7 @@ class Visitasnegada extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 
 
 
