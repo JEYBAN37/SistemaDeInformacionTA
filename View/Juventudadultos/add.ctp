@@ -560,9 +560,6 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
             </div>
 
 
-
-
-
             <h2 class="subtitle-general-forms ">Salud
                 Sexual y Reproductiva</h2>
             <hr style=" border:0.1px solid rgba(0,0,0,.125);">
@@ -650,7 +647,6 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                     </div>
                 </div>
             </div>
-
 
             <div id="yesss">
                 <div id="si" class="grow justify-content-center" display="none" style="margin-top:20px">
@@ -1093,6 +1089,121 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
                     </div>
                 </div>
             </div>
+
+
+			<h2 class="subtitle-general-forms ">APGAR Familiar</h2>
+			<hr style=" border:0.1px solid rgba(0,0,0,.125);">
+
+			<div class="grow justify-content-center" display="none" style="margin-top:20px">
+				<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
+
+					<div class="form-group row">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
+							$optionApgar = [
+								'' =>  'Elegir',
+								'4' => 'Siempre',
+								'3' => 'La mayoría de veces',
+								'2' => 'Algunas veces',
+								'1' => 'Muy pocas veces',
+								'0' => 'Nunca',
+								'0' => 'No informa',
+								'0' => 'Sin dato',
+
+							];
+							echo $this->Form->input('ayudafamiliar', array(
+								'label' => 'Me satisface la ayuda que recibo de mi familia cuando tengo algún problema o necesidad',
+								'class' => 'form-control sumar',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'options' => $optionApgar,
+								'placeholder' => '',
+								'type' => 'select',
+								'id' => 'opcion1'
+
+							)); ?>
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
+							echo $this->Form->input('participacionfamiliar', array(
+								'label' => 'Me satisface la participación que mi
+								familia brinda y permite
+								Me satisface cómo mi',
+								'class' => 'form-control sumar',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'options' => $optionApgar,
+								'placeholder' => '',
+								'type' => 'select',
+								'id' => 'opcion2'
+
+							)); ?>
+						</div>
+
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
+							echo $this->Form->input('aceptacionapoyo', array(
+								'label' => 'Me satisface cómo mi familia
+								acepta y apoya mis deseos de
+								emprender nuevas actividades',
+								'class' => 'form-control sumar',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'options' => $optionApgar,
+								'placeholder' => '',
+								'type' => 'select',
+								'id' => 'opcion3'
+
+							)); ?>
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
+							echo $this->Form->input('afectoemociones', array(
+								'label' => 'Me satisface cómo mi familia
+								expresa afectos y responde a mis
+								emociones como rabia, tristeza y
+								amor',
+								'class' => 'form-control sumar',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'options' => $optionApgar,
+								'placeholder' => '',
+								'type' => 'select',
+								'id' => 'opcion4'
+
+							)); ?>
+						</div>
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+							<?php
+							echo $this->Form->input('compartirfamilia', array(
+								'label' => 'Me satisface cómo compartimos en
+								familia:
+								El tiempo para estar juntos.
+								Los espacios en casa
+								El dinero',
+								'class' => 'form-control sumar',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'options' => $optionApgar,
+								'placeholder' => '',
+								'type' => 'select',
+								'id' => 'opcion5'
+
+							)); ?>
+						</div>
+					</div>
+
+					<div class="form-group col-md-6" style="margin-top: -10px;">
+						<?php
+						echo $this->Form->input('calculoapgar', array(
+							'label' => 'Resultado Apgar',
+							'class' => 'form-control',
+							'style' => 'height:30px; font-size: 15px; width:100%',
+							'placeholder' => '',
+							'id' => 'resultado-input' // Cambiado el ID a 'resultado-input'
+						));
+						?>
+					</div>
+
+				</div>
+			</div>
+			
+
             <h2 class="subtitle-general-forms ">Plan de
                 Atención integral</h2>
             <hr style=" border:0.1px solid rgba(0,0,0,.125);">
@@ -1201,8 +1312,15 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 
 							)); ?>
                         </div>
+                        <?php
+						echo $this->Form->input('fechaRegistro', array(
 
-                        <div class="form-group col-md-6" style="margin-top: 20px;">
+							'type' => 'hidden',
+						)); ?>
+
+                    </div>
+					
+					<div class="form-group col-md-6" style="margin-top: 20px;">
                             <?php
 							echo $this->Form->input('canalizacion_id', array(
 								'label' => 'Enlace de canalización',
@@ -1216,23 +1334,17 @@ echo $this->Html->script('validation'); // 'validation' es el nombre del archivo
 							)); ?>
                         </div>
 
-                        <?php
-						echo $this->Form->input('fechaRegistro', array(
-
-							'type' => 'hidden',
-						)); ?>
-
-                    </div>
 
                 </div>
-            </div>
 
-        </fieldset>
-        <button class="my-button">
+				<button class="my-button">
             Guardar<?php echo $this->Form->end(); ?>
         </button>
     </div>
+            </div>
 
+        </fieldset>
+    
 </body>
 
 
@@ -1268,7 +1380,52 @@ $this->Html->script([
 ?>
 
 <script type="text/javascript">
+	$(function() {
+    $('#ayudaButton').popover();
+});
+
 $(document).ready(function() {
+
+
+	function calcularSuma() {
+			suma = 0;
+
+			// Obtener el valor seleccionado de cada opción y sumarlo
+			$('select.sumar').each(function() {
+				suma += parseInt($(this).val()) || 0;
+			});
+
+			// Mostrar el resultado en el campo de entrada con id 'resultado-input'
+			$('#resultado-input').val(suma);
+			var imcField = document.getElementById('resultado-input');
+			switch (true) {
+				case suma <= 9:
+					imcField.style.color = 'red';
+					break;
+				case suma >= 10 && suma <= 13:
+					imcField.style.color = 'orange';
+					break;
+				case suma >= 14 && suma <= 17:
+					imcField.style.color = '#FAA80D';
+					break;
+				case suma >= 18 :
+					imcField.style.color = 'green';
+					break;
+				default:
+					imcField.style.color = 'black';
+			}
+
+		}
+
+		// Llamar a la función al cargar la página
+		calcularSuma();
+
+		// Vincular la función al evento change de los elementos select
+		$('select.sumar').on('change', function() {
+			calcularSuma();
+		});
+
+
     $('.select-search').select2();
     agregarOpcionSeleccion();
 });
@@ -1308,7 +1465,7 @@ function agregarOpcionSeleccion() {
 
 
     $("#JuventudadultoCanalizacionId").prepend(
-        "<option value='00' selected='selected'>Seleccione</option>");
+        "<option value='' selected='selected'>Seleccione</option>");
 
 
 }
@@ -1364,7 +1521,5 @@ document.getElementById('calcularIMC').addEventListener('click', function() {
         alert('Por favor, ingrese valores válidos para peso y talla.');
     }
 });
-$(function() {
-    $('#ayudaButton').popover();
-});
+
 </script>

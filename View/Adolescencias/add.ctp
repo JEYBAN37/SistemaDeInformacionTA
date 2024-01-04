@@ -1,8 +1,25 @@
 <?php $this->layout = 'default_familia' ?>
 <?php
 // Enlaza el archivo JavaScript desde la carpeta webroot/js
-echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre del archivo sin la extensión .js
+echo $this->Html->script('validation2'); // 'validation' es el nombre del archivo sin la extensión .js
 ?>
+<style>
+	.popover-content {
+		display: none;
+		position: absolute;
+		background-color: #fff;
+		border: 1px solid #ccc;
+		padding: 10px;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+		z-index: 999;
+		/* Valor alto para colocar el popover encima de otros elementos */
+		font-size: 12px;
+		/* Ajusta el tamaño de la fuente según tus preferencias */
+		text-align: justify;
+
+
+	}
+</style>
 
 <body style="font-size: 14px;">
 	<div class="form-group col-sm-12">
@@ -103,7 +120,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'type' => 'date',
 								'minYear' => date('Y') - 17,
 								'maxYear' => date('Y') - 12,
-								'style' => 'height:30px;  font-size: 15px ; width:100%',
+								'style' => 'height:30px;  font-size: 15px ;',
 								'id' => 'fechanac', // Agrega este identificador al campo de fecha de nacimiento
 								'empty' => true, // Establecer el campo como vacío
 
@@ -142,16 +159,19 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'onChange' => 'mostrar(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 							]);
 							?>
-
-							<button type="button" id="ayudaButton3" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Reconocer que las mujeres, 
-								los hombres y las personas de los sectores sociales LGBTI,
-								reaccionan de distinta forma a los servicios de salud,
-								 debido a sus diferentes experiencias a lo largo de la vida,
-								 que afecta su salud, la incidencia o prevalencia de enfermedades y su tratamiento. 
-								 (Ajustado de módulo conocimientos, OPS 2020).
-                                        " style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+							<button type="button" id="ayudaButton" class="btn btn-success rounded-circle" style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 15px;">
 								?
 							</button>
+							<div id="popover" class="popover-content">
+								<p>Reconocer que las mujeres,
+									los hombres y las personas de los sectores sociales LGBTI,
+									reaccionan de distinta forma a los servicios de salud,
+									debido a sus diferentes experiencias a lo largo de la vida,
+									que afecta su salud, la incidencia o prevalencia de enfermedades y su tratamiento.
+									(Ajustado de módulo conocimientos, OPS 2020).
+								</p>
+							</div>
+
 						</div>
 
 						<div class="form-group col-md-6" style="margin-top: 20px;">
@@ -176,18 +196,23 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							]);
 							?>
 
-							<button type="button" id="ayudaButton3" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Reconocer que las mujeres, 
-								los hombres y las personas de los sectores sociales LGBTI,
-								reaccionan de distinta forma a los servicios de salud,
-								 debido a sus diferentes experiencias a lo largo de la vida,
-								 que afecta su salud, la incidencia o prevalencia de enfermedades y su tratamiento. 
-								 (Ajustado de módulo conocimientos, OPS 2020).
-                                        " style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
+							<button type="button" id="ayudaButton1" class="btn btn-success rounded-circle" style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 15px;">
 								?
 							</button>
+
+							<div id="popover-content" class="popover-content">
+								<p>Reconocer que las mujeres,
+									los hombres y las personas de los sectores sociales LGBTI,
+									reaccionan de distinta forma a los servicios de salud,
+									debido a sus diferentes experiencias a lo largo de la vida,
+									que afecta su salud, la incidencia o prevalencia de enfermedades y su tratamiento.
+									(Ajustado de módulo conocimientos, OPS 2020)</p>
+							</div>
+
 						</div>
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							$generoOption = [
 								' ' => 'Elegir',
@@ -368,21 +393,31 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'options' => $optionDiscapacidad
 							));
 							?>
-
-							<button type="button" id="ayudaButton" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad o funcionamiento físico.
-
-                                        Auditivas: Dificultades o limitaciones en la capacidad de escuchar o procesar el sonido.
-
-                                        Visuales: Limitaciones o dificultades en la visión.
-
-                                        Sordoceguera: Condición en la que una persona tiene tanto discapacidad auditiva como discapacidad visual.
-
-                                        Cognitivas o intelectuales: Limitaciones en el funcionamiento del cerebro que afectan el procesamiento, comprensión, aprendizaje y memoria de la información.
-
-                                        Mentales: Limitaciones en las habilidades cognitivas, emocionales y de comportamiento.
-                                        " style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 15px;">
+							<button type="button" id="ayudaButton2" class="btn btn-success rounded-circle" style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 15px;">
 								?
 							</button>
+
+							<div id="popover" class="popover-content">
+								<p><strong>Auditivas:</strong>
+									Dificultades o limitaciones en la capacidad de escuchar o procesar el sonido.
+									<br>
+									<strong>Visuales:</strong>
+									Limitaciones o dificultades en la visión.
+									<br>
+									<strong>Sordoceguera:</strong>
+									Enfocarse en criar y educar a los hijos.
+									<br>
+									<strong>Cognitivas o intelectuales:</strong>
+
+									Condición en la que una persona tiene tanto discapacidad auditiva como
+									discapacidad visual.<br>
+									<strong>Mentales:</strong>
+
+									Limitaciones en el funcionamiento del cerebro que afectan el
+									procesamiento, comprensión, aprendizaje y memoria de la información.
+									<br>
+								</p>
+							</div>
 
 						</div>
 						<div class="form-group col-md-6" style="margin-top: 20px;">
@@ -408,7 +443,8 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							));
 							?>
 						</div>
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<button class="my-button" style="margin-left: 5px;" id="calcularIMC">Calcular IMC</button>
 						</div>
 
@@ -533,9 +569,9 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 				</div>
 			</div>
 
-			<h2 class="subtitle-general-forms ">Salud Sexual y Reproductiva</h2>
+			<h2 class="subtitle-general-forms ">Salud Sexual y
+				Reproductiva</h2>
 			<hr style=" border:0.1px solid rgba(0,0,0,.125);">
-
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
 				<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
 
@@ -563,11 +599,16 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'onChange' => 'iniciovidasexual(this.value); mujer(this.value);', // Combina ambas funciones en una sola función onchange
 							)); ?>
 
-
-
-							<button type="button" id="ayudaButton1" class="btn btn-danger rounded-circle" data-toggle="popover" data-placement="top" data-content="Alerta: Riesgo en menor de 14 años con inicio de relaciones sexuales" style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-left: 5px;">
-								X
+							<button type="button" id="ayudaButton3" class="btn btn-danger rounded-circle" style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-left: 15px;">
+								!
 							</button>
+
+							<div id="popover-d" class="popover-content">
+								<p><strong>Alerta:</strong>
+								 Riesgo en menor de 14 años con inicio de relaciones sexuales
+								</p>
+							</div>
+
 						</div>
 
 
@@ -626,22 +667,12 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 				</div>
 			</div>
 
-
-
-
-
-
-
-			<div id="si" id="yesss" class="card col-sm-12" style="margin-left: 15px;font-size: 12px;" display="none">
-				<div id="si" id="yesss" class="grow justify-content-center" display="none" style="margin-top:20px">
+			<div id="yesss" style="margin-top:-50px">
+				<div id="si" class="grow justify-content-center" display="none" style="margin-top:20px">
+					<h2 class="subtitle-general-forms" style="margin-bottom: 10px;">Antecedentes
+						ginecológicos/obsetétricos</h2>
+					<hr style=" border:0.1px solid rgba(0,0,0,.125);margin-bottom: 20px;">
 					<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
-
-						<h2 class="subtitle-general-forms ">Salud de la Mujer</h2>
-						<hr style=" border:0.1px solid rgba(0,0,0,.125);">
-
-						<h2 class="subtitle-general-forms ">Antecedentes
-							ginecológicos/obsetétricos</h2>
-
 						<div class="form-group row">
 
 
@@ -734,16 +765,22 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 
 							</div>
 						</div>
+					</div>
 
+					<div id="yes">
+						<h2 class="subtitle-general-forms " style="margin-bottom: 10px;">Gestación
+						<button type="button" id="ayudaButton4" class="btn btn-danger rounded-circle" style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-left: -5px;">
+								!
+							</button>
 
-
-						<div id="yes" class="form-group row">
-							<h2 class="subtitle-general-forms ">Gestación
-								<button type="button" id="ayudaButton2" class="btn btn-danger rounded-circle" data-toggle="popover" data-placement="top" data-content="Alerta: Riesgo alto gestantes menores de 18 años." style="width: 30px; height: 30px; padding: 0; font-size: 18px;">
-									X
-								</button>
-							</h2>
-
+							<div id="popover-dTwo" class="popover-content" style="color: black; ">
+								<p><strong>Alerta:</strong>
+								Riesgo alto gestantes menores de 18 años.
+								</p>
+							</div>
+						</h2>
+						<hr style=" border:0.1px solid rgba(0,0,0,.125);margin-bottom: 20px;">
+						<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
 							<div class="form-group col-md-6" style="margin-top: 20px;">
 								<?php
 								$optionControlPrenatal = [
@@ -864,11 +901,8 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 						</div>
 					</div>
 				</div>
+
 			</div>
-
-
-
-
 
 			<h2 class="subtitle-general-forms ">Riesgo
 				Psicosocial</h2>
@@ -1060,7 +1094,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							];
 							echo $this->Form->input('ayudafamiliar', array(
 								'label' => 'Me satisface la ayuda que recibo de mi familia cuando tengo algún problema o necesidad',
-								'class' => 'form-control',
+								'class' => 'form-control sumar',
 								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionApgar,
 								'placeholder' => '',
@@ -1075,7 +1109,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'label' => 'Me satisface la participación que mi
 								familia brinda y permite
 								Me satisface cómo mi',
-								'class' => 'form-control',
+								'class' => 'form-control sumar',
 								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionApgar,
 								'placeholder' => '',
@@ -1091,7 +1125,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'label' => 'Me satisface cómo mi familia
 								acepta y apoya mis deseos de
 								emprender nuevas actividades',
-								'class' => 'form-control',
+								'class' => 'form-control sumar',
 								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionApgar,
 								'placeholder' => '',
@@ -1107,7 +1141,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								expresa afectos y responde a mis
 								emociones como rabia, tristeza y
 								amor',
-								'class' => 'form-control',
+								'class' => 'form-control sumar',
 								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionApgar,
 								'placeholder' => '',
@@ -1124,7 +1158,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								El tiempo para estar juntos.
 								Los espacios en casa
 								El dinero',
-								'class' => 'form-control',
+								'class' => 'form-control sumar',
 								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'options' => $optionApgar,
 								'placeholder' => '',
@@ -1134,41 +1168,36 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							)); ?>
 						</div>
 					</div>
-					<div class="form-group col-md-6">
-						<button class="my-button" style="margin-left: 5px;" id="calcularApgar">Calcular APGAR</button>
-					</div>
 
-					<div class="form-group col-md-6" style="margin-top: 20px;">
+					<div class="form-group col-md-6" style="margin-top: -10px;">
 						<?php
 						echo $this->Form->input('calculoapgar', array(
-							'label' => '',
+							'label' => 'Resultado Apgar',
 							'class' => 'form-control',
-							'style' => 'height:30px;  font-size: 15px ; width:100%',
+							'style' => 'height:30px; font-size: 15px; width:100%',
 							'placeholder' => '',
-							'id' => 'resultApgar'
-
-						)); ?>
+							'id' => 'resultado-input' // Cambiado el ID a 'resultado-input'
+						));
+						?>
 					</div>
+
 				</div>
 			</div>
 
 
 
-
-
-
-
-			<h2 class="titulo-general-pwa-govco col-md-12  " style="color: #3366CC; margin-left: 5px;margin-top: 20px; ">Plan
-				de Atención integral</h2>
-			<hr style="background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-left: 20px; margin-top: 1px;">
+			<h2 class="subtitle-general-forms ">Plan de
+				Atención integral</h2>
+			<hr style=" border:0.1px solid rgba(0,0,0,.125);">
 
 			<div class="grow justify-content-center" display="none" style="margin-top:20px">
-				<div class="card col-sm-12" style="margin-left: 15px;font-size: 12px;">
+				<div class="card col-sm-12" style=" font-size:15px;  border:1.5px solid rgba(0,0,0,.125);">
 
 					<div class="form-group row">
 
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							$optionCanlizacion = [
 								'No aplica ' => 'Elegir',
@@ -1199,7 +1228,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'class' => 'form-control select-search',
 								'options' => $optionCanlizacion,
 								'type' => 'select',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
 								'onChange' => 'canalizacion(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
 							)); ?>
@@ -1208,12 +1237,13 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 
 					</div>
 					<div id="Canalizacion" class="form-group row">
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							echo $this->Form->input('canalizaciondos', array(
 								'label' => 'Canalización',
 								'class' => 'form-control',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 								'placeholder' => '',
 								'class' => 'form-control select-search',
 								'options' => $optionCanlizacion,
@@ -1223,7 +1253,8 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							?>
 						</div>
 
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 
 							echo $this->Form->input('canalizaciontres', array(
@@ -1234,10 +1265,11 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'class' => 'form-control select-search',
 								'options' => $optionCanlizacion,
 								'type' => 'select',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							)); ?>
 						</div>
-						<div class="form-group col-md-6">
+						<div class="form-group col-md-6" style="margin-top: 20px;">
+
 							<?php
 							$optionEducacion = [
 								'No aplica ' => 'Elegir',
@@ -1254,7 +1286,7 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 								'placeholder' => '',
 								'options' => $optionEducacion,
 								'type' => 'select',
-								'style' => 'font-size: 12px',
+								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							)); ?>
 						</div>
 
@@ -1264,7 +1296,8 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							'type' => 'hidden',
 						)); ?>
 					</div>
-					<div class="form-group col-md-6">
+					<div class="form-group col-md-6" style="margin-top: 20px;">
+
 						<?php
 						echo $this->Form->input('canalizacion_id', array(
 							'label' => 'Enlace de canalización',
@@ -1273,13 +1306,16 @@ echo $this->Html->script('validationAdolescencia'); // 'validation' es el nombre
 							'class' => 'form-control select-search',
 							'placeholder' => '',
 							'type' => 'select',
-							'style' => 'font-size: 12px',
+							'style' => 'height:30px;  font-size: 15px ; width:100%',
 						)); ?>
 					</div>
 				</div>
+				<button class="my-button">
+					Guardar<?php echo $this->Form->end(); ?>
+				</button>
 			</div>
-		</fieldset>
-		<?php echo $this->Form->end(('Guardar'), ['class' => 'btn btn-success']); ?>
+	</div>
+	</fieldset>
 	</div>
 
 
@@ -1314,10 +1350,98 @@ $this->Html->script([
 ?>
 <script type="text/javascript">
 	$(document).ready(function() {
+
+		$('#ayudaButton').on('click', function() {
+			$('#popover').toggle();
+		});
+
+		$(document).on('click', function(event) {
+			if (!$(event.target).closest('#ayudaButton, #popover').length) {
+				$('#popover').hide();
+			}
+		});
+
+		$('#ayudaButton1').on('click', function() {
+			$('#popover-content').toggle();
+		});
+
+		$(document).on('click', function(event) {
+			if (!$(event.target).closest('#ayudaButton1, #popover-content').length) {
+				$('#popover-content').hide();
+			}
+		});
+
+		$('#ayudaButton2').on('click', function() {
+			$('#popover-t').toggle();
+		});
+
+		$(document).on('click', function(event) {
+			if (!$(event.target).closest('#ayudaButton2, #popover-t').length) {
+				$('#popover-t').hide();
+			}
+		});
+		$('#ayudaButton3').on('click', function() {
+			$('#popover-d').toggle();
+		});
+
+		$(document).on('click', function(event) {
+			if (!$(event.target).closest('#ayudaButton3, #popover-d').length) {
+				$('#popover-d').hide();
+			}
+		});
+
+		$('#ayudaButton4').on('click', function() {
+			$('#popover-dTwo').toggle();
+		});
+
+		$(document).on('click', function(event) {
+			if (!$(event.target).closest('#ayudaButton4, #popover-dTwo').length) {
+				$('#popover-dTwo').hide();
+			}
+		});
+
+		function calcularSuma() {
+			suma = 0;
+
+			// Obtener el valor seleccionado de cada opción y sumarlo
+			$('select.sumar').each(function() {
+				suma += parseInt($(this).val()) || 0;
+			});
+
+			// Mostrar el resultado en el campo de entrada con id 'resultado-input'
+			$('#resultado-input').val(suma);
+			var imcField = document.getElementById('resultado-input');
+			switch (true) {
+				case suma <= 9:
+					imcField.style.color = 'red';
+					break;
+				case suma >= 10 && suma <= 13:
+					imcField.style.color = 'orange';
+					break;
+				case suma >= 14 && suma <= 17:
+					imcField.style.color = '#FAA80D';
+					break;
+				case suma >= 18:
+					imcField.style.color = 'green';
+					break;
+				default:
+					imcField.style.color = 'black';
+			}
+
+		}
+
+		// Llamar a la función al cargar la página
+		calcularSuma();
+
+		// Vincular la función al evento change de los elementos select
+		$('select.sumar').on('change', function() {
+			calcularSuma();
+		});
+
+
 		$('.select-search').select2();
 		agregarOpcionSeleccion();
 	});
-
 
 	document.addEventListener('DOMContentLoaded', function() {
 		var aseguradoraSelect = document.getElementById('aseguradora');
@@ -1347,31 +1471,15 @@ $this->Html->script([
 	});
 
 
-
-
 	function agregarOpcionSeleccion() {
+
+
 
 		$("#AdolescenciaCanalizacionId").prepend(
 			"<option value='' selected='selected'>Seleccione</option>");
 
 
 	}
-
-
-
-	/*function gestacion(id) {
-	    if (id === "Si") {
-	        $("#yes").show();
-	        $("#not").hide();
-
-
-	    } else if (id === "No") {
-	        $("#yes").hide();
-	        $("#not").show();
-
-
-	    }
-	}*/
 
 	document.getElementById('calcularIMC').addEventListener('click', function() {
 		var peso = parseFloat(document.getElementById('peso').value);
@@ -1410,14 +1518,5 @@ $this->Html->script([
 	});
 	$(function() {
 		$('#ayudaButton').popover();
-	});
-	$(function() {
-		$('#ayudaButton1').popover();
-	});
-	$(function() {
-		$('#ayudaButton2').popover();
-	});
-	$(function() {
-		$('#ayudaButton3').popover();
 	});
 </script>

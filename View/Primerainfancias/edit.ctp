@@ -4,15 +4,32 @@
 echo $this->Html->script('validation2'); // 'validation' es el nombre del archivo sin la extensión .js
 ?>
 
+
+<style>
+    .popover-content {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999; /* Valor alto para colocar el popover encima de otros elementos */
+        font-size: 12px; /* Ajusta el tamaño de la fuente según tus preferencias */
+        text-align: justify;
+
+
+    }
+</style>
+
 <body style="font-size: 14px;">
-	<div>
+	
 		<?php echo $this->Form->create('Primerainfancia'); ?>
 		<div class="form-group col-sm-12">
 
 			<fieldset>
 				<div class="col-12 text-center">
 					<h1 class="title-general-forms">Modulo Primera Infancia
-						menor de 2 años
+						menor de 5 años
 					</h1>
 				</div>
 				<h2 class="subtitle-general-forms ">Datos Personales</h2>
@@ -33,9 +50,6 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 							echo $this->Form->input('familia_id', [
 								'label' => 'ID_Familia/N° Hogar/Nombres',
 								'class' => 'form-control',
-								'placeholder' => '',
-								'type' => 'select',
-								'class' => 'form-control select-search',
 								'style' => 'height:30px;  font-size: 15px ; width:100%',
 							]);
 							?>
@@ -109,7 +123,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 									'type' => 'date',
 									'minYear' => date('Y') - 2,
 									'maxYear' => date('Y'),
-									'style' => 'height:30px;  font-size: 15px ; width:100%',
+									'style' => 'height:30px;  font-size: 15px ;',
 									'id' => 'fechanac', // Agrega este identificador al campo de fecha de nacimiento
 								]); ?>
 							</div>
@@ -195,7 +209,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 									'Subsidiado' => 'Subsidiado',
 									'Contributivo' => 'Contributivo',
 									'Regimen especial' => 'Regimen especial',
-									'Regimen exepcion' => 'Regimen exepción',
+									'Regimen excepción' => 'Regimen excepción',
 									'Particular' => 'Particular',
 									'SD' => 'Sin dato',
 
@@ -270,7 +284,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 									'Fisica' => 'Fisica',
 									'Auditiva' => 'Auditiva',
 									'Visual' => 'Visual',
-									'Sodoceguera' => 'Sodoceguera',
+									'Sordoceguera' => 'Sordoceguera',
 									'Cognitiva o intelectual' => 'Cognitiva o intelectual',
 									'Metal' => 'Mental',
 
@@ -286,20 +300,32 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 								));
 								?>
 
-								<button type="button" id="ayudaButton" class="btn btn-success rounded-circle" data-toggle="popover" data-placement="top" data-content="Físicas: Limitaciones o dificultades en la movilidad o funcionamiento físico.
-
-                                        Auditivas: Dificultades o limitaciones en la capacidad de escuchar o procesar el sonido.
-
-                                        Visuales: Limitaciones o dificultades en la visión.
-
-                                        Sordoceguera: Condición en la que una persona tiene tanto discapacidad auditiva como discapacidad visual.
-
-                                        Cognitivas o intelectuales: Limitaciones en el funcionamiento del cerebro que afectan el procesamiento, comprensión, aprendizaje y memoria de la información.
-
-                                        Mentales: Limitaciones en las habilidades cognitivas, emocionales y de comportamiento.
-                                        " style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 15px;">
+								
+                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle" style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 15px;">
 									?
 								</button>
+
+<div id="popover" class="popover-content">
+                                <p><strong>Auditivas:</strong>
+                                Dificultades o limitaciones en la capacidad de escuchar o procesar el sonido.
+                                                                            <br>
+                                            <strong>Visuales:</strong> 
+                                            Limitaciones o dificultades en la visión.
+                                            <br>
+                                            <strong>Sordoceguera:</strong> 
+                                            Enfocarse en criar y educar a los hijos.
+                                            <br>
+                                            <strong>Cognitivas o intelectuales:</strong> 
+                                            <br>
+                                            Condición en la que una persona tiene tanto discapacidad auditiva como
+                                discapacidad visual.<br>
+                                            <strong>Mentales:</strong> 
+                                            <br>
+                                            Limitaciones en el funcionamiento del cerebro que afectan el
+                                procesamiento, comprensión, aprendizaje y memoria de la información.
+                                            <br>
+                                          
+                            </div>
 
 							</div>
 							<div class="form-group col-md-6" style="margin-top: 20px;">
@@ -331,7 +357,8 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 
 
 							<div class="col-sm-12" style="margin-top: 20px; ">
-								<p class="help-block"> Encuestador: ¿Cuenta con elementos antropométricos para tomar datos </p>
+								<p class="help-block"> Encuestador: ¿Cuenta con elementos antropométricos para tomar
+                                datos </p>
 								<div id="status" class="switch-button">
 									<input type="checkbox" name="switch-button" id="switch-label" class="switch-button__checkbox">
 									<label for="switch-label" class="switch-button__label"></label>
@@ -439,8 +466,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 									'' => 'Elegir',
 									'No' => 'No presenta',
 									'Neurológica' => 'Neurológica',
-									'Cardiovascular' => 'Cardiovascular',
-									'Respiratoria' => 'Respiratoria',
+																		'Respiratoria' => 'Respiratoria',
 									'Metabolica' => 'Metabólica',
 									'Enfermedad huérfana' => 'Enfermedad huérfana',
 									'Endocrinologica' => 'Endocrinológica',
@@ -556,7 +582,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 								);
 
 								echo $this->Form->input('desnutricion', array(
-									'label' => '¿Le han informado si el menor tiene un diagnóstico de Malnutrición?',
+									'label' => '¿Le han informado el estado de nutirción del menor?',
 									'class' => 'form-control',
 									'placeholder' => '',
 									'type' => 'select',
@@ -608,7 +634,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 
 							<div class="form-group col-md-6" style="margin-top: 20px;">
 								<?php echo $this->Form->input('era', array(
-									'label' => 'En momento presenta algún signo de Enfermedad respiratoria Aguda',
+									'label' => 'En el momento presenta algún signo de Enfermedad respiratoria Aguda',
 									'class' => 'form-control',
 									'placeholder' => '',
 									'type' => 'select',
@@ -621,7 +647,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 							</div>
 							<div class="form-group col-md-6" style="margin-top: 20px;">
 								<?php echo $this->Form->input('eda', array(
-									'label' => 'En momento presenta algún signo de Enferemedad diarreica Aguda',
+									'label' => 'En el momento presenta algún signo de Enferemedad diarreica Aguda',
 									'class' => 'form-control',
 									'placeholder' => '',
 									'type' => 'select',
@@ -739,7 +765,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 									'No' => 'No',
 									'Vacunación ' => 'Vacunación',
 									'Atención en salud del recién nacido ' => 'Atención en salud del recién nacido',
-									'Atención en salud de promoción y mantenimiento por médico o enfermera ' => 'Atención en salud de promoción y\n  mantenimiento por médico o enfermera',
+									'Atención en salud de promoción y mantenimiento por médico o enfermera ' => 'Atención en salud de promoción y mantenimiento por médico o enfermera',
 									'Atención en salud bucal' => 'Atención en salud bucal',
 									'aplicación de sellantes' => 'aplicación de sellantes, fluor, barniz',
 									'Atención medicina general ' => 'Atención en salud por medicina general',
@@ -791,7 +817,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 									echo $this->Form->input('canalizaciontres', array(
 										'label' => 'Canalización',
 										'class' => 'form-control',
-										'style' => ' height:30px;  font-size: 15px ; width:100%',
+										'style' => 'height:30px;  font-size: 15px ; width:100%',
 										'placeholder' => '',
 										'class' => 'form-control select-search',
 										'options' => $optionCanlizacion,
@@ -825,6 +851,12 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 									)); ?>
 								</div>
 
+<?php
+                            echo $this->Form->input('fechaRegistro', array(
+
+                                'type' => 'hidden',
+                            )); ?>
+
 							</div>
 
 						</div>
@@ -837,7 +869,7 @@ echo $this->Html->script('validation2'); // 'validation' es el nombre del archiv
 			</button>
 		</div>
 
-	</div>
+	
 </body>
 
 <!--div class="actions">
@@ -883,13 +915,26 @@ $this->Html->script([
 	$(document).ready(function() {
 		$('.select-search').select2();
 		agregarOpcionSeleccion();
-	});
+	
+       
+        $('#ayudaButton').on('click', function() {
+            $('#popover').toggle();
+        });
 
-	document.addEventListener('DOMContentLoaded', function () {
+        $(document).on('click', function(event) {
+            if (!$(event.target).closest('#ayudaButton, #popover').length) {
+                $('#popover').hide();
+            }
+        });
+        
+   
+    });
+
+	document.addEventListener('DOMContentLoaded', function() {
         var aseguradoraSelect = document.getElementById('aseguradora');
         var otraAseguradoraDiv = document.getElementById('otraAseguradoraDiv');
 
-        aseguradoraSelect.addEventListener('change', function () {
+        aseguradoraSelect.addEventListener('change', function() {
             var selectedOption = aseguradoraSelect.value;
 
             if (selectedOption === 'otra') {
@@ -913,7 +958,6 @@ $this->Html->script([
     });
 
 
-
 	function agregarOpcionSeleccion() {
 
 
@@ -921,9 +965,7 @@ $this->Html->script([
 			"<option value='00' selected='selected'>Seleccione</option>");
 	}
 
-	$(function() {
-		$('#ayudaButton').popover();
-	});
+	
 
 	$("#switch-label").change(function() {
 		var switchValue = this.checked ? "si" : "no";
@@ -942,4 +984,6 @@ $this->Html->script([
 
 		}
 	}
+
+   
 </script>

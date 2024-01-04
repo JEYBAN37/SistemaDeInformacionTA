@@ -196,7 +196,7 @@ class PrimerainfanciasController extends AppController
 					$canalizacionId
 				));	}
 			 else {
-				$this->Session->setFlash(__('The Primerainfancia could not be saved. Please, try again.'));
+				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Primerainfancia.' . $this->Primerainfancia->primaryKey => $id));
@@ -240,7 +240,7 @@ class PrimerainfanciasController extends AppController
 
 				//return $this->redirect(array('controller' => 'familias', 'action' => 'view/' . $this->data["familia"]["id"]));
 			} else {
-				$this->Session->setFlash(__('The Primerainfancia could not be saved. Please, try again.'));
+				$this->Session->setFlash('No se ha guardado, por favor revisar campos', 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Primerainfancia.' . $this->Primerainfancia->primaryKey => $id));

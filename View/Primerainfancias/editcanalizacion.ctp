@@ -20,9 +20,11 @@
 
 						<div class="form-group row">
 
-						<?php
-                                echo $this->Form->input('canalizacion_id',
-								 array('type' => 'hidden'));?>
+							<?php
+							echo $this->Form->input(
+								'canalizacion_id',
+								array('type' => 'hidden')
+							); ?>
 							<?php echo $this->Form->input('id'); ?>
 
 
@@ -229,11 +231,21 @@
 								)); ?>
 							</div>
 
-							<?php
-							echo $this->Form->input('registroCanalizacion', array(
+							<div class="form-group col-md-6" style="margin-top: 20px;">
+								<!-- Campo de fecha de nacimiento -->
+								<?php
+								echo $this->Form->input('registroCanalizacion', [
+									'label' => 'Fecha de Registro:',
+									'type' => 'date',
+									'minYear' => date('Y') - 2,
+									'maxYear' => date('Y'),
+									'style' => 'height:30px; font-size: 15px;',
+								]);
+								?>
 
-								'readOnly',
-							)); ?>
+
+							</div>
+
 
 						</div>
 
@@ -296,6 +308,7 @@ $this->Html->script([
 
 <script type="text/javascript">
 	$(document).ready(function() {
+
 		$('.select-search').select2();
 		agregarOpcionSeleccion();
 	});

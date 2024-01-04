@@ -2,13 +2,24 @@
 <?php
 echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del archivo sin la extensión .js
 ?>
+
 <style>
-.negrilla {
-    font-size: small;
-    font-weight: bold;
-}
+    .popover-content {
+        display: none;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999; /* Valor alto para colocar el popover encima de otros elementos */
+        font-size: 12px; /* Ajusta el tamaño de la fuente según tus preferencias */
+        text-align: justify;
+
+
+    }
 </style>
-<div>
+
+<body style="font-size: 14px;">
     <?php echo $this->Form->create('Familia'); ?>
     <div class="form-group col-sm-12 ">
         <fieldset>
@@ -47,24 +58,24 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
                         <div class="form-group col-md-6" style="margin-top: 20px;">
                             <?php
-							$generoOption = [
-								' ' => 'Elegir',
-								'Masculino' => 'Masculino',
-								'Femenino' => 'Femenino',
-								'No binanrio' => 'No binario',
-								'Prefiere no informar' => 'Prefiere no informar',						
+                            $generoOption = [
+                                ' ' => 'Elegir',
+                                'Masculino' => 'Masculino',
+                                'Femenino' => 'Femenino',
+                                'No binanrio' => 'No binario',
+                                'Prefiere no informar' => 'Prefiere no informar',
 
-							];
-							echo $this->Form->input('genero', [
-								'label' => '¿Cúal es tu género?',
-								'class' => 'form-control',
-								'placeholder' => '',
-								'type' => 'select',
-								'options' => $generoOption,
+                            ];
+                            echo $this->Form->input('genero', [
+                                'label' => '¿Cúal es tu género?',
+                                'class' => 'form-control',
+                                'placeholder' => '',
+                                'type' => 'select',
+                                'options' => $generoOption,
                                 'style' => 'height:30px;  font-size: 15px ; width:100%',
-								'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
-								'onChange' => 'mostrar(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
-							]);
+                                'id' => 'status', // Agrega el atributo id para que coincida con el select en JavaScript
+                                'onChange' => 'mostrar(this.value);', // Agrega el atributo onChange para llamar a la función JavaScript
+                            ]);
                             ?>
                         </div>
 
@@ -291,13 +302,17 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
 
                             <!-- Botón de ayuda -->
 
-                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle"
-                                data-toggle="popover" data-placement="top"
-                                data-content="Nuclear: constituida por los progenitores y los hijos. Nuclear monoparental: constituida por un solo progenitor y sus hijos. Unipersonal: no tiene núcleo familiar y sólo consta de una persona. Extensa: Compuesta por persona como Tios, Primos, abuelos. "
-                                style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 2px; margin-left: 10px;">
+                        
+                            <button type="button" id="ayudaButton1" class="btn btn-success rounded-circle" style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 2px; margin-left: 10px;">
                                 ?
                             </button>
 
+                            <div id="popover-content" class="popover-content" >
+                                <p> <strong>Nuclear:</strong>  constituida por los progenitores y los hijos.   <br>
+                                <strong>Nuclear monoparental: </strong>constituida por un solo progenitor y sus hijos.   <br>
+                                <strong> Unipersonal:</strong> no tiene núcleo familiar y sólo consta de una persona.  <br>
+                                <strong>Extensa:</strong> Compuesta por persona como Tios, Primos, abuelos.</p>
+                            </div>
 
                         </div>
 
@@ -389,29 +404,32 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
                             ]);
                             ?>
 
-                            <button type="button" id="ayudaButton1" class="btn btn-success rounded-circle"
-                                data-toggle="popover" data-placement="top" data-content="Formación:
-                                            Inicio de una nueva unidad familiar y formación de la identidad de pareja.
-
-                                            Expansión:
-                                            Añadir miembros adicionales a la familia, generalmente hijos.
-
-                                            Consolidación:
-                                            Enfocarse en criar y educar a los hijos.
-
-                                            Apertura:
-
-                                            Los hijos crecen y comienzan a independizarse.
-                                            Nido vacío:
-
-                                            Los hijos abandonan el hogar familiar para vivir de forma independiente.
-
-                                            Disolución:
-                                            Separación o divorcio de la pareja.
-                                            "
-                                style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 15px;">
+                            <button type="button" id="ayudaButton" class="btn btn-success rounded-circle" style="width: 30px; height: 30px; padding: 0; font-size: 18px; margin-top: 5px; margin-left: 15px;">
                                 ?
                             </button>
+
+                            <div id="popover" class="popover-content">
+                                <p><strong>Formación:</strong>
+                                            Inicio de una nueva unidad familiar y formación de la identidad de pareja.
+                                            <br>
+                                            <strong>Expansión:</strong> 
+                                            Añadir miembros adicionales a la familia, generalmente hijos.
+                                            <br>
+                                            <strong>Consolidación:</strong> 
+                                            Enfocarse en criar y educar a los hijos.
+                                            <br>
+                                            <strong>Apertura:</strong> 
+                                            <br>
+                                            Los hijos crecen y comienzan a independizarse. <br>
+                                            <strong> Nido vacío:</strong> 
+                                            <br>
+                                            Los hijos abandonan el hogar familiar para vivir de forma independiente.
+                                            <br>
+                                            <strong> Disolución:</strong> 
+                                            Separación o divorcio de la pareja.</p>
+                            </div>
+
+                            
                         </div>
 
                         <div class="form-group col-md-6" style="margin-top: 20px;margin-bottom: 30px;">
@@ -869,10 +887,7 @@ echo $this->Html->script('validationFamilia'); // 'validation' es el nombre del 
         </button>
 
     </div>
-
-</div>
-
-</div>
+</body>
 
 
 <?php
@@ -886,11 +901,30 @@ $this->Html->script([
 ], ['block' => 'script']);
 ?>
 
-<script type="text/javascript">
-$(function() {
-    $('#ayudaButton').popover();
-});
-$(function() {
-    $('#ayudaButton1').popover();
-});
+<script>
+    $(document).ready(function() {
+        $('#ayudaButton1').on('click', function() {
+            $('#popover-content').toggle();
+        });
+
+        $(document).on('click', function(event) {
+            if (!$(event.target).closest('#ayudaButton1, #popover-content').length) {
+                $('#popover-content').hide();
+            }
+        });
+        
+    });
+
+    $(document).ready(function() {
+        $('#ayudaButton').on('click', function() {
+            $('#popover').toggle();
+        });
+
+        $(document).on('click', function(event) {
+            if (!$(event.target).closest('#ayudaButton, #popover').length) {
+                $('#popover').hide();
+            }
+        });
+        
+    });
 </script>

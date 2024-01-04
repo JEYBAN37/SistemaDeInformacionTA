@@ -1,66 +1,177 @@
-<div class="visitasnegadas index">
-	<h2><?php echo __('Visitasnegadas'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('ubicacion_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('direccion'); ?></th>
-			<th><?php echo $this->Paginator->sort('nombreshabitante'); ?></th>
-			<th><?php echo $this->Paginator->sort('tipodocumento'); ?></th>
-			<th><?php echo $this->Paginator->sort('numerodocumento'); ?></th>
-			<th><?php echo $this->Paginator->sort('telefono'); ?></th>
-			<th><?php echo $this->Paginator->sort('estadocasa'); ?></th>
-			<th><?php echo $this->Paginator->sort('observacion'); ?></th>
-			<th><?php echo $this->Paginator->sort('responsable_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('fecha'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($visitasnegadas as $visitasnegada): ?>
-	<tr>
-		<td><?php echo h($visitasnegada['Visitasnegada']['id']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($visitasnegada['Ubicacion']['microterritorio'], array('controller' => 'ubicaciones', 'action' => 'view', $visitasnegada['Ubicacion']['id'])); ?>
-		</td>
-		<td><?php echo h($visitasnegada['Visitasnegada']['direccion']); ?>&nbsp;</td>
-		<td><?php echo h($visitasnegada['Visitasnegada']['nombreshabitante']); ?>&nbsp;</td>
-		<td><?php echo h($visitasnegada['Visitasnegada']['tipodocumento']); ?>&nbsp;</td>
-		<td><?php echo h($visitasnegada['Visitasnegada']['numerodocumento']); ?>&nbsp;</td>
-		<td><?php echo h($visitasnegada['Visitasnegada']['telefono']); ?>&nbsp;</td>
-		<td><?php echo h($visitasnegada['Visitasnegada']['estadocasa']); ?>&nbsp;</td>
-		<td><?php echo h($visitasnegada['Visitasnegada']['observacion']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($visitasnegada['Responsable']['encuestador'], array('controller' => 'responsables', 'action' => 'view', $visitasnegada['Responsable']['id'])); ?>
-		</td>
-		<td><?php echo h($visitasnegada['Visitasnegada']['fecha']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $visitasnegada['Visitasnegada']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $visitasnegada['Visitasnegada']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $visitasnegada['Visitasnegada']['id']), array(), __('Are you sure you want to delete # %s?', $visitasnegada['Visitasnegada']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
+<?php $this->layout = 'default_familia' ?>
+<?php
+?>
+<div class="col-12 text-center " style="margin: 20px; margin-top: 40px;">
+	<h1 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 25px;font-size: 3.5rem ;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+		Listado No Encuestados
+	</h1>
+</div>
+
+<div class="row" style="margin: 5px;">
+	<div class="col-lg-12" style="justify-items: center; ">
+		<div class="panel panel-default">
+			<!-- /.panel-heading -->
+			<div class="table-responsive" style="justify-items: center; margin-top: 10px; ">
+				<div class="row col-sm-12 JustifyCenter " style="margin: 20px; ">
+					<div class=" row">
+						<div class="col-sm-12">
+							<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+								<thead>
+									<tr>
+										<th><?php echo $this->Paginator->sort('id'); ?></th>
+										<th><?php echo $this->Paginator->sort('direccion'); ?></th>
+										<th><?php echo $this->Paginator->sort('ubicacion_id'); ?></th>
+										<th><?php echo $this->Paginator->sort('Numero de Apartamento'); ?></th>
+										<th><?php echo $this->Paginator->sort('estadocasa'); ?></th>
+										<th><?php echo $this->Paginator->sort('nombreshabitante'); ?></th>
+										<th><?php echo $this->Paginator->sort('tipodocumento'); ?></th>
+										<th><?php echo $this->Paginator->sort('numerodocumento'); ?></th>
+										<th><?php echo $this->Paginator->sort('telefono'); ?></th>
+										<th><?php echo $this->Paginator->sort('observacion'); ?></th>
+										<th><?php echo $this->Paginator->sort('responsable_id'); ?></th>
+										<th><?php echo $this->Paginator->sort('fecha'); ?></th>
+										<th>opciones</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php foreach ($visitasnegadas as $visitasnegada) : ?>
+										<tr class="gradeA odd">
+
+											<td><?php echo ($visitasnegada['Visitasnegada']['id']) ?></td>
+											<td><?php echo ($visitasnegada['Visitasnegada']['direccion']); ?>;</td>
+											<td>
+												<?php echo ($visitasnegada['Ubicacion']['microterritorio']); ?>
+											</td>
+											<td>
+												<?php echo ($visitasnegada['Ubicacion']['microterritorio']); ?>
+											</td>
+											<td><?php echo ($visitasnegada['Visitasnegada']['estadocasa']); ?>;</td>
+
+
+
+											<td><?php echo ($visitasnegada['Visitasnegada']['nombreshabitante']); ?>;</td>
+											<td><?php echo ($visitasnegada['Visitasnegada']['tipodocumento']); ?>;</td>
+											<td><?php echo ($visitasnegada['Visitasnegada']['numerodocumento']); ?>;</td>
+											<td><?php echo ($visitasnegada['Visitasnegada']['telefono']); ?>;</td>
+											<td><?php echo ($visitasnegada['Visitasnegada']['observacion']); ?>;</td>
+											<td>
+												<?php echo ($visitasnegada['Responsable']['encuestador']); ?>
+											</td>
+											<td><?php echo ($visitasnegada['Visitasnegada']['fecha']); ?>;</td>
+											<td class="actions">
+												<div class="btn-group">
+													<button type="button" class="my-button" data-toggle="dropdown">
+														<?php echo ('Acciones'); ?> <span class="caret"></span>
+													</button>
+													<ul class="dropdown-menu" role="menu">
+
+														<li><?php echo $this->Html->link(('Ver'),
+																array('action' => 'view',  $visitasnegada['Visitasnegada']['id']),
+																array(
+																	'style' => 'font-size: 14px;'
+																)
+															); ?>
+														</li>
+														<li><?php echo $this->Html->link(('Editar'),
+																array('action' => 'edit',  $visitasnegada['Visitasnegada']['id']),
+																array(
+																	'style' => 'font-size: 14px;'
+																)
+															); ?>
+														</li>
+														<li><?php echo $this->Html->link(('Borrar'),
+																array('action' => 'delete=' . $visitasnegada['Visitasnegada']['id']),
+																array(
+																	'style' => 'font-size: 14px;'
+																)
+															); ?>
+														</li>
+													</ul>
+												</div>
+											</td>
+										</tr>
+
+
+									<?php endforeach; ?>
+
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.table-responsive -->
+
+			</div>
+			<!-- /.panel-body -->
+		</div>
+		<!-- /.panel -->
 	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Visitasnegada'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Ubicaciones'), array('controller' => 'ubicaciones', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Ubicacion'), array('controller' => 'ubicaciones', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Responsables'), array('controller' => 'responsables', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Responsable'), array('controller' => 'responsables', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
+
+	<script>
+		$(document).ready(function() {
+			$('#dataTables-example').DataTable({
+				"pagingType": "simple",
+				"pageLength": 5,
+				responsive: true,
+				dom: 'Bfrtip',
+				language: {
+					searchBuilder: {
+						button: 'Filter',
+					}
+				},
+				buttons: [
+					'pageLength',
+					'copyHtml5',
+					'excelHtml5',
+					'csvHtml5',
+					'colvis',
+					'searchBuilder'
+				]
+
+			});
+
+		});
+
+		function fnExcelReport() {
+			var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
+			var textRange;
+			var j = 0;
+			tab = document.getElementById('dataTables-example'); // id of table
+
+			for (j = 0; j < tab.rows.length; j++) {
+				tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+			}
+
+			tab_text = tab_text + "</table>";
+
+			tab_text = tab_text.replace(/<A[^>]*>|<\/A>/g, ""); //remove if u want links in your table
+			tab_text = tab_text.replace(/<img[^>]*>/gi, ""); // remove if u want images in your table
+			tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+			var ua = window.navigator.userAgent;
+			var msie = ua.indexOf("MSIE ");
+
+			if (msie > 0 || !!navigator.userAgent.matc(/Trident.*rv\:11\./)) // If Internet Explorer
+			{
+				txtArea1.document.open("txt/html", "replace");
+				txtArea1.document.write(tab_text);
+				txtArea1.document.close();
+				txtArea1.focus();
+				sa = txtArea1.document.execCommand("SaveAs", true, "Say Thanks to Sumit.xls");
+			} else
+				sa = window.open('data:application/vnd.ms-excel,' + encodeURIComponent(tab_text));
+
+			//return (sa);
+		}
+	</script>
+
+	<style>
+		/* Personaliza el botón desplegable en DataTables Responsive */
+		table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td.dtr-control:before,
+		table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th.dtr-control:before {
+
+			left: 14px;
+		}
+	</style>

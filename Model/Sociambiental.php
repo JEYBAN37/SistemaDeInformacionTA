@@ -42,7 +42,19 @@ class Sociambiental extends AppModel
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+
 		'direccion' => array(
+			'alphaNumeric' => array(
+				'rule'     =>  'isUnique',
+				'message'  =>  'La dirección ya está asociada con una vivienda',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+			),
+		),
+
+		/*'direccion' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				'message' => 'Ingrese dirección de residencia',
@@ -51,7 +63,7 @@ class Sociambiental extends AppModel
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'vivienda' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),

@@ -73,7 +73,7 @@ class SociambientalsController extends AppController
 					return $this->redirect(array('controller' => 'Sociambientals', 'action' => 'index'));
 				}
 			} else {
-				$this->Session->setFlash(__('The plsmomento could not be saved. Please, try again.'));
+				$this->Session->setFlash('El registro fue guardado o esta pendiente un campo del formulario', 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		$responsables = $this->Sociambiental->Responsable->find('list');

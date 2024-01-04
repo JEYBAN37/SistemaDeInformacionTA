@@ -30,16 +30,17 @@ $bd = 'fichafamiliar';
                     <div class="row">
                         <div class="col-lg-12">
 
-                            <table width="100%" class="table table-responsive table-striped table-bordered  ">
+                            <table width="100%" class="table table-responsive table-striped table-bordered  " style="margin-top: 20px;">
+                                <tr>
+                                    <td colspan="6" style="text-align: center; color: #3366CC;"><strong>DATOS GENERALES</strong>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td>
                                         <strong>Fecha Registro:</strong>
                                         <?php
                                         echo ($familia['Sociambiental']['fecha']); ?>
                                     </td>
-
-
-
                                     <td><strong>Encuestador:</strong>
                                         <?php
                                         $link = mysqli_connect($serv, $userS, $passS, $bd);
@@ -95,8 +96,6 @@ $bd = 'fichafamiliar';
 
 
                                 <tr>
-
-
                                     <td><strong>Num. celular:</strong>
                                         <?php echo ($familia['Familia']['celular']); ?></td>
                                     <td colspan="2"><strong>Email:</strong>
@@ -107,17 +106,30 @@ $bd = 'fichafamiliar';
                                     <td colspan=""><strong>Num. integrantes:</strong>
                                         <?php echo ($familia['Familia']['numeropersonas']); ?>
                                     </td>
-
                                     <td colspan="2"><strong>Población vulnerable:</strong>
                                         <?php echo ($familia['Familia']['poblacionvulnerable']); ?>
                                     </td>
                                 </tr>
+
+                                <td colspan="12" style="text-align: center;">
+                                    <button id="verMasButton" class="my-button" onclick="toggleTableVisibility()">
+                                        <?php $imageUrl = $this->Html->url('/img/flecha-correcta.png', true);
+                                        ?>
+                                        <img src="<?= $imageUrl ?>" style=" transform: rotate(90deg);" alt="Imagen de marcador genérico" width="100%" height="auto">
+
+                                    </button>
+                                </td>
+
+
+                            </table>
+
+
+
+                            <table id="miTabla" style="display: none; margin-top: 20px;" width="100%" class="table table-responsive table-striped table-bordered  ">
                                 <tr>
-                                    <td colspan="6" style="text-align: center;"><strong>VIVIENDA</strong>
+                                    <td colspan="6" style="text-align: center; color: #3366CC;"><strong>VIVIENDA</strong>
 
                                     </td>
-
-
 
                                 </tr>
 
@@ -143,7 +155,7 @@ $bd = 'fichafamiliar';
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="6" style="text-align: center;">
+                                    <td colspan="6" style="text-align: center; color: #3366CC;">
                                         <strong>CARACTERISTICAS DE LA FAMILIA</strong>
                                     </td>
 
@@ -222,7 +234,7 @@ $bd = 'fichafamiliar';
 
 
                                 <tr>
-                                    <td colspan="6" style="text-align: center;"><strong>HABITABILIDAD</strong>
+                                    <td colspan="6" style="text-align: center; color: #3366CC;"><strong>HABITABILIDAD</strong>
 
                                     </td>
 
@@ -297,7 +309,7 @@ $bd = 'fichafamiliar';
                                 </tr>
 
                                 <tr>
-                                    <td colspan="6" style="text-align: center;"><strong>MASCOTAS EN EL HOGAR</strong>
+                                    <td colspan="6" style="text-align: center; color: #3366CC;"><strong>MASCOTAS EN EL HOGAR</strong>
 
                                     </td>
 
@@ -326,8 +338,19 @@ $bd = 'fichafamiliar';
 
                                 </tr>
 
-                            </table>
 
+                                <td colspan="12" style="text-align: center;">
+                                    <button class="my-button" onclick="toggleTableVisibility()">
+                                        <img src="<?= $imageUrl ?>" style=" transform: rotate(-90deg);" alt="Imagen de marcador genérico" width="100%" height="auto"> </button>
+                                    </button>
+                                </td>
+
+
+
+                            </table>
+                        </div>
+
+                        <div style="text-align: center;">
                             <button class="my-button" style="width: 244px;">
                                 <?php
                                 echo $this->Html->link(
@@ -357,11 +380,12 @@ $bd = 'fichafamiliar';
 
                             </button>
                         </div>
+
                     </div>
                 </div>
             </div>
 
-            <h2 class="subtitle-general-forms">Personas en la Familia</h2>
+            <h2 class="subtitle-general-forms" style=" margin-top: 40px;">Personas en la Familia</h2>
             <hr style=" background-clip: border-box; border:0.1px solid rgba(0,0,0,.125); margin-top: 1px;">
 
 
@@ -417,42 +441,44 @@ $bd = 'fichafamiliar';
                             <div class="tab-pane fade in active" id="home-pills">
 
                                 <div class="col-12 text-center">
-                                    <h3 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;">
+                                    <h3 class="titulo-general-pwa-govco" style="color: #3366CC; margin-top: 20px;">
                                         Menores de 0 a 5 años
                                     </h3>
+                                    <button class="my-button" style="margin-top: 30px;"> <?php
+                                                                                            echo $this->Html->link(('Agregar menor de 2 años'),
+                                                                                                array(
+                                                                                                    'controller' => 'Primerainfancias',
+                                                                                                    'action' => 'add?primerainfancia=' . $familia['Familia']['id']
+                                                                                                ),
+                                                                                                array(
+                                                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
+                                                                                                    'style' => 'color: white; font-size: 16px; font-weight: bold;'
+                                                                                                )
+                                                                                            ); ?>
+                                    </button>
+
+
+
+
+                                    <button class="my-button"> <?php
+                                                                echo $this->Html->link(('Agregar menor entre 2 a 5 años'),
+                                                                    array(
+                                                                        'controller' => 'Primerainfancias',
+                                                                        'action' => 'add2_5?primerainfancia=' . $familia['Familia']['id']
+                                                                    ),
+                                                                    array(
+                                                                        'onclick' => "return confirm('¿Estás seguro de agregar un menor entre 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
+                                                                        'style' => 'color: white; font-size: 16px; font-weight: bold; '
+                                                                    )
+                                                                ); ?>
+                                    </button>
+
                                 </div>
 
-                                <button class="my-button"> <?php
-                                                            echo $this->Html->link(('Agregar menor de 2 años'),
-                                                                array(
-                                                                    'controller' => 'Primerainfancias',
-                                                                    'action' => 'add?primerainfancia=' . $familia['Familia']['id']
-                                                                ),
-                                                                array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor de 2 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: white; font-size: 16px; font-weight: bold;'
-                                                                )
-                                                            ); ?>
-                                </button>
 
 
 
-
-                                <button class="my-button"> <?php
-                                                            echo $this->Html->link(('Agregar menor entre 2 años a 5 años'),
-                                                                array(
-                                                                    'controller' => 'Primerainfancias',
-                                                                    'action' => 'add2_5?primerainfancia=' . $familia['Familia']['id']
-                                                                ),
-                                                                array(
-                                                                    'onclick' => "return confirm('¿Estás seguro de agregar un menor entre 2 a 5 años en el hogar de " .  $familia['Familia']['nombres'] .  $familia['Familia']['apellidos'] . "?');",
-                                                                    'style' => 'color: white; font-size: 16px; font-weight: bold;'
-                                                                )
-                                                            ); ?>
-                                </button>
-
-
-                                <div class="card-body">
+                                <div class="card-body" style="margin-top: 20px;">
                                     <?php if (!empty($familia['Primerainfancia'])) : ?>
 
                                         <div class="table-responsive" style="justify-items: center; margin-top: 10px; ">
@@ -463,7 +489,6 @@ $bd = 'fichafamiliar';
                                                             <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
                                                             <thead>
                                                                 <tr>
-                                                                    <th>...</th>
                                                                     <th>Id</th>
                                                                     <th>Acciones</th>
                                                                     <th>Nombres</th>
@@ -494,8 +519,6 @@ $bd = 'fichafamiliar';
                                                                     <th>Desarrolloinfantil </th>
                                                                     <th>Eda </th>
                                                                     <th>Era </th>
-
-
                                                                     <th>Padresconsumo </th>
                                                                     <th>Sospechaviolencia </th>
                                                                     <th>Cudadorpermanente </th>
@@ -510,7 +533,7 @@ $bd = 'fichafamiliar';
                                                                 ?>
                                                                         <tr class="gradeA odd">
 
-                                                                            <td></td>
+
                                                                             <td class="sorting_1">
                                                                                 <?php echo $primerainfancia['id']; ?></td>
 
@@ -676,28 +699,27 @@ $bd = 'fichafamiliar';
                             <div class="tab-pane fade" id="profile-pills">
 
                                 <div class="col-12 text-center">
-                                    <h3 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;">
+                                    <h3 class="titulo-general-pwa-govco" style="color: #3366CC; margin-top: 20px;">
                                         Menores de 6 a 11 años
                                     </h3>
+                                    <button class="my-button" style="margin-top: 30px;">
+                                        <?php
+                                        echo $this->Html->link(('Agregar menor de 6 a 11 años'),
+                                            array(
+                                                'controller' => 'Infantils',
+                                                'action' => 'add?infantils=' . $familia['Familia']['id']
+                                            ),
+                                            array(
+                                                'onclick' => "return confirm('¿Estás seguro de agregar un menor de 6 a 11 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
+                                                'style' => 'color: white; font-size: 16px; font-weight: bold;'
+                                            )
+                                        ); ?></button>
+
                                 </div>
-
-                                <button class="my-button">
-                                    <?php
-                                    echo $this->Html->link(('Agregar menor de 6 a 11 años'),
-                                        array(
-                                            'controller' => 'Infantils',
-                                            'action' => 'add?infantils=' . $familia['Familia']['id']
-                                        ),
-                                        array(
-                                            'onclick' => "return confirm('¿Estás seguro de agregar un menor de 6 a 11 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
-                                            'style' => 'color: white; font-size: 16px; font-weight: bold;'
-                                        )
-                                    ); ?></button>
-
-                                <div class="card-body">
+                                <div class= "card-body"  style="margin-top: 20px;">
                                     <?php if (!empty($familia['Infantil'])) : ?>
 
-                                        <div class="table-responsive" style="justify-items: center; margin-top: 10px; ">
+                                        <div class="dataTables-infantil" style="justify-items: center; margin-top: 10px; ">
                                             <div class="row col-sm-12 JustifyCenter " style="margin: 20px; ">
                                                 <div class=" row">
                                                     <div class="col-sm-12">
@@ -705,7 +727,6 @@ $bd = 'fichafamiliar';
                                                             <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
                                                             <thead>
                                                                 <tr>
-                                                                    <th>...</th>
                                                                     <th>Id</th>
                                                                     <th>Acciones</th>
                                                                     <th>Nombres</th>
@@ -719,8 +740,6 @@ $bd = 'fichafamiliar';
                                                                     <th>enlace</th>
                                                                     <th>celular</th>
                                                                     <th>correo</th>
-
-
                                                                 </tr>
 
                                                             <tbody>
@@ -728,11 +747,9 @@ $bd = 'fichafamiliar';
                                                                     if (!empty($infantil['id'])) {
                                                                 ?>
                                                                         <tr class="gradeA odd">
-
-
-                                                                            <td></td>
                                                                             <td class="sorting_1">
-                                                                                <?php echo $infantil['id']; ?></td>
+                                                                                <?php echo $infantil['id']; ?>
+                                                                            </td>
                                                                             <td class="actions">
 
                                                                                 <div class="btn-group">
@@ -853,8 +870,7 @@ $bd = 'fichafamiliar';
                                     <h3 class="titulo-general-pwa-govco" style="color: #3366CC;margin-top: 20px;">
                                         Menores de 12 a 17 años
                                     </h3>
-                                </div>
-                                <button class="my-button">
+                                    <button class="my-button">
                                     <?php echo $this->Html->link(('Agregar menor de 12 a 17 años'),
                                         array(
                                             'controller' => 'Adolescencias',
@@ -866,7 +882,9 @@ $bd = 'fichafamiliar';
                                         )
                                     ); ?>
                                 </button>
-                                <div class="card-body">
+                                </div>
+                               
+                                <div class="card-body"  style="margin-top: 20px;">
                                     <?php if (!empty($familia['Adolescencia'])) : ?>
                                         <div class="table-responsive" style="justify-items: center; margin-top: 10px; ">
                                             <div class="row col-sm-12 JustifyCenter " style="margin: 20px; ">
@@ -876,7 +894,6 @@ $bd = 'fichafamiliar';
                                                             <!--table cellpatding="0" cellspacing="0" class="table-hover table-striped table-bordered"-->
                                                             <thead>
                                                                 <tr>
-                                                                    <th>...</th>
                                                                     <th>Id</th>
                                                                     <th>Acciones</th>
                                                                     <th>Nombres</th>
@@ -899,7 +916,6 @@ $bd = 'fichafamiliar';
                                                                     if (!empty($adolescencia['id'])) {
                                                                 ?>
                                                                         <tr class="gradeA odd">
-                                                                            <td></td>
                                                                             <td class="sorting_1">
                                                                                 <?php echo $adolescencia['id']; ?></td>
                                                                             <td class="actions">
@@ -1020,18 +1036,7 @@ $bd = 'fichafamiliar';
                                     </h3>
                                 </div>
 
-                                <button class="my-button">
-                                    <?php echo $this->Html->link(('Agregar persona mayor de 18 años '),
-                                        array(
-                                            'controller' => 'Juventudadultos',
-                                            'action' => 'add?juventudadultos=' . $familia['Familia']['id']
-                                        ),
-                                        array(
-                                            'onclick' => "return confirm('¿Estás seguro de agregar una persona mayor de 18 años en el hogar de " .  $familia['Familia']['nombres'] . " " .  $familia['Familia']['apellidos'] . "?');",
-                                            'style' => 'color: white; font-size: 16px; font-weight: bold;'
-                                        )
-                                    ); ?>
-                                </button>
+                       
                                 <div class="card-body">
 
                                     <?php if (!empty($familia['Juventudadulto'])) : ?>
@@ -1456,10 +1461,24 @@ $bd = 'fichafamiliar';
             ]
         });
 
+
         // Agrega más inicializaciones para otras tablas según sea necesario
     });
 
+    function toggleTableVisibility() {
+        var tabla = document.getElementById("miTabla");
+        var boton = document.getElementById("verMasButton");
 
+        // Cambia la visibilidad de la tabla
+        if (tabla.style.display === "none") {
+            tabla.style.display = "table";
+            boton.style.display = "none";
+            // Opcionalmente, puedes cambiar a "block" si prefieres
+        } else {
+            tabla.style.display = "none";
+            boton.style.display = "inline-block";
+        }
+    }
 
     function fnExcelReport() {
         var tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
